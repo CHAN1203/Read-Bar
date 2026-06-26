@@ -1,0 +1,38 @@
+{
+  "id": "sample-photosynthesis",
+  "title": "看见绿 · 光合作用",
+  "subtitle": "植物如何把阳光,变成糖。",
+  "accent": "#26a69a",
+  "chapters": [
+    {
+      "id": "c1",
+      "label": "1.1 光合作用是什么",
+      "blocks": [
+        { "t": "kicker", "text": "看见绿 · 第一章" },
+        { "t": "h1", "text": "光合作用" },
+        { "t": "subtitle", "text": "植物如何把阳光,变成糖。" },
+        { "t": "hint", "html": "选中正文文字可划线、写批注;右上角\u201c批注\u201d可搜索与导出。" },
+        { "t": "h2", "text": "1.1 光合作用是什么", "sec": "1.1" },
+        { "t": "facet", "facet": "what", "text": "是什么" },
+        { "t": "p", "html": "光合作用是植物把<strong>光能</strong>转成<strong>化学能</strong>的过程:用阳光、水和二氧化碳,造出糖,并放出氧气。" },
+        { "t": "anim", "caption": "<b>图 1.1(动画)</b> 三种原料,如何变成糖与氧。",
+          "svg": "<svg viewBox='0 0 600 220'><rect id='leaf' x='240' y='80' width='120' height='60' rx='10' fill='#1b2027' stroke='#26a69a' stroke-width='1.5'/><text x='300' y='115' fill='#e9e5d8' font-size='13' font-family='sans-serif' text-anchor='middle'>叶绿体</text><text id='sun' x='90' y='60' fill='#d4a657' font-size='13' font-family='monospace'>☀ 光能</text><text id='h2o' x='90' y='150' fill='#7fa8c9' font-size='13' font-family='monospace'>💧 水</text><text id='co2' x='90' y='195' fill='#8b94a3' font-size='13' font-family='monospace'>CO₂</text><text id='sugar' x='470' y='110' fill='#26a69a' font-size='13' font-family='monospace'>糖 🍬</text><text id='o2' x='470' y='150' fill='#7fd3a8' font-size='13' font-family='monospace'>O₂ 氧气</text></svg>",
+          "steps": [
+            { "ids": ["sun", "h2o", "co2"], "caption": "① 原料:光、水、二氧化碳" },
+            { "ids": ["leaf"], "caption": "② 在叶绿体里被组装" },
+            { "ids": ["sugar", "o2"], "caption": "③ 产出:糖(能量)+ 氧气" }
+          ]
+        },
+        { "t": "facet", "facet": "why", "text": "逻辑" },
+        { "t": "p", "html": "叶绿素吸收阳光,把水分子拆开、释放氧气,再用这股能量把二氧化碳\u201c拼\u201d成糖。<em>糖是植物的食物,氧气是给我们的副产品。</em>" },
+        { "t": "socratic", "q": "植物白天放出氧气。那它晚上呢——也放氧气吗?",
+          "a": [
+            "不放。光合作用<strong>需要光</strong>,晚上没有光就停了。而植物和我们一样,无论昼夜都在<em>呼吸</em>(消耗氧气、放出二氧化碳)。",
+            "所以\u201c植物净化空气\u201d主要是白天的事——这也是为什么密闭卧室放太多植物,夜里反而和你抢氧气。"
+          ]
+        },
+        { "t": "poem", "verse": "一片叶子,接住一束光,<br>悄悄把它,折叠成糖。<br>我们呼吸的每一口,<br>都欠着某片绿,一声谢。", "by": "—— 本课原创" }
+      ]
+    }
+  ]
+}

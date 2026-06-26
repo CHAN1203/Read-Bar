@@ -1,0 +1,12 @@
+{
+  "books": [
+    {
+      "id": "du-bang",
+      "title": "读棒",
+      "subtitle": "Al Brooks 价格行为 · 五卷 · 苏格拉底式",
+      "category": "交易",
+      "accent": "#d4a657",
+      "href": "books/du-bang/index.html"
+    }
+  ]
+}

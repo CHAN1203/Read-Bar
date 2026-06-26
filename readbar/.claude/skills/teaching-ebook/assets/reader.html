@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>读棒 Reader</title>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --accent:#d4a657; --pos:#26a69a; --neg:#ef5350;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  *:hover{scrollbar-color:var(--faint) transparent;}
+  ::-webkit-scrollbar{width:10px; height:10px;}
+  ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line); border-radius:10px; border:2px solid var(--bg); background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint); border:2px solid var(--bg); background-clip:padding-box;}
+  html,body{height:100%;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased; overflow:hidden;}
+  ::selection{background:var(--accent); color:#1a1a1a;}
+
+  .topbar{display:flex; align-items:center; gap:14px; padding:12px 22px; border-bottom:1px solid var(--line); height:60px;}
+  .topbar .logo{font-family:var(--serif); font-weight:600; font-size:19px; cursor:pointer;}
+  .topbar .crumb{font-family:var(--mono); font-size:12px; color:var(--faint);}
+  .topbar .spacer{margin-left:auto;}
+  .tbtn{font-family:var(--mono); font-size:12.5px; color:var(--ink); background:var(--surface); border:1px solid var(--line);
+    border-radius:8px; padding:8px 13px; cursor:pointer; display:flex; align-items:center; gap:8px; transition:.16s;}
+  .tbtn:hover{border-color:var(--accent);}
+  .tbtn .cnt{font-family:var(--mono); font-size:11px; background:var(--accent); color:#15110a; border-radius:20px; padding:1px 7px; min-width:20px; text-align:center;}
+  #progbar{position:absolute; top:60px; left:0; height:2px; width:0%; background:var(--accent); z-index:5; transition:width .1s;}
+
+  /* ---------- LIBRARY ---------- */
+  #library{position:absolute; top:60px; left:0; right:0; bottom:0; overflow-y:auto; padding:50px 30px 80px;}
+  .lib-inner{max-width:940px; margin:0 auto;}
+  .lib-inner .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.28em; color:var(--accent); text-transform:uppercase;}
+  .lib-inner h1{font-family:var(--serif); font-size:52px; font-weight:600; margin:16px 0 4px;}
+  .lib-inner .sub{color:var(--muted); font-size:19px; margin:0 0 34px;}
+  .shelf{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .bookcard{position:relative; text-align:left; background:var(--surface); border:1px solid var(--line); border-radius:16px;
+    padding:24px; cursor:pointer; transition:.2s; overflow:hidden;}
+  .bookcard::before{content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--bc);}
+  .bookcard:hover{transform:translateY(-3px); border-color:var(--bc);}
+  .bookcard .t{font-family:var(--serif); font-size:26px; font-weight:600; margin:2px 0;}
+  .bookcard .s{color:var(--muted); font-size:14.5px; margin-bottom:16px;}
+  .bookcard .meta{display:flex; align-items:center; gap:14px; font-family:var(--mono); font-size:11.5px; color:var(--faint);}
+  .bookcard .bar{flex:1; height:5px; background:var(--line); border-radius:5px; overflow:hidden;}
+  .bookcard .bar i{display:block; height:100%; background:var(--bc);}
+
+  /* ---------- READER ---------- */
+  #reader-view{position:absolute; top:60px; left:0; right:0; bottom:0; display:none; grid-template-columns:230px 1fr;}
+  nav.rail{border-right:1px solid var(--line); overflow-y:auto; padding:24px 16px 50px; font-size:13.5px;}
+  .rail .vt{font-family:var(--mono); font-size:11px; color:var(--faint); letter-spacing:.1em; text-transform:uppercase; margin:0 0 12px;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s; cursor:pointer;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  .readwrap{overflow-y:auto; position:relative;}
+  .reader{max-width:720px; margin:0 auto; padding:44px 32px 160px;}
+  .reader .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin:38px 0 8px;}
+  .reader h1{font-family:var(--serif); font-weight:600; font-size:42px; line-height:1.1; margin:0 0 6px;}
+  .reader .subtitle{color:var(--muted); font-size:18px; margin:0 0 4px;}
+  .reader h2{font-family:var(--serif); font-weight:600; font-size:28px; margin:46px 0 4px; scroll-margin-top:20px;}
+  .reader p{margin:16px 0; color:#dcd8cc;} .reader p.lead{font-size:19px; color:var(--ink);}
+  .reader p strong{color:var(--ink);} .reader em{color:var(--accent); font-style:normal;}
+  .reader .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:#33301f; color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  .reader figure{margin:30px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px;}
+  .reader figure svg{width:100%; height:auto; display:block;}
+  .reader figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  .reader figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:32px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;}
+  .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button.rev{font-family:var(--mono); font-size:12px; color:var(--bg); background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .4s, opacity .3s;}
+  .socratic.open .a{max-height:600px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a p{padding:0 20px; font-size:15.5px;} .socratic .a p:first-child{padding-top:16px;} .socratic .a p:last-child{padding-bottom:18px;}
+  .reader .poem{margin:34px 0; padding:28px; border:1px solid var(--line); border-radius:14px; text-align:center;}
+  .reader .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.9;}
+  .reader .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:14px;}
+  .reader .connect{margin:28px 0; padding:15px 18px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .reader .connect .h{font-family:var(--mono); font-size:11px; color:var(--pos); text-transform:uppercase; letter-spacing:.1em; margin-bottom:5px;}
+  .reader .hintbox{font-family:var(--mono); font-size:12px; color:var(--faint); border:1px dashed var(--line); border-radius:10px; padding:12px 16px; margin:24px 0;}
+
+  /* highlights */
+  mark.hl{padding:1px 0; border-radius:2px; cursor:pointer; color:inherit; transition:filter .15s;}
+  mark.hl:hover{filter:brightness(1.2);}
+  @keyframes flash{0%,100%{filter:none;}30%{filter:brightness(1.6);}}
+  mark.hl.flash{animation:flash 1s ease;}
+
+  .seltool{position:fixed; z-index:60; display:none; gap:6px; align-items:center; padding:6px; background:var(--surface2); border:1px solid var(--line); border-radius:10px; box-shadow:0 8px 24px rgba(0,0,0,.4);}
+  .seltool .sw{width:20px; height:20px; border-radius:5px; cursor:pointer; border:1px solid rgba(255,255,255,.15);}
+  .seltool .cbtn{font-family:var(--mono); font-size:12px; color:var(--ink); background:transparent; border:none; cursor:pointer; padding:3px 8px; border-left:1px solid var(--line); margin-left:2px;}
+  .seltool .cbtn:hover{color:var(--accent);}
+  .pop{position:fixed; z-index:70; display:none; width:300px; background:var(--surface); border:1px solid var(--line); border-radius:12px; box-shadow:0 12px 32px rgba(0,0,0,.5); padding:14px;}
+  .pop .snip{font-size:13px; color:var(--muted); border-left:3px solid var(--accent); padding-left:10px; margin-bottom:10px; max-height:60px; overflow:auto;}
+  .pop textarea{width:100%; min-height:74px; resize:vertical; background:var(--bg); color:var(--ink); border:1px solid var(--line); border-radius:8px; padding:9px 11px; font-family:var(--sans); font-size:14px;}
+  .pop .row{display:flex; gap:8px; margin-top:10px;}
+  .pop button{font-family:var(--mono); font-size:12px; border:none; border-radius:7px; padding:7px 12px; cursor:pointer;}
+  .pop .save{background:var(--accent); color:#15110a;} .pop .del{background:transparent; color:var(--neg); border:1px solid var(--line); margin-left:auto;}
+
+  .drawer{position:fixed; top:0; right:-440px; width:440px; max-width:92vw; height:100%; background:var(--surface); border-left:1px solid var(--line); transition:right .28s ease; z-index:80; display:flex; flex-direction:column;}
+  .drawer.open{right:0;}
+  .drawer .dh{padding:18px 20px; border-bottom:1px solid var(--line); display:flex; align-items:center; gap:12px;}
+  .drawer .dh .t{font-family:var(--serif); font-size:20px; font-weight:600;}
+  .drawer .dh .x{margin-left:auto; cursor:pointer; color:var(--muted); font-size:20px; background:none; border:none;}
+  .drawer .tools{padding:12px 20px; border-bottom:1px solid var(--line); display:flex; flex-direction:column; gap:10px;}
+  .drawer .tools input{width:100%; background:var(--bg); border:1px solid var(--line); color:var(--ink); border-radius:9px; padding:9px 12px; font-family:var(--sans); font-size:14px;}
+  .drawer .frow{display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+  .drawer .fchip{width:20px; height:20px; border-radius:6px; cursor:pointer; border:2px solid transparent;}
+  .drawer .fchip.off{opacity:.3;}
+  .drawer .exp{margin-left:auto; display:flex; gap:6px;}
+  .drawer .exp button{font-family:var(--mono); font-size:11px; color:var(--muted); background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:5px 9px; cursor:pointer;}
+  .drawer .exp button:hover{color:var(--ink);}
+  .drawer .list{overflow-y:auto; padding:10px 14px 40px; flex:1;}
+  .drawer .empty{color:var(--faint); font-size:14px; padding:24px 8px; line-height:1.7;}
+  .note{border:1px solid var(--line); border-radius:10px; padding:12px 13px; margin-bottom:10px; cursor:pointer; transition:.16s;}
+  .note:hover{border-color:var(--accent); background:var(--surface2);}
+  .note .top{display:flex; align-items:center; gap:8px; margin-bottom:6px;}
+  .note .chip{width:11px; height:11px; border-radius:3px;}
+  .note .where{font-family:var(--mono); font-size:10.5px; color:var(--faint);}
+  .note .del{margin-left:auto; color:var(--faint); background:none; border:none; cursor:pointer; font-size:13px;}
+  .note .del:hover{color:var(--neg);}
+  .note .snip{font-size:13.5px; color:#cfcabd; border-left:3px solid var(--line); padding-left:9px;}
+  .note .cmt{font-size:14px; color:var(--ink); margin-top:7px;}
+  .scrim{position:fixed; inset:0; background:rgba(0,0,0,.4); opacity:0; pointer-events:none; transition:.28s; z-index:79;}
+  .scrim.on{opacity:1; pointer-events:auto;}
+  @media (max-width:820px){
+    #reader-view{grid-template-columns:1fr;} nav.rail{display:none;} .shelf{grid-template-columns:1fr;}
+    .lib-inner h1{font-size:38px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{transition:none!important; animation:none!important;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo" id="homeBtn">读棒 Reader</div>
+  <span class="crumb" id="crumb"></span>
+  <div class="spacer"></div>
+  <button class="tbtn" id="openNotes" style="display:none;">🔖 批注 <span class="cnt" id="noteCount">0</span></button>
+</div>
+<div id="progbar"></div>
+
+<!-- LIBRARY -->
+<div id="library">
+  <div class="lib-inner">
+    <div class="eyebrow">你的书架</div>
+    <h1>读棒 Library</h1>
+    <div class="sub">一个阅读器,承载所有书。划线、批注、进度,各书各自保存。</div>
+    <div class="shelf" id="shelf"></div>
+  </div>
+</div>
+
+<!-- READER -->
+<div id="reader-view">
+  <nav class="rail" id="rail"></nav>
+  <div class="readwrap" id="readwrap"><div class="reader" id="reader"></div></div>
+</div>
+
+<div class="seltool" id="seltool">
+  <div class="sw" data-c="gold"   style="background:#d4a65766"></div>
+  <div class="sw" data-c="green"  style="background:#26a69a66"></div>
+  <div class="sw" data-c="steel"  style="background:#7fa8c966"></div>
+  <div class="sw" data-c="violet" style="background:#b58bd466"></div>
+  <button class="cbtn" id="addComment">✎ 批注</button>
+</div>
+<div class="pop" id="pop">
+  <div class="snip" id="popSnip"></div>
+  <textarea id="popText" placeholder="写下你的批注…"></textarea>
+  <div class="row"><button class="save" id="popSave">保存</button><button class="del" id="popDel">删除划线</button></div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer">
+  <div class="dh"><span class="t">我的批注</span><button class="x" id="closeNotes">×</button></div>
+  <div class="tools">
+    <input id="noteSearch" placeholder="搜索划线内容或批注…">
+    <div class="frow">
+      <span class="fchip" data-c="gold"   style="background:#d4a657" title="金"></span>
+      <span class="fchip" data-c="green"  style="background:#26a69a" title="绿"></span>
+      <span class="fchip" data-c="steel"  style="background:#7fa8c9" title="蓝"></span>
+      <span class="fchip" data-c="violet" style="background:#b58bd4" title="紫"></span>
+      <div class="exp"><button id="expMd">导出 .md</button><button id="expJson">导出 .json</button></div>
+    </div>
+  </div>
+  <div class="list" id="noteList"></div>
+</aside>
+
+<script>
+/* ============================================================================
+   CONTENT DATA FORMAT (the contract between the skill and the reader)
+   A book = { id, title, subtitle, accent, chapters:[ {id,label, blocks:[...] } ] }
+   block types:
+     {t:"kicker", text}              {t:"h1", text}            {t:"subtitle", text}
+     {t:"h2", text, sec}             {t:"p", html}             {t:"lead", html}
+     {t:"facet", facet:"what|why|gb|hp", text}
+     {t:"socratic", q, a:[para,...]} {t:"poem", verse, by}
+     {t:"connect", h, html}          {t:"hint", html}          {t:"divider"}
+     {t:"figure", svg, caption}      // static diagram (raw SVG string)
+     {t:"anim", svg, steps:[{ids:[...],caption}], caption}  // declarative animation:
+        // svg contains elements with id="..."; each step reveals its ids in order.
+   In production the reader fetch()es these JSON files; here two are embedded.
+   ========================================================================== */
+const BOOKS = {
+  "pa1": {
+    id:"pa1", title:"读棒 · 第一卷 · 地基", subtitle:"先学会读字母,才能读句子。", accent:"#d4a657",
+    chapters:[
+      { id:"c0", label:"序", blocks:[
+        {t:"kicker", text:"读棒 · 第一卷 · 地基"},
+        {t:"h1", text:"字母表"},
+        {t:"subtitle", text:"先学会读\u201c字母\u201d,才能读\u201c句子\u201d。"},
+        {t:"hint", html:"选中正文任意文字 → 划线或写批注;右上角\u201c批注\u201d可搜索、按颜色筛选、导出。"},
+        {t:"h2", text:"序 · 在你翻开之前", sec:"序"},
+        {t:"lead", html:"这本书不会直接告诉你答案,它会先<strong>问你</strong>。"},
+        {t:"p", html:"每个概念都走完四步:<strong>是什么 → 它的逻辑 → 好的样子和坏的样子 → 什么时候是高概率。</strong>走完这四步,你不只是认识一个形态,而是真正读懂了它背后多空双方在干什么。"},
+        {t:"divider"},
+      ]},
+      { id:"c1", label:"1.1 一根K线是一场战争", blocks:[
+        {t:"kicker", text:"第 1 章 · 世界观"},
+        {t:"h2", text:"1.1 一根K线是一场战争", sec:"1.1"},
+        {t:"facet", facet:"what", text:"是什么"},
+        {t:"p", html:"<strong>每一根K线,都是这段时间里多头和空头一场搏斗的快照。</strong>开盘=开战,收盘=停战时谁占上风,影线=被对方夺回的失地。"},
+        {t:"figure", caption:"<b>图 1.1</b> 每根棒都是一场战争:实体=净胜负,影线=失地,收盘=最终比分。", svg:`<svg viewBox="0 0 600 200"><line x1="200" y1="40" x2="200" y2="170" stroke="#26a69a" stroke-width="2"/><rect x="186" y="70" width="28" height="70" fill="#26a69a" rx="2"/><text x="240" y="55" fill="#8b94a3" font-size="12" font-family="monospace">最高=多头打到的最远</text><text x="240" y="160" fill="#8b94a3" font-size="12" font-family="monospace">最低=空头打到的最远</text><text x="120" y="80" fill="#d4a657" font-size="12" font-family="monospace" text-anchor="end">实体→</text></svg>`},
+        {t:"facet", facet:"why", text:"逻辑"},
+        {t:"p", html:"一旦你用战争的视角看每根棒,图表就活了。一根收在最高点、几乎没有上影线的大阳棒,是<em>多头从头压到尾</em>的一场屠杀——下一根棒,你会本能预期多头还想继续。"},
+        {t:"anim", caption:"<b>图 1.2(动画)</b> 一根棒的信息,逐步读出来。",
+          steps:[
+            {ids:["wick"], caption:"① 先看高低点:多空各打到的最远处"},
+            {ids:["body"], caption:"② 实体 = 开盘到收盘的净胜负"},
+            {ids:["clab"], caption:"③ 收盘位置 = 这场战争的最终比分"}
+          ],
+          svg:`<svg viewBox="0 0 600 220"><line id="wick" x1="300" y1="30" x2="300" y2="190" stroke="#26a69a" stroke-width="2"/><rect id="body" x="284" y="60" width="32" height="95" fill="#26a69a" rx="2"/><text id="clab" x="330" y="64" fill="#d4a657" font-size="13" font-family="monospace">收在上端=强</text></svg>`},
+        {t:"socratic", q:"一根K线,开盘后先冲很高,收盘却被打回接近开盘,留下长长的上影线。谁赢了?", a:[
+          "多头先进攻、一度大幅推高(那根长上影),<strong>但在高位卖方涌入,把价格几乎全部打回</strong>。这根棒在告诉你:上方有强大的卖压。",
+          "我们还没学任何\u201c形态\u201d,仅凭\u201c战争视角\u201d就读出了第一个反转线索。"
+        ]},
+        {t:"divider"},
+      ]},
+      { id:"c2", label:"1.2 趋势棒与十字星", blocks:[
+        {t:"kicker", text:"第 1 章 · 世界观"},
+        {t:"h2", text:"1.2 趋势棒与十字星", sec:"1.2"},
+        {t:"facet", facet:"what", text:"是什么"},
+        {t:"p", html:"<strong>趋势棒</strong>实体大、影线小,方向明确;<strong>十字星 doji</strong>实体很小,多空僵持。实体的大小,直接等于赢家赢得有多干脆。"},
+        {t:"socratic", q:"一堆 doji 挤在一个很窄的区间里,在告诉你市场处于什么状态?好做吗?", a:[
+          "多空力量高度均衡、市场在窄震荡——Brooks 叫它<em>铁丝网</em>。这是最难做、最该避开的地方之一。",
+          "<strong>能认出该收手的地方,和能认出好机会一样值钱。</strong>"
+        ]},
+        {t:"connect", h:"连接你的代码", html:"你策略里 <strong>bullTrendBar = isBull and bodyRatio ≥ 阈值</strong> 正是把\u201c趋势棒\u201d数学化;那个 0.5 的阈值,就是在画趋势棒 vs doji 的界线。"},
+        {t:"poem", verse:"白光本不偏心,<br>是空气拦住了最跳脱的那一种。<br>读棒,也是这样——<br>市场把答案写在收盘,<br>只看你,读不读得出。", by:"—— 本卷原创"},
+      ]},
+    ]
+  },
+  "sky": {
+    id:"sky", title:"看见光 · 天空为何蓝", subtitle:"同一个阅读器,承载不止一本书。", accent:"#7fa8c9",
+    chapters:[
+      { id:"c1", label:"1.1 蓝光为何被散开", blocks:[
+        {t:"kicker", text:"看见光 · 演示第二本书"},
+        {t:"h1", text:"天空为何是蓝的"},
+        {t:"subtitle", text:"批注按书各自保存——切回书架试试另一本。"},
+        {t:"h2", text:"1.1 蓝光为何被散开", sec:"1.1"},
+        {t:"p", html:"阳光看似白色,其实是<strong>所有颜色混在一起</strong>。穿过大气时,空气分子把光撞向四面八方——这叫<em>瑞利散射</em>。波长越短越易被散射,蓝光因此洒满整个天空。"},
+        {t:"poem", verse:"同一束光,走短路时把蓝交给正午,<br>走长路时把红留给黄昏。", by:"—— 本课原创"},
+      ]}
+    ]
+  }
+};
+
+/* ---- storage (localStorage; memory fallback for preview) ---- */
+const mem={};
+const store={ load(k,d){ try{const v=localStorage.getItem(k); return v?JSON.parse(v):(d??null);}catch(e){return (k in mem)?mem[k]:(d??null);} },
+  save(k,v){ try{localStorage.setItem(k,JSON.stringify(v));}catch(e){mem[k]=v;} } };
+const NK=id=>"readbar:notes:"+id, PK=id=>"readbar:prog:"+id;
+
+const COLORS={gold:"#d4a657",green:"#26a69a",steel:"#7fa8c9",violet:"#b58bd4"};
+const bg=c=>(COLORS[c]||COLORS.gold)+"40";
+const esc=s=>(s||"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+
+/* ---- views ---- */
+const libView=document.getElementById("library"), readView=document.getElementById("reader-view");
+function showLibrary(){ libView.style.display="block"; readView.style.display="none";
+  document.getElementById("openNotes").style.display="none"; document.getElementById("crumb").textContent="";
+  document.getElementById("progbar").style.width="0%"; renderShelf(); }
+function renderShelf(){
+  const shelf=document.getElementById("shelf");
+  shelf.innerHTML=Object.values(BOOKS).map(b=>{
+    const notes=store.load(NK(b.id),[])||[]; const prog=store.load(PK(b.id),{pct:0})||{pct:0};
+    return `<button class="bookcard" data-open="${b.id}" style="--bc:${b.accent}">
+      <div class="t">${esc(b.title)}</div><div class="s">${esc(b.subtitle||"")}</div>
+      <div class="meta"><span>${Math.round((prog.pct||0)*100)}%</span><span class="bar"><i style="width:${Math.round((prog.pct||0)*100)}%"></i></span><span>🔖 ${notes.length}</span></div>
+    </button>`;
+  }).join("");
+  shelf.querySelectorAll("[data-open]").forEach(c=>c.addEventListener("click",()=>openBook(c.getAttribute("data-open"))));
+}
+
+/* ---- reader ---- */
+let bookId, book, notes=[], ORIG={};
+const reader=document.getElementById("reader");
+
+function blockHTML(b){
+  switch(b.t){
+    case "kicker": return `<div class="kicker">${b.text}</div>`;
+    case "h1": return `<h1>${b.text}</h1>`;
+    case "subtitle": return `<div class="subtitle">${b.text}</div>`;
+    case "h2": return `<h2${b.sec?` data-sec="${esc(b.sec)}"`:""}>${b.text}</h2>`;
+    case "lead": return `<p class="lead">${b.html}</p>`;
+    case "p": return `<p>${b.html}</p>`;
+    case "facet": return `<span class="facet ${b.facet}">${b.text}</span>`;
+    case "hint": return `<div class="hintbox">${b.html}</div>`;
+    case "connect": return `<div class="connect"><div class="h">${b.h||"连接"}</div>${b.html}</div>`;
+    case "poem": return `<div class="poem"><div class="verse">${b.verse}</div><div class="by">${b.by||""}</div></div>`;
+    case "divider": return `<div style="height:1px;background:var(--line);margin:48px 0"></div>`;
+    case "socratic": return `<div class="socratic"><div class="q"><div class="tag">想一想</div><div class="qt">${b.q}</div><button class="rev">想好了,揭晓 →</button></div><div class="a">${(b.a||[]).map(p=>`<p>${p}</p>`).join("")}</div></div>`;
+    case "figure": return `<figure>${b.svg}<figcaption>${b.caption||""}</figcaption></figure>`;
+    case "anim": { const id="anim"+(animSpecs.length); animSpecs.push({id,steps:b.steps||[]});
+      return `<figure><div class="animhost" data-anim="${id}">${b.svg}</div><div class="anim-cap" data-cap="${id}"></div><button class="replay" data-replay="${id}">▶ 重播</button><figcaption>${b.caption||""}</figcaption></figure>`; }
+    default: return "";
+  }
+}
+let animSpecs=[];
+function openBook(id){
+  bookId=id; book=BOOKS[id]; notes=store.load(NK(id),[])||[]; animSpecs=[];
+  document.documentElement.style.setProperty("--accent", book.accent);
+  libView.style.display="none"; readView.style.display="grid";
+  document.getElementById("openNotes").style.display="flex";
+  document.getElementById("crumb").textContent=book.title;
+  // render content
+  let html=""; book.chapters.forEach(ch=>{ html+=`<div data-chap="${ch.id}"></div>`; ch.blocks.forEach(b=>html+=blockHTML(b)); });
+  reader.innerHTML=html;
+  // stable keys + originals for highlightable blocks
+  ORIG={}; let i=0;
+  reader.querySelectorAll("p,h2,.lead").forEach(el=>{ el.dataset.k="b"+(i++); ORIG[el.dataset.k]=el.innerHTML; });
+  // nav
+  const rail=document.getElementById("rail");
+  rail.innerHTML=`<div class="vt">${esc(book.title)}</div>`+book.chapters.map(c=>`<a data-go="${c.id}">${esc(c.label)}</a>`).join("");
+  rail.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+    const t=reader.querySelector(`[data-chap="${a.getAttribute("data-go")}"]`);
+    if(t) document.getElementById("readwrap").scrollTo({top:t.offsetTop-10,behavior:"smooth"});
+  }));
+  // socratic
+  reader.querySelectorAll(".socratic .rev").forEach(btn=>btn.addEventListener("click",()=>{
+    const c=btn.closest(".socratic"); const o=c.classList.toggle("open"); btn.textContent=o?"收起 ↑":"想好了,揭晓 →"; }));
+  // animations
+  animSpecs.forEach(spec=>setupAnim(spec));
+  applyAll(); wireMarks(); updateCount(); renderNotes();
+  // resume progress
+  const prog=store.load(PK(id),{scrollTop:0}); 
+  requestAnimationFrame(()=>{ document.getElementById("readwrap").scrollTop=prog&&prog.scrollTop?prog.scrollTop:0; });
+}
+
+/* ---- declarative animation ---- */
+const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function setupAnim(spec){
+  const host=reader.querySelector(`[data-anim="${spec.id}"]`); if(!host)return;
+  const capEl=reader.querySelector(`[data-cap="${spec.id}"]`);
+  const svg=host.querySelector("svg");
+  const els=spec.steps.map(s=>s.ids.map(id=>svg.getElementById(id)).filter(Boolean));
+  function prep(){ els.flat().forEach(e=>{e.style.transition="opacity .5s";e.style.opacity=reduce?"1":"0";}); }
+  function play(){ if(reduce){els.flat().forEach(e=>e.style.opacity="1"); if(capEl)capEl.textContent=spec.steps.length?spec.steps[spec.steps.length-1].caption:""; return;}
+    prep(); if(capEl)capEl.textContent=""; let t=200; spec.steps.forEach((s,i)=>{ setTimeout(()=>{ els[i].forEach(e=>e.style.opacity="1"); if(capEl)capEl.textContent=s.caption; }, t); t+=1050; }); }
+  prep();
+  const rep=reader.querySelector(`[data-replay="${spec.id}"]`); if(rep)rep.addEventListener("click",play);
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){play();io.unobserve(e.target);}});},{threshold:.3}); io.observe(host);
+}
+
+/* ---- highlight engine (same approach as prototype) ---- */
+function applyAll(){
+  const byK={}; notes.forEach(n=>{(byK[n.k]=byK[n.k]||[]).push(n);});
+  Object.keys(ORIG).forEach(k=>{const el=reader.querySelector(`[data-k="${k}"]`); if(el)el.innerHTML=ORIG[k];});
+  Object.keys(byK).forEach(k=>{const el=reader.querySelector(`[data-k="${k}"]`); if(!el)return; byK[k].sort((a,b)=>a.start-b.start).forEach(n=>wrapRange(el,n));});
+}
+function wireMarks(){ reader.querySelectorAll("mark.hl").forEach(m=>m.addEventListener("click",e=>{e.stopPropagation();openPop(m.dataset.hid,m);})); }
+function wrapRange(block,n){
+  const w=document.createTreeWalker(block,NodeFilter.SHOW_TEXT); const tns=[]; let t; while(t=w.nextNode())tns.push(t); let count=0;
+  tns.forEach(tn=>{ const len=tn.textContent.length,ns=count,ne=count+len; count+=len; if(ne<=n.start||ns>=n.end)return;
+    const s=Math.max(0,n.start-ns),e=Math.min(len,n.end-ns);
+    const a=tn.textContent.slice(0,s),m=tn.textContent.slice(s,e),z=tn.textContent.slice(e);
+    const mk=document.createElement("mark"); mk.className="hl"; mk.dataset.hid=n.id; mk.style.background=bg(n.color);
+    mk.style.boxShadow=n.comment?("inset 0 -2px 0 0 "+(COLORS[n.color]||COLORS.gold)):"none"; mk.textContent=m;
+    const f=document.createDocumentFragment(); if(a)f.appendChild(document.createTextNode(a)); f.appendChild(mk); if(z)f.appendChild(document.createTextNode(z)); tn.replaceWith(f); });
+}
+function charOffset(block,node,offset){const w=document.createTreeWalker(block,NodeFilter.SHOW_TEXT);let c=0,t;while(t=w.nextNode()){if(t===node)return c+offset;c+=t.textContent.length;}return c;}
+function nearestSec(k){ let el=reader.querySelector(`[data-k="${k}"]`); let p=el; while(p){ if(p.matches&&p.matches("h2[data-sec]"))return p.dataset.sec; p=p.previousElementSibling; } return ""; }
+
+/* ---- selection toolbar ---- */
+const seltool=document.getElementById("seltool"); let pendingSel=null;
+document.getElementById("readwrap").addEventListener("mouseup",()=>setTimeout(()=>{
+  const sel=window.getSelection(); if(!sel||sel.isCollapsed||!sel.rangeCount){hideTool();return;}
+  const r=sel.getRangeAt(0);
+  const anc=r.commonAncestorContainer.nodeType===1?r.commonAncestorContainer:r.commonAncestorContainer.parentElement;
+  const block=anc.closest("[data-k]"); if(!block||!reader.contains(block)){hideTool();return;}
+  const a=charOffset(block,r.startContainer,r.startOffset),b=charOffset(block,r.endContainer,r.endOffset);
+  if(Math.abs(b-a)<1){hideTool();return;}
+  pendingSel={k:block.dataset.k,start:Math.min(a,b),end:Math.max(a,b),text:sel.toString()};
+  const rect=r.getBoundingClientRect(); seltool.style.display="flex";
+  seltool.style.left=Math.max(8,Math.min(rect.left+rect.width/2-80,window.innerWidth-180))+"px";
+  seltool.style.top=(rect.top-46)+"px";
+},10));
+function hideTool(){seltool.style.display="none";}
+seltool.querySelectorAll(".sw").forEach(sw=>sw.addEventListener("click",()=>createNote(sw.dataset.c,false)));
+document.getElementById("addComment").addEventListener("click",()=>createNote("gold",true));
+function createNote(color,withComment){
+  if(!pendingSel)return;
+  const n={id:"h"+Date.now()+Math.floor(Math.random()*1e3),k:pendingSel.k,start:pendingSel.start,end:pendingSel.end,text:pendingSel.text,color,comment:"",ts:Date.now(),sec:nearestSec(pendingSel.k)};
+  notes.push(n); persistNotes(); applyAll(); wireMarks(); updateCount();
+  window.getSelection().removeAllRanges(); hideTool();
+  if(withComment){const mk=reader.querySelector(`mark[data-hid="${n.id}"]`); openPop(n.id,mk,true);}
+}
+
+/* ---- comment popover ---- */
+const pop=document.getElementById("pop"); let popId=null;
+function openPop(id,mk,focus){ const n=notes.find(x=>x.id===id); if(!n)return; popId=id;
+  document.getElementById("popSnip").textContent="\u201c"+n.text.slice(0,80)+(n.text.length>80?"…":"")+"\u201d";
+  document.getElementById("popText").value=n.comment||"";
+  const r=(mk||reader).getBoundingClientRect(); pop.style.display="block";
+  pop.style.left=Math.max(8,Math.min(r.left,window.innerWidth-320))+"px";
+  pop.style.top=Math.min(r.bottom+8,window.innerHeight-220)+"px";
+  if(focus)setTimeout(()=>document.getElementById("popText").focus(),30);
+}
+document.getElementById("popSave").addEventListener("click",()=>{const n=notes.find(x=>x.id===popId); if(n){n.comment=document.getElementById("popText").value.trim(); persistNotes(); applyAll(); wireMarks();} pop.style.display="none"; renderNotes(); });
+document.getElementById("popDel").addEventListener("click",()=>{notes=notes.filter(x=>x.id!==popId); persistNotes(); applyAll(); wireMarks(); pop.style.display="none"; renderNotes(); updateCount();});
+document.addEventListener("mousedown",e=>{ if(!pop.contains(e.target)&&!e.target.closest("mark.hl"))pop.style.display="none"; });
+
+/* ---- notes drawer: search + color filter + export ---- */
+const drawer=document.getElementById("drawer"),scrim=document.getElementById("scrim");
+let colorFilter=new Set(["gold","green","steel","violet"]);
+document.getElementById("openNotes").addEventListener("click",()=>{drawer.classList.add("open");scrim.classList.add("on");renderNotes();});
+document.getElementById("closeNotes").addEventListener("click",closeDrawer);
+scrim.addEventListener("click",closeDrawer);
+function closeDrawer(){drawer.classList.remove("open");scrim.classList.remove("on");}
+document.getElementById("noteSearch").addEventListener("input",renderNotes);
+document.querySelectorAll(".fchip").forEach(ch=>ch.addEventListener("click",()=>{
+  const c=ch.dataset.c; if(colorFilter.has(c)){colorFilter.delete(c);ch.classList.add("off");}else{colorFilter.add(c);ch.classList.remove("off");} renderNotes();
+}));
+function filtered(){
+  const q=(document.getElementById("noteSearch").value||"").trim().toLowerCase();
+  return notes.slice().sort((a,b)=>b.ts-a.ts)
+    .filter(n=>colorFilter.has(n.color))
+    .filter(n=>!q||(n.text+" "+(n.comment||"")).toLowerCase().includes(q));
+}
+function renderNotes(){
+  const list=document.getElementById("noteList"); const items=filtered();
+  if(!items.length){ list.innerHTML=`<div class="empty">${notes.length?"没有匹配的批注。":"还没有批注。<br>在正文里选中文字 → 划线或写批注,它们会出现在这里,并可搜索、筛选、导出。"}</div>`; return; }
+  list.innerHTML=items.map(n=>`<div class="note" data-go="${n.id}">
+    <div class="top"><span class="chip" style="background:${COLORS[n.color]||COLORS.gold}"></span><span class="where">${esc(n.sec||"")}</span><button class="del" data-del="${n.id}">删除</button></div>
+    <div class="snip">${esc(n.text)}</div>${n.comment?`<div class="cmt">✎ ${esc(n.comment)}</div>`:""}</div>`).join("");
+  list.querySelectorAll(".note").forEach(el=>el.addEventListener("click",e=>{ if(e.target.closest("[data-del]"))return; jumpTo(el.getAttribute("data-go")); }));
+  list.querySelectorAll("[data-del]").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation(); const id=b.getAttribute("data-del"); notes=notes.filter(x=>x.id!==id); persistNotes(); applyAll(); wireMarks(); renderNotes(); updateCount();}));
+}
+function jumpTo(id){ closeDrawer(); const mk=reader.querySelector(`mark[data-hid="${id}"]`); if(!mk)return;
+  document.getElementById("readwrap").scrollTo({top:mk.offsetTop-120,behavior:"smooth"}); mk.classList.remove("flash"); void mk.offsetWidth; mk.classList.add("flash"); }
+function download(name,text,type){ const blob=new Blob([text],{type}); const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=name; a.click(); URL.revokeObjectURL(a.href); }
+document.getElementById("expJson").addEventListener("click",()=>download(`${bookId}-notes.json`,JSON.stringify(notes,null,2),"application/json"));
+document.getElementById("expMd").addEventListener("click",()=>{
+  const md=`# ${book.title} — 我的批注\n\n`+filtered().map(n=>`> ${n.text}\n${n.comment?`\n**批注:** ${n.comment}\n`:""}\n*(${n.sec||""})*\n`).join("\n---\n\n");
+  download(`${bookId}-notes.md`,md,"text/markdown");
+});
+
+function persistNotes(){store.save(NK(bookId),notes);}
+function updateCount(){document.getElementById("noteCount").textContent=notes.length;}
+
+/* ---- reading progress ---- */
+const rw=document.getElementById("readwrap"); let saveT;
+rw.addEventListener("scroll",()=>{
+  const max=rw.scrollHeight-rw.clientHeight, pct=max>0?rw.scrollTop/max:0;
+  document.getElementById("progbar").style.width=(pct*100)+"%";
+  clearTimeout(saveT); saveT=setTimeout(()=>{ if(bookId) store.save(PK(bookId),{scrollTop:rw.scrollTop,pct}); },300);
+},{passive:true});
+
+document.getElementById("homeBtn").addEventListener("click",showLibrary);
+
+// init
+showLibrary();
+</script>
+</body>
+</html>
