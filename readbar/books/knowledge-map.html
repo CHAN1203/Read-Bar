@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>读棒 · 全五卷知识导图</title>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --v1:#d4a657; --v2:#26a69a; --v3:#7fa8c9; --v4:#b58bd4; --v5:#d98a4f; --v0:#e9e5d8;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  *:hover{scrollbar-color:var(--faint) transparent;}
+  ::-webkit-scrollbar{width:10px; height:10px;}
+  ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line); border-radius:10px; border:2px solid var(--bg); background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint); border:2px solid var(--bg); background-clip:padding-box;}
+  ::-webkit-scrollbar-corner{background:transparent;}
+  html,body{height:100%;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); -webkit-font-smoothing:antialiased; overflow:hidden;}
+  ::selection{background:var(--v1); color:#1a1a1a;}
+
+  .top{display:flex; align-items:center; gap:18px; flex-wrap:wrap; padding:14px 22px; border-bottom:1px solid var(--line);}
+  .brand{font-family:var(--serif); font-size:20px; font-weight:600;}
+  .brand .sub{font-family:var(--mono); font-size:11px; color:var(--faint); letter-spacing:.14em; text-transform:uppercase; margin-left:10px;}
+  .modes{display:flex; gap:6px; margin-left:auto;}
+  .modes button{font-family:var(--mono); font-size:12px; letter-spacing:.03em; color:var(--muted); background:var(--surface);
+    border:1px solid var(--line); padding:7px 13px; border-radius:8px; cursor:pointer; transition:.16s;}
+  .modes button:hover{color:var(--ink);}
+  .modes button.active{color:var(--bg); background:var(--ink); border-color:var(--ink);}
+  .legend{display:flex; gap:13px; flex-wrap:wrap; width:100%; padding:9px 22px 0;}
+  .legend span{font-family:var(--mono); font-size:11px; color:var(--muted); display:flex; align-items:center; gap:6px;}
+  .legend i{width:10px; height:10px; border-radius:3px; display:inline-block;}
+
+  .stage-wrap{position:absolute; top:96px; left:0; right:380px; bottom:0; overflow:hidden;}
+  #svgStage{width:100%; height:100%; display:block; cursor:grab;}
+  #svgStage.grabbing{cursor:grabbing;}
+  #outline{position:absolute; inset:0; overflow-y:auto; padding:26px 30px 80px; display:none;}
+
+  /* outline mode */
+  .ogroup{margin:0 0 14px; border:1px solid var(--line); border-radius:12px; overflow:hidden; background:var(--surface);}
+  .ohead{display:flex; align-items:center; gap:11px; padding:14px 18px; cursor:pointer; user-select:none;}
+  .ohead .dot{width:11px; height:11px; border-radius:3px;}
+  .ohead .vt{font-family:var(--mono); font-size:11px; color:var(--faint); letter-spacing:.1em;}
+  .ohead .nm{font-family:var(--serif); font-size:20px; font-weight:600;}
+  .ohead .chev{margin-left:auto; color:var(--muted); transition:transform .2s; font-family:var(--mono);}
+  .ogroup.open .chev{transform:rotate(90deg);}
+  .obody{max-height:0; overflow:hidden; transition:max-height .35s ease;}
+  .orow{display:block; padding:0; border-top:1px solid var(--line);}
+  .orow .q{display:flex; align-items:baseline; gap:10px; padding:12px 18px 12px 40px; cursor:pointer;}
+  .orow .q:hover{background:var(--surface2);}
+  .orow .lab{font-size:15px; color:var(--ink);}
+  .orow .lnk{font-family:var(--mono); font-size:10.5px; color:var(--faint); margin-left:auto;}
+  .orow .desc{max-height:0; overflow:hidden; transition:max-height .3s ease; color:#cfcabd; font-size:14px;}
+  .orow.open .desc{max-height:240px;}
+  .orow .desc-in{padding:0 18px 14px 40px;}
+  .orow .rels{margin-top:8px; display:flex; flex-wrap:wrap; gap:6px;}
+  .orow .rels a{font-family:var(--mono); font-size:10.5px; color:var(--v3); text-decoration:none; border:1px solid var(--line); padding:2px 7px; border-radius:5px;}
+
+  /* detail panel */
+  .panel{position:absolute; top:96px; right:0; bottom:0; width:380px; border-left:1px solid var(--line);
+    padding:26px 24px 40px; overflow-y:auto; background:var(--surface);}
+  .panel .ph{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--faint); text-transform:uppercase;}
+  .panel .pvol{display:inline-flex; align-items:center; gap:7px; font-family:var(--mono); font-size:11px; margin-top:14px;}
+  .panel .pvol i{width:10px;height:10px;border-radius:3px;}
+  .panel h3{font-family:var(--serif); font-size:26px; font-weight:600; margin:8px 0 12px; line-height:1.2;}
+  .panel .pdesc{font-size:15.5px; line-height:1.7; color:#dcd8cc;}
+  .panel .rh{font-family:var(--mono); font-size:11px; letter-spacing:.1em; color:var(--muted); text-transform:uppercase; margin:26px 0 10px; padding-top:18px; border-top:1px solid var(--line);}
+  .panel .rel{display:block; text-decoration:none; color:var(--ink); border:1px solid var(--line); border-radius:9px; padding:11px 13px; margin-bottom:8px; transition:.16s; cursor:pointer;}
+  .panel .rel:hover{border-color:var(--v3); background:var(--surface2);}
+  .panel .rel .rlab{font-size:14.5px;}
+  .panel .rel .rwhy{font-family:var(--mono); font-size:11px; color:var(--v3); margin-top:3px;}
+  .panel .empty{color:var(--faint); font-size:14px; margin-top:30px; line-height:1.7;}
+
+  .hint{position:absolute; bottom:14px; left:18px; font-family:var(--mono); font-size:11px; color:var(--faint); pointer-events:none;}
+
+  @media (max-width:900px){
+    .stage-wrap{right:0; bottom:46%;}
+    #outline{bottom:46%;}
+    .panel{top:auto; left:0; right:0; bottom:0; width:auto; height:46%; border-left:none; border-top:1px solid var(--line);}
+  }
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;}}
+</style>
+  <link rel="stylesheet" href="reader.css">
+</head>
+<body>
+
+<div class="top">
+  <div class="brand">读棒 · 知识导图<span class="sub">全五卷 · 50+ 概念 · 跨卷关联</span></div>
+  <div class="modes">
+    <button data-mode="outline" class="active">折叠大纲</button>
+    <button data-mode="radial">放射导图</button>
+    <button data-mode="graph">知识图谱</button>
+  </div>
+  <div class="legend">
+    <span><i style="background:var(--v1)"></i>一·地基</span>
+    <span><i style="background:var(--v2)"></i>二·趋势</span>
+    <span><i style="background:var(--v3)"></i>三·震荡</span>
+    <span><i style="background:var(--v4)"></i>四·反转</span>
+    <span><i style="background:var(--v5)"></i>五·实战</span>
+    <span><i style="background:var(--v0)"></i>三条铁律</span>
+  </div>
+</div>
+
+<div class="stage-wrap">
+  <svg id="svgStage"></svg>
+  <div id="outline"></div>
+  <div class="hint" id="hint">拖动平移 · 滚轮缩放 · 点节点看说明</div>
+</div>
+
+<aside class="panel" id="panel">
+  <div class="ph">节点说明</div>
+  <div class="empty" id="panelEmpty">点击任意节点,这里会显示它的概述说明,以及它和其它知识点的关联。<br><br>三种模式:<br>· <b>折叠大纲</b> —— 系统通读<br>· <b>放射导图</b> —— 看全局层级<br>· <b>知识图谱</b> —— 看跨卷关联(高亮连线)</div>
+  <div id="panelBody" style="display:none;">
+    <div class="pvol" id="pVol"></div>
+    <h3 id="pTitle"></h3>
+    <div class="pdesc" id="pDesc"></div>
+    <div id="pRelsWrap"><div class="rh">相关联</div><div id="pRels"></div></div>
+  </div>
+</aside>
+
+<script>
+const VOLS={
+  1:{name:"第一卷 · 地基",color:"#d4a657"},
+  2:{name:"第二卷 · 趋势",color:"#26a69a"},
+  3:{name:"第三卷 · 震荡",color:"#7fa8c9"},
+  4:{name:"第四卷 · 反转",color:"#b58bd4"},
+  5:{name:"第五卷 · 实战",color:"#d98a4f"},
+  0:{name:"贯穿全书 · 铁律",color:"#e9e5d8"},
+};
+// vol 0 = principles
+const N=[
+  // Vol 1
+  {id:"war",v:1,l:"战争视角",d:"每根K线是多空一场搏斗的快照:开盘=开战,收盘=最终比分,影线=被夺回的失地。学会用这个视角看图,图表就活了。"},
+  {id:"prob",v:1,l:"概率思维",d:"不预测、只算期望。任何setup都可能失败,你的优势不在某一笔,而在把正期望的setup重复很多次。"},
+  {id:"trendbar",v:1,l:"趋势棒 / 十字星",d:"大实体=赢家赢得干脆(趋势棒);小实体=多空僵持(doji)。实体讲力量,影线讲被拒绝。"},
+  {id:"anatomy",v:1,l:"实体·影线·收盘",d:"实体=净胜负,影线=被夺回的方向,收盘位置=最终比分——单根棒里最重要的信息。"},
+  {id:"strong",v:1,l:"强棒 / 弱棒",d:"同为阳棒,强棒(大实体收顶)暗示延续,弱棒(长上影收中)暗示犹豫甚至反转。只会分红绿会害你。"},
+  {id:"signal",v:1,l:"信号棒",d:"据此挂止损单的那根棒。价格越过它一跳成交,才算市场用真金白银确认了方向。"},
+  {id:"inout",v:1,l:"内包 / 外包棒",d:"内包=收缩蓄力(像压住的弹簧);外包=波动爆发但混乱、信息常矛盾。"},
+  {id:"iioi",v:1,l:"ii / ioi",d:"连续收缩的能量压缩形态,像拉满的弓——快要突破,但方向由上下文决定。"},
+  {id:"revbar",v:1,l:"反转棒",d:"一方先赢后输(长反向影线)。绝不单独使用,概率几乎全取决于它出现的位置。"},
+  {id:"barbybar",v:1,l:"逐棒读盘",d:"一根根往后读,持续描述当下谁在控盘。把字母连成故事,是Brooks的招牌技能。"},
+  // Vol 2
+  {id:"structure",v:2,l:"趋势结构 HH/HL",d:"上升趋势=更高的高点+更高的低点。更高的低点是引擎:回调一次比一次早被买回。"},
+  {id:"spike",v:2,l:"尖峰与通道",d:"趋势常先快速尖峰(不回调)、再转平缓通道。别在尖峰追,等通道第一次回调。"},
+  {id:"channel",v:2,l:"窄 / 宽通道",d:"窄通道=趋势极强,顺势·逆势必死;宽通道=偏震荡,要谨慎、常做到对侧。"},
+  {id:"pullback",v:2,l:"回调",d:"趋势的呼吸。追在推进里是新手,等回调上车是行家。强趋势里越浅的回调越高概率。"},
+  {id:"h2",v:2,l:"H1 / H2 计数",d:"H1=回调中第一次高点过前高(常失败);H2=第二次,回调走完两腿,顺势高概率点。"},
+  {id:"ema20",v:2,l:"20 EMA",d:"不是买卖信号,是回调深度的标尺、动态支撑/阻力。回踩到平均成本线,顺势方重新进场。"},
+  {id:"abc",v:2,l:"两腿 / ABC 回调",d:"回调常走两腿(A-B-C)。C腿底部≈H2≈回到EMA——三个线索指向同一点,即'合流'。"},
+  {id:"gap",v:2,l:"测量缺口",d:"强到连回调都不碰EMA的缺口,是趋势力量的指纹,也常出现在趋势中点、投影出测量目标。"},
+  {id:"flip",v:2,l:"always-in 翻转",d:"市场'总是在场'的方向翻转。门槛很高:强趋势棒同时收过EMA和近期摆动点。"},
+  {id:"withtrend",v:2,l:"顺势纪律",d:"强趋势里顺势概率远高于逆势。先确认趋势背景,再谈入场细节。"},
+  // Vol 3
+  {id:"range",v:3,l:"震荡区间",d:"价格困在上下沿之间反复撞墙,无方向。市场约80%的时间在这里。"},
+  {id:"sr",v:3,l:"支撑 / 阻力",d:"反复有效的价位,源于记忆与情绪。被有效突破后角色互换(阻力变支撑)。"},
+  {id:"neutral",v:3,l:"always-in 中性",d:"区间里没有正确方向,最好的'持仓'就是空仓。'不交易'本身是重要的交易决策。"},
+  {id:"breakout",v:3,l:"突破成功 / 失败",d:"成功=强棒+跟进不回头;失败=反向影线收回边缘。区间里失败概率通常更高。"},
+  {id:"trap",v:3,l:"失败突破 / 陷阱",d:"反做被套者,双重燃料(区间回归+止损助推)。Brooks在震荡里最主要的赚钱方式。"},
+  {id:"rangeplay",v:3,l:"区间打法",d:"低买、高卖、反做突破、远离中央。和趋势打法几乎相反——所以必须先认对环境。"},
+  {id:"barbwire",v:3,l:"铁丝网",d:"重叠doji的绞肉机,随机+狭窄推到极致。唯一高概率动作是不做、等它结束。"},
+  {id:"finalflag",v:3,l:"最后旗形",d:"趋势末端的小盘整,吸收最后的顺势者。突破它之后反而反转——衰竭+陷阱的结合。"},
+  {id:"resolve",v:3,l:"区间结束",d:"靠一次成功突破结束→新趋势诞生。趋势→震荡→突破→新趋势,无限循环。"},
+  // Vol 4
+  {id:"revvspb",v:4,l:"反转 vs 回调",d:"发生当下几乎一样,区别只能从后续力量与结构读出。强趋势里默认先当回调。"},
+  {id:"trendline",v:4,l:"趋势线 / 通道线",d:"地板与天花板。经典反转前奏:先顶破天花板(过度延伸)→再踩穿地板(结构受损)。"},
+  {id:"mtr",v:4,l:"主要趋势反转 MTR",d:"严格定义两步:先跌破趋势线(动能没了)+随后一个失败的新高(试探失败)。缺一不可。"},
+  {id:"wedge",v:4,l:"三推 / 楔形",d:"三推衰竭(第三推更弱)。双重身份:出现在趋势末端=反转;出现在回调里=顺势楔形旗。"},
+  {id:"double",v:4,l:"双顶 / 双底",d:"同价位两次被拒。但背景是裁判:上升趋势里的'双顶'多半只是回调,真反转需配合MTR。"},
+  {id:"climax",v:4,l:"头肩 · 高潮 · 衰竭",d:"趋势常猛烈加速而死,而非慢慢变弱。高潮把最后的买家一次榨干→无人接力→反转。"},
+  {id:"second",v:4,l:"第二次入场",d:"第一次反转信号常失败,但其失败凑齐了结构。第二次更可靠——接刀死于第一次,接稳赢在第二次。"},
+  {id:"revmm",v:4,l:"反转测量移动",d:"反转后几乎总走两腿。把第一腿高度投影出去得到第二腿终点——等距双腿目标的来历。"},
+  {id:"norev",v:4,l:"不接刀清单",d:"趋势线没破/在强趋势中途/无衰竭/只有第一次信号/逆大周期→都别抄底摸顶。"},
+  // Vol 5
+  {id:"bpb",v:5,l:"突破回调 BPB",d:"突破证明方向+回调给好价和近止损。顺势之王,Brooks使用频率最高的setup。"},
+  {id:"setups",v:5,l:"Setup 两大家族",d:"顺势回调(BPB/H2·EMA/楔形旗) vs 反做冲动(失败突破/二次入场)。选哪家,环境先行。"},
+  {id:"entry3",v:5,l:"入场三式",d:"止损单(要确认·最稳)、限价单(等更好价·会落空)、市价(换速度·偶用)。"},
+  {id:"stops",v:5,l:"止损三态",d:"初始(定义R)→保本(走出1R)→移动(跟着摆动点上移)。亏损有限,利润奔跑。"},
+  {id:"exit",v:5,l:"出场 / 减仓",d:"固定目标(震荡/弱趋势) vs 让利润奔跑(强趋势)。减仓=第一目标平一半,剩下博大行情。"},
+  {id:"equation",v:5,l:"交易者方程",d:"胜率×平均盈利 > 败率×平均亏损。胜率不重要,期望才重要;方程为负的单子不做。"},
+  {id:"sizing",v:5,l:"仓位管理",d:"固定的是'亏多少钱',不是'买多少手'。止损宽就少买。新手爆仓多因某笔下太重。"},
+  {id:"session",v:5,l:"交易时段",d:"开盘最活跃(机会多)、午盘最危险(常震荡)、收盘前常有趋势。"},
+  {id:"mindset",v:5,l:"心理 · 功夫",d:"接受亏损是成本、不报复性交易、错过比做错便宜;并靠看图+playbook+日志长期精进。"},
+  // Principles (vol 0)
+  {id:"law1",v:0,l:"铁律一 · 环境是另一半",d:"形态只是半个答案,上下文(环境)是另一半。同一个三推/突破,在不同趋势背景下含义可以相反。"},
+  {id:"law2",v:0,l:"铁律二 · 等待胜过追逐",d:"等回调、等二次确认,胜过追突破、抢第一次。放弃一点点极致价格,换高得多的胜率和清晰止损。"},
+  {id:"law3",v:0,l:"铁律三 · 概率而非预测",d:"不预测、只读取;不靠确定,靠概率与盈亏比。每一条纪律最终都在把交易者方程往'正'推。"},
+];
+// cross-volume relationships (the signature)
+const L=[
+  ["h2","abc","≈ 同一个回调终点"],
+  ["h2","ema20","回调回到EMA"],
+  ["abc","ema20","C腿底≈回EMA"],
+  ["wedge","pullback","回调里=顺势楔形旗"],
+  ["wedge","mtr","末端=反转(失败新高)"],
+  ["wedge","climax","三推=衰竭的一种"],
+  ["wedge","second","等三推后第二信号"],
+  ["trap","flip","识破 always-in 假翻转"],
+  ["trap","second","反做冲动·同源"],
+  ["trap","resolve","失败 vs 成功突破"],
+  ["signal","entry3","据信号棒下单"],
+  ["signal","strong","信号棒要够强"],
+  ["gap","revmm","测量移动的逻辑"],
+  ["gap","channel","缺口=窄通道证据"],
+  ["flip","bpb","突破后的第一回调"],
+  ["flip","breakout","翻转=一次突破"],
+  ["barbwire","trendbar","一堆 doji 堆出"],
+  ["barbwire","neutral","中性的极端"],
+  ["climax","strong","超大棒=衰竭"],
+  ["mtr","trendline","必须先破趋势线"],
+  ["double","sr","两次撞同一阻力"],
+  ["second","norev","等第二次再接刀"],
+  ["setups","bpb","顺势家族"],
+  ["setups","trap","反做家族"],
+  ["stops","signal","止损依信号棒/摆动点"],
+  ["exit","gap","强趋势让利润奔跑"],
+  ["equation","prob","期望思维"],
+  ["sizing","prob","用R控制风险"],
+  // principles fan out
+  ["law1","wedge","环境定楔形身份"],
+  ["law1","double","环境定双顶真假"],
+  ["law1","withtrend","先认环境"],
+  ["law1","barbwire","环境=该收手"],
+  ["law2","second","等第二次"],
+  ["law2","bpb","等回调"],
+  ["law2","resolve","等成功突破"],
+  ["law3","equation","算期望"],
+  ["law3","norev","等证据"],
+];
+
+const byId={}; N.forEach(n=>byId[n.id]=n);
+// adjacency
+const adj={}; N.forEach(n=>adj[n.id]=[]);
+L.forEach(([a,b,w])=>{ if(adj[a]&&adj[b]){ adj[a].push([b,w]); adj[b].push([a,w]); }});
+
+const NS="http://www.w3.org/2000/svg";
+function E(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}
+const W=1100,H=820,CX=W/2,CY=H/2;
+const stage=document.getElementById("svgStage");
+stage.setAttribute("viewBox",`0 0 ${W} ${H}`);
+
+// ---- compute radial positions (shared by radial + graph) ----
+const volOrder=[1,2,3,4,5];
+const pos={};            // id -> {x,y, ang}
+const volHub={};
+volOrder.forEach((v,vi)=>{
+  const base=-Math.PI/2 + vi*(2*Math.PI/5);
+  volHub[v]={x:CX+150*Math.cos(base), y:CY+150*Math.sin(base), ang:base};
+  const items=N.filter(n=>n.v===v);
+  const span=Math.PI*2/5*0.86;
+  items.forEach((n,i)=>{
+    const a=base + (items.length>1 ? (i-(items.length-1)/2)*(span/(items.length-1)) : 0);
+    const r=300 + (i%2?42:0);
+    pos[n.id]={x:CX+r*Math.cos(a), y:CY+r*Math.sin(a), ang:a};
+  });
+});
+// principles inner ring
+N.filter(n=>n.v===0).forEach((n,i,arr)=>{
+  const a=-Math.PI/2 + i*(2*Math.PI/arr.length);
+  pos[n.id]={x:CX+70*Math.cos(a), y:CY+70*Math.sin(a), ang:a};
+});
+
+let selected=null, mode="outline";
+
+function curve(a,b,bow){
+  const mx=(a.x+b.x)/2, my=(a.y+b.y)/2;
+  // bow toward center
+  const dx=CX-mx, dy=CY-my, k=bow||0.18;
+  return `M${a.x} ${a.y} Q${mx+dx*k} ${my+dy*k} ${b.x} ${b.y}`;
+}
+
+// ---- render SVG modes ----
+const vp=E("g",{}); // viewport for pan/zoom
+function renderStage(){
+  stage.innerHTML="";
+  stage.appendChild(vp); vp.innerHTML="";
+  const edgeLayer=E("g",{}), nodeLayer=E("g",{});
+  vp.appendChild(edgeLayer); vp.appendChild(nodeLayer);
+
+  if(mode==="radial"){
+    // root
+    const root=E("circle",{cx:CX,cy:CY,r:30,fill:"#11161c",stroke:"#3a4350","stroke-width":1.5}); nodeLayer.appendChild(root);
+    const rt=E("text",{x:CX,y:CY+5,fill:"var(--ink)","font-size":15,"font-family":"var(--serif)","text-anchor":"middle"}); rt.textContent="价格行为"; nodeLayer.appendChild(rt);
+    // hierarchy edges
+    volOrder.forEach(v=>{
+      const hub=volHub[v];
+      edgeLayer.appendChild(E("line",{x1:CX,y1:CY,x2:hub.x,y2:hub.y,stroke:VOLS[v].color,"stroke-width":1.5,opacity:.5}));
+      N.filter(n=>n.v===v).forEach(n=>{
+        edgeLayer.appendChild(E("line",{x1:hub.x,y1:hub.y,x2:pos[n.id].x,y2:pos[n.id].y,stroke:VOLS[v].color,"stroke-width":1,opacity:.3}));
+      });
+      // hub node
+      const c=E("circle",{cx:hub.x,cy:hub.y,r:9,fill:VOLS[v].color}); nodeLayer.appendChild(c);
+      const t=E("text",{x:hub.x,y:hub.y-15,fill:VOLS[v].color,"font-size":13,"font-family":"var(--serif)","text-anchor":"middle"}); t.textContent=VOLS[v].name.split(" · ")[1]; nodeLayer.appendChild(t);
+    });
+    N.filter(n=>n.v!==0).forEach(n=>drawNode(nodeLayer,n));
+    // principles linked faintly to root
+    N.filter(n=>n.v===0).forEach(n=>{ edgeLayer.appendChild(E("line",{x1:CX,y1:CY,x2:pos[n.id].x,y2:pos[n.id].y,stroke:VOLS[0].color,"stroke-width":1,opacity:.25,"stroke-dasharray":"3 3"})); drawNode(nodeLayer,n); });
+  }
+
+  if(mode==="graph"){
+    // faint hierarchy
+    volOrder.forEach(v=>{ N.filter(n=>n.v===v).forEach(n=>{
+      edgeLayer.appendChild(E("line",{x1:volHub[v].x,y1:volHub[v].y,x2:pos[n.id].x,y2:pos[n.id].y,stroke:VOLS[v].color,"stroke-width":.8,opacity:.12}));
+    });});
+    // relationship chords
+    L.forEach(([a,b,w])=>{
+      if(!pos[a]||!pos[b])return;
+      const hi = selected && (selected===a||selected===b);
+      const p=E("path",{d:curve(pos[a],pos[b]),fill:"none",stroke:hi?"#e9e5d8":"#4a5562","stroke-width":hi?2:1,opacity:hi?.95:(selected?.08:.4)});
+      p.dataset.a=a; p.dataset.b=b; edgeLayer.appendChild(p);
+    });
+    N.forEach(n=>drawNode(nodeLayer,n));
+  }
+}
+function drawNode(layer,n){
+  const p=pos[n.id]; if(!p)return;
+  const col=VOLS[n.v].color;
+  const sel=selected===n.id;
+  const neigh = selected && adj[selected] && adj[selected].some(x=>x[0]===n.id);
+  const dim = (mode==="graph" && selected && !sel && !neigh);
+  const g=E("g",{class:"node",style:"cursor:pointer"}); g.dataset.id=n.id;
+  const r=n.v===0?8:6;
+  g.appendChild(E("circle",{cx:p.x,cy:p.y,r:sel?r+3:r,fill:col,stroke:sel?"#fff":"#13161b","stroke-width":sel?2:1.5,opacity:dim?.25:1}));
+  const right = Math.cos(p.ang)>=0;
+  const t=E("text",{x:p.x+(right?11:-11),y:p.y+4,fill:sel?"#fff":(dim?"#5c6573":"#cfcabd"),
+    "font-size":12,"font-family":"var(--sans)","text-anchor":right?"start":"end"});
+  t.textContent=n.l; g.appendChild(t);
+  g.addEventListener("click",e=>{e.stopPropagation();select(n.id);});
+  layer.appendChild(g);
+}
+
+// ---- outline mode ----
+const outline=document.getElementById("outline");
+function renderOutline(){
+  outline.innerHTML="";
+  [1,2,3,4,5,0].forEach(v=>{
+    const items=N.filter(n=>n.v===v); if(!items.length)return;
+    const g=document.createElement("div"); g.className="ogroup"+(v===1?" open":"");
+    const head=document.createElement("div"); head.className="ohead";
+    head.innerHTML=`<span class="dot" style="background:${VOLS[v].color}"></span>
+      <span class="vt">${v===0?"BTW":"VOL "+v}</span><span class="nm">${VOLS[v].name.split(" · ")[1]||VOLS[v].name}</span>
+      <span class="chev">▸</span>`;
+    const body=document.createElement("div"); body.className="obody";
+    items.forEach(n=>{
+      const row=document.createElement("div"); row.className="orow";
+      const rels=adj[n.id]||[];
+      row.innerHTML=`<div class="q"><span class="lab">${n.l}</span>${rels.length?`<span class="lnk">↔ ${rels.length}</span>`:""}</div>
+        <div class="desc"><div class="desc-in">${n.d}${rels.length?`<div class="rels">${rels.map(r=>`<a data-go="${r[0]}">${byId[r[0]].l} · ${r[1]}</a>`).join("")}</div>`:""}</div></div>`;
+      const q=row.querySelector(".q");
+      q.addEventListener("click",()=>{ row.classList.toggle("open"); select(n.id,false); });
+      row.querySelectorAll("[data-go]").forEach(a=>a.addEventListener("click",e=>{e.stopPropagation(); gotoOutline(a.getAttribute("data-go"));}));
+      body.appendChild(row);
+    });
+    head.addEventListener("click",()=>{ g.classList.toggle("open"); body.style.maxHeight=g.classList.contains("open")?body.scrollHeight+"px":"0"; });
+    g.appendChild(head); g.appendChild(body); outline.appendChild(g);
+    if(v===1) requestAnimationFrame(()=>{body.style.maxHeight=body.scrollHeight+"px";});
+  });
+}
+function gotoOutline(id){
+  const n=byId[id]; if(!n)return;
+  // open its group + row, scroll to it
+  [...outline.querySelectorAll(".ogroup")].forEach(g=>{});
+  renderOutlineFocus(id);
+}
+function renderOutlineFocus(id){
+  const n=byId[id];
+  const groups=[...outline.querySelectorAll(".ogroup")];
+  // find row by label match within correct group index
+  const order=[1,2,3,4,5,0]; const gi=order.indexOf(n.v);
+  const g=groups[gi]; if(!g)return;
+  if(!g.classList.contains("open")){ g.classList.add("open"); const b=g.querySelector(".obody"); b.style.maxHeight=b.scrollHeight+"px"; }
+  const rows=[...g.querySelectorAll(".orow")];
+  const items=N.filter(x=>x.v===n.v); const ri=items.findIndex(x=>x.id===id);
+  const row=rows[ri]; if(row){ row.classList.add("open"); const b=g.querySelector(".obody"); requestAnimationFrame(()=>{b.style.maxHeight=b.scrollHeight+"px"; row.scrollIntoView({behavior:"smooth",block:"center"});}); }
+  select(id,false);
+}
+
+// ---- selection / panel ----
+const panel={empty:document.getElementById("panelEmpty"),body:document.getElementById("panelBody"),
+  vol:document.getElementById("pVol"),title:document.getElementById("pTitle"),desc:document.getElementById("pDesc"),rels:document.getElementById("pRels")};
+function select(id,redraw=true){
+  selected=id; const n=byId[id];
+  panel.empty.style.display="none"; panel.body.style.display="block";
+  panel.vol.innerHTML=`<i style="background:${VOLS[n.v].color}"></i>${VOLS[n.v].name}`;
+  panel.title.textContent=n.l; panel.desc.textContent=n.d;
+  const rels=adj[id]||[];
+  panel.rels.innerHTML = rels.length ? rels.map(r=>`<div class="rel" data-go="${r[0]}"><div class="rlab">${byId[r[0]].l}</div><div class="rwhy">${r[1]}</div></div>`).join("")
+    : `<div style="color:var(--faint);font-size:13px">(此节点暂无跨卷关联线)</div>`;
+  panel.rels.querySelectorAll("[data-go]").forEach(el=>el.addEventListener("click",()=>{
+    const tid=el.getAttribute("data-go");
+    if(mode==="outline") renderOutlineFocus(tid); else { select(tid); }
+  }));
+  if(redraw && mode!=="outline") renderStage();
+}
+
+// ---- mode switching ----
+function setMode(m){
+  mode=m;
+  document.querySelectorAll(".modes button").forEach(b=>b.classList.toggle("active",b.dataset.mode===m));
+  const svgOn = (m!=="outline");
+  stage.style.display=svgOn?"block":"none";
+  outline.style.display=svgOn?"none":"block";
+  document.getElementById("hint").style.display=svgOn?"block":"none";
+  if(svgOn) renderStage(); else renderOutline();
+}
+document.querySelectorAll(".modes button").forEach(b=>b.addEventListener("click",()=>setMode(b.dataset.mode)));
+stage.addEventListener("click",()=>{ if(mode==="graph"&&selected){selected=null;renderStage();} });
+
+// ---- pan / zoom ----
+let scale=1,tx=0,ty=0,drag=false,sx,sy;
+function applyVP(){ vp.setAttribute("transform",`translate(${tx},${ty}) scale(${scale})`); }
+stage.addEventListener("wheel",e=>{e.preventDefault();const f=e.deltaY<0?1.1:0.9;const r=stage.getBoundingClientRect();
+  const mx=(e.clientX-r.left)/r.width*W,my=(e.clientY-r.top)/r.height*H;
+  tx=mx-(mx-tx)*f; ty=my-(my-ty)*f; scale*=f; scale=Math.max(.4,Math.min(3,scale)); applyVP();},{passive:false});
+stage.addEventListener("mousedown",e=>{drag=true;sx=e.clientX;sy=e.clientY;stage.classList.add("grabbing");});
+window.addEventListener("mousemove",e=>{if(!drag)return;const r=stage.getBoundingClientRect();
+  tx+=(e.clientX-sx)/r.width*W; ty+=(e.clientY-sy)/r.height*H; sx=e.clientX;sy=e.clientY;applyVP();});
+window.addEventListener("mouseup",()=>{drag=false;stage.classList.remove("grabbing");});
+
+// init
+setMode("outline");
+</script>
+  <script src="reader.js"></script>
+</body>
+</html>

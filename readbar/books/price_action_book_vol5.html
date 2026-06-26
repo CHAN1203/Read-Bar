@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>读棒 · Al Brooks 价格行为 · 第五卷:实战手册</title>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --bull:#26a69a; --bear:#ef5350; --gold:#d4a657;
+    --hand:#d98a4f; --hand-soft:#34281d;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--hand); color:#15100a;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%;
+    background:linear-gradient(90deg,var(--hand),var(--gold)); z-index:100; transition:width .1s linear;}
+  .wrap{display:grid; grid-template-columns:240px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto;
+    padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--hand);
+    text-transform:uppercase; margin-bottom:4px;}
+  .rail .brand b{color:var(--ink); display:block; font-size:19px; letter-spacing:.04em; margin-top:6px; font-family:var(--serif);}
+  .rail ol{list-style:none; padding:0; margin:26px 0 0;}
+  .rail .chap{font-family:var(--mono); font-size:11px; color:var(--faint); letter-spacing:.1em; margin:20px 0 6px; text-transform:uppercase;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:5px 10px;
+    border-left:2px solid transparent; border-radius:0 4px 4px 0; transition:.18s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--hand); border-left-color:var(--hand); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:90px 0 70px; border-bottom:1px solid var(--line); margin-bottom:10px;
+    background:radial-gradient(120% 90% at 78% -10%, rgba(217,138,79,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.28em; color:var(--hand); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:62px; line-height:1.02; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:23px; color:var(--muted); font-weight:400; margin-top:18px; letter-spacing:.02em;}
+  .cover .vol{font-family:var(--mono); font-size:13px; color:var(--faint); margin-top:30px; letter-spacing:.1em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--hand); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:33px; line-height:1.15; margin:6px 0 4px;}
+  h3{font-family:var(--serif); font-weight:600; font-size:22px; margin:38px 0 2px;}
+  p{margin:16px 0; color:#dcd8cc;}
+  p strong{color:var(--ink); font-weight:600;}
+  em{color:var(--gold); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em;
+    padding:2px 9px; border-radius:20px; margin:30px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;}
+  .facet.why{background:var(--hand-soft); color:var(--hand);}
+  .facet.gb{background:#33282a; color:#f0a0a0;}
+  .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:30px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px;
+    padding:20px 20px 14px; opacity:0; transform:translateY(14px); transition:.6s ease;}
+  figure.in{opacity:1; transform:none;}
+  figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px;
+    padding-top:11px; border-top:1px solid var(--line); letter-spacing:.02em;}
+  figcaption b{color:var(--hand);}
+  .socratic{margin:34px 0; border:1px solid var(--line); border-left:3px solid var(--hand); border-radius:10px;
+    background:linear-gradient(180deg, rgba(217,138,79,.05), transparent); overflow:hidden;}
+  .socratic .q{padding:20px 22px;}
+  .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--hand); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:20px; color:var(--ink); margin:8px 0 16px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12.5px; letter-spacing:.05em; color:var(--bg);
+    background:var(--hand); border:none; padding:9px 16px; border-radius:7px; cursor:pointer; transition:.18s;}
+  .socratic button:hover{filter:brightness(1.08);}
+  .socratic button:focus-visible{outline:2px solid var(--ink); outline-offset:2px;}
+  .socratic .a{max-height:0; opacity:0; transition:max-height .5s ease, opacity .4s ease; border-top:1px solid transparent;}
+  .socratic.open .a{max-height:900px; opacity:1; border-top-color:var(--line);}
+  .socratic .a-inner{padding:18px 22px 22px;}
+  .socratic .a-inner p:first-child{margin-top:0;}
+  .socratic .a-inner p{font-size:16px; color:#cfcabd;}
+  .connect{margin:30px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15.5px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--bull); margin-bottom:6px;}
+  .connect code{font-family:var(--mono); font-size:13px; background:#11161c; color:var(--gold); padding:1px 6px; border-radius:4px;}
+  .divider{height:1px; background:var(--line); margin:64px 0 0;}
+
+  .replay{font-family:var(--mono); font-size:12px; letter-spacing:.05em; color:var(--hand);
+    background:transparent; border:1px solid var(--hand); padding:6px 14px; border-radius:7px; cursor:pointer; transition:.18s; margin-top:4px;}
+  .replay:hover{background:var(--hand-soft);}
+  .replay:focus-visible{outline:2px solid var(--ink); outline-offset:2px;}
+
+  /* equation / math panels */
+  .panel{margin:30px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:24px;}
+  .eqrow{font-family:var(--mono); text-align:center; font-size:17px; line-height:2.2;}
+  .eqrow .win{color:var(--bull);} .eqrow .loss{color:var(--bear);} .eqrow .res{color:var(--hand);}
+  .eqnote{font-family:var(--mono); font-size:12.5px; color:var(--muted); text-align:center; margin-top:8px;}
+
+  /* setup catalog cards */
+  .setup{margin:24px 0; border:1px solid var(--line); border-radius:12px; overflow:hidden; background:var(--surface);}
+  .setup .head{display:flex; align-items:baseline; gap:12px; padding:14px 18px; background:var(--surface2); border-bottom:1px solid var(--line);}
+  .setup .tag{font-family:var(--mono); font-size:11px; padding:2px 8px; border-radius:5px; letter-spacing:.05em;}
+  .setup .tag.t-with{background:#22332b; color:#7fd3a8;}
+  .setup .tag.t-fade{background:#33282a; color:#f0a0a0;}
+  .setup .nm{font-family:var(--serif); font-size:19px; font-weight:600;}
+  .setup .body{padding:8px 18px 16px;}
+  .setup .line{display:grid; grid-template-columns:74px 1fr; gap:10px; padding:8px 0; border-top:1px solid var(--line); font-size:14.5px;}
+  .setup .line:first-child{border-top:none;}
+  .setup .k{font-family:var(--mono); font-size:11.5px; color:var(--hand); padding-top:2px; letter-spacing:.04em;}
+
+  /* session timeline */
+  .session{display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin:26px 0;}
+  .session .blk{border:1px solid var(--line); border-radius:10px; padding:16px; background:var(--surface);}
+  .session .blk .when{font-family:var(--mono); font-size:11px; color:var(--hand); letter-spacing:.06em;}
+  .session .blk .nm{font-family:var(--serif); font-size:17px; margin:4px 0 6px;}
+  .session .blk p{margin:0; font-size:13.5px; color:#cfcabd;}
+
+  .poem{margin:40px 0; padding:34px 30px; border:1px solid var(--line); border-radius:14px;
+    background:radial-gradient(130% 120% at 100% 0%, rgba(217,138,79,.10), transparent 60%); text-align:center;}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.22em; color:var(--hand); text-transform:uppercase; margin-bottom:18px;}
+  .poem .verse{font-family:var(--serif); font-size:21px; line-height:2.0; color:var(--ink); font-style:italic;}
+  .poem .by{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:18px; letter-spacing:.08em;}
+
+  .endcard{margin:56px 0 0; padding:34px; border:1px solid var(--line); border-radius:14px;
+    background:radial-gradient(120% 120% at 0% 0%, rgba(212,166,87,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static; height:auto; border-right:none; border-bottom:1px solid var(--line);
+      display:flex; gap:14px; overflow-x:auto; white-space:nowrap; padding:16px 18px;}
+    .rail ol{display:flex; gap:6px; margin:0;}
+    .rail .brand,.rail .chap{display:none;}
+    .rail a{border-left:none; border-bottom:2px solid transparent; border-radius:4px; padding:6px 10px;}
+    .rail a.active{border-left:none; border-bottom-color:var(--hand);}
+    .cover h1{font-size:42px;} .cover h1 .small{font-size:19px;} body{font-size:16px;}
+    .session{grid-template-columns:1fr;} .setup .line{grid-template-columns:64px 1fr;} .poem .verse{font-size:18px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none!important; transition:none!important; scroll-behavior:auto!important;}
+    figure{opacity:1; transform:none;}
+  }
+</style>
+  <link rel="stylesheet" href="reader.css">
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+
+  <nav class="rail">
+    <div class="brand">读棒 · READING BARS<b>实战手册</b></div>
+    <div class="shelf-nav" style="margin:12px 0 0;font-family:var(--mono);font-size:11px;display:flex;flex-wrap:wrap;gap:7px;">
+      <a href="index.html" style="color:var(--hand);text-decoration:none;border:1px solid var(--line);padding:3px 9px;border-radius:6px;">📚 书架</a>
+      <a href="price_action_book_vol4.html" style="color:var(--muted);text-decoration:none;border:1px solid var(--line);padding:3px 9px;border-radius:6px;">← 第四卷</a>
+    </div>
+    <ol>
+      <li><div class="chap">序</div><a href="#intro">从读懂,到做到</a></li>
+      <li><div class="chap">第 13 章 · Setup 目录</div>
+        <a href="#s131">13.1 突破回调 BPB</a>
+        <a href="#s132">13.2 H2/EMA 与楔形旗</a>
+        <a href="#s133">13.3 失败突破与二次入场</a>
+      </li>
+      <li><div class="chap">第 14 章 · 交易管理</div>
+        <a href="#s141">14.1 入场:三种下单</a>
+        <a href="#s142">14.2 止损:初始·保本·移动</a>
+        <a href="#s143">14.3 出场:目标·减仓</a>
+      </li>
+      <li><div class="chap">第 15 章 · 优势变盈利</div>
+        <a href="#s151">15.1 交易者方程</a>
+        <a href="#s152">15.2 仓位管理</a>
+        <a href="#s153">15.3 时段·心理·功夫</a>
+      </li>
+      <li><div class="chap">尾声</div><a href="#end">五卷合一</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <header class="cover">
+      <div class="col">
+        <div class="eyebrow">第五卷 · 实战手册</div>
+        <h1>实战手册<span class="small">把四卷的"读图能力",变成日复一日的下单纪律——Setup、管理、风险、与功夫</span></h1>
+        <div class="vol">AL BROOKS PRICE ACTION · VOL.5 / THE PLAYBOOK</div>
+      </div>
+    </header>
+
+    <div class="col">
+
+      <!-- 序 -->
+      <section id="intro">
+        <div class="kicker">序</div>
+        <h2>从读懂,到做到</h2>
+        <p class="lead">前四卷教你<em>读懂</em>市场。这一卷教你<em>做到</em>——而这两者之间,横着一道许多人一辈子没跨过的沟。</p>
+        <p>你可以把每一根棒都读得明明白白,却依然亏钱。为什么?因为交易的结果,不只取决于"看得对不对",更取决于<strong>下单的纪律、止损的位置、仓位的大小、以及你能不能在该等的时候等、该砍的时候砍。</strong>读图是科学,执行是手艺——这一卷,讲手艺。</p>
+        <p>我们会把前四卷散落的工具,收拢成一份可执行的 <strong>Setup 目录</strong>(第13章);讲清楚一笔交易从进场到离场的<strong>全套管理</strong>(第14章);最后用<strong>交易者方程和仓位管理</strong>,把"单笔的优势"变成"长期的盈利"(第15章)。</p>
+        <div class="poem" style="margin-top:34px;">
+          <div class="pt">序诗 · 手</div>
+          <div class="verse">
+            眼睛先学会了看,<br>
+            手却还在发抖。<br>
+            真正的功夫,是让那只手<br>
+            慢慢长出眼睛的耐心——<br>
+            该按下时按下,<br>
+            该收回时,收回。
+          </div>
+          <div class="by">—— 本卷原创 · 写给从"看懂"走向"做到"的人</div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 13.1 -->
+      <section id="s131">
+        <div class="kicker">第 13 章 · Setup 目录</div>
+        <h2>13.1 突破回调 BPB:顺势之王</h2>
+        <span class="facet what">是什么</span>
+        <p><strong>突破回调 (Breakout Pullback, BPB):</strong> 价格强力突破一个关键位(前高、区间上沿、趋势线)→ 然后小幅回调一下 → 你在回调结束、趋势恢复时顺势入场。它是 Brooks 体系里使用频率最高、最稳健的顺势 setup,贯穿趋势卷和震荡卷。</p>
+        <figure data-fig="bpb"></figure>
+        <span class="facet why">逻辑</span>
+        <p>为什么 BPB 如此之王?因为它同时拿到了两样好东西:<strong>突破证明了方向(力量),回调给了你入场和近止损(性价比)。</strong>你既不像追突破的人那样买在最高、止损遥远;也不像猜顶底的人那样逆势赌博。你站在已被证明的趋势一边,只是耐心等了一个更好的价格——这正是贯穿全系列的第二条铁律。</p>
+        <div class="setup">
+          <div class="head"><span class="tag t-with">顺势</span><span class="nm">突破回调 BPB · 执行清单</span></div>
+          <div class="body">
+            <div class="line"><div class="k">背景</div><div>清晰趋势 / 刚发生有力突破,always-in 与突破同向</div></div>
+            <div class="line"><div class="k">触发</div><div>突破后的第一次(或第二次)回调结束,出现顺势信号棒</div></div>
+            <div class="line"><div class="k">入场</div><div>止损单,挂在信号棒越过端一跳</div></div>
+            <div class="line"><div class="k">止损</div><div>回调的摆动低/高点之外(而非信号棒贴身)</div></div>
+            <div class="line"><div class="k">目标</div><div>测量移动(突破前的腿投影)/ 1–2 腿</div></div>
+          </div>
+        </div>
+        <div class="connect">
+          <div class="h">连接你的代码</div>
+          你的 always-in 翻转(突破)+ EMA 回调入场,本质就是一个 BPB 的实现。如果想扩充策略的 setup,BPB 是最该优先加的——它比纯楔形信号更频繁、更稳健,而且逻辑你已经有了一半。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 13.2 -->
+      <section id="s132">
+        <div class="kicker">第 13 章 · Setup 目录</div>
+        <h2>13.2 H2/EMA 回调 与 楔形旗</h2>
+        <span class="facet what">是什么 —— 你最熟悉的两个</span>
+        <p>这两个 setup 你在第二、四卷已经吃透,这里把它们整理成目录条目,方便你照着执行。它们都是"回调结束、顺势再上车"的具体形态。</p>
+        <figure data-fig="h2flag"></figure>
+        <div class="setup">
+          <div class="head"><span class="tag t-with">顺势</span><span class="nm">H2 / EMA 回调</span></div>
+          <div class="body">
+            <div class="line"><div class="k">背景</div><div>强趋势(更高高低点),always-in 同向</div></div>
+            <div class="line"><div class="k">触发</div><div>回调回到 20 EMA 附近,数到 H2(两腿走完),出现强信号棒</div></div>
+            <div class="line"><div class="k">入场/止损</div><div>信号棒上方一跳进 / 摆动低点下方止损</div></div>
+          </div>
+        </div>
+        <div class="setup">
+          <div class="head"><span class="tag t-with">顺势</span><span class="nm">楔形旗(三推回调)</span></div>
+          <div class="body">
+            <div class="line"><div class="k">背景</div><div>主趋势中的一次回调,逆主趋势走三推</div></div>
+            <div class="line"><div class="k">触发</div><div>三推 + 第三推衰竭(更小)+ 两线收敛 → 回调结束</div></div>
+            <div class="line"><div class="k">注意</div><div>必须在"主趋势回调里",而非震荡里(否则是危险的逆势猜底)</div></div>
+          </div>
+        </div>
+        <div class="connect">
+          <div class="h">连接你的代码</div>
+          这正是你策略当前的两个入场:<code>emaPBLong</code>(EMA 回调)和 <code>bullWedge</code>(楔形旗)。目录化之后你能更清楚地看到:它们都属于"顺势回调"家族,缺的是 BPB 和"二次入场"这两个兄弟。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 13.3 -->
+      <section id="s133">
+        <div class="kicker">第 13 章 · Setup 目录</div>
+        <h2>13.3 失败突破 与 二次入场</h2>
+        <span class="facet what">是什么 —— 反做家族</span>
+        <p>前两节是"顺势"。这一节是"反做"——在震荡里反做失败的突破,在趋势末端接反转的二次入场。它们方向相反,但共享同一个灵魂:<strong>等别人的冲动失败、被套,再顺着失败的方向进场。</strong></p>
+        <figure data-fig="fadeset"></figure>
+        <div class="setup">
+          <div class="head"><span class="tag t-fade">反做</span><span class="nm">失败突破 / 陷阱(震荡里)</span></div>
+          <div class="body">
+            <div class="line"><div class="k">背景</div><div>清晰震荡区间,无大周期趋势支持的突破</div></div>
+            <div class="line"><div class="k">触发</div><div>突破区间边缘后被打回、收回区间内</div></div>
+            <div class="line"><div class="k">入场/目标</div><div>收回后顺收回方向进 / 目标=区间另一边</div></div>
+          </div>
+        </div>
+        <div class="setup">
+          <div class="head"><span class="tag t-fade">反做</span><span class="nm">二次入场反转(趋势末端)</span></div>
+          <div class="body">
+            <div class="line"><div class="k">背景</div><div>MTR 结构:已破趋势线 + 失败的新高/低</div></div>
+            <div class="line"><div class="k">触发</div><div>第一次反转信号失败后的第二个同向信号</div></div>
+            <div class="line"><div class="k">纪律</div><div>不接第一刀;等二次确认 + 大周期不在对立强势方</div></div>
+          </div>
+        </div>
+        <span class="facet hp">整个目录的统一</span>
+        <p>退一步看,你的全部 setup 其实只有两大家族:<strong>顺势回调(BPB / H2·EMA / 楔形旗)</strong> 和 <strong>反做冲动(失败突破 / 二次入场反转)</strong>。而选哪个家族,永远由第一条铁律决定——<em>你在趋势里,还是在震荡/反转处?</em> 环境先行,setup 随后。</p>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 14.1 -->
+      <section id="s141">
+        <div class="kicker">第 14 章 · 交易管理</div>
+        <h2>14.1 入场:三种下单方式</h2>
+        <span class="facet what">是什么</span>
+        <p>同一个 setup,用不同的下单方式进场,性格完全不同:</p>
+        <figure data-fig="entries"></figure>
+        <p><strong>止损单 (stop):</strong> 挂在信号棒越过端一跳。<em>要求市场确认方向</em>才成交——Brooks 的默认方式,最稳健。<br>
+        <strong>限价单 (limit):</strong> 挂在回调更深处等更好的价格。<em>赌回调到此结束</em>——成本更优但可能落空,适合强趋势的浅回调。<br>
+        <strong>市价单 (market):</strong> 立刻成交。<em>放弃确认换速度</em>——只在极强信号、怕错过时偶尔用。</p>
+        <span class="facet gb">好的取舍 / 坏的取舍</span>
+        <p><strong>新手常犯:</strong>用市价追在棒的中段或顶部(止损被迫放远、盈亏比崩坏)。<br>
+        <strong>老手默认:</strong>止损单等确认——"宁可错过,不可做错";只在结构极其清晰时才用限价占更好的位置。</p>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 14.2 -->
+      <section id="s142">
+        <div class="kicker">第 14 章 · 交易管理</div>
+        <h2>14.2 止损:初始 · 保本 · 移动</h2>
+        <p class="lead">这是这一卷的核心动画——看一笔交易的止损,如何随价格一步步往上走,把风险一点点变成利润的保护。</p>
+
+        <figure>
+          <div data-anim="trade" style="position:relative;"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+            <button class="replay" data-replay="trade">▶ 重播:看一笔交易如何被管理</button>
+          </div>
+          <figcaption><b>图 14.2(动画)</b> 一笔多单的生命周期:① 信号棒上方进场 → ② 初始止损在摆动低点下 → ③ 移到保本 → ④ 顺势上移(移动止损)→ ⑤ 触及测量移动目标。点"重播"逐步观看。</figcaption>
+        </figure>
+
+        <span class="facet what">三种止损状态</span>
+        <p><strong>① 初始止损:</strong>进场时就设好,放在使这个 setup "失效"的结构之外(回调摆动低点下方一跳)。它定义了你这笔的风险 R。<br>
+        <strong>② 保本 (breakeven):</strong>当价格顺势走出约 1R、确认方向后,把止损上移到入场价附近——此后这笔最差也不亏。<br>
+        <strong>③ 移动止损 (trailing):</strong>价格继续走,止损跟着每一个新的更高低点往上挪,锁住越来越多的浮盈。</p>
+        <span class="facet why">逻辑</span>
+        <p>止损管理的全部哲学就一句:<strong>让亏损有限且固定,让盈利有机会奔跑。</strong>初始止损管"亏多少",保本管"不再倒亏",移动止损管"已赚的别吐回去"。三者配合,才让你的交易者方程长期为正。</p>
+        <span class="facet gb">最常见的两个错误</span>
+        <p><strong>① 止损太紧(贴信号棒):</strong>正常波动就被扫,然后眼睁睁看它朝你方向走——你截图里那些"同一根棒进出"的单子就是这么死的。<br>
+        <strong>② 过早保本/移损:</strong>稍有浮盈就急着把止损推到很近,结果被一次正常回调扫出,错过后面的大行情。<em>移损要跟着结构(摆动点),不是跟着情绪。</em></p>
+        <div class="connect">
+          <div class="h">连接你的代码</div>
+          你之前把止损从"信号棒贴身"改成了"摆动点止损",正是为了治第一个错误。下一步可以加上保本和移动止损:走出 1R 后移到保本,之后每出现一个更高的摆动低点就把止损上移。这会显著改善你那些"盈利又回吐"的单子。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 14.3 -->
+      <section id="s143">
+        <div class="kicker">第 14 章 · 交易管理</div>
+        <h2>14.3 出场:目标 · 减仓 · 让利润奔跑</h2>
+        <span class="facet what">是什么</span>
+        <p>出场有两种哲学,Brooks 常把它们<em>结合</em>使用:</p>
+        <figure data-fig="exit"></figure>
+        <p><strong>固定目标(测量移动):</strong>在测量移动目标处全部止盈。纪律性强、适合震荡和弱趋势(目标可达即可)。<br>
+        <strong>让利润奔跑(移动止损):</strong>不设固定目标,用移动止损一路跟,直到趋势反转才出。适合强趋势,能吃到大行情。<br>
+        <strong>减仓 (scaling out):</strong>两者的折中——在第一目标(如 1R 或测量移动)先平掉一部分仓位锁定利润,剩下的用移动止损去博更大的行情。</p>
+        <span class="facet hp">什么时候用哪种</span>
+        <p>用第三、四卷的"环境"来选:<strong>震荡 / 弱趋势 → 固定目标(到了就走);强趋势(窄通道、EMA 缺口)→ 减仓 + 移动止损(让一部分奔跑)。</strong>这又一次回到你策略"强趋势 2 腿 / 弱趋势 1 腿"的设计——只是真人会用"部分减仓"做得更细腻。</p>
+        <div class="socratic">
+          <div class="q">
+            <div class="tag">想一想</div>
+            <div class="qt">你在一个强趋势里用"固定目标"做单,每次到 1R 就全部止盈、纪律很好。但年终一看,你错过了好几波大行情,总收益平平。问题出在哪?</div>
+            <button>想好了,揭晓 →</button>
+          </div>
+          <div class="a"><div class="a-inner">
+            <p>问题在于:<strong>你用"震荡的出场法",做了"趋势的行情"。</strong>固定的小目标在震荡里是优点(到了就走、不贪),但在强趋势里是致命伤——它让你反复砍掉刚开始奔跑的赢家,而你的亏损单仍然是满额的 1R。长期下来,你的盈利被自己截短,亏损却没省,交易者方程被你亲手压扁了。</p>
+            <p>修正方法正是减仓:<strong>到第一目标先平一部分(锁住、心安),剩下的挂上移动止损去跟趋势。</strong>这样你既保留了纪律,又给了赢家奔跑的空间。一个核心原则贯穿始终:<em>出场方式必须匹配环境。</em>趋势里最大的错误,往往不是亏损单,而是被过早砍掉的赢家。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 15.1 -->
+      <section id="s151">
+        <div class="kicker">第 15 章 · 把优势变成盈利</div>
+        <h2>15.1 交易者方程:把"值不值得"算出来</h2>
+        <span class="facet what">是什么</span>
+        <p>第一卷我们提过它,现在用真实数字把它算透。<strong>交易者方程 (trader's equation)</strong> 回答一个问题:这个 setup,长期重复下去,是赚还是赔?</p>
+        <div class="panel">
+          <div class="eqrow">
+            期望 = <span class="win">胜率 × 平均盈利</span> − <span class="loss">败率 × 平均亏损</span>
+          </div>
+          <div class="eqrow" style="margin-top:14px;font-size:15px;">
+            举例:胜率 <span class="win">40%</span>,盈利 <span class="win">2R</span>,亏损 <span class="loss">1R</span><br>
+            = <span class="win">0.4 × 2</span> − <span class="loss">0.6 × 1</span> = <span class="res">+0.2R / 笔</span>
+          </div>
+          <div class="eqnote">即使你 60% 的交易在亏,这个 setup 长期仍然赚钱——每笔平均赚 0.2R。</div>
+        </div>
+        <span class="facet why">逻辑 —— 反直觉但救命</span>
+        <p>这个例子揭示了交易最反直觉的真相:<strong>胜率不重要,期望才重要。</strong>一个胜率只有 40% 的策略,只要盈亏比够好(赢 2 输 1),就是台印钞机;反过来,一个胜率 70% 但赢 1 输 2 的策略,长期必赔。</p>
+        <p>这也解释了贯穿全系列的纪律为什么有数学依据:<strong>"等回调、等二次确认"提高的是胜率和盈亏比;"摆动点止损 + 让利润奔跑"放大的是平均盈利 / R。</strong>你学的每一条纪律,最终都在往这个方程的"正"号那边推。</p>
+        <span class="facet hp">怎么用</span>
+        <p>每个 setup 进场前,粗算一遍:我赢的概率大概多少?目标几 R、止损 1R?乘一乘。<strong>方程为负的单子,形态再漂亮也不做。</strong>这是把"凭感觉"变成"凭期望"的关键一步。</p>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 15.2 -->
+      <section id="s152">
+        <div class="kicker">第 15 章 · 把优势变成盈利</div>
+        <h2>15.2 仓位管理:用 R 思考</h2>
+        <span class="facet what">是什么</span>
+        <p><strong>R</strong> = 你这一笔愿意亏的钱(初始风险)。Brooks 和几乎所有专业交易者,都用"<strong>每笔固定风险</strong>"来管仓位:无论行情多诱人,<em>每一笔亏的钱大致相同</em>(常见是账户的 0.5%–2%)。</p>
+        <figure data-fig="sizing"></figure>
+        <span class="facet why">逻辑 —— 为什么固定 R</span>
+        <p>关键洞察:<strong>固定的是"亏多少钱",不是"买多少手"。</strong>止损近的交易,可以买更多手;止损远的交易,就少买几手——这样不管止损多宽,你单笔的美元风险都一样。公式是:</p>
+        <div class="panel"><div class="eqrow" style="font-size:15.5px;">
+          手数 = <span class="res">单笔风险($)</span> ÷ ( <span class="loss">止损距离</span> × 每手每点价值 )
+        </div></div>
+        <p>这件事的威力在于:它让一连串亏损<em>无法</em>摧毁你。如果每笔只冒 1% 的险,连亏 10 笔也只回撤约 10%,你还活着、还能交易。<strong>新手爆仓,几乎从不是因为看错,而是因为某一笔下得太重。</strong></p>
+        <span class="facet gb">最危险的习惯</span>
+        <p><strong>"这次我特别有把握,重仓一把。"</strong>——这是账户杀手。市场没有"确定",再漂亮的 setup 也会失败(第一卷第三课)。把单笔风险钉死,是你能给自己买的最便宜、也最重要的保险。</p>
+        <div class="connect">
+          <div class="h">连接你的代码</div>
+          你的策略目前 <code>default_qty</code> 固定 1 手——这意味着止损宽时美元风险大、止损窄时小,<em>风险不恒定</em>。一个更专业的版本会按"固定美元风险 ÷ 止损距离"动态算手数,让每笔 R 相等。这是把 Brooks 仓位纪律代码化,也是你回测结果更可信的前提。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 15.3 -->
+      <section id="s153">
+        <div class="kicker">第 15 章 · 把优势变成盈利</div>
+        <h2>15.3 时段 · 心理 · 功夫</h2>
+        <span class="facet what">交易时段的性格</span>
+        <p>同一个市场,一天之内性格会变。Brooks 特别强调读懂时段:</p>
+        <div class="session">
+          <div class="blk"><div class="when">开盘</div><div class="nm">最活跃</div><p>波动最大、最容易出现强突破和新趋势,机会多但也最易被甩。许多日内趋势从这里诞生。</p></div>
+          <div class="blk"><div class="when">午盘</div><div class="nm">最危险</div><p>常陷入震荡 / 铁丝网,方向最随机。Brooks 的建议:少做,甚至不做,等收盘前。</p></div>
+          <div class="blk"><div class="when">收盘前</div><div class="nm">常有趋势</div><p>常出现尾盘趋势或对当日方向的确认 / 反转,是另一个机会窗口。</p></div>
+        </div>
+        <span class="facet what">心理纪律</span>
+        <p>所有技术,最终都要穿过你这个"人"。三条最关键的心理纪律:<strong>① 接受亏损是成本</strong>(单笔亏损不是失败,是做生意的费用);<strong>② 不报复性交易</strong>(刚亏完别急着扳回来,那是情绪在下单);<strong>③ 错过比做错便宜</strong>(没上车的行情不花钱,做错的交易要付费)。</p>
+        <span class="facet hp">真正的功夫:看图 + playbook + 日志</span>
+        <p>这是 Brooks 反复强调、也是全系列最后的叮嘱——读完五卷,真正的进步才刚开始:</p>
+        <p><strong>① 看图时间 (screen time):</strong>每天回放历史图、逐根读盘。这是唯一能把"知识"变成"本能"的途径。<br>
+        <strong>② 个人 playbook:</strong>把你最有把握的几个 setup,各配 20+ 真实截图,整理成你自己的手册。<br>
+        <strong>③ 交易日志:</strong>每一笔都记下"为什么进、信号是什么、止损在哪、结果、复盘对错"。日志是你最诚实的老师。</p>
+        <div class="connect">
+          <div class="h">连接你的代码</div>
+          你已经在做第四种功夫了——<strong>把规则代码化、跑回测</strong>。这是看图和日志之外,验证一个 setup 期望值最快的方式。读完五卷,你可以反过来:用 Brooks 的原则审视你的策略,把"震荡过滤、二次入场、保本移损、固定 R 仓位"逐一加进去,让回测真正逼近 Brooks 的打法。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 尾声 -->
+      <section id="end">
+        <div class="endcard">
+          <div class="kicker">尾声 · 五卷合一</div>
+          <h2>从读棒,到成为交易者</h2>
+          <p>五卷走完了。回望整段路:</p>
+          <p><strong>第一卷</strong>给了你眼睛——把每根棒读成一场战争。<br>
+          <strong>第二卷</strong>给了你趋势的地图。<br>
+          <strong>第三卷</strong>给了你认出震荡、保住本金的能力。<br>
+          <strong>第四卷</strong>教你读懂趋势的死亡与重生。<br>
+          <strong>第五卷</strong>把这一切,变成了你手上能下的单、能守的纪律。</p>
+          <p>你现在拥有一套完整的语法:从<em>读懂一根棒</em>,到<em>识别环境</em>,到<em>选择 setup</em>,到<em>管理一笔交易</em>,到<em>用方程和仓位把优势变成长期盈利</em>。这,就是 Al Brooks 价格行为的全貌。</p>
+          <p>但请记住最后这句话,它比这五卷的任何一页都重要:<strong>书到此为止,功夫才刚开始。</strong>真正让你成为交易者的,不是读完了五卷,而是之后成百上千小时的看图、一笔一笔的日志、和一次次在该等时忍住、在该砍时果断。Brooks 自己说过,这条路要以"年"计。你已经有了地图——剩下的,是亲自走。</p>
+
+          <div class="poem" style="margin-top:38px;">
+            <div class="pt">终卷诗 · 走</div>
+            <div class="verse">
+              我把五卷书叠好,放在桌角,<br>
+              像放下一张读熟的地图。<br>
+              地图不会替我走路,<br>
+              但此后每一步,我都认得脚下——<br>
+              哪里是趋势的台阶,<br>
+              哪里是震荡的泥沼,<br>
+              哪里,有一道正在收敛的、<br>
+              低了半寸的潮。<br>
+              于是我合上书,抬起头,<br>
+              开始读那张,永远写不完的图。
+            </div>
+            <div class="by">—— 终卷原创 · 献给所有把"看懂"走成"做到"的人</div>
+          </div>
+
+          <p style="margin-top:34px; color:var(--muted); font-size:15px;">五卷到此完整了。接下来最自然的一步,是把这一整套体系<strong>带回你的代码</strong>:跟我说"<b>回头优化策略</b>",我们就逐个模块重审你的 Pine 策略——加震荡/铁丝网过滤、补 BPB 与二次入场、做保本与移动止损、改成固定 R 仓位——把你当初凭直觉写的东西,升级成一套真正贯彻 Brooks 原则的策略。你已经从"凭感觉写代码的人",变成了"带着完整语法读市场、也读自己代码的人"。</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script>
+const NS="http://www.w3.org/2000/svg";
+const C={bull:"#26a69a",bear:"#ef5350",gold:"#d4a657",muted:"#8b94a3",ink:"#e9e5d8",line:"#2c343f",faint:"#5c6573",hand:"#d98a4f"};
+function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}
+function drawCandles(svg,bars,opts={}){
+  const W=720,H=opts.h||230,padX=46,padTop=24,padBot=30;
+  svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
+  let lo=Infinity,hi=-Infinity;
+  bars.forEach(b=>{lo=Math.min(lo,b.l);hi=Math.max(hi,b.h);});
+  if(opts.levels)opts.levels.forEach(L=>{lo=Math.min(lo,L.p);hi=Math.max(hi,L.p);});
+  if(opts.segs)opts.segs.forEach(g=>{lo=Math.min(lo,g.p1,g.p2);hi=Math.max(hi,g.p1,g.p2);});
+  if(opts.ema)opts.ema.forEach(v=>{if(v!=null){lo=Math.min(lo,v);hi=Math.max(hi,v);}});
+  const pad=(hi-lo)*0.16||1;lo-=pad;hi+=pad;
+  const Y=p=>padTop+(hi-p)/(hi-lo)*(H-padTop-padBot);
+  const n=bars.length,slot=(W-padX*2)/n,X=i=>padX+slot*i+slot/2,cw=Math.min(slot*0.56,24);
+  if(opts.levels)opts.levels.forEach(L=>{
+    svg.appendChild(el("line",{x1:padX-6,x2:W-padX+6,y1:Y(L.p),y2:Y(L.p),stroke:L.color||C.faint,"stroke-width":1,"stroke-dasharray":L.dash||"5 5",opacity:.9}));
+    if(L.label){const t=el("text",{x:padX-8,y:Y(L.p)+4,fill:L.color||C.muted,"font-size":11,"font-family":"monospace","text-anchor":"end"});t.textContent=L.label;svg.appendChild(t);}
+  });
+  if(opts.segs)opts.segs.forEach(g=>{svg.appendChild(el("line",{x1:X(g.i1),y1:Y(g.p1),x2:X(g.i2),y2:Y(g.p2),stroke:g.color||C.hand,"stroke-width":g.w||1.6,"stroke-dasharray":g.dash||"none",opacity:.95}));});
+  if(opts.ema){let d="";opts.ema.forEach((v,i)=>{if(v==null)return;d+=(d?" L":"M")+X(i)+" "+Y(v);});svg.appendChild(el("path",{d,fill:"none",stroke:C.gold,"stroke-width":2,opacity:.85}));}
+  bars.forEach((b,i)=>{
+    const up=b.c>=b.o,col=b.col||(up?C.bull:C.bear),x=X(i);
+    svg.appendChild(el("line",{x1:x,x2:x,y1:Y(b.h),y2:Y(b.l),stroke:col,"stroke-width":1.6}));
+    const yo=Y(b.o),yc=Y(b.c),top=Math.min(yo,yc);let hgt=Math.abs(yo-yc);if(hgt<2)hgt=2;
+    svg.appendChild(el("rect",{x:x-cw/2,y:top,width:cw,height:hgt,fill:col,rx:1.5}));
+    if(b.n!=null){const t=el("text",{x:x,y:Y(b.l)+18,fill:b.ncol||C.muted,"font-size":12,"font-family":"monospace","text-anchor":"middle","font-weight":b.ncol?"bold":"normal"});t.textContent=b.n;svg.appendChild(t);}
+  });
+  if(opts.notes)opts.notes.forEach(nt=>{
+    const x=nt.i!=null?X(nt.i):nt.x,y=nt.p!=null?Y(nt.p):nt.y;
+    const t=el("text",{x:x,y:y+(nt.dy||0),fill:nt.color||C.ink,"font-size":12.5,"font-family":"monospace","text-anchor":nt.anchor||"middle"});
+    t.textContent=nt.text;svg.appendChild(t);
+  });
+}
+function mkSVG(){return el("svg",{});}
+
+const figs={
+  bpb(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:8,h:14,l:7.5,c:13},{o:13,h:18,l:12.5,c:17},
+      {o:17,h:24,l:16.5,c:23,col:C.bull},
+      {o:23,h:23.5,l:19,c:19.5},{o:19.5,h:20.5,l:18,c:20,col:C.bull},
+      {o:20,h:27,l:19.5,c:26},{o:26,h:31,l:25.5,c:30},
+    ],{h:240,levels:[{p:18,color:C.faint,dash:"4 4",label:"突破位→现支撑"}],
+    notes:[
+      {i:2,p:24,text:"突破",color:C.bull,dy:-8},
+      {i:4,p:18,text:"回调结束→入场",color:C.hand,dy:24},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 13.1</b> 突破回调 BPB:突破证明方向,回调给你好价格和近止损。顺势之王。</figcaption>`);
+  },
+  h2flag(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:8,h:15,l:7.5,c:14},{o:14,h:21,l:13.5,c:20},
+      {o:20,h:20.5,l:16,c:16.5},{o:16.5,h:18.5,l:16,c:17.5,n:"H1",ncol:C.muted},
+      {o:17.5,h:18,l:15,c:15.5},{o:15.5,h:20,l:15.2,c:19,n:"H2",ncol:C.hand},
+      {o:19,h:26,l:18.5,c:25},
+    ],{h:240,ema:[9,12,14.5,15.5,15.2,15.6,17],
+    notes:[{i:5,p:20,text:"H2·回到EMA·强信号棒→进",color:C.hand,dy:-8}]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 13.2</b> H2/EMA 回调:强趋势 + 回到平均成本 + 两腿走完 + 强信号棒,四重合流。</figcaption>`);
+  },
+  fadeset(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:12,h:21,l:11.5,c:20},{o:20,h:27,l:19.5,c:21,col:C.bear},
+      {o:21,h:21.5,l:15,c:16,col:C.bear},{o:16,h:16.5,l:10.5,c:11,col:C.bear},
+      {o:11,h:12,l:9.8,c:11.5},
+    ],{h:235,levels:[{p:21,color:C.bear,dash:"4 4",label:"区间上沿"},{p:10,color:C.bull,dash:"4 4",label:"目标"}],
+    notes:[
+      {i:1,p:27.5,text:"假突破·收回",color:C.bear,dy:0},
+      {i:2,p:15,text:"反做做空→目标区间另一边",color:C.hand,dy:24},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 13.3</b> 反做家族:等冲动失败、被套,再顺失败方向进。震荡反陷阱 / 趋势末端二次入场,共享同一灵魂。</figcaption>`);
+  },
+  entries(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:15,h:19,l:11,c:12,col:C.bear},{o:12,h:16,l:11,c:15,col:C.bull,n:"信号棒",ncol:C.hand},
+      {o:15,h:21,l:14.5,c:20},
+    ],{h:235,levels:[
+      {p:16.3,color:C.bull,dash:"3 3",label:"止损单(确认进)"},
+      {p:13,color:C.gold,dash:"3 3",label:"限价单(更好价)"},
+    ],notes:[{i:2,p:21,text:"市价=立刻进(放弃确认)",color:C.muted,dy:-8}]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 14.1</b> 三种下单:止损单(要确认·最稳)、限价单(等更好价·会落空)、市价(换速度·偶用)。</figcaption>`);
+  },
+  exit(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:8,h:13,l:7.5,c:12},{o:12,h:18,l:11.5,c:17},{o:17,h:23,l:16.5,c:22},
+      {o:22,h:28,l:21.5,c:27},{o:27,h:33,l:26.5,c:32},{o:32,h:38,l:31.5,c:37},
+    ],{h:240,levels:[
+      {p:23,color:C.gold,dash:"4 4",label:"目标1:减仓50%"},
+      {p:37,color:C.bull,dash:"4 4",label:"移动止损跟到此"},
+    ],notes:[{i:4,p:31,text:"剩余仓位让利润奔跑",color:C.hand,dy:-8}]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 14.3</b> 减仓:第一目标先平一半锁利,剩下用移动止损博大行情。出场方式必须匹配环境。</figcaption>`);
+  },
+  sizing(f){
+    const s=mkSVG();
+    drawCandles(s,[{o:14,h:16,l:13,c:15.5,col:C.bull}],{h:150,levels:[{p:13,color:C.bear,dash:"3 3",label:"止损近"}],
+    notes:[{i:0,p:16,text:"止损窄→买更多手",color:C.bull,dy:-6}]});
+    f.appendChild(s);
+    const s2=mkSVG();
+    drawCandles(s2,[{o:14,h:16,l:8,c:15.5,col:C.bull}],{h:150,levels:[{p:8,color:C.bear,dash:"3 3",label:"止损远"}],
+    notes:[{i:0,p:16,text:"止损宽→买更少手",color:C.bear,dy:-6}]});
+    f.appendChild(s2);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 15.2</b> 固定的是"亏多少钱",不是"买多少手"。止损越宽,手数越少——两笔的美元风险相同。</figcaption>`);
+  },
+};
+document.querySelectorAll("figure[data-fig]").forEach(f=>{const k=f.getAttribute("data-fig");if(figs[k])figs[k](f);});
+
+// ---------- animated trade lifecycle ----------
+const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function buildTrade(container){
+  container.innerHTML="";
+  const W=720,H=300,padX=50,padTop=28,padBot=34;
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`}); svg.style.width="100%"; svg.style.height="auto";
+  const bars=[
+    {o:8,h:12,l:7,c:11},{o:11,h:16,l:10.5,c:15},
+    {o:15,h:16,l:12,c:12.5},
+    {o:12.5,h:15.5,l:12,c:15,col:C.bull},
+    {o:15.5,h:20,l:15,c:19},{o:19,h:24,l:18.5,c:23},{o:23,h:29,l:22.5,c:28},
+  ];
+  let lo=4,hi=32;
+  const Y=p=>padTop+(hi-p)/(hi-lo)*(H-padTop-padBot);
+  const n=bars.length,slot=(W-padX*2)/n,X=i=>padX+slot*i+slot/2,cw=Math.min(slot*0.5,22);
+  bars.forEach((b,i)=>{
+    const up=b.c>=b.o,col=b.col||(up?C.bull:C.bear),x=X(i);
+    svg.appendChild(el("line",{x1:x,x2:x,y1:Y(b.h),y2:Y(b.l),stroke:col,"stroke-width":1.6}));
+    const yo=Y(b.o),yc=Y(b.c),top=Math.min(yo,yc);let h=Math.abs(yo-yc);if(h<2)h=2;
+    svg.appendChild(el("rect",{x:x-cw/2,y:top,width:cw,height:h,fill:col,rx:1.5}));
+  });
+  const ENTRY=16, SL0=11.5, BE=16, TRAIL=18.7, TARGET=24.4;
+  // entry line (static after reveal)
+  const entryLine=el("line",{x1:X(3),x2:W-padX,y1:Y(ENTRY),y2:Y(ENTRY),stroke:C.hand,"stroke-width":1.4,"stroke-dasharray":"2 3"});
+  entryLine.style.opacity="0";entryLine.style.transition="opacity .4s";svg.appendChild(entryLine);
+  const entryMark=el("text",{x:X(3),y:Y(ENTRY)-8,fill:C.hand,"font-size":12,"font-family":"monospace","text-anchor":"middle","font-weight":"bold"});
+  entryMark.textContent="① 进场";entryMark.style.opacity="0";entryMark.style.transition="opacity .4s";svg.appendChild(entryMark);
+  // target line
+  const tgt=el("line",{x1:padX,x2:W-padX,y1:Y(TARGET),y2:Y(TARGET),stroke:C.bull,"stroke-width":1.2,"stroke-dasharray":"5 4"});
+  tgt.style.opacity="0";tgt.style.transition="opacity .5s";svg.appendChild(tgt);
+  const tgtL=el("text",{x:padX-6,y:Y(TARGET)+4,fill:C.bull,"font-size":11,"font-family":"monospace","text-anchor":"end"});
+  tgtL.textContent="目标(测量移动)";tgtL.style.opacity="0";tgtL.style.transition="opacity .5s";svg.appendChild(tgtL);
+  // moving stop line
+  const stop=el("line",{x1:padX,x2:W-padX,y1:Y(SL0),y2:Y(SL0),stroke:C.bear,"stroke-width":1.6});
+  stop.style.opacity="0";stop.style.transition="opacity .4s, y1 .6s ease, y2 .6s ease";svg.appendChild(stop);
+  const stopL=el("text",{x:padX-6,y:Y(SL0)+4,fill:C.bear,"font-size":11,"font-family":"monospace","text-anchor":"end"});
+  stopL.style.opacity="0";stopL.style.transition="opacity .4s, y .6s ease";svg.appendChild(stopL);
+  // stage caption
+  const cap=el("text",{x:W-padX,y:padTop+2,fill:C.ink,"font-size":12.5,"font-family":"monospace","text-anchor":"end"});
+  cap.style.opacity="0";cap.style.transition="opacity .3s";svg.appendChild(cap);
+  // check at target
+  const chk=el("text",{x:X(6),y:Y(TARGET)-10,fill:C.bull,"font-size":14,"font-family":"monospace","text-anchor":"middle","font-weight":"bold"});
+  chk.textContent="✓ 止盈";chk.style.opacity="0";chk.style.transition="opacity .5s";svg.appendChild(chk);
+
+  container.appendChild(svg);
+
+  function setStop(p,label){stop.setAttribute("y1",Y(p));stop.setAttribute("y2",Y(p));stopL.setAttribute("y",Y(p)+4);stopL.textContent=label;}
+  function showFinal(){
+    entryLine.style.opacity="1";entryMark.style.opacity="1";tgt.style.opacity="1";tgtL.style.opacity="1";
+    stop.style.opacity="1";stopL.style.opacity="1";setStop(TRAIL,"③④ 移动止损");chk.style.opacity="1";cap.style.opacity="1";cap.textContent="一笔完整管理";
+  }
+  function play(){
+    [entryLine,entryMark,tgt,tgtL,stop,stopL,chk,cap].forEach(e=>e.style.opacity="0");
+    setStop(SL0,"② 初始止损");
+    if(reduce){showFinal();return;}
+    void svg.getBBox();
+    setTimeout(()=>{entryLine.style.opacity="1";entryMark.style.opacity="1";cap.style.opacity="1";cap.textContent="① 信号棒上方进场";},300);
+    setTimeout(()=>{stop.style.opacity="1";stopL.style.opacity="1";setStop(SL0,"② 初始止损(摆动低点下)");cap.textContent="② 设初始止损 = 风险 R";},1300);
+    setTimeout(()=>{tgt.style.opacity="1";tgtL.style.opacity="1";},2100);
+    setTimeout(()=>{setStop(BE,"③ 保本");cap.textContent="③ 走出≈1R → 止损移到保本";},3000);
+    setTimeout(()=>{setStop(TRAIL,"④ 移动止损");cap.textContent="④ 顺势上移·锁住浮盈";},4200);
+    setTimeout(()=>{chk.style.opacity="1";cap.textContent="⑤ 触及目标 → 止盈";},5400);
+  }
+  return play;
+}
+const tradePlays={};
+document.querySelectorAll("[data-anim='trade']").forEach(c=>{
+  const play=buildTrade(c); tradePlays["trade"]=play;
+  const io2=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){play();io2.unobserve(e.target);}});},{threshold:.3});
+  io2.observe(c);
+});
+document.querySelectorAll("[data-replay]").forEach(btn=>{btn.addEventListener("click",()=>{const k=btn.getAttribute("data-replay");if(tradePlays[k])tradePlays[k]();});});
+
+// socratic / progress / reveal / nav
+document.querySelectorAll(".socratic button").forEach(btn=>{btn.addEventListener("click",()=>{const card=btn.closest(".socratic");const open=card.classList.toggle("open");btn.textContent=open?"收起 ↑":"想好了,揭晓 →";});});
+const prog=document.getElementById("progress");
+function updProg(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,max=h.scrollHeight-h.clientHeight;prog.style.width=(max>0?(sc/max*100):0)+"%";}
+window.addEventListener("scroll",updProg,{passive:true});updProg();
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll("figure").forEach(f=>io.observe(f));
+const links=[...document.querySelectorAll(".rail a")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const navIO=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}});},{rootMargin:"-10% 0px -75% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>navIO.observe(s));
+</script>
+  <script src="reader.js"></script>
+</body>
+</html>

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>读棒 · Al Brooks 价格行为 · 第二卷:趋势</title>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --bull:#26a69a; --bear:#ef5350; --gold:#d4a657; --gold-soft:#3a3322;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--gold); color:#1a1a1a;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%;
+    background:linear-gradient(90deg,var(--bull),var(--gold)); z-index:100; transition:width .1s linear;}
+  .wrap{display:grid; grid-template-columns:240px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto;
+    padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--gold);
+    text-transform:uppercase; margin-bottom:4px;}
+  .rail .brand b{color:var(--ink); display:block; font-size:19px; letter-spacing:.04em; margin-top:6px; font-family:var(--serif);}
+  .rail ol{list-style:none; padding:0; margin:26px 0 0;}
+  .rail .chap{font-family:var(--mono); font-size:11px; color:var(--faint); letter-spacing:.1em; margin:20px 0 6px; text-transform:uppercase;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:5px 10px;
+    border-left:2px solid transparent; border-radius:0 4px 4px 0; transition:.18s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--gold); border-left-color:var(--gold); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:90px 0 70px; border-bottom:1px solid var(--line); margin-bottom:10px;
+    background:radial-gradient(120% 80% at 80% -10%, rgba(38,166,154,.10), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.28em; color:var(--bull); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:62px; line-height:1.02; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:23px; color:var(--muted); font-weight:400; margin-top:18px; letter-spacing:.02em;}
+  .cover .vol{font-family:var(--mono); font-size:13px; color:var(--faint); margin-top:30px; letter-spacing:.1em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--bull); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:33px; line-height:1.15; margin:6px 0 4px;}
+  h3{font-family:var(--serif); font-weight:600; font-size:22px; margin:38px 0 2px;}
+  p{margin:16px 0; color:#dcd8cc;}
+  p strong{color:var(--ink); font-weight:600;}
+  em{color:var(--gold); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em;
+    padding:2px 9px; border-radius:20px; margin:30px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;}
+  .facet.why{background:var(--gold-soft); color:var(--gold);}
+  .facet.gb{background:#33282a; color:#f0a0a0;}
+  .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:30px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px;
+    padding:20px 20px 14px; opacity:0; transform:translateY(14px); transition:.6s ease;}
+  figure.in{opacity:1; transform:none;}
+  figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px;
+    padding-top:11px; border-top:1px solid var(--line); letter-spacing:.02em;}
+  figcaption b{color:var(--gold);}
+  .socratic{margin:34px 0; border:1px solid var(--line); border-left:3px solid var(--gold); border-radius:10px;
+    background:linear-gradient(180deg, rgba(212,166,87,.05), transparent); overflow:hidden;}
+  .socratic .q{padding:20px 22px;}
+  .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--gold); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:20px; color:var(--ink); margin:8px 0 16px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12.5px; letter-spacing:.05em; color:var(--bg);
+    background:var(--gold); border:none; padding:9px 16px; border-radius:7px; cursor:pointer; transition:.18s;}
+  .socratic button:hover{filter:brightness(1.08);}
+  .socratic button:focus-visible{outline:2px solid var(--ink); outline-offset:2px;}
+  .socratic .a{max-height:0; opacity:0; transition:max-height .5s ease, opacity .4s ease; border-top:1px solid transparent;}
+  .socratic.open .a{max-height:760px; opacity:1; border-top-color:var(--line);}
+  .socratic .a-inner{padding:18px 22px 22px;}
+  .socratic .a-inner p:first-child{margin-top:0;}
+  .socratic .a-inner p{font-size:16px; color:#cfcabd;}
+  .connect{margin:30px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15.5px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--bull); margin-bottom:6px;}
+  .connect code{font-family:var(--mono); font-size:13px; background:#11161c; color:var(--gold); padding:1px 6px; border-radius:4px;}
+  .divider{height:1px; background:var(--line); margin:64px 0 0;}
+  .endcard{margin:56px 0 0; padding:34px; border:1px solid var(--line); border-radius:14px;
+    background:radial-gradient(120% 120% at 0% 0%, rgba(239,83,80,.08), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static; height:auto; border-right:none; border-bottom:1px solid var(--line);
+      display:flex; gap:14px; overflow-x:auto; white-space:nowrap; padding:16px 18px;}
+    .rail ol{display:flex; gap:6px; margin:0;}
+    .rail .brand,.rail .chap{display:none;}
+    .rail a{border-left:none; border-bottom:2px solid transparent; border-radius:4px; padding:6px 10px;}
+    .rail a.active{border-left:none; border-bottom-color:var(--gold);}
+    .cover h1{font-size:42px;} .cover h1 .small{font-size:19px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none!important; transition:none!important; scroll-behavior:auto!important;}
+    figure{opacity:1; transform:none;}
+  }
+</style>
+  <link rel="stylesheet" href="reader.css">
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+
+  <nav class="rail">
+    <div class="brand">读棒 · READING BARS<b>趋势</b></div>
+    <div class="shelf-nav" style="margin:12px 0 0;font-family:var(--mono);font-size:11px;display:flex;flex-wrap:wrap;gap:7px;">
+      <a href="index.html" style="color:var(--bull);text-decoration:none;border:1px solid var(--line);padding:3px 9px;border-radius:6px;">📚 书架</a>
+      <a href="price_action_book_vol1.html" style="color:var(--muted);text-decoration:none;border:1px solid var(--line);padding:3px 9px;border-radius:6px;">← 第一卷</a>
+      <a href="price_action_book_vol3.html" style="color:var(--muted);text-decoration:none;border:1px solid var(--line);padding:3px 9px;border-radius:6px;">第三卷 →</a>
+    </div>
+    <ol>
+      <li><div class="chap">序</div><a href="#intro">从字母到句子</a></li>
+      <li><div class="chap">第 4 章 · 趋势的形态</div>
+        <a href="#s41">4.1 什么是趋势</a>
+        <a href="#s42">4.2 尖峰与通道</a>
+        <a href="#s43">4.3 窄通道与宽通道</a>
+      </li>
+      <li><div class="chap">第 5 章 · 回调</div>
+        <a href="#s51">5.1 趋势为何呼吸</a>
+        <a href="#s52">5.2 H1 H2 计数法</a>
+        <a href="#s53">5.3 20 EMA:回调的标尺</a>
+        <a href="#s54">5.4 两腿回调与 ABC</a>
+      </li>
+      <li><div class="chap">第 6 章 · 力量的标志</div>
+        <a href="#s61">6.1 测量缺口</a>
+        <a href="#s62">6.2 always-in 如何翻转</a>
+        <a href="#s63">6.3 顺势,而非逆势</a>
+      </li>
+      <li><div class="chap">尾声</div><a href="#end">通向"震荡"的门</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <header class="cover">
+      <div class="col">
+        <div class="eyebrow">第二卷 · 趋势</div>
+        <h1>趋势<span class="small">把单根K线连成第一个完整的句子:市场如何形成、维持、并最终失去一个方向</span></h1>
+        <div class="vol">AL BROOKS PRICE ACTION · VOL.2 / TRENDS</div>
+      </div>
+    </header>
+
+    <div class="col">
+
+      <!-- 序 -->
+      <section id="intro">
+        <div class="kicker">序</div>
+        <h2>从字母到句子</h2>
+        <p class="lead">第一卷你学会了读"字母"。这一卷,我们把字母连成第一个完整的句子——<em>趋势</em>。</p>
+        <p>趋势是价格行为里最赚钱、也最容易被误解的东西。新手以为趋势就是"一直涨",于是追在顶部;或者以为"涨这么多该跌了",于是逆势抄底,被反复碾压。Brooks 的趋势观完全不同:<strong>趋势是多头持续赢得每一场小战争的过程</strong>,而你的工作,是在它还在赢的时候站在它那一边,并在它第一次"赢得不再干脆"时保持警觉。</p>
+        <p>这一卷会回答:趋势长什么样(第4章)、它怎么呼吸/回调(第5章)、以及怎么判断它的力量、方向何时翻转(第6章)。学完,你策略里的 H1/H2、EMA 缺口、always-in 翻转,每一行都会有它的来历。</p>
+        <div class="socratic">
+          <div class="q">
+            <div class="tag">先想一想</div>
+            <div class="qt">一段上涨已经持续了很久,涨幅很大。仅凭"涨太多了"这个理由去做空,在 Brooks 看来犯了什么根本错误?</div>
+            <button>想好了,揭晓 →</button>
+          </div>
+          <div class="a"><div class="a-inner">
+            <p>它把"幅度"误当成了"概率"。<strong>趋势不会因为"涨太多"而反转——它因为"买方力量耗尽"而反转,这两件事没有必然关系。</strong>一个强趋势可以涨到任何"看起来太高"的位置,继续涨。</p>
+            <p>Brooks 的铁律:<strong>在强趋势里,顺势的概率永远高于逆势。</strong>除非你看到实打实的、多根棒的力量衰竭证据(这一卷会教你认),否则"涨太多"只是你的情绪,不是市场的信号。逆着强趋势抄,是新手亏钱最经典的方式。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 4.1 -->
+      <section id="s41">
+        <div class="kicker">第 4 章 · 趋势的形态</div>
+        <h2>4.1 什么是趋势</h2>
+        <span class="facet what">是什么</span>
+        <p>最朴素的定义:<strong>上升趋势 = 一连串更高的高点 (higher highs) 和更高的低点 (higher lows)</strong>,像一段向上的楼梯。下降趋势则相反。</p>
+        <figure data-fig="structure"></figure>
+        <span class="facet why">逻辑</span>
+        <p>为什么"更高的低点"比"更高的高点"还重要?因为<strong>低点反映的是回调时多头的接盘决心</strong>。每次回调都在更高的位置就被买回去,说明多头一次比一次急着进场、不愿等更低的价格。这种"越买越积极"的脚印,才是趋势真正的引擎。</p>
+        <p>这就引出了第一卷埋下的概念——<em>always-in(总是在场)</em>:在一个清晰的上升趋势里,市场"总是在场做多",意思是如果此刻强制你持仓,正确答案就是做多,而且要一直做多,直到出现强力反向证据才翻转。</p>
+        <span class="facet hp">什么时候高概率</span>
+        <p>趋势越"干净"(楼梯越规整、回调越浅、趋势棒越多),顺势入场的概率越高。反过来,如果高点和低点开始重叠、楼梯变得歪歪扭扭,趋势就在退化成震荡——那时再用趋势的玩法,概率就崩了。</p>
+        <div class="connect">
+          <div class="h">连接你的代码</div>
+          你策略里 <code>alwaysIn</code> 这个变量,正是"市场总是在场哪个方向"的代码化。它默认保持一个方向,直到一根强力反向突破棒把它翻转——这完全就是 Brooks 的 always-in 概念。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 4.2 -->
+      <section id="s42">
+        <div class="kicker">第 4 章 · 趋势的形态</div>
+        <h2>4.2 尖峰与通道</h2>
+        <span class="facet what">是什么</span>
+        <p>Brooks 最经典的趋势结构是<strong>尖峰与通道 (spike and channel)</strong>:趋势往往不是匀速的,而是先来一段几乎垂直的<em>尖峰</em>(连续强趋势棒、几乎不回调),然后转入一段更平缓、有来回的<em>通道</em>。</p>
+        <figure data-fig="spike"></figure>
+        <span class="facet why">逻辑</span>
+        <p><strong>尖峰</strong> = 一方突然压倒性占优,对手溃不成军,价格直线推进(常由突破或消息引发)。但这种极端不可持续。<strong>通道</strong> = 输的一方开始零星抵抗,赢家依然主导但需要边打边推,于是出现一根根更小的、夹着回调的棒。</p>
+        <p>关键洞察:<strong>尖峰的高/低点,常常成为后面的"测量移动"目标的起点</strong>——尖峰有多高,通道往往还能走出相当的距离。这正是测量移动的结构来源。</p>
+        <div class="socratic">
+          <div class="q">
+            <div class="tag">想一想</div>
+            <div class="qt">尖峰阶段几乎没有回调,看起来"最强"。但为什么 Brooks 说,在尖峰里追单反而常常是最危险的?</div>
+            <button>想好了,揭晓 →</button>
+          </div>
+          <div class="a"><div class="a-inner">
+            <p>因为尖峰里<strong>没有好的入场点和止损点</strong>。它直线上冲、不给回调,你要么追在半空(止损只能放得极远,盈亏比很差),要么眼睁睁看它走。而且尖峰是情绪化的极端,随时可能戛然而止,转成通道或回调,把追高者套在最高处。</p>
+            <p>Brooks 的做法是:<strong>不在尖峰里追,而是等尖峰结束、进入通道后的第一次回调再顺势进场。</strong>那时趋势已确立(尖峰证明了力量),又终于有了合理的入场和近止损。"最强的地方"和"最好下手的地方"从来不是同一个地方——这和第一卷讲信号棒时是同一个道理。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 4.3 -->
+      <section id="s43">
+        <div class="kicker">第 4 章 · 趋势的形态</div>
+        <h2>4.3 窄通道与宽通道</h2>
+        <span class="facet what">是什么</span>
+        <p>通道也分两种,它们对"该顺势还是该小心"给出完全不同的提示:</p>
+        <figure data-fig="channels"></figure>
+        <p><strong>窄通道 (tight channel):</strong> 棒紧贴着趋势走,回调极浅、几乎不破前低,斜率陡。<br>
+        <strong>宽通道 (broad channel):</strong> 来回幅度大、回调深、上下沿宽,更像"带斜度的震荡"。</p>
+        <span class="facet gb">好的样子 / 坏的样子(对顺势而言)</span>
+        <p><strong>窄通道 = 趋势极强。</strong>对顺势者是好事:几乎每次浅回调都是入场点。但它有个陷阱——窄通道太强,以至于<em>逆势者一个都进不去、顺势者又嫌追高</em>,常以一次"突然反转"收场。<br>
+        <strong>宽通道 = 趋势较弱、双向都有机会。</strong>更接近震荡,顺势的边缘优势变小,假突破变多。</p>
+        <span class="facet hp">什么时候高概率</span>
+        <p>在<strong>窄通道</strong>里,顺势回调入场是高概率的;<em>逆势</em>则几乎必死。在<strong>宽通道</strong>里,要更谨慎,常常等回调到通道的另一边(低买高卖)而不是无脑顺势。读懂通道宽窄,本质就是读懂"这个趋势有多强、我能多大胆地顺势"。</p>
+        <div class="connect">
+          <div class="h">连接你的代码</div>
+          你的"趋势强度评分"试图量化的,正是这个"窄 vs 宽"。<code>bigBodies</code>(大实体)、<code>bullGapRun</code>(连续不碰EMA)越多,越接近窄通道→强趋势→去够更远的2腿目标;反之偏向宽通道→收1腿目标。你早就在用代码区分通道宽窄了。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 5.1 -->
+      <section id="s51">
+        <div class="kicker">第 5 章 · 回调</div>
+        <h2>5.1 趋势为何呼吸</h2>
+        <span class="facet what">是什么</span>
+        <p><strong>回调 (pullback):</strong> 趋势途中,价格暂时朝反方向走的一小段。上升趋势里的回调是短暂下跌,下降趋势里的回调是短暂反弹。</p>
+        <figure data-fig="pullback"></figure>
+        <span class="facet why">逻辑</span>
+        <p>趋势为什么必然有回调?因为<strong>没有一方能不停歇地推进</strong>。多头推一阵就要获利了结(卖出),早先做空被套的人也想在反弹时离场——这些卖压制造了回调。但只要趋势没死,这些卖压很快被新的买盘吸收,回调结束,趋势继续。</p>
+        <p>这是顺势交易者的<em>金矿</em>:<strong>回调,就是趋势送给你的、用更好价格上车的机会。</strong>追在尖峰里是新手,等回调上车是行家。整个第5章,本质就是在教你"如何识别一次回调即将结束"。</p>
+        <span class="facet hp">什么时候高概率</span>
+        <p>在强趋势里,<strong>越浅的回调越高概率</strong>:浅回调说明对手太弱、趋势太强,一旦回调结束,顺势爆发力最足。深而久的回调则要警惕——它可能不是回调,而是趋势正在转成震荡或反转的伪装。</p>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 5.2 -->
+      <section id="s52">
+        <div class="kicker">第 5 章 · 回调</div>
+        <h2>5.2 H1 H2 计数法</h2>
+        <span class="facet what">是什么</span>
+        <p>这是 Brooks 最实用的工具之一,用来给回调"计数",从而精确捕捉回调结束的那一刻。以上升趋势的回调为例:</p>
+        <figure data-fig="h1h2"></figure>
+        <p><strong>H1 (High 1):</strong> 回调中,<em>第一根</em>高点超过前一根高点的棒——多头第一次尝试恢复上涨。<br>
+        <strong>H2 (High 2):</strong> 如果 H1 没能立刻带飞、又小回了一下,之后<em>第二次</em>出现高点超过前一根的棒,就是 H2。</p>
+        <p>(下降趋势里的回调,对称地数 L1 / L2,L = Low。)</p>
+        <span class="facet why">逻辑</span>
+        <p>为什么 H2 是 Brooks 的最爱之一?H1 常常是"过早的尝试"——多头第一次试探,经常失败。而到了 H2,意味着<strong>市场已经做了两腿回调、卖压基本释放完毕,多头第二次发起进攻</strong>。"两腿"是市场常见的回调节奏,所以 H2 往往正好踩在回调的终点上,顺势成功率明显高于 H1。</p>
+        <span class="facet hp">什么时候高概率</span>
+        <p>H2 做多,在以下条件叠加时最高概率:<strong>处在强上升趋势中 ✓、回调正好回到 20 EMA 附近 ✓、H2 的信号棒是一根强阳棒 ✓、更大周期方向也向上 ✓。</strong>这几个条件你应该觉得眼熟——它们几乎就是你策略的入场过滤器。</p>
+        <div class="socratic">
+          <div class="q">
+            <div class="tag">想一想</div>
+            <div class="qt">同样是 H2 做多信号,一次出现在干净的强上升趋势回调里,一次出现在上下重叠、方向不明的区域里。为什么前者高概率、后者是陷阱?</div>
+            <button>想好了,揭晓 →</button>
+          </div>
+          <div class="a"><div class="a-inner">
+            <p>因为 H2 这个<strong>形态</strong>本身,只描述了"回调里第二次向上尝试"这个局部动作——它的价值高低,完全取决于<strong>它嵌在什么趋势里</strong>。</p>
+            <p>在强上升趋势中,H2 是"已确立的多头优势 + 回调结束"的合流,顺势的大背景给了它高胜率。而在重叠无序的区域里,根本没有"趋势"这个背景,H2 只是随机波动里的一个小反弹,向上突破后极易失败反转。</p>
+            <p>这又回到第一卷的铁律,而且在趋势这一卷会越来越重要:<strong>形态只是半个答案,趋势上下文是另一半。</strong> H1/H2 计数法必须永远和"我在什么趋势里"一起用。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 5.3 -->
+      <section id="s53">
+        <div class="kicker">第 5 章 · 回调</div>
+        <h2>5.3 20 EMA:回调的标尺</h2>
+        <span class="facet what">是什么</span>
+        <p>这是价格行为里唯一被广泛使用的均线——<strong>20 周期指数移动平均线 (20 EMA)</strong>。但再强调一次第一卷的话:Brooks 用它<em>不是</em>当买卖信号,而是当一把<strong>衡量回调深度的标尺</strong>、一条动态的支撑/阻力。</p>
+        <figure data-fig="emaruler"></figure>
+        <span class="facet why">逻辑</span>
+        <p>在一个健康的趋势里,价格会反复回到 20 EMA 附近、然后被它"弹开"继续趋势。为什么?因为 20 EMA 大致代表了<strong>最近 20 根棒的平均成本</strong>——回调到这里,等于回到"大家的平均成本线",顺势方往往觉得"这个价格够好了",于是重新进场,把价格推开。</p>
+        <span class="facet gb">好的样子 / 坏的样子</span>
+        <p><strong>好(强趋势):</strong> 回调刚触及 20 EMA 就被弹开,甚至根本碰不到(见下一节的"缺口")。<br>
+        <strong>坏(趋势走弱):</strong> 价格反复穿越 20 EMA、在它上下来回粘着——这说明多空成本趋同、方向在消失,趋势正退化成震荡。</p>
+        <span class="facet hp">什么时候高概率</span>
+        <p><strong>"回调到 20 EMA 的 H2"</strong>是 Brooks 体系里最经典的高概率顺势入场之一:趋势(背景)+ 回到平均成本(位置)+ H2(计数确认)+ 强信号棒(触发),四重合流。</p>
+        <div class="connect">
+          <div class="h">连接你的代码</div>
+          你的 <code>emaPBLong = longCtx and low &lt;= ema and isBull</code> 几乎逐字实现了这一节:在做多背景下,价格回踩到 EMA(<code>low &lt;= ema</code>),出现一根阳棒(<code>isBull</code>)→ 触发。现在你知道这条 EMA 为什么在这儿、它代表什么了。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 5.4 -->
+      <section id="s54">
+        <div class="kicker">第 5 章 · 回调</div>
+        <h2>5.4 两腿回调与 ABC</h2>
+        <span class="facet what">是什么</span>
+        <p>Brooks 观察到:<strong>回调极少只走一腿,通常走两腿。</strong>一个典型回调长这样:先跌一段(A腿),小反弹一下(B,常是个 H1 假启动),再跌第二段(C腿),然后才真正结束、恢复趋势。这就是 <em>ABC 回调 / 两腿回调</em>。</p>
+        <figure data-fig="abc"></figure>
+        <span class="facet why">逻辑</span>
+        <p>为什么是两腿?因为第一腿(A)下来后,会有一批人觉得"够便宜了"抢反弹(B),但趋势级别的获利了结和解套盘还没出完,于是又压出第二腿(C)。等 C 腿也走完,卖压才真正枯竭。<strong>所以"第二腿的结束"往往就是回调的真正终点——这正好对应 H2 的位置。</strong></p>
+        <p>你看,这一卷的概念开始<em>互相咬合</em>了:ABC 的 C 腿底部 ≈ H2 信号 ≈ 回到 20 EMA。它们常常是同一个点,从三个不同角度描述了"回调结束、该顺势上车了"。当多个独立线索指向同一个点,概率就叠加了——这就是 Brooks 所谓的"合流 (confluence)"。</p>
+        <div class="socratic">
+          <div class="q">
+            <div class="tag">想一想</div>
+            <div class="qt">如果你知道回调"通常走两腿",那么当价格刚走完第一腿、出现第一个 H1 做多信号时,一个有耐心的交易者会怎么做?</div>
+            <button>想好了,揭晓 →</button>
+          </div>
+          <div class="a"><div class="a-inner">
+            <p>他会<strong>倾向于跳过 H1,等 H2</strong>(等第二腿走完)。因为既然回调大概率还有第二腿,那么 H1 这个第一次尝试很可能失败、被第二腿打穿止损。与其在 H1 赌"万一这次只有一腿",不如等 C 腿结束、H2 出现时再进——胜率更高,止损位置也更扎实(就在两腿的最低点下方)。</p>
+            <p>这就是为什么 Brooks 反复说"<em>second entry(第二次入场)往往比第一次可靠</em>"。耐心,在这里是有数学依据的:你是在用"等待"换"更高的胜率和更好的盈亏比"。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 6.1 -->
+      <section id="s61">
+        <div class="kicker">第 6 章 · 力量的标志</div>
+        <h2>6.1 测量缺口:趋势力量的指纹</h2>
+        <span class="facet what">是什么</span>
+        <p>在很强的趋势里,会出现一种"缺口":价格强到<strong>连回调都碰不到 20 EMA</strong>,棒与棒之间、或棒与 EMA 之间留下一段不接触的空隙。Brooks 称之为 <em>EMA 缺口棒</em> 或更广义的 <strong>测量缺口 (measuring gap)</strong>。</p>
+        <figure data-fig="gap"></figure>
+        <span class="facet why">逻辑</span>
+        <p>缺口为什么是力量的标志?因为它意味着<strong>趋势强到对手连一次像样的回调都组织不起来</strong>——价格甚至不愿回到平均成本线就继续走了。买方急切到不肯等更好的价格。这是"窄通道/强趋势"最硬核的证据。</p>
+        <p>而"测量"二字来自它的预测作用:这种缺口常出现在一段趋势<strong>大约中点</strong>的位置。于是缺口前的那段距离,投影到缺口后,就给出了一个测量移动的目标——市场常常"对称地"再走相同的距离。</p>
+        <span class="facet hp">什么时候高概率</span>
+        <p>出现连续 EMA 缺口棒时,顺势持有/加仓是高概率的,而且应该<strong>拿更远的目标</strong>——因为趋势用缺口亲口告诉你它很强。反过来,一旦价格<em>回填</em>了缺口、重新碰到 EMA,往往是趋势第一次转弱的信号,该考虑收紧目标或离场。</p>
+        <div class="connect">
+          <div class="h">连接你的代码</div>
+          这一整节就是你代码里 <code>bullGapBar = low &gt; ema</code> 和 <code>bullGapRun</code> 的来历:整根棒都在 EMA 上方 = 一个 EMA 缺口棒;连续的缺口棒越多,趋势越强,强度评分 +1,于是去够 2 腿测量移动目标。你测量移动的"对称投影",也正是本节"测量缺口"的逻辑。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 6.2 -->
+      <section id="s62">
+        <div class="kicker">第 6 章 · 力量的标志</div>
+        <h2>6.2 always-in 如何翻转</h2>
+        <span class="facet what">是什么</span>
+        <p><strong>always-in 翻转</strong> = 市场"总是在场"的方向,从一个方向切换到另一个方向的那一刻。它不会因为一根普通反向棒就翻转——它需要一根<em>强力的、决定性的反向突破</em>来宣告"控盘权易主了"。</p>
+        <figure data-fig="flip"></figure>
+        <span class="facet why">逻辑</span>
+        <p>回想第一卷的纪律:一根棒掀不翻一个趋势。所以 always-in 的翻转门槛很高:通常需要一根<strong>强趋势棒,既收过了 20 EMA,又突破了近期的摆动高/低点</strong>,最好还有后续跟进确认。满足这些,才说明新方向不是昙花一现,而是真正夺取了控制权。</p>
+        <span class="facet gb">好的翻转 / 坏的翻转</span>
+        <p><strong>好(真翻转):</strong> 强突破棒 + 收过关键位 + 第二根跟进 → 新趋势开始。<br>
+        <strong>坏(假翻转):</strong> 突破棒之后立刻被打回、收不住 → 这是"突破即失败"的陷阱,always-in 实际并没翻,逆势者会被反杀。这正是第三卷(震荡)里最常见的赚钱机会:交易失败的突破。</p>
+        <span class="facet hp">什么时候高概率</span>
+        <p>翻转后,<strong>顺着新的 always-in 方向、等第一次回调(突破回调 BPB)再入场</strong>,是高概率的——你既确认了新方向(突破),又拿到了好的入场和止损(回调)。又一次,"等回调"胜过"追突破"。</p>
+        <div class="connect">
+          <div class="h">连接你的代码</div>
+          <code>if bullTrendBar and close &gt; ema and close &gt; swHi: alwaysIn := 1</code> —— 这三个条件(强阳趋势棒、收过EMA、收过近期高点 <code>swHi</code>)就是本节"高门槛翻转"的精确代码化。你之前问过 <code>swHi</code> 是什么,现在你看到它在 Brooks 体系里扮演的角色了:它就是"近期摆动高点"这道翻转门槛。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 6.3 -->
+      <section id="s63">
+        <div class="kicker">第 6 章 · 力量的标志</div>
+        <h2>6.3 顺势,而非逆势</h2>
+        <span class="facet what">是什么</span>
+        <p>这一节把整卷收束成一条可执行的纪律:<strong>在趋势里,顺势做、不逆势做。</strong>具体说,就是把前面所有工具组合成一个高概率顺势入场的"检查清单"。</p>
+        <figure data-fig="withtrend"></figure>
+        <span class="facet hp">高概率顺势入场 = 多重合流</span>
+        <p>一个教科书级的顺势做多,通常同时满足:</p>
+        <p><strong>① 趋势背景:</strong> 清晰的上升趋势,always-in 为多(更高高点+更高低点)。<br>
+        <strong>② 位置:</strong> 回调到了 20 EMA / 前期支撑附近。<br>
+        <strong>③ 计数:</strong> 这是一个 H2(回调走完了两腿)。<br>
+        <strong>④ 信号:</strong> 出现一根强阳信号棒。<br>
+        <strong>⑤ 更大周期:</strong> 高周期方向也向上。</p>
+        <p>满足得越多,胜率越高。这不是巧合——<strong>这正是你那套趋势跟随策略的入场逻辑骨架。</strong>你当初凭直觉和经验写的过滤条件,几乎逐条对应着 Brooks 的高概率合流清单。</p>
+        <span class="facet gb">逆势为什么是坏主意</span>
+        <p>逆势(在强上升趋势里做空)意味着你在和"持续赢得每场战争的一方"对赌。即使偶尔对,长期看胜率和盈亏比都站在你的对立面。Brooks 的统计直觉是:<strong>逆势交易需要比顺势严格得多的条件</strong>(明确的反转结构 + 衰竭 + 关键位),否则就是在给趋势"捐钱"。</p>
+        <div class="socratic">
+          <div class="q">
+            <div class="tag">本卷综合题</div>
+            <div class="qt">五个条件里,如果只满足了"位置(回到EMA)"和"信号(强阳棒)",但趋势背景其实模糊不清(高低点开始重叠)——你该进这一单吗?</div>
+            <button>想好了,揭晓 →</button>
+          </div>
+          <div class="a"><div class="a-inner">
+            <p><strong>不该,或至少要大幅降低预期。</strong>因为五个条件里,<em>趋势背景(①)是地基,其余都是地基上的装修。</em>位置、信号、计数这些局部工具,只有在一个真实存在的趋势里才有意义。趋势背景一旦模糊,你其实回到了"震荡/铁丝网"环境——还记得第一卷吗?那里 H2、反转棒、突破全都不可靠。</p>
+            <p>这就是整卷最重要的一句话,也是你策略里 <code>longCtx</code>(必须 always-in 为多 + HTF 一致)作为<strong>前置总开关</strong>的原因:<strong>先确认趋势背景,再谈入场细节。背景不对,再漂亮的信号棒也不进。</strong>这条纪律,能挡掉你未来一大半的亏损单。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 尾声 -->
+      <section id="end">
+        <div class="endcard">
+          <div class="kicker">尾声</div>
+          <h2>通向"震荡"的门</h2>
+          <p>第二卷走完,你已经能读懂市场最赚钱的状态——趋势。你现在能做的事,是翻开这卷之前做不到的:<strong>对着一段上涨,说出它是尖峰还是通道、它有多强、回调走到第几腿、always-in 在不在多头、以及此刻是不是一个高概率的顺势上车点。</strong></p>
+          <p>更重要的是,你策略里那些当初凭经验写下的逻辑,现在都有了名字和理由:<code>alwaysIn</code> 翻转、<code>emaPBLong</code> 回踩、<code>bullGapRun</code> 缺口、<code>swHi</code> 摆动高点、强度评分背后的窄/宽通道……每一行都对应着这一卷里一个你亲手想通的道理。</p>
+          <p>但还记得第一卷那个统计直觉吗——<strong>市场约 80% 的时间不在趋势里,而在震荡里。</strong>这意味着:光会做趋势,你大部分时间会无所适从,甚至把震荡误当趋势、反复止损(就像你截图里看到的那些 score 0–1 的单子)。<strong>第三卷《震荡区间》</strong>,就是教你认出这 80% 的时间、知道何时收手、以及如何在震荡里反过来交易"失败的突破"。会做趋势让你赚钱,会认震荡让你<em>不亏钱</em>——后者往往更难,也更值钱。</p>
+          <div class="socratic" style="margin-top:30px;">
+            <div class="q">
+              <div class="tag">通向第三卷的问题</div>
+              <div class="qt">趋势靠"突破成功"延续。那么反过来——如果你发现某个市场里,一次又一次的突破都<em>失败</em>、价格总是冲出去又被打回来,这在告诉你市场进入了什么状态?该用什么完全相反的玩法?</div>
+              <button>想好了,揭晓 →</button>
+            </div>
+            <div class="a"><div class="a-inner">
+              <p>反复的"突破失败"正是<strong>震荡区间</strong>的指纹:没有任何一方能守住突破,价格被困在一个范围里来回撞墙。这时趋势玩法(追突破、顺势)会让你两边挨打。</p>
+              <p>正确的玩法几乎要<em>反过来</em>:<strong>在区间顶部附近找做空、底部附近找做多,专门去交易那些"突破即失败"的陷阱</strong>——别人追突破被套的地方,正是你反向获利的地方。如何精确识别区间边界、判断哪次突破会失败、何时该彻底避开(铁丝网),就是第三卷的全部内容。</p>
+            </div></div>
+          </div>
+          <p style="margin-top:34px; color:var(--muted); font-size:15px;">想继续的话,告诉我"开始第三卷",我就用同样的形式把《震荡区间》做出来。或者,如果你想先把这两卷学到的东西<em>反过来检查并优化你的策略代码</em>,也可以直接跟我说,我们逐个模块对照 Brooks 的原则过一遍。</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script>
+const NS="http://www.w3.org/2000/svg";
+const C={bull:"#26a69a",bear:"#ef5350",gold:"#d4a657",muted:"#8b94a3",ink:"#e9e5d8",line:"#2c343f",faint:"#5c6573"};
+function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}
+function drawCandles(svg,bars,opts={}){
+  const W=720,H=opts.h||230,padX=46,padTop=24,padBot=30;
+  svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
+  let lo=Infinity,hi=-Infinity;
+  bars.forEach(b=>{lo=Math.min(lo,b.l);hi=Math.max(hi,b.h);});
+  if(opts.levels)opts.levels.forEach(L=>{lo=Math.min(lo,L.p);hi=Math.max(hi,L.p);});
+  if(opts.ema)opts.ema.forEach(v=>{if(v!=null){lo=Math.min(lo,v);hi=Math.max(hi,v);}});
+  const pad=(hi-lo)*0.18||1;lo-=pad;hi+=pad;
+  const Y=p=>padTop+(hi-p)/(hi-lo)*(H-padTop-padBot);
+  const n=bars.length,slot=(W-padX*2)/n,X=i=>padX+slot*i+slot/2,cw=Math.min(slot*0.56,26);
+  if(opts.levels)opts.levels.forEach(L=>{
+    svg.appendChild(el("line",{x1:padX-6,x2:W-padX+6,y1:Y(L.p),y2:Y(L.p),stroke:L.color||C.faint,"stroke-width":1,"stroke-dasharray":L.dash||"5 5",opacity:.85}));
+    if(L.label){const t=el("text",{x:W-padX+8,y:Y(L.p)+4,fill:L.color||C.muted,"font-size":11,"font-family":"monospace"});t.textContent=L.label;svg.appendChild(t);}
+  });
+  if(opts.ema){let d="";opts.ema.forEach((v,i)=>{if(v==null)return;d+=(d?" L":"M")+X(i)+" "+Y(v);});
+    svg.appendChild(el("path",{d,fill:"none",stroke:C.gold,"stroke-width":2,opacity:.9}));
+    const t=el("text",{x:padX,y:Y(opts.ema[0])-7,fill:C.gold,"font-size":11,"font-family":"monospace"});t.textContent="20 EMA";svg.appendChild(t);
+  }
+  bars.forEach((b,i)=>{
+    const up=b.c>=b.o,col=b.col||(up?C.bull:C.bear),x=X(i);
+    svg.appendChild(el("line",{x1:x,x2:x,y1:Y(b.h),y2:Y(b.l),stroke:col,"stroke-width":1.6}));
+    const yo=Y(b.o),yc=Y(b.c),top=Math.min(yo,yc);let hgt=Math.abs(yo-yc);if(hgt<2)hgt=2;
+    svg.appendChild(el("rect",{x:x-cw/2,y:top,width:cw,height:hgt,fill:col,rx:1.5}));
+    if(b.n!=null){const t=el("text",{x:x,y:Y(b.l)+18,fill:b.ncol||C.muted,"font-size":13,"font-family":"monospace","text-anchor":"middle","font-weight":b.ncol?"bold":"normal"});t.textContent=b.n;svg.appendChild(t);}
+  });
+  if(opts.notes)opts.notes.forEach(nt=>{
+    const x=nt.i!=null?X(nt.i):nt.x,y=nt.p!=null?Y(nt.p):nt.y;
+    const t=el("text",{x:x,y:y+(nt.dy||0),fill:nt.color||C.ink,"font-size":12.5,"font-family":"monospace","text-anchor":nt.anchor||"middle"});
+    t.textContent=nt.text;svg.appendChild(t);
+  });
+}
+function mkSVG(){return el("svg",{});}
+
+const figs={
+  structure(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:8,h:14,l:7,c:13},{o:13,h:18,l:12,c:17},{o:17,h:19,l:14,c:15},
+      {o:15,h:23,l:14.5,c:22},{o:22,h:27,l:21,c:26},{o:26,h:28,l:23,c:24.5},
+      {o:24.5,h:33,l:24,c:32},
+    ],{h:235,notes:[
+      {i:1,p:18,text:"高1",color:C.bull,dy:-8},{i:4,p:27,text:"高2(更高)",color:C.bull,dy:-8},
+      {i:2,p:14,text:"低1",color:C.muted,dy:22},{i:5,p:23,text:"低2(更高)",color:C.muted,dy:22},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 4.1</b> 上升趋势 = 更高的高点 + 更高的低点,像向上的楼梯。"更高的低点"是趋势真正的引擎。</figcaption>`);
+  },
+  spike(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:8,h:14,l:7.5,c:13.5},{o:13.5,h:20,l:13,c:19.5},{o:19.5,h:26,l:19,c:25.5},
+      {o:25.5,h:28,l:24,c:26.5},{o:26.5,h:29.5,l:25,c:27},{o:27,h:30.5,l:26,c:28.5},
+      {o:28.5,h:32,l:27.5,c:30},
+    ],{h:235,notes:[
+      {x:140,p:7.5,text:"尖峰:连续强棒·不回调",color:C.bull,dy:22},
+      {x:460,p:24,text:"通道:更小·有来回",color:C.gold,dy:24},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 4.2</b> 尖峰与通道。尖峰证明力量,通道给出入场——但别在尖峰里追,等通道第一次回调。</figcaption>`);
+  },
+  channels(f){
+    const s=mkSVG();
+    drawCandles(s,[
+      {o:8,h:13,l:7.5,c:12.5},{o:12.5,h:16,l:12,c:15.5},{o:15.5,h:18,l:15,c:17.5},
+      {o:17.5,h:21,l:17,c:20.5},{o:20.5,h:24,l:20,c:23.5},{o:23.5,h:27,l:23,c:26.5},
+    ],{h:200,notes:[{x:360,p:7.5,text:"窄通道:回调极浅·斜率陡·趋势极强",color:C.bull,dy:24}]});
+    f.appendChild(s);
+    const s2=mkSVG();
+    drawCandles(s2,[
+      {o:8,h:15,l:7,c:14},{o:14,h:16,l:9,c:10},{o:10,h:19,l:9.5,c:18},
+      {o:18,h:20,l:12,c:13},{o:13,h:23,l:12.5,c:22},{o:22,h:24,l:16,c:17},
+    ],{h:200,notes:[{x:360,p:7,text:"宽通道:来回大·回调深·更像带斜度的震荡",color:C.bear,dy:24}]});
+    f.appendChild(s2);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 4.3</b> 读懂通道宽窄,就是读懂"趋势多强、我能多大胆地顺势"。窄通道顺势·逆势必死;宽通道要谨慎。</figcaption>`);
+  },
+  pullback(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:8,h:15,l:7.5,c:14},{o:14,h:21,l:13.5,c:20},{o:20,h:24,l:19,c:23},
+      {o:23,h:23.5,l:19,c:19.5},{o:19.5,h:20,l:16,c:16.5},
+      {o:16.5,h:23,l:16,c:22},{o:22,h:29,l:21,c:28},
+    ],{h:235,notes:[
+      {x:140,p:7.5,text:"推进",color:C.bull,dy:22},
+      {x:300,p:16,text:"回调(送你上车的机会)",color:C.gold,dy:22},
+      {x:490,p:21,text:"恢复",color:C.bull,dy:22},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 5.1</b> 回调是趋势的呼吸。追在推进里是新手,等回调上车是行家。强趋势里越浅的回调越高概率。</figcaption>`);
+  },
+  h1h2(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:8,h:16,l:7.5,c:15},{o:15,h:22,l:14.5,c:21},
+      {o:21,h:21.5,l:17,c:17.5},{o:17.5,h:18,l:14.5,c:15},
+      {o:15,h:18.5,l:14.8,c:17.5,n:"H1",ncol:C.bull},
+      {o:17.5,h:17.8,l:15.2,c:15.6},
+      {o:15.6,h:20,l:15.3,c:19,n:"H2",ncol:C.gold},
+      {o:19,h:26,l:18.5,c:25},
+    ],{h:250,notes:[
+      {i:4,p:18.5,text:"第一次试探(常失败)",color:C.bull,dy:-8},
+      {i:6,p:20,text:"两腿走完·二次进攻",color:C.gold,dy:-8},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 5.2</b> 回调计数:H1=第一次高点过前高,H2=第二次。H2 常踩在回调终点,胜率明显高于 H1。</figcaption>`);
+  },
+  emaruler(f){const s=mkSVG();
+    const bars=[
+      {o:8,h:14,l:7.5,c:13},{o:13,h:19,l:12.5,c:18},{o:18,h:23,l:17.5,c:22},
+      {o:22,h:23,l:18,c:18.5},{o:18.5,h:19,l:16.2,c:16.6},
+      {o:16.6,h:22,l:16.3,c:21},{o:21,h:27,l:20.5,c:26},
+    ];
+    const ema=[9,11,13.5,15.5,16.4,17.2,18.4];
+    drawCandles(s,bars,{h:240,ema,notes:[
+      {i:4,p:16.2,text:"回踩到EMA→被弹开",color:C.gold,dy:22},
+      {i:6,p:27,text:"恢复趋势",color:C.bull,dy:-8},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 5.3</b> 20 EMA ≈ 最近20根的平均成本。回踩到这里、顺势方觉得"够便宜"重新进场,把价格弹开。</figcaption>`);
+  },
+  abc(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:8,h:23,l:7.5,c:22},
+      {o:22,h:22.5,l:18,c:18.5,n:"A",ncol:C.bear},
+      {o:18.5,h:21,l:18,c:20.5,n:"B",ncol:C.gold},
+      {o:20.5,h:21,l:16,c:16.4,n:"C",ncol:C.bear},
+      {o:16.4,h:20,l:16,c:19},
+      {o:19,h:27,l:18.5,c:26},
+    ],{h:240,notes:[
+      {i:2,p:21,text:"H1假启动",color:C.gold,dy:-8},
+      {i:3,p:16,text:"第二腿底≈H2≈回到EMA",color:C.bull,dy:24},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 5.4</b> 回调常走两腿(A-B-C)。C腿底部 ≈ H2 ≈ 回到EMA——三个线索指向同一点,即"合流"。</figcaption>`);
+  },
+  gap(f){const s=mkSVG();
+    const bars=[
+      {o:9,h:15,l:8.5,c:14},{o:14,h:20,l:13.5,c:19},{o:19,h:25,l:18.8,c:24},
+      {o:24,h:29,l:23.5,c:28},{o:28,h:33,l:27.5,c:32},{o:32,h:37,l:31.5,c:36},
+    ];
+    const ema=[8,9.5,11.5,14,16.8,20];
+    drawCandles(s,bars,{h:240,ema,notes:[
+      {i:3,p:21,text:"棒的最低点都不碰EMA",color:C.bull,dy:0},
+      {x:470,p:13,text:"← EMA缺口:趋势极强的指纹",color:C.gold,anchor:"start",dy:0},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 6.1</b> EMA 缺口:价格强到连回调都碰不到平均成本线。连续缺口=强趋势,该拿更远的目标。</figcaption>`);
+  },
+  flip(f){const s=mkSVG();
+    const bars=[
+      {o:26,h:27,l:21,c:22},{o:22,h:23,l:18,c:19},{o:19,h:20,l:15.5,c:16},
+      {o:16,h:18,l:14,c:17},
+      {o:17,h:28,l:16.5,c:27,col:C.bull},
+      {o:27,h:32,l:26,c:31},
+    ];
+    const ema=[24,22,20,18.5,18.2,19];
+    drawCandles(s,bars,{h:250,ema,levels:[{p:23,color:C.faint,dash:"4 4",label:"近期摆动高点 swHi"}],
+    notes:[
+      {i:4,p:16.5,text:"强阳棒:收过EMA+收过swHi",color:C.bull,dy:22},
+      {i:4,p:28,text:"→ always-in 翻转为多",color:C.gold,dy:-8},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 6.2</b> 翻转门槛很高:强趋势棒同时收过EMA、收过近期摆动高点。一根普通棒掀不翻趋势。</figcaption>`);
+  },
+  withtrend(f){const s=mkSVG();
+    const bars=[
+      {o:8,h:14,l:7.5,c:13},{o:13,h:20,l:12.5,c:19},{o:19,h:25,l:18.5,c:24},
+      {o:24,h:24.5,l:19.5,c:20},{o:20,h:20.5,l:17.5,c:18},
+      {o:18,h:23,l:17.6,c:22,col:C.bull},{o:22,h:30,l:21.5,c:29},
+    ];
+    const ema=[9,11.5,14.5,17,18,18.6,20];
+    drawCandles(s,bars,{h:250,ema,levels:[{p:17.5,color:C.faint,dash:"4 4",label:"支撑"}],
+    notes:[
+      {i:5,p:17.6,text:"✓背景多 ✓回到EMA ✓H2 ✓强阳棒",color:C.bull,dy:24},
+      {i:6,p:30,text:"高概率顺势上车",color:C.gold,dy:-8},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 6.3</b> 高概率顺势 = 多重合流:趋势背景 + 位置 + 计数 + 信号 + 高周期。满足越多,胜率越高。</figcaption>`);
+  },
+};
+document.querySelectorAll("figure[data-fig]").forEach(f=>{const k=f.getAttribute("data-fig");if(figs[k])figs[k](f);});
+
+document.querySelectorAll(".socratic button").forEach(btn=>{
+  btn.addEventListener("click",()=>{const card=btn.closest(".socratic");const open=card.classList.toggle("open");btn.textContent=open?"收起 ↑":"想好了,揭晓 →";});
+});
+const prog=document.getElementById("progress");
+function updProg(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,max=h.scrollHeight-h.clientHeight;prog.style.width=(max>0?(sc/max*100):0)+"%";}
+window.addEventListener("scroll",updProg,{passive:true});updProg();
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll("figure").forEach(f=>io.observe(f));
+const links=[...document.querySelectorAll(".rail a")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const navIO=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}});},{rootMargin:"-10% 0px -75% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>navIO.observe(s));
+</script>
+  <script src="reader.js"></script>
+</body>
+</html>

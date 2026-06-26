@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>读棒 · Al Brooks 价格行为 · 第四卷:反转与楔形</title>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --bull:#26a69a; --bear:#ef5350; --gold:#d4a657; --gold-soft:#3a3322;
+    --rev:#b58bd4; --rev-soft:#2c2436;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--rev); color:#15101c;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%;
+    background:linear-gradient(90deg,var(--bear),var(--rev),var(--bull)); z-index:100; transition:width .1s linear;}
+  .wrap{display:grid; grid-template-columns:240px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto;
+    padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--rev);
+    text-transform:uppercase; margin-bottom:4px;}
+  .rail .brand b{color:var(--ink); display:block; font-size:19px; letter-spacing:.04em; margin-top:6px; font-family:var(--serif);}
+  .rail ol{list-style:none; padding:0; margin:26px 0 0;}
+  .rail .chap{font-family:var(--mono); font-size:11px; color:var(--faint); letter-spacing:.1em; margin:20px 0 6px; text-transform:uppercase;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:5px 10px;
+    border-left:2px solid transparent; border-radius:0 4px 4px 0; transition:.18s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--rev); border-left-color:var(--rev); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:90px 0 70px; border-bottom:1px solid var(--line); margin-bottom:10px;
+    background:radial-gradient(120% 90% at 75% -10%, rgba(181,139,212,.14), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.28em; color:var(--rev); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:62px; line-height:1.02; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:23px; color:var(--muted); font-weight:400; margin-top:18px; letter-spacing:.02em;}
+  .cover .vol{font-family:var(--mono); font-size:13px; color:var(--faint); margin-top:30px; letter-spacing:.1em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--rev); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:33px; line-height:1.15; margin:6px 0 4px;}
+  h3{font-family:var(--serif); font-weight:600; font-size:22px; margin:38px 0 2px;}
+  p{margin:16px 0; color:#dcd8cc;}
+  p strong{color:var(--ink); font-weight:600;}
+  em{color:var(--gold); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em;
+    padding:2px 9px; border-radius:20px; margin:30px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;}
+  .facet.why{background:var(--gold-soft); color:var(--gold);}
+  .facet.gb{background:#33282a; color:#f0a0a0;}
+  .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:30px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px;
+    padding:20px 20px 14px; opacity:0; transform:translateY(14px); transition:.6s ease;}
+  figure.in{opacity:1; transform:none;}
+  figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px;
+    padding-top:11px; border-top:1px solid var(--line); letter-spacing:.02em;}
+  figcaption b{color:var(--rev);}
+  .socratic{margin:34px 0; border:1px solid var(--line); border-left:3px solid var(--rev); border-radius:10px;
+    background:linear-gradient(180deg, rgba(181,139,212,.05), transparent); overflow:hidden;}
+  .socratic .q{padding:20px 22px;}
+  .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--rev); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:20px; color:var(--ink); margin:8px 0 16px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12.5px; letter-spacing:.05em; color:var(--bg);
+    background:var(--rev); border:none; padding:9px 16px; border-radius:7px; cursor:pointer; transition:.18s;}
+  .socratic button:hover{filter:brightness(1.08);}
+  .socratic button:focus-visible{outline:2px solid var(--ink); outline-offset:2px;}
+  .socratic .a{max-height:0; opacity:0; transition:max-height .5s ease, opacity .4s ease; border-top:1px solid transparent;}
+  .socratic.open .a{max-height:900px; opacity:1; border-top-color:var(--line);}
+  .socratic .a-inner{padding:18px 22px 22px;}
+  .socratic .a-inner p:first-child{margin-top:0;}
+  .socratic .a-inner p{font-size:16px; color:#cfcabd;}
+  .connect{margin:30px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15.5px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--bull); margin-bottom:6px;}
+  .connect code{font-family:var(--mono); font-size:13px; background:#11161c; color:var(--gold); padding:1px 6px; border-radius:4px;}
+  .divider{height:1px; background:var(--line); margin:64px 0 0;}
+
+  /* poem */
+  .poem{margin:40px 0; padding:34px 30px; border:1px solid var(--line); border-radius:14px;
+    background:radial-gradient(130% 120% at 100% 0%, rgba(181,139,212,.10), transparent 60%);
+    text-align:center;}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.22em; color:var(--rev); text-transform:uppercase; margin-bottom:18px;}
+  .poem .verse{font-family:var(--serif); font-size:21px; line-height:2.0; color:var(--ink); font-style:italic;}
+  .poem .by{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:18px; letter-spacing:.08em;}
+
+  /* animated wedge controls */
+  .replay{font-family:var(--mono); font-size:12px; letter-spacing:.05em; color:var(--rev);
+    background:transparent; border:1px solid var(--rev); padding:6px 14px; border-radius:7px; cursor:pointer; transition:.18s; margin-top:4px;}
+  .replay:hover{background:var(--rev-soft);}
+  .replay:focus-visible{outline:2px solid var(--ink); outline-offset:2px;}
+  .wedge-leg, .wedge-tl, .wedge-arrow, .wedge-dot, .wedge-lbl{}
+
+  /* completeness map */
+  .map{margin:30px 0; border:1px solid var(--line); border-radius:12px; overflow:hidden;}
+  .map .row{display:grid; grid-template-columns:120px 1fr; border-top:1px solid var(--line);}
+  .map .row:first-child{border-top:none;}
+  .map .v{padding:13px 16px; font-family:var(--mono); font-size:12px; color:var(--rev); background:var(--surface); letter-spacing:.04em;}
+  .map .d{padding:13px 16px; font-size:15px; color:#cfcabd;}
+  .map .v b{color:var(--ink); display:block; font-family:var(--serif); font-size:15px; margin-bottom:2px;}
+
+  .endcard{margin:56px 0 0; padding:34px; border:1px solid var(--line); border-radius:14px;
+    background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static; height:auto; border-right:none; border-bottom:1px solid var(--line);
+      display:flex; gap:14px; overflow-x:auto; white-space:nowrap; padding:16px 18px;}
+    .rail ol{display:flex; gap:6px; margin:0;}
+    .rail .brand,.rail .chap{display:none;}
+    .rail a{border-left:none; border-bottom:2px solid transparent; border-radius:4px; padding:6px 10px;}
+    .rail a.active{border-left:none; border-bottom-color:var(--rev);}
+    .cover h1{font-size:42px;} .cover h1 .small{font-size:19px;} body{font-size:16px;}
+    .poem .verse{font-size:18px;} .map .row{grid-template-columns:90px 1fr;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none!important; transition:none!important; scroll-behavior:auto!important;}
+    figure{opacity:1; transform:none;}
+  }
+</style>
+  <link rel="stylesheet" href="reader.css">
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+
+  <nav class="rail">
+    <div class="brand">读棒 · READING BARS<b>反转与楔形</b></div>
+    <div class="shelf-nav" style="margin:12px 0 0;font-family:var(--mono);font-size:11px;display:flex;flex-wrap:wrap;gap:7px;">
+      <a href="index.html" style="color:var(--rev);text-decoration:none;border:1px solid var(--line);padding:3px 9px;border-radius:6px;">📚 书架</a>
+      <a href="price_action_book_vol3.html" style="color:var(--muted);text-decoration:none;border:1px solid var(--line);padding:3px 9px;border-radius:6px;">← 第三卷</a>
+      <a href="price_action_book_vol5.html" style="color:var(--muted);text-decoration:none;border:1px solid var(--line);padding:3px 9px;border-radius:6px;">第五卷 →</a>
+    </div>
+    <ol>
+      <li><div class="chap">序</div><a href="#intro">趋势如何死亡</a></li>
+      <li><div class="chap">第 10 章 · 语法</div>
+        <a href="#s101">10.1 反转 vs 回调</a>
+        <a href="#s102">10.2 趋势线与通道线</a>
+        <a href="#s103">10.3 主要趋势反转 MTR</a>
+      </li>
+      <li><div class="chap">第 11 章 · 形态</div>
+        <a href="#s111">11.1 三推与楔形</a>
+        <a href="#s112">11.2 双顶双底</a>
+        <a href="#s113">11.3 头肩 · 高潮 · 衰竭</a>
+      </li>
+      <li><div class="chap">第 12 章 · 把刀接稳</div>
+        <a href="#s121">12.1 第二次入场</a>
+        <a href="#s122">12.2 反转的测量移动</a>
+        <a href="#s123">12.3 何时不该接刀</a>
+      </li>
+      <li><div class="chap">尾声</div><a href="#end">体系合一·完整地图</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <header class="cover">
+      <div class="col">
+        <div class="eyebrow">第四卷 · 反转与楔形</div>
+        <h1>反转与楔形<span class="small">趋势如何死亡,又如何在另一个方向重生——以及你写了无数遍的"三推"的完整逻辑</span></h1>
+        <div class="vol">AL BROOKS PRICE ACTION · VOL.4 / REVERSALS & WEDGES</div>
+      </div>
+    </header>
+
+    <div class="col">
+
+      <!-- 序 -->
+      <section id="intro">
+        <div class="kicker">序</div>
+        <h2>趋势如何死亡</h2>
+        <p class="lead">每一个趋势,都会死。这一卷,讲它怎么死,以及怎么在死亡的那一刻读出来。</p>
+        <p>反转是价格行为里最迷人、也最危险的部分。迷人,是因为抓对一个反转,等于在最低点买进、最高点卖出,盈亏比惊人。危险,是因为<strong>逆着趋势猜顶猜底,是新手亏钱最快的方式</strong>——市场上流传一句话:"接下落的刀子",说的就是过早抄底的人,手被割得鲜血淋漓。</p>
+        <p>所以这一卷的核心张力,从头到尾只有一个问题:<strong>如何在"趋势真的死了"和"趋势只是喘口气"之间,做出可靠的区分?</strong>答错前者,你错过反转;答错后者,你接住了刀子。Brooks 的全部反转方法,都是为了把这道判断,从"赌"变成"读"。</p>
+
+        <div class="poem">
+          <div class="pt">序诗 · 三叩</div>
+          <div class="verse">
+            潮水第三次拍上礁石,<br>
+            比第二次,低了半寸——<br>
+            不是力气小了,是海<br>
+            已经决定,退向远方。<br>
+            谁先读懂这半寸,<br>
+            谁就先听见,转身的声音。
+          </div>
+          <div class="by">—— 本卷原创 · 写给所有学着"读那半寸"的人</div>
+        </div>
+
+        <p>这首小诗里藏着整卷最重要的形态:<strong>三推</strong>。三次推动,一次比一次弱——那"低了半寸"的衰竭,就是趋势在向你低声告别。读懂它,你就走在了所有人前面。</p>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 10.1 -->
+      <section id="s101">
+        <div class="kicker">第 10 章 · 反转的语法</div>
+        <h2>10.1 反转 vs 回调:整卷的分水岭</h2>
+        <span class="facet what">是什么</span>
+        <p>第二卷你学了回调:趋势途中的逆向小波动,之后<em>趋势继续</em>。反转则相反:逆向波动之后,<em>趋势改变了方向</em>。问题在于——<strong>它们在发生的当下,长得几乎一模一样。</strong></p>
+        <figure data-fig="revvspb"></figure>
+        <span class="facet why">逻辑</span>
+        <p>一段下跌开始时,你无法立刻知道它是"上升趋势里的一次回调"还是"上升趋势的反转"。两者都是"价格在跌"。区别只能从<strong>后续的力量和结构</strong>里读出来:回调通常浅、弱、很快被趋势方吸收;反转则深、强、并且开始破坏趋势的结构(跌破趋势线、做出更低的高点)。</p>
+        <span class="facet hp">Brooks 的纪律</span>
+        <p>因为两者难分,Brooks 的默认立场是:<strong>在强趋势里,优先假设"这是回调",而不是"这是反转"。</strong>除非反转积累了足够的、多根棒的证据。这条偏向救了无数人——它让你默认站在趋势一边(高概率),只在证据充分时才转向(避免接刀)。整个第10章,就是在定义"足够的证据"到底是什么。</p>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 10.2 -->
+      <section id="s102">
+        <div class="kicker">第 10 章 · 反转的语法</div>
+        <h2>10.2 趋势线与趋势通道线</h2>
+        <p style="color:var(--rev);font-family:var(--mono);font-size:12.5px;">※ 这一节是你之前没问、但体系里不可或缺的一块——补上。</p>
+        <span class="facet what">是什么</span>
+        <p><strong>趋势线 (trend line):</strong> 在上升趋势中,把一系列<em>更高的低点</em>连成的一条向上斜线;它是趋势的"地板"。<strong>趋势通道线 (trend channel line):</strong> 平行地画在<em>高点</em>上方的一条线;它是趋势的"天花板"。两条线夹出一条通道。</p>
+        <figure data-fig="trendline"></figure>
+        <span class="facet why">逻辑</span>
+        <p>这两条线给了你两件大事:</p>
+        <p><strong>① 趋势线被跌破 = 趋势的第一道裂缝。</strong>只要价格还守在趋势线上方,趋势的"地板"就还在;一旦有力跌破,说明回调比以往都深,趋势的结构第一次受损——这是反转的<em>前提条件</em>(注意,只是前提,还不是确认)。</p>
+        <p><strong>② 触及/突破通道线 = 过度延伸。</strong>价格冲过通道线上沿(overshoot),往往是趋势"用力过猛、强弩之末"的信号,常常紧接着回调甚至反转。Brooks 称这种通道线的突破为一种"climax(高潮)"的征兆。</p>
+        <span class="facet hp">什么时候高概率</span>
+        <p>最经典的反转剧本,正是这两条线的配合:<strong>价格先冲破通道线(过度延伸、衰竭)→ 然后跌破趋势线(结构受损)。</strong>"先顶到天花板,再踩穿地板"——这套组合拳,是趋势即将反转的高概率前奏。</p>
+        <div class="connect">
+          <div class="h">连接你的代码</div>
+          你的策略目前没有显式的趋势线/通道线(它们需要动态画线,Pine 里要用 pivot + line.new)。但你的三推楔形,本质上就是<strong>一条收敛的趋势通道线的离散近似</strong>——三个推动点,就是价格三次触碰那条逐渐收敛的天花板。如果以后想升级,可以把"三推点拟合一条收敛趋势线 + 检测过度延伸"加进去,会更接近 Brooks 的原意。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 10.3 -->
+      <section id="s103">
+        <div class="kicker">第 10 章 · 反转的语法</div>
+        <h2>10.3 主要趋势反转 MTR</h2>
+        <span class="facet what">是什么</span>
+        <p><strong>主要趋势反转 (Major Trend Reversal, MTR):</strong> Brooks 对"趋势真正反转"给出的<em>严格</em>定义。它不是某一根棒,而是一套<strong>必须依次满足的结构</strong>。光出现一根大反向棒,远远不够。</p>
+        <figure data-fig="mtr"></figure>
+        <span class="facet why">逻辑 —— MTR 的两个必要条件</span>
+        <p>一个看跌 MTR(上升趋势反转向下),核心要求两件事<strong>先后发生</strong>:</p>
+        <p><strong>① 跌破上升趋势线。</strong>这证明趋势的动能结构第一次被打破——"地板裂了"。<br>
+        <strong>② 随后再创一个新高,但这个新高失败了。</strong>多头做了最后一次尝试、却没能延续,留下一个更低的高点、或一个双顶。"连试都试不动了"。</p>
+        <p>两者合起来才算数:<strong>动能没了(破趋势线)+ 试探失败(新高夭折)。</strong>这是 Brooks 把"反转"从感觉变成可验证清单的核心。它也对应了序诗里"决定退向远方"的那一刻——不是一朵浪花的事,是整片海的转向。</p>
+        <span class="facet hp">什么时候高概率</span>
+        <p>MTR 的概率,随着叠加的证据上升:跌破趋势线越有力 ✓、失败的新高伴随明显衰竭(如冲破通道线的高潮棒)✓、反转处正好撞上更大周期的强支撑/阻力 ✓、出现强反转信号棒 ✓。证据越多,这把刀越值得接。</p>
+        <div class="socratic">
+          <div class="q">
+            <div class="tag">想一想</div>
+            <div class="qt">为什么 Brooks 坚持"新高必须先出现、然后失败",而不是"价格不再创新高就算反转"?多这一步"诱多"的意义是什么?</div>
+            <button>想好了,揭晓 →</button>
+          </div>
+          <div class="a"><div class="a-inner">
+            <p>因为这"最后一个失败的新高",是反转<strong>最有力的证据,也是最好的入场点</strong>。意义有三层:</p>
+            <p><strong>① 它榨干了最后的多头。</strong>愿意在新高买的人,在这一冲里全进场了——买盘耗尽,后面没有接力者。<br>
+            <strong>② 它制造了被套者。</strong>这些在最高处追多的人,随后的下跌会逼他们止损,而止损方向正好助推反转(还记得第三卷的"陷阱燃料"吗?)。<br>
+            <strong>③ 它给了你完美的止损位。</strong>你的做空止损,就放在这个失败新高的上方一点——清晰、且通常很近。</p>
+            <p>所以"诱多失败"不是多余的一步,它<em>本身就是反转的引擎</em>。一个从未创新高、只是慢慢走平的顶,反而更可能是震荡而非反转——因为它没有这场"耗尽 + 诱捕"。这也是为什么 Brooks 偏爱有"假突破/失败新高"的反转,胜过平淡的圆顶。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 11.1 -->
+      <section id="s111">
+        <div class="kicker">第 11 章 · 反转的形态</div>
+        <h2>11.1 三推与楔形(你的老朋友)</h2>
+        <p class="lead">终于到了这里——你写了无数遍代码的形态,现在我们把它在整个体系里的位置彻底讲清楚。</p>
+        <span class="facet what">是什么</span>
+        <p><strong>楔形 (wedge) / 三推 (three pushes):</strong> 朝同一方向的<em>三次</em>推动,每一次都到达新的极端,但<strong>一次比一次弱</strong>,且高点(或低点)连成的两条线在收敛。它是"失败的新高"的最经典形态——三推,就是多头(或空头)递减的三次最后努力。</p>
+
+        <figure>
+          <div data-anim="wedge" style="position:relative;"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+            <button class="replay" data-replay="wedge">▶ 重播:看三推如何形成</button>
+          </div>
+          <figcaption><b>图 11.1(动画)</b> 三推顶部楔形:三次推高,一次比一次弱、向天花板收敛 → 动能衰竭 → 反转。点"重播"逐推观看。</figcaption>
+        </figure>
+
+        <span class="facet why">逻辑</span>
+        <p>为什么三推是高概率反转?把序诗翻译成机制:第一推,多头全力(力气最大);第二推,还能创新高,但已经吃力;第三推,勉强再高一点点——那"低了半寸"的衰竭,暴露了多头已是强弩之末。三次努力、三次递减,买盘在你眼前一点点枯竭。第三推一旦失败,反转往往随之而来。</p>
+
+        <span class="facet gb">楔形的双重身份(关键!)</span>
+        <p>这是你最该搞清楚的一点,也是你代码用它的方式:<strong>同样的三推,既可以是反转,也可以是顺势的回调结束信号。</strong></p>
+        <p><strong>作为反转:</strong> 三推出现在一段大趋势的<em>末端</em>(配合破趋势线、撞大周期阻力)→ 预示趋势反转。<br>
+        <strong>作为顺势"楔形旗 (wedge flag)":</strong> 三推出现在一段大趋势<em>回调</em>里(方向逆着主趋势)→ 它标记的是<em>回调的结束</em>,之后顺主趋势恢复。<strong>你的策略用的正是这一种</strong>:上升趋势中,一个三推向下的楔形回调结束 → 做多。</p>
+        <p>判断用哪种身份,靠的还是那条铁律——<strong>上下文</strong>:三推嵌在"主趋势的末端"还是"主趋势的回调里"?这决定了它是反转信号还是顺势信号。</p>
+
+        <span class="facet gb">什么样的三推不该碰(坏三推)</span>
+        <p>回顾我们早先讨论过的——并不是所有三推都值得交易:</p>
+        <p>① <strong>在震荡/铁丝网里的三推</strong>:没有主趋势背景,方向随机。<br>
+        ② <strong>第三推反而最强</strong>:那是动能<em>加速</em>,不是衰竭,趋势可能继续。<br>
+        ③ <strong>三推之间夹着强趋势棒</strong>:原趋势力量仍在,反向接刀危险。<br>
+        ④ <strong>前方空间不足</strong>:就算方向对,撞上近处的强支撑/阻力,跑不出利润。</p>
+
+        <span class="facet hp">什么时候高概率</span>
+        <p>高概率三推 = <strong>有明确主趋势背景 + 第三推明显衰竭(更小)+ 两线收敛 + 更大周期支持 + 前方有足够空间。</strong>这几条,几乎逐字对应你代码里的过滤逻辑和我们之前加的判断。</p>
+        <div class="connect">
+          <div class="h">连接你的代码</div>
+          <code>bullWedge = pl1&lt;pl2&lt;pl3 and (pl2-pl1)&lt;=(pl3-pl2)</code> —— "三个递低的低点 + 最后一推不大于前一推",正是"三推 + 第三推衰竭"的代码化。而 <code>longCtx</code>(主趋势为多)+ <code>requireHTF</code>(大周期一致),正是在确保这个三推是<strong>顺势楔形旗</strong>(回调结束),而不是一个无背景的、危险的逆势猜底。你当初的设计,暗合了 Brooks 的双重身份判断。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 11.2 -->
+      <section id="s112">
+        <div class="kicker">第 11 章 · 反转的形态</div>
+        <h2>11.2 双顶与双底</h2>
+        <span class="facet what">是什么</span>
+        <p><strong>双顶 (double top):</strong> 价格两次冲到几乎相同的高位、都被压回,形成两个并列的顶——多头两次进攻同一道墙,两次失败。双底则相反。这是最常见、最易识别的反转形态之一。</p>
+        <figure data-fig="double"></figure>
+        <span class="facet why">逻辑</span>
+        <p>双顶的含义很直白:<strong>在同一个价位,卖方两次成功击退了买方。</strong>第二次的失败尤其重要——它确认了"上方那道阻力是真的",且多头连续两次都没能突破,信心开始崩塌。当价格随后跌破两顶之间的低点("颈线"),反转确立。</p>
+        <span class="facet gb">Brooks 的精妙区分:双顶熊旗 / 双底牛旗</span>
+        <p>这是 Brooks 思维的典型:<strong>同一个双顶,在不同趋势背景下,意义相反。</strong></p>
+        <p><strong>在上升趋势里出现的"双顶"</strong>,Brooks 常视为 <em>双顶熊旗 (double top bear flag)</em> 的反面——多数情况下,它其实只是一次回调/盘整,趋势更可能继续向上,而非反转。<br>
+        真正可靠的<strong>反转双顶</strong>,需要配合前面的 MTR 条件(已破趋势线、大周期阻力等)。</p>
+        <p>换句话说:<strong>双顶这个形状本身,远不足以让你做空。背景(它在什么趋势的什么位置)才是裁判。</strong>又一次,形态是半个答案。</p>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 11.3 -->
+      <section id="s113">
+        <div class="kicker">第 11 章 · 反转的形态</div>
+        <h2>11.3 头肩 · 高潮 · 衰竭</h2>
+        <p style="color:var(--rev);font-family:var(--mono);font-size:12.5px;">※ 高潮与衰竭也是你没问、但极其重要的一块——补上。</p>
+        <span class="facet what">是什么</span>
+        <p><strong>头肩顶 (head & shoulders):</strong> 三个顶,中间最高(头)、两侧略低(肩),是三推的一个亲戚,同样表达"中间那次用尽全力、之后再也推不动"。<br>
+        <strong>高潮 (climax):</strong> 趋势末端一次<em>过度加速</em>的爆发——价格以异常大的棒、异常陡的角度冲刺,常常冲破趋势通道线。<br>
+        <strong>衰竭 (exhaustion):</strong> 高潮的本质——一方把力气在极短时间内全部用尽,之后无以为继。</p>
+        <figure data-fig="climax"></figure>
+        <span class="facet why">逻辑</span>
+        <p>高潮反转的逻辑非常反直觉,务必记牢:<strong>趋势不是"慢慢变弱"而死,常常是"猛烈加速"而死。</strong>那根又大又急、看起来"最强"的冲刺棒,其实是把所有还想买的人一次性榨干了——买方在高潮里全部进场,之后市场上<em>再没有新的买家</em>,于是价格只能反转。</p>
+        <p>这呼应了第二卷讲强棒时那道题:趋势末端一根带长影的超大棒,是警告而非好事。高潮,就是这道题的放大版。</p>
+        <span class="facet hp">什么时候高概率</span>
+        <p>高潮反转高概率的条件:<strong>冲刺棒异常大、冲破了趋势通道线(过度延伸)、之后立刻出现强反向棒(衰竭确认)、且发生在大周期关键位。</strong>但要警惕——高潮之后,市场常先进入<em>震荡</em>(第三卷),而非立刻反向直奔。所以接高潮的刀,通常也要等"第二次入场"确认(下一节)。</p>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 12.1 -->
+      <section id="s121">
+        <div class="kicker">第 12 章 · 把刀接稳</div>
+        <h2>12.1 第二次入场:为什么更可靠</h2>
+        <span class="facet what">是什么</span>
+        <p><strong>第二次入场 (second entry):</strong> 第一个反转信号出现、却失败(或只走了一点点)之后,市场再给出的<em>第二个</em>同向信号。Brooks 反复强调:<strong>反转的第二次入场,通常比第一次可靠得多。</strong></p>
+        <figure data-fig="second"></figure>
+        <span class="facet why">逻辑</span>
+        <p>为什么第二次更好?因为<strong>第一次入场,往往是在试探一个还没真正死掉的趋势</strong>——它经常失败,把抄底者扫损。但这次失败本身提供了信息:它让趋势方做了最后一次努力(并耗尽),也常常构成一个"更低的高点 / 双顶"。等第二个信号出现时,反转的结构(破线 + 失败新高 + 两腿)往往已经凑齐——证据更足,胜率更高。</p>
+        <p>你会发现,"第二次入场"和"三推的第三推""两腿回调的 C 腿""MTR 的失败新高",描述的常常是<em>同一类时刻</em>:市场把第一次的冲动消化掉、露出真正方向的那一刻。这就是 Brooks 体系的内在统一——<strong>不同的形态,反复指向"耐心等待二次确认"这同一条纪律。</strong></p>
+        <span class="facet hp">纪律</span>
+        <p>对反转尤其要忍住第一次的冲动。<strong>接刀的人死于第一次,接稳刀的人赢在第二次。</strong>等第二次入场,你用"少赚一点点(放弃第一次的极致价格)"换来了"高得多的胜率和清晰的止损"——交易者方程里,这几乎总是划算的。</p>
+        <div class="connect">
+          <div class="h">连接你的代码</div>
+          这给了你策略一个明确的升级方向:目前你在三推楔形完成的<em>第一时间</em>就入场。可以试着改成"等三推后的<strong>第二个</strong>顺势信号棒"再进——用回测对比一下,很可能胜率上升、虽然信号变少。这正是把 Brooks 的"second entry"纪律代码化。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 12.2 -->
+      <section id="s122">
+        <div class="kicker">第 12 章 · 把刀接稳</div>
+        <h2>12.2 反转的测量移动与两腿</h2>
+        <span class="facet what">是什么</span>
+        <p>反转成功后,价格能走多远?Brooks 用<strong>测量移动 (measured move)</strong> 给出目标,而且反转后的新趋势,几乎总是<strong>走两腿 (two legs)</strong>——和回调一样,市场偏爱"两腿"的节奏。</p>
+        <figure data-fig="revmm"></figure>
+        <span class="facet why">逻辑</span>
+        <p>反转后的第一腿,是被压抑的反向力量的第一次释放;之后一次小回调(诱使旧趋势方以为"反转结束了"),再来第二腿。两腿走完,新趋势的第一波才算完整。测量移动则提供了量化目标:常见的算法是把"第一腿的高度"投影出去,得到第二腿的大致终点——这正是你代码里"等距双腿"的来历。</p>
+        <span class="facet hp">什么时候高概率</span>
+        <p>当反转伴随强烈衰竭(高潮)+ 清晰 MTR 结构时,测量移动目标的可达性更高。而在弱反转里,价格常只走一腿就重新陷入震荡——所以目标要更保守。这就回到你策略的"强趋势 → 2腿目标 / 弱趋势 → 1腿目标"的设计。</p>
+        <div class="connect">
+          <div class="h">连接你的代码</div>
+          你出场模块里的等距测量移动、1腿/2腿目标、以及用强度评分在两者间切换——整套逻辑,正是本节内容的代码化。学到这里,你应该能反过来审视:你的"强度评分"是否真的抓住了 Brooks 判断"几腿"的依据(衰竭程度、结构清晰度)?这是你回头优化策略时一个很好的切入点。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 12.3 -->
+      <section id="s123">
+        <div class="kicker">第 12 章 · 把刀接稳</div>
+        <h2>12.3 何时不该接刀</h2>
+        <span class="facet what">是什么 —— 反转的"红灯"清单</span>
+        <p>这一节把整卷收束成一份"<strong>什么时候绝对不要做反转</strong>"的清单。因为对大多数人,知道"何时不抄底"比知道"何时抄底"更能保命。</p>
+        <figure data-fig="norev"></figure>
+        <p><strong>红灯 ①:趋势线还没破。</strong>趋势的地板还稳稳的,你凭一根反向棒就猜顶 = 纯接刀。<br>
+        <strong>红灯 ②:在强趋势(尤其窄通道)中途。</strong>单根反转棒在强趋势里被无视、被碾过,是家常便饭。<br>
+        <strong>红灯 ③:没有衰竭证据。</strong>趋势棒还又大又强、没有递减、没有高潮、没有破通道线——动能根本没枯竭。<br>
+        <strong>红灯 ④:只有第一次信号。</strong>还没等到更可靠的第二次入场。<br>
+        <strong>红灯 ⑤:逆着更大周期的强趋势。</strong>大周期还在强势那方,你的"反转"很可能只是小周期的一次回调。</p>
+        <span class="facet hp">把它变成纪律</span>
+        <p>Brooks 的反转哲学,可以浓缩成一句:<strong>"我不预测反转,我等待反转<em>证明</em>自己。"</strong> 你不需要抓住最低点——你只需要在反转<em>已经出示了足够证件</em>之后,稳稳地上车第二程。放弃前面那一点点,换来的是不被割手。</p>
+        <div class="socratic">
+          <div class="q">
+            <div class="tag">本卷综合题</div>
+            <div class="qt">一段强劲上涨后,出现了:一根冲破趋势通道线的超大阳棒(高潮),紧接一根长上影的强阴棒。一个新手立刻反手做空。用本卷的清单,他可能踩了哪些坑?一个老手会怎么做?</div>
+            <button>想好了,揭晓 →</button>
+          </div>
+          <div class="a"><div class="a-inner">
+            <p><strong>新手的坑:</strong>他抓住了"高潮 + 衰竭棒"这两个真实信号,这没错——但他可能漏了几盏红灯:① <em>趋势线可能还没破</em>(高潮往往是反转的<em>第一步</em>,但 MTR 还要求随后破趋势线 + 失败新高);② <em>这只是第一次信号</em>;③ 高潮之后市场常先<em>震荡</em>而非直接反向,他的空单可能被随后的反弹扫损。</p>
+            <p><strong>老手会怎么做:</strong>他承认这是潜在反转的<em>开端</em>,于是开始"留意",但不急着接第一刀。他会等:价格<strong>跌破上升趋势线</strong>(确认结构受损)→ 反弹<strong>做出一个失败的更低高点</strong>(MTR 成形)→ 在那个<strong>第二次入场</strong>点,带着清晰的止损(失败高点上方)进场做空。他用"多等几根棒"换来了完整的证据链。</p>
+            <p>看到了吗?这道题把本卷全部串了起来:高潮(11.3)是开端,趋势线(10.2)是确认,MTR(10.3)是结构,第二次入场(12.1)是纪律,红灯清单(12.3)是保险。<strong>反转不是一个瞬间,而是一个需要耐心读完的句子。</strong></p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 尾声 -->
+      <section id="end">
+        <div class="endcard">
+          <div class="kicker">尾声 · 体系合一</div>
+          <h2>四卷之后,你拥有了什么</h2>
+          <p>从第一根"战争快照",到此刻读懂趋势的死亡与重生——你已经走完了 Al Brooks 价格行为的<strong>完整主干</strong>。让我们把四卷铺成一张地图,让你确认:这套知识,是完整的。</p>
+
+          <div class="map">
+            <div class="row"><div class="v"><b>第一卷</b>地基</div><div class="d">战争视角 · 概率思维 · 单根棒(趋势棒/doji/强弱/信号棒)· K线关系(内外包/ii·ioi/反转棒)· 逐棒读盘</div></div>
+            <div class="row"><div class="v"><b>第二卷</b>趋势</div><div class="d">趋势结构(更高高低点)· 尖峰与通道 · 窄/宽通道 · 回调 · H1/H2 计数 · 20 EMA · 两腿/ABC · 测量缺口 · always-in 翻转 · 顺势纪律</div></div>
+            <div class="row"><div class="v"><b>第三卷</b>震荡</div><div class="d">区间结构 · 支撑阻力(及角色互换)· always-in 中性 · 突破成功/失败 · 陷阱反做 · 区间打法 · 铁丝网 · 最后旗形 · 区间如何结束</div></div>
+            <div class="row"><div class="v"><b>第四卷</b>反转</div><div class="d">反转 vs 回调 · 趋势线与通道线 · MTR · 三推/楔形(双重身份)· 双顶双底 · 头肩/高潮/衰竭 · 第二次入场 · 反转测量移动 · 不接刀清单</div></div>
+          </div>
+
+          <p>贯穿全部四卷的,其实只有<strong>三条铁律</strong>,它们值得你刻在交易桌上:</p>
+          <p><strong>一、形态只是半个答案,环境(上下文)是另一半。</strong><br>
+          <strong>二、等回调、等二次确认,胜过追突破、抢第一次。</strong><br>
+          <strong>三、不预测,只读取;不靠确定,靠概率与盈亏比。</strong></p>
+
+          <p>还剩什么没讲?为了诚实地说"完整",我把剩下的也标出来——它们大多属于<strong>"实战手册"</strong>层面,是把这四卷的"读图能力"变成"日复一日的下单纪律":</p>
+          <div class="map">
+            <div class="row"><div class="v">待补 · 实战</div><div class="d">高概率 setup 全目录(开盘走势、突破回调 BPB、20-gap-bar、楔形旗等)· 交易时段的性格 · 加仓/减仓 · 仓位与风险管理的数学(trader's equation 实算)</div></div>
+            <div class="row"><div class="v">待补 · 功夫</div><div class="d">建立个人 playbook · 写交易日志 · 大量看图回放 · 把规则代码化并回测(——你已经在做的事)</div></div>
+          </div>
+          <p>这些更偏"练"而非"读"。如果你愿意,<strong>第五卷《实战手册》</strong>可以把它们系统化;但你也可以就此停下读、开始大量看图——Brooks 会说,后者更重要。</p>
+
+          <div class="poem" style="margin-top:38px;">
+            <div class="pt">尾诗 · 译者</div>
+            <div class="verse">
+              起初,你逐字翻译每一根棒,<br>
+              生怕错过一个字;<br>
+              后来某一天,你忽然不再翻译——<br>
+              你只是,听见了它呼吸。<br>
+              棒是字,势是句,<br>
+              而市场,是一篇永远写不完、<br>
+              却终于被你读懂的文章。
+            </div>
+            <div class="by">—— 本卷原创 · 写在四卷的终点,也是看图的起点</div>
+          </div>
+
+          <p style="margin-top:34px; color:var(--muted); font-size:15px;">接下来,你可以告诉我:"<b>开始第五卷</b>"(实战手册:setup 全目录 + 交易管理 + 风险数学),或者"<b>回头优化策略</b>"——带着这四卷完整的 Brooks 体系,我们逐个模块重审你的 Pine 代码:加震荡/铁丝网过滤、把三推的"第二次入场"和"衰竭判断"做扎实、让强度评分真正对应 Brooks 的"几腿"逻辑。无论选哪条,你现在都不再是凭直觉写代码的人了——你是带着完整语法读市场的人。</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script>
+const NS="http://www.w3.org/2000/svg";
+const C={bull:"#26a69a",bear:"#ef5350",gold:"#d4a657",muted:"#8b94a3",ink:"#e9e5d8",line:"#2c343f",faint:"#5c6573",rev:"#b58bd4"};
+function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}
+function drawCandles(svg,bars,opts={}){
+  const W=720,H=opts.h||230,padX=46,padTop=24,padBot=30;
+  svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
+  let lo=Infinity,hi=-Infinity;
+  bars.forEach(b=>{lo=Math.min(lo,b.l);hi=Math.max(hi,b.h);});
+  if(opts.levels)opts.levels.forEach(L=>{lo=Math.min(lo,L.p);hi=Math.max(hi,L.p);});
+  if(opts.segs)opts.segs.forEach(g=>{lo=Math.min(lo,g.p1,g.p2);hi=Math.max(hi,g.p1,g.p2);});
+  if(opts.ema)opts.ema.forEach(v=>{if(v!=null){lo=Math.min(lo,v);hi=Math.max(hi,v);}});
+  const pad=(hi-lo)*0.16||1;lo-=pad;hi+=pad;
+  const Y=p=>padTop+(hi-p)/(hi-lo)*(H-padTop-padBot);
+  const n=bars.length,slot=(W-padX*2)/n,X=i=>padX+slot*i+slot/2,cw=Math.min(slot*0.56,24);
+  if(opts.levels)opts.levels.forEach(L=>{
+    svg.appendChild(el("line",{x1:padX-6,x2:W-padX+6,y1:Y(L.p),y2:Y(L.p),stroke:L.color||C.faint,"stroke-width":1,"stroke-dasharray":L.dash||"5 5",opacity:.9}));
+    if(L.label){const t=el("text",{x:padX-8,y:Y(L.p)+4,fill:L.color||C.muted,"font-size":11,"font-family":"monospace","text-anchor":"end"});t.textContent=L.label;svg.appendChild(t);}
+  });
+  if(opts.segs)opts.segs.forEach(g=>{
+    svg.appendChild(el("line",{x1:X(g.i1),y1:Y(g.p1),x2:X(g.i2),y2:Y(g.p2),stroke:g.color||C.rev,"stroke-width":g.w||1.6,"stroke-dasharray":g.dash||"none",opacity:.95}));
+  });
+  if(opts.ema){let d="";opts.ema.forEach((v,i)=>{if(v==null)return;d+=(d?" L":"M")+X(i)+" "+Y(v);});
+    svg.appendChild(el("path",{d,fill:"none",stroke:C.gold,"stroke-width":2,opacity:.85}));}
+  bars.forEach((b,i)=>{
+    const up=b.c>=b.o,col=b.col||(up?C.bull:C.bear),x=X(i);
+    svg.appendChild(el("line",{x1:x,x2:x,y1:Y(b.h),y2:Y(b.l),stroke:col,"stroke-width":1.6}));
+    const yo=Y(b.o),yc=Y(b.c),top=Math.min(yo,yc);let hgt=Math.abs(yo-yc);if(hgt<2)hgt=2;
+    svg.appendChild(el("rect",{x:x-cw/2,y:top,width:cw,height:hgt,fill:col,rx:1.5}));
+    if(b.n!=null){const t=el("text",{x:x,y:Y(b.l)+18,fill:b.ncol||C.muted,"font-size":12,"font-family":"monospace","text-anchor":"middle","font-weight":b.ncol?"bold":"normal"});t.textContent=b.n;svg.appendChild(t);}
+  });
+  if(opts.notes)opts.notes.forEach(nt=>{
+    const x=nt.i!=null?X(nt.i):nt.x,y=nt.p!=null?Y(nt.p):nt.y;
+    const t=el("text",{x:x,y:y+(nt.dy||0),fill:nt.color||C.ink,"font-size":12.5,"font-family":"monospace","text-anchor":nt.anchor||"middle"});
+    t.textContent=nt.text;svg.appendChild(t);
+  });
+}
+function mkSVG(){return el("svg",{});}
+
+const figs={
+  revvspb(f){
+    const s=mkSVG();
+    drawCandles(s,[
+      {o:8,h:14,l:7.5,c:13},{o:13,h:20,l:12.5,c:19},
+      {o:19,h:19.5,l:15,c:15.5},{o:15.5,h:16,l:13.5,c:14},
+      {o:14,h:21,l:13.6,c:20},{o:20,h:27,l:19.5,c:26},
+    ],{h:200,notes:[{x:300,p:13.5,text:"回调:趋势继续↑",color:C.bull,dy:22}]});
+    f.appendChild(s);
+    const s2=mkSVG();
+    drawCandles(s2,[
+      {o:8,h:14,l:7.5,c:13},{o:13,h:20,l:12.5,c:19},
+      {o:19,h:19.5,l:14,c:14.5},{o:14.5,h:15,l:10,c:10.5},
+      {o:10.5,h:11,l:5,c:5.5},{o:5.5,h:6,l:1,c:1.5},
+    ],{h:200,notes:[{x:300,p:10,text:"反转:趋势改向↓",color:C.bear,dy:20}]});
+    f.appendChild(s2);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 10.1</b> 在发生的当下,回调和反转几乎一样。区别只能从后续的力量与结构读出。强趋势里,默认先当回调。</figcaption>`);
+  },
+  trendline(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:8,h:13,l:7,c:12},{o:12,h:18,l:11,c:17},{o:17,h:18.5,l:13,c:14},
+      {o:14,h:22,l:13.5,c:21},{o:21,h:26,l:20,c:25},{o:25,h:26,l:20.5,c:21.5},
+      {o:21.5,h:31,l:21,c:30},
+    ],{h:250,segs:[
+      {i1:0,p1:7,i2:5.6,p2:20,color:C.bull,w:1.6},
+      {i1:1,p1:18,i2:6.4,p2:32,color:C.rev,w:1.4,dash:"5 4"},
+    ],notes:[
+      {x:120,p:9,text:"趋势线(地板)",color:C.bull,anchor:"start",dy:0},
+      {x:430,p:33,text:"趋势通道线(天花板)",color:C.rev,anchor:"start",dy:0},
+      {i:6,p:31,text:"过度延伸→衰竭",color:C.gold,dy:-8},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 10.2</b> 趋势线=地板,通道线=天花板。经典反转前奏:先顶破天花板(衰竭)→ 再踩穿地板(结构受损)。</figcaption>`);
+  },
+  mtr(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:8,h:13,l:7,c:12},{o:12,h:19,l:11,c:18},{o:18,h:25,l:17.5,c:24},
+      {o:24,h:25,l:18,c:18.5,col:C.bear},
+      {o:18.5,h:23.5,l:18,c:22},
+      {o:22,h:23,l:16,c:16.5,col:C.bear},
+      {o:16.5,h:17,l:10,c:10.5,col:C.bear},
+    ],{h:255,segs:[{i1:0,p1:7,i2:3.2,p2:17.5,color:C.bull,w:1.6,dash:"5 4"}],
+    notes:[
+      {i:3,p:18,text:"①跌破趋势线",color:C.bear,dy:22},
+      {i:4,p:23.5,text:"②反弹·失败的更低高点",color:C.rev,dy:-8},
+      {i:6,p:10,text:"反转确立",color:C.bear,dy:22},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 10.3</b> 主要趋势反转(MTR)=两步:先破趋势线(动能没了)+ 再做一个失败的新高(试探失败)。缺一不可。</figcaption>`);
+  },
+  double(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:8,h:14,l:7.5,c:13},{o:13,h:22,l:12.5,c:21},
+      {o:21,h:23,l:17,c:17.5,col:C.bear},
+      {o:17.5,h:19,l:16,c:18.5},
+      {o:18.5,h:23,l:18,c:19,col:C.bear},
+      {o:19,h:19.5,l:13,c:13.5,col:C.bear},
+    ],{h:250,levels:[{p:23,color:C.bear,dash:"4 4",label:"双顶阻力"},{p:16,color:C.gold,dash:"4 4",label:"颈线"}],
+    notes:[
+      {i:2,p:23.6,text:"顶1",color:C.muted,dy:-6},{i:4,p:23.6,text:"顶2(失败)",color:C.bear,dy:-6},
+      {i:5,p:13,text:"跌破颈线→确立",color:C.bear,dy:22},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 11.2</b> 双顶:同一价位两次击退买方。但背景是裁判——上升趋势里的"双顶"多半只是回调,真反转需配合 MTR 条件。</figcaption>`);
+  },
+  climax(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:8,h:13,l:7.5,c:12},{o:12,h:18,l:11.5,c:17},{o:17,h:24,l:16.5,c:23},
+      {o:23,h:34,l:22.5,c:33,col:C.bull},
+      {o:33,h:34,l:24,c:25,col:C.bear},
+    ],{h:250,segs:[{i1:1,p1:18,i2:4.3,p2:34,color:C.rev,w:1.4,dash:"5 4"}],
+    notes:[
+      {i:3,p:34,text:"高潮:超大冲刺·破通道线",color:C.gold,dy:-8},
+      {i:4,p:24,text:"衰竭:强反向棒",color:C.bear,dy:22},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 11.3</b> 趋势常"猛烈加速"而死,而非慢慢变弱。高潮把最后的买家一次榨干→之后无人接力→反转。但常先转震荡,需二次确认。</figcaption>`);
+  },
+  second(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:24,h:25,l:18,c:19,col:C.bear},
+      {o:19,h:24,l:18.5,c:23},
+      {o:23,h:23.5,l:19,c:20,col:C.bear},
+      {o:20,h:24.5,l:19.5,c:24,col:C.bull,n:"信号1",ncol:C.muted},
+      {o:24,h:25,l:20,c:20.5,col:C.bear},
+      {o:20.5,h:24,l:16,c:16.5,col:C.bear,n:"信号2",ncol:C.rev},
+      {o:16.5,h:17,l:10,c:10.5,col:C.bear},
+    ],{h:255,notes:[
+      {i:3,p:25,text:"第一次:失败",color:C.muted,dy:-8},
+      {i:5,p:24.5,text:"第二次:更可靠",color:C.rev,dy:-8},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 12.1</b> 第二次入场常比第一次可靠:第一次的失败,反而凑齐了反转的结构。接刀的死于第一次,接稳的赢在第二次。</figcaption>`);
+  },
+  revmm(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:25,h:26,l:19,c:20,col:C.bear},{o:20,h:21,l:14,c:15,col:C.bear},
+      {o:15,h:18,l:14.5,c:17.5},
+      {o:17.5,h:18,l:11,c:11.5,col:C.bear},{o:11.5,h:12,l:6,c:6.5,col:C.bear},
+    ],{h:240,levels:[{p:20,color:C.faint,dash:"3 3",label:"反转起点"},{p:6.5,color:C.rev,dash:"4 4",label:"测量移动目标"}],
+    notes:[
+      {i:1,p:14,text:"第一腿",color:C.bear,dy:22},
+      {i:2,p:18,text:"小回调(诱多)",color:C.gold,dy:-8},
+      {i:4,p:6,text:"第二腿(≈等距)",color:C.bear,dy:22},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 12.2</b> 反转后几乎总走两腿。测量移动=把第一腿高度投影出去得到第二腿终点——正是你代码"等距双腿"的来历。</figcaption>`);
+  },
+  norev(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:8,h:14,l:7.5,c:13},{o:13,h:19,l:12.5,c:18},
+      {o:18,h:19,l:14,c:14.5,col:C.bear,n:"反转棒?",ncol:C.bear},
+      {o:14.5,h:23,l:14,c:22},{o:22,h:28,l:21.5,c:27},{o:27,h:33,l:26.5,c:32},
+    ],{h:250,segs:[{i1:0,p1:7,i2:5,p2:25,color:C.bull,w:1.4,dash:"5 4"}],
+    notes:[
+      {i:2,p:14,text:"孤立反转棒",color:C.bear,dy:22},
+      {i:4,p:23,text:"被强趋势碾过·趋势线没破",color:C.gold,dy:-8},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 12.3</b> 红灯:趋势线没破 + 强趋势中途 + 无衰竭 → 单根反转棒会被碾过。不预测反转,等它出示证件。</figcaption>`);
+  },
+};
+document.querySelectorAll("figure[data-fig]").forEach(f=>{const k=f.getAttribute("data-fig");if(figs[k])figs[k](f);});
+
+// ---------- animated three-push wedge ----------
+const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function buildWedge(container){
+  container.innerHTML="";
+  const W=720,H=300,padX=50,padTop=30,padBot=30;
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`}); svg.style.width="100%"; svg.style.height="auto";
+  // schematic zigzag: three pushes UP, diminishing, converging to a top
+  // points in data coords (x index 0..10, price 0..40)
+  const lo=2,hi=40;
+  const Y=p=>padTop+(hi-p)/(hi-lo)*(H-padTop-padBot);
+  const X=i=>padX+(i/10)*(W-padX*2);
+  // pivots: low0 -> P1(high) -> pb1 -> P2(higher) -> pb2 -> P3(higher,smaller) -> reversal down
+  const pts=[
+    {i:0.5,p:8},   // start low
+    {i:2.0,p:24},  // P1
+    {i:3.2,p:18},  // pullback1
+    {i:5.0,p:31},  // P2 (higher)
+    {i:6.2,p:26},  // pullback2
+    {i:7.8,p:35},  // P3 (higher, smaller push)
+    {i:9.6,p:20},  // reversal down
+  ];
+  // converging trendlines: upper through P1,P2,P3 ; lower through pb1,pb2 (and start)
+  const upper={i1:2.0,p1:24,i2:7.8,p2:35};
+  const lower={i1:0.5,p1:8,i2:6.2,p2:26};
+  // draw trendlines (revealed last-ish)
+  function seg(a,b,cls,color,w,dash){const ln=el("line",{x1:X(a.i1??a.i),y1:Y(a.p1??a.p),x2:X(b.i2??b.i),y2:Y(b.p2??b.p),stroke:color,"stroke-width":w||1.5,"stroke-dasharray":dash||"none"});ln.setAttribute("class",cls);return ln;}
+  const tlU=el("line",{x1:X(upper.i1),y1:Y(upper.p1),x2:X(upper.i2),y2:Y(upper.p2),stroke:C.rev,"stroke-width":1.4,"stroke-dasharray":"5 4"});
+  const tlL=el("line",{x1:X(lower.i1),y1:Y(lower.p1),x2:X(lower.i2),y2:Y(lower.p2),stroke:C.faint,"stroke-width":1.4,"stroke-dasharray":"5 4"});
+  [tlU,tlL].forEach(l=>{l.setAttribute("class","wedge-tl");l.style.opacity="0";l.style.transition="opacity .6s ease";svg.appendChild(l);});
+
+  // path legs (each push is a 2-segment up-leg drawn progressively)
+  const legs=[]; // each leg = polyline through consecutive pts
+  for(let k=0;k<pts.length-1;k++){
+    const a=pts[k],b=pts[k+1];
+    const up = b.p>a.p;
+    const col = up?C.bull:C.bear;
+    const path=el("path",{d:`M${X(a.i)} ${Y(a.p)} L${X(b.i)} ${Y(b.p)}`,fill:"none",stroke:col,"stroke-width":3,"stroke-linecap":"round"});
+    svg.appendChild(path); legs.push(path);
+  }
+  // pivot dots + labels for P1,P2,P3
+  const pushPts=[{pt:pts[1],l:"①"},{pt:pts[3],l:"②"},{pt:pts[5],l:"③"}];
+  const dots=[], lbls=[];
+  pushPts.forEach(o=>{
+    const d=el("circle",{cx:X(o.pt.i),cy:Y(o.pt.p),r:5,fill:C.rev,stroke:"#13161b","stroke-width":2});
+    d.setAttribute("class","wedge-dot"); d.style.opacity="0"; d.style.transition="opacity .4s ease";
+    svg.appendChild(d); dots.push(d);
+    const t=el("text",{x:X(o.pt.i),y:Y(o.pt.p)-12,fill:C.rev,"font-size":15,"font-family":"monospace","text-anchor":"middle","font-weight":"bold"});
+    t.textContent=o.l; t.setAttribute("class","wedge-lbl"); t.style.opacity="0"; t.style.transition="opacity .4s ease";
+    svg.appendChild(t); lbls.push(t);
+  });
+  // weakening note + reversal arrow
+  const weak=el("text",{x:X(7.8),y:Y(35)-30,fill:C.gold,"font-size":12.5,"font-family":"monospace","text-anchor":"middle"});
+  weak.textContent="第③推:更高,却更弱 → 衰竭"; weak.setAttribute("class","wedge-anno"); weak.style.opacity="0"; weak.style.transition="opacity .6s ease"; svg.appendChild(weak);
+  const arrow=el("text",{x:X(9.6),y:Y(20)+24,fill:C.bear,"font-size":13,"font-family":"monospace","text-anchor":"middle","font-weight":"bold"});
+  arrow.textContent="↓ 反转"; arrow.setAttribute("class","wedge-anno"); arrow.style.opacity="0"; arrow.style.transition="opacity .6s ease"; svg.appendChild(arrow);
+
+  container.appendChild(svg);
+
+  // prepare leg draw animation via dashoffset
+  legs.forEach(p=>{const len=p.getTotalLength();p.style.strokeDasharray=len;p.style.strokeDashoffset=reduce?0:len;p.style.transition="stroke-dashoffset .55s ease";});
+
+  function play(){
+    // reset
+    legs.forEach(p=>{const len=p.getTotalLength();p.style.transition="none";p.style.strokeDashoffset=len;});
+    [...dots,...lbls].forEach(e=>e.style.opacity="0");
+    [tlU,tlL].forEach(e=>e.style.opacity="0");
+    [weak,arrow].forEach(e=>e.style.opacity="0");
+    if(reduce){ legs.forEach(p=>{p.style.strokeDashoffset=0;});[...dots,...lbls,tlU,tlL,weak,arrow].forEach(e=>e.style.opacity="1"); return; }
+    // force reflow
+    void svg.getBBox();
+    let t=120;
+    legs.forEach((p,idx)=>{
+      setTimeout(()=>{p.style.transition="stroke-dashoffset .55s ease";p.style.strokeDashoffset=0;},t);
+      // reveal pivot dot/label after the up-legs that land on P1/P2/P3 (legs index 0->P1, 2->P2, 4->P3)
+      if(idx===0){setTimeout(()=>{dots[0].style.opacity="1";lbls[0].style.opacity="1";},t+450);}
+      if(idx===2){setTimeout(()=>{dots[1].style.opacity="1";lbls[1].style.opacity="1";},t+450);}
+      if(idx===4){setTimeout(()=>{dots[2].style.opacity="1";lbls[2].style.opacity="1";weak.style.opacity="1";},t+450);}
+      t+=650;
+    });
+    setTimeout(()=>{tlU.style.opacity="1";tlL.style.opacity="1";},t+100);
+    setTimeout(()=>{arrow.style.opacity="1";},t+700);
+  }
+  return play;
+}
+const wedgePlays={};
+document.querySelectorAll("[data-anim='wedge']").forEach(c=>{
+  const play=buildWedge(c); wedgePlays["wedge"]=play;
+  // play when scrolled into view (once)
+  const io2=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){play();io2.unobserve(e.target);}});},{threshold:.3});
+  io2.observe(c);
+});
+document.querySelectorAll("[data-replay]").forEach(btn=>{
+  btn.addEventListener("click",()=>{const k=btn.getAttribute("data-replay");if(wedgePlays[k])wedgePlays[k]();});
+});
+
+// ---------- socratic / progress / reveal / nav ----------
+document.querySelectorAll(".socratic button").forEach(btn=>{
+  btn.addEventListener("click",()=>{const card=btn.closest(".socratic");const open=card.classList.toggle("open");btn.textContent=open?"收起 ↑":"想好了,揭晓 →";});
+});
+const prog=document.getElementById("progress");
+function updProg(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,max=h.scrollHeight-h.clientHeight;prog.style.width=(max>0?(sc/max*100):0)+"%";}
+window.addEventListener("scroll",updProg,{passive:true});updProg();
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll("figure").forEach(f=>io.observe(f));
+const links=[...document.querySelectorAll(".rail a")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const navIO=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}});},{rootMargin:"-10% 0px -75% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>navIO.observe(s));
+</script>
+  <script src="reader.js"></script>
+</body>
+</html>

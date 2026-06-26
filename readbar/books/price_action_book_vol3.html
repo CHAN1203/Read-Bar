@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>读棒 · Al Brooks 价格行为 · 第三卷:震荡区间</title>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --bull:#26a69a; --bear:#ef5350; --gold:#d4a657; --gold-soft:#3a3322;
+    --range:#7fa8c9; --range-soft:#27313c;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--range); color:#10141a;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%;
+    background:linear-gradient(90deg,var(--bull),var(--range),var(--bear)); z-index:100; transition:width .1s linear;}
+  .wrap{display:grid; grid-template-columns:240px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto;
+    padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--range);
+    text-transform:uppercase; margin-bottom:4px;}
+  .rail .brand b{color:var(--ink); display:block; font-size:19px; letter-spacing:.04em; margin-top:6px; font-family:var(--serif);}
+  .rail ol{list-style:none; padding:0; margin:26px 0 0;}
+  .rail .chap{font-family:var(--mono); font-size:11px; color:var(--faint); letter-spacing:.1em; margin:20px 0 6px; text-transform:uppercase;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:5px 10px;
+    border-left:2px solid transparent; border-radius:0 4px 4px 0; transition:.18s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--range); border-left-color:var(--range); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:90px 0 70px; border-bottom:1px solid var(--line); margin-bottom:10px;
+    background:linear-gradient(180deg, rgba(38,166,154,.07), transparent 30%, transparent 70%, rgba(239,83,80,.07));}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.28em; color:var(--range); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:62px; line-height:1.02; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:23px; color:var(--muted); font-weight:400; margin-top:18px; letter-spacing:.02em;}
+  .cover .vol{font-family:var(--mono); font-size:13px; color:var(--faint); margin-top:30px; letter-spacing:.1em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--range); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:33px; line-height:1.15; margin:6px 0 4px;}
+  h3{font-family:var(--serif); font-weight:600; font-size:22px; margin:38px 0 2px;}
+  p{margin:16px 0; color:#dcd8cc;}
+  p strong{color:var(--ink); font-weight:600;}
+  em{color:var(--gold); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em;
+    padding:2px 9px; border-radius:20px; margin:30px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;}
+  .facet.why{background:var(--gold-soft); color:var(--gold);}
+  .facet.gb{background:#33282a; color:#f0a0a0;}
+  .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:30px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px;
+    padding:20px 20px 14px; opacity:0; transform:translateY(14px); transition:.6s ease;}
+  figure.in{opacity:1; transform:none;}
+  figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px;
+    padding-top:11px; border-top:1px solid var(--line); letter-spacing:.02em;}
+  figcaption b{color:var(--range);}
+  .socratic{margin:34px 0; border:1px solid var(--line); border-left:3px solid var(--range); border-radius:10px;
+    background:linear-gradient(180deg, rgba(127,168,201,.05), transparent); overflow:hidden;}
+  .socratic .q{padding:20px 22px;}
+  .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--range); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:20px; color:var(--ink); margin:8px 0 16px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12.5px; letter-spacing:.05em; color:var(--bg);
+    background:var(--range); border:none; padding:9px 16px; border-radius:7px; cursor:pointer; transition:.18s;}
+  .socratic button:hover{filter:brightness(1.08);}
+  .socratic button:focus-visible{outline:2px solid var(--ink); outline-offset:2px;}
+  .socratic .a{max-height:0; opacity:0; transition:max-height .5s ease, opacity .4s ease; border-top:1px solid transparent;}
+  .socratic.open .a{max-height:820px; opacity:1; border-top-color:var(--line);}
+  .socratic .a-inner{padding:18px 22px 22px;}
+  .socratic .a-inner p:first-child{margin-top:0;}
+  .socratic .a-inner p{font-size:16px; color:#cfcabd;}
+  .connect{margin:30px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15.5px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--bull); margin-bottom:6px;}
+  .connect code{font-family:var(--mono); font-size:13px; background:#11161c; color:var(--gold); padding:1px 6px; border-radius:4px;}
+  .divider{height:1px; background:var(--line); margin:64px 0 0;}
+  .endcard{margin:56px 0 0; padding:34px; border:1px solid var(--line); border-radius:14px;
+    background:radial-gradient(120% 120% at 0% 0%, rgba(212,166,87,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static; height:auto; border-right:none; border-bottom:1px solid var(--line);
+      display:flex; gap:14px; overflow-x:auto; white-space:nowrap; padding:16px 18px;}
+    .rail ol{display:flex; gap:6px; margin:0;}
+    .rail .brand,.rail .chap{display:none;}
+    .rail a{border-left:none; border-bottom:2px solid transparent; border-radius:4px; padding:6px 10px;}
+    .rail a.active{border-left:none; border-bottom-color:var(--range);}
+    .cover h1{font-size:42px;} .cover h1 .small{font-size:19px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none!important; transition:none!important; scroll-behavior:auto!important;}
+    figure{opacity:1; transform:none;}
+  }
+</style>
+  <link rel="stylesheet" href="reader.css">
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+
+  <nav class="rail">
+    <div class="brand">读棒 · READING BARS<b>震荡区间</b></div>
+    <div class="shelf-nav" style="margin:12px 0 0;font-family:var(--mono);font-size:11px;display:flex;flex-wrap:wrap;gap:7px;">
+      <a href="index.html" style="color:var(--range);text-decoration:none;border:1px solid var(--line);padding:3px 9px;border-radius:6px;">📚 书架</a>
+      <a href="price_action_book_vol2.html" style="color:var(--muted);text-decoration:none;border:1px solid var(--line);padding:3px 9px;border-radius:6px;">← 第二卷</a>
+      <a href="price_action_book_vol4.html" style="color:var(--muted);text-decoration:none;border:1px solid var(--line);padding:3px 9px;border-radius:6px;">第四卷 →</a>
+    </div>
+    <ol>
+      <li><div class="chap">序</div><a href="#intro">80% 的时间</a></li>
+      <li><div class="chap">第 7 章 · 解剖</div>
+        <a href="#s71">7.1 什么是震荡区间</a>
+        <a href="#s72">7.2 支撑与阻力</a>
+        <a href="#s73">7.3 区间里的 always-in</a>
+      </li>
+      <li><div class="chap">第 8 章 · 突破与陷阱</div>
+        <a href="#s81">8.1 突破:成功还是失败</a>
+        <a href="#s82">8.2 失败的突破</a>
+        <a href="#s83">8.3 区间里怎么做</a>
+      </li>
+      <li><div class="chap">第 9 章 · 极端</div>
+        <a href="#s91">9.1 铁丝网:该避开的</a>
+        <a href="#s92">9.2 最后旗形</a>
+        <a href="#s93">9.3 区间如何结束</a>
+      </li>
+      <li><div class="chap">尾声</div><a href="#end">从读棒到下单</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <header class="cover">
+      <div class="col">
+        <div class="eyebrow">第三卷 · 震荡区间</div>
+        <h1>震荡区间<span class="small">市场 80% 的时间都在这里。会做趋势让你赚钱,会认震荡让你不亏钱</span></h1>
+        <div class="vol">AL BROOKS PRICE ACTION · VOL.3 / TRADING RANGES</div>
+      </div>
+    </header>
+
+    <div class="col">
+
+      <!-- 序 -->
+      <section id="intro">
+        <div class="kicker">序</div>
+        <h2>80% 的时间</h2>
+        <p class="lead">第二卷你学会了在趋势里赚钱。但这里有个残酷的事实:<strong>市场大约 80% 的时间,根本不在趋势里。</strong></p>
+        <p>它在<em>震荡区间</em>里——上不去、下不来,在两条线之间反复撞墙。如果你只会趋势的玩法,那么 80% 的时间你都在错误的环境里操作:把震荡误当趋势、追突破被反杀、顺势入场却被来回扫损。你截图里那些 score 0–1 的亏损单,几乎全是这么来的。</p>
+        <p>所以这一卷的目标和前两卷不同。前两卷教你"如何抓住机会",这一卷大半在教你"<strong>如何认出陷阱、并知道何时收手</strong>"。听起来不性感,但 Brooks 反复强调:<em>能避开该避开的交易,和能抓住该抓住的交易,一样值钱——甚至更值钱。</em></p>
+        <div class="socratic">
+          <div class="q">
+            <div class="tag">先想一想</div>
+            <div class="qt">在趋势里,"突破"通常会成功、推动趋势继续。那么在震荡区间里,一次向上突破区间顶部,最可能的结局是什么?</div>
+            <button>想好了,揭晓 →</button>
+          </div>
+          <div class="a"><div class="a-inner">
+            <p>最可能的结局是——<strong>失败</strong>。价格冲出区间顶部,但很快被打回区间内。这就是震荡区间的本质:<em>没有任何一方能守住突破。</em></p>
+            <p>这导致一条几乎和趋势相反的玩法:在趋势里你<strong>顺着</strong>突破做,在震荡里你往往要<strong>反着</strong>突破做——专门去抓那些"突破即失败"的陷阱。同一个动作(突破),在两种环境里含义截然相反。认错环境,就是在用对的技术做错的事。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 7.1 -->
+      <section id="s71">
+        <div class="kicker">第 7 章 · 解剖</div>
+        <h2>7.1 什么是震荡区间</h2>
+        <span class="facet what">是什么</span>
+        <p><strong>震荡区间 (trading range):</strong> 价格被困在一个大致水平的区域里,在<em>上沿(阻力)</em>和<em>下沿(支撑)</em>之间反复来回,没有明确的方向。高点不再持续抬高,低点也不再持续抬高——楼梯结构消失了,变成了波浪。</p>
+        <figure data-fig="range"></figure>
+        <span class="facet why">逻辑</span>
+        <p>为什么会形成震荡?因为<strong>多空力量达到了均衡</strong>。每当价格涨到上沿,卖方觉得"贵了"就卖,把它压下来;每当跌到下沿,买方觉得"便宜了"就买,把它托起来。双方在两条线上反复换手,谁也无法决定性地胜出。震荡区间,本质是一场<em>谁也赢不了的拉锯战</em>。</p>
+        <span class="facet gb">好的样子 / 坏的样子(对交易者而言)</span>
+        <p><strong>较好做的震荡:</strong>区间够宽、上下沿清晰——你能在下沿买、上沿卖,有足够空间获利。<br>
+        <strong>难做的震荡:</strong>区间很窄、上下沿模糊、棒高度重叠——空间不够、方向随机,稍后我们会讲到它最极端的形态:铁丝网。</p>
+        <div class="connect">
+          <div class="h">连接你的代码</div>
+          你的趋势强度评分持续是 0–1、always-in 反复翻来翻去,几乎就是"进入震荡"的代码信号。你的策略目前没有专门的"区间检测器"——但 <code>longCtx</code>/<code>shortCtx</code> 在震荡里会频繁失效又重置,导致那些来回扫损的单子。读完这一卷,你会明白为什么"加一个震荡过滤器"可能比优化任何入场细节都更能提升你的策略。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 7.2 -->
+      <section id="s72">
+        <div class="kicker">第 7 章 · 解剖</div>
+        <h2>7.2 支撑与阻力</h2>
+        <span class="facet what">是什么</span>
+        <p><strong>支撑 (support):</strong> 价格反复下跌到、但被买盘托住的价位。<strong>阻力 (resistance):</strong> 价格反复上涨到、但被卖盘压住的价位。它们就是震荡区间的上下两条边。</p>
+        <figure data-fig="sr"></figure>
+        <span class="facet why">逻辑</span>
+        <p>支撑阻力为什么"有效"?不是因为某个价位有魔力,而是因为<strong>记忆和情绪</strong>:上次在这个价位买的人,这次还想买;上次在这里被套的人,这次解套就跑。大量交易者把同一个价位当成参考,于是它就真的成了一道墙。</p>
+        <p>有一个极重要的现象:<strong>支撑和阻力会互换角色。</strong>一旦阻力被有效突破,它常常翻转成新的支撑(反之亦然)。因为突破后,原来在那卖的人现在反而想在那买回——墙的"方向"翻转了。</p>
+        <span class="facet hp">什么时候高概率</span>
+        <p>一个支撑/阻力被测试的次数越多、越清晰,它附近的反应就越可靠。<strong>在清晰的区间下沿做多、上沿做空</strong>,是震荡里最基本的高概率玩法。但永远记住:支撑阻力是"区域"不是"精确线",而且它们最终都会被突破——所以止损必不可少。</p>
+        <div class="socratic">
+          <div class="q">
+            <div class="tag">想一想</div>
+            <div class="qt">价格在区间里第三次涨到同一个阻力位。有人说"测试越多次的阻力越强";也有人说"测试越多次的阻力越容易被突破"。哪个对?</div>
+            <button>想好了,揭晓 →</button>
+          </div>
+          <div class="a"><div class="a-inner">
+            <p>两个都对,只是描述了不同阶段——这正是 Brooks 思维的精妙处。<strong>前几次测试,阻力通常有效(高概率在那做空回区间)。但每测一次,这道墙后面的卖单就被消耗一点。</strong></p>
+            <p>当价格<em>反复、紧贴着</em>一个阻力磨蹭(而不是大幅弹开),这其实是"墙正在被啃穿"的信号——卖方在被一点点吃掉,一次突破往往就在眼前。所以:<strong>弹开得越干脆,墙越强;磨蹭得越久越紧,越可能突破。</strong>不是看次数,而是看价格<em>每次到达时反应的质量</em>。这又回到了第一卷:读棒,永远在读那根棒"反应得有多坚决"。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 7.3 -->
+      <section id="s73">
+        <div class="kicker">第 7 章 · 解剖</div>
+        <h2>7.3 区间里的 always-in:中性</h2>
+        <span class="facet what">是什么</span>
+        <p>还记得第二卷的 always-in 吗?在趋势里它清晰地指向某个方向。但在震荡区间里,<strong>always-in 是"中性"的</strong>——市场不在任何一方,如果此刻强制你持仓,根本没有正确答案。</p>
+        <figure data-fig="neutral"></figure>
+        <span class="facet why">逻辑</span>
+        <p>这是震荡区间最重要、也最反直觉的一课:<strong>当 always-in 中性时,最好的"持仓"就是空仓。</strong>因为没有方向,任何方向性的押注都接近抛硬币。强行参与,等于在 50/50 的赌局里还要付出点差和手续费——长期必输。</p>
+        <span class="facet gb">高手 vs 新手</span>
+        <p><strong>新手</strong>在震荡里最忙:每根棒都想做点什么,反复进出、反复被扫损,账户被磨平。<br>
+        <strong>高手</strong>在震荡里最闲:他认出了 always-in 中性,于是<em>退到一边等待</em>,直到区间边缘出现明确的高概率机会(下沿做多/上沿做空),或者直到一次<em>成功的突破</em>重新给出方向。<strong>"不交易"本身,就是震荡里最重要的一个交易决策。</strong></p>
+        <div class="connect">
+          <div class="h">连接你的代码</div>
+          你代码里这行 <code>if not longCtx and not shortCtx: strategy.cancel(...)</code> 正是"always-in 中性时退到一边"的雏形——当多空背景都不成立,撤掉挂单、不参与。这是你策略里最 Brooks、也最该被强化的一行。一个真正的震荡过滤器,会让它在震荡全程都保持空仓,而不只是撤掉个别挂单。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 8.1 -->
+      <section id="s81">
+        <div class="kicker">第 8 章 · 突破与陷阱</div>
+        <h2>8.1 突破:成功还是失败</h2>
+        <span class="facet what">是什么</span>
+        <p>震荡迟早会被打破。一次<strong>突破 (breakout)</strong> 就是价格冲出区间的上沿或下沿。但关键问题永远是同一个:<strong>这次突破,会成功(变成新趋势),还是会失败(被打回区间)?</strong></p>
+        <figure data-fig="bovsfail"></figure>
+        <span class="facet why">逻辑 —— 怎么分辨</span>
+        <p>这是震荡交易的核心判断。Brooks 看几个东西:</p>
+        <p><strong>成功突破的样子:</strong>突破棒是一根强趋势棒(大实体、收在极端、几乎无反向影线),而且<em>第二根棒跟进</em>、不回头。这说明突破方真有力量。<br>
+        <strong>失败突破的样子:</strong>突破棒看似冲出去,但带长长的反向影线、收回区间边缘附近,或者第二根棒立刻反向吞没——力量是假的。</p>
+        <span class="facet hp">概率的现实</span>
+        <p>残酷的统计直觉:<strong>在一个已经确立的震荡区间里,突破失败的概率,通常高于成功。</strong>区间之所以是区间,就是因为它已经"驯服"了好几次突破尝试。所以默认假设应该偏向"这次也会失败",除非突破展示出压倒性的力量证据。这正是下一节要利用的。</p>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 8.2 -->
+      <section id="s82">
+        <div class="kicker">第 8 章 · 突破与陷阱</div>
+        <h2>8.2 失败的突破:区间交易的核心</h2>
+        <span class="facet what">是什么</span>
+        <p><strong>失败的突破 (failed breakout) / 陷阱 (trap):</strong> 价格冲出区间边缘、把追突破的人骗进场,然后掉头打回区间,把这些人套牢。这是 Brooks 在震荡里<em>最主要的赚钱方式</em>。</p>
+        <figure data-fig="trap"></figure>
+        <span class="facet why">逻辑</span>
+        <p>为什么陷阱如此高概率、又如此好赚?因为它有<strong>双重燃料</strong>:</p>
+        <p>① 区间本身的回归力(价格倾向于待在区间里);<br>
+        ② <strong>被套者的止损</strong>——那些追突破进场的人,在价格打回时被迫止损离场,而他们的止损方向<em>恰好助推价格朝你的方向走</em>。你不仅站在概率这边,还站在"别人被迫平仓"的顺风里。</p>
+        <p>用第一卷的"战争"视角看:一次失败的向上突破,是多头发起总攻、却在区间外被空头迎头痛击、溃退回区间——这根带长上影、收回区间内的棒,就是空头大胜的旗帜。</p>
+        <span class="facet hp">什么时候高概率</span>
+        <p>反向交易突破陷阱,在以下条件下最高概率:<strong>区间清晰且已被多次确认 ✓、突破棒带明显反向影线/收回边缘内 ✓、突破时没有更大周期趋势的支持 ✓。</strong>你的入场就放在"价格收回区间内"之后,止损放在突破的极值外面一点——盈亏比往往极好,因为目标是区间的另一边。</p>
+        <div class="socratic">
+          <div class="q">
+            <div class="tag">想一想</div>
+            <div class="qt">你正准备反向交易一个向上突破的"陷阱"。但这时你注意到:更大周期(比如日线)其实是一个强劲的上升趋势。你还该做这个反向空单吗?</div>
+            <button>想好了,揭晓 →</button>
+          </div>
+          <div class="a"><div class="a-inner">
+            <p><strong>要非常警惕,多半应该放弃。</strong>因为这个"向上突破",在大周期看来很可能<em>不是</em>陷阱,而是大趋势的延续——是一次<strong>真突破</strong>。你以为在抓陷阱,其实是在逆着大趋势做空,正好踩进了第二卷反复警告的"逆势必死"。</p>
+            <p>这揭示了震荡卷和趋势卷如何咬合:<strong>同一个突破是"陷阱"还是"真启动",很大程度由更大周期的背景决定。</strong>没有大周期支持的突破,容易失败(适合反做);有大周期趋势助推的突破,容易成功(该顺做,甚至该把这个"区间"理解为大趋势中的一次回调/旗形)。这就是为什么 Brooks 永远多周期地看——也是为什么你的策略有 <code>requireHTF</code> 这道闸。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 8.3 -->
+      <section id="s83">
+        <div class="kicker">第 8 章 · 突破与陷阱</div>
+        <h2>8.3 区间里怎么做</h2>
+        <span class="facet what">是什么 —— 把工具组合成打法</span>
+        <p>把前面所有东西合起来,震荡区间里的核心打法可以浓缩成一句话:<strong>低买、高卖、反做突破;并对中间地带保持空仓。</strong></p>
+        <figure data-fig="play"></figure>
+        <p><strong>① 在下沿附近找做多</strong>(支撑 + 一根看涨信号棒)。<br>
+        <strong>② 在上沿附近找做空</strong>(阻力 + 一根看跌信号棒)。<br>
+        <strong>③ 反做失败的突破</strong>(突破收回区间后,顺着收回方向做)。<br>
+        <strong>④ 远离区间中央</strong>——那里既没支撑也没阻力,方向最随机。</p>
+        <span class="facet gb">和趋势打法的根本区别</span>
+        <p>请把这个对比刻进脑子里,它能挡掉你未来大量的亏损:</p>
+        <p><strong>趋势里:</strong>买在强势(突破、创新高),卖在弱势,<em>追随</em>突破。<br>
+        <strong>震荡里:</strong>买在弱势(下沿),卖在强势(上沿),<em>反做</em>突破。</p>
+        <p>几乎完全相反。所以在下单前,你必须先回答那个最重要的问题:<strong>我现在到底在趋势里,还是在震荡里?</strong>答错这个,你会用完全正确的技术,做出完全错误的方向。</p>
+        <span class="facet hp">什么时候高概率</span>
+        <p>区间越宽、上下沿越清晰、测试次数适中(够确认、又没磨穿),区间打法越高概率。一旦区间开始收窄、变得杂乱(铁丝网),所有这些打法的概率都会暴跌——那时正确的动作只剩一个:走开。</p>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 9.1 -->
+      <section id="s91">
+        <div class="kicker">第 9 章 · 极端</div>
+        <h2>9.1 铁丝网:该避开的</h2>
+        <span class="facet what">是什么</span>
+        <p><strong>铁丝网 (barbwire):</strong> 震荡区间最恶劣的一种形态——一连串<em>高度重叠的、带大影线的 doji</em>,挤在一个很窄的范围里,常常还缠绕着 20 EMA。它得名于"带刺的铁丝网":谁碰谁流血。</p>
+        <figure data-fig="barbwire"></figure>
+        <span class="facet why">逻辑</span>
+        <p>铁丝网为什么是绞肉机?因为它把震荡的所有坏处推到了极致:<strong>方向极度随机(doji 一片)+ 空间极度狭窄(止损放哪都会被扫)。</strong>顺势突破?大多假突破。反做突破?范围太窄,刚反手又被打穿。在铁丝网里,无论你站哪边,都会被两边反复割伤。</p>
+        <span class="facet hp">唯一的高概率动作:不做</span>
+        <p>Brooks 对铁丝网的建议简单到极致:<strong>不要在里面交易,等它结束。</strong>等价格用一根强趋势棒<em>干净地</em>冲出铁丝网、并且不回头,再考虑顺着那个方向行动。在那之前,铁丝网里的每一笔交易都是负期望。能认出铁丝网并走开,是成熟交易者的标志之一。</p>
+        <div class="connect">
+          <div class="h">连接你的代码</div>
+          铁丝网 = 你截图里 score 0–1 簇集的最极端版本。一堆 <code>isDoji</code>、<code>bodyRatio</code> 极小、价格反复穿越 <code>ema</code>。如果给你的策略加一个"铁丝网检测"(比如:最近 N 根里 doji 占比过高 + 价格反复穿越 EMA → 暂停所有入场),很可能直接砍掉你一大批最差的亏损单。这是这一整卷给你策略最具体、最高优先级的改进建议。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 9.2 -->
+      <section id="s92">
+        <div class="kicker">第 9 章 · 极端</div>
+        <h2>9.2 最后旗形</h2>
+        <span class="facet what">是什么</span>
+        <p><strong>最后旗形 (final flag):</strong> 出现在一段趋势<em>末端</em>的一个小型震荡区间(旗形)。它看起来像趋势中又一次正常的回调/盘整,但它其实是<strong>趋势的最后一口气</strong>——突破它之后,趋势不再延续,反而反转。</p>
+        <figure data-fig="finalflag"></figure>
+        <span class="facet why">逻辑</span>
+        <p>为什么叫"最后"?因为这个旗形吸收了趋势里最后一批顺势者:他们在旗形突破时进场,以为是又一次延续。但趋势的动能此时已耗尽,这次突破很快失败、反转——于是这些最后的进场者成了被套的人,他们的止损又加速了反转。<strong>最后旗形是"趋势衰竭"和"突破陷阱"的结合体</strong>,把第二卷和这一卷的概念缝在了一起。</p>
+        <span class="facet hp">什么时候高概率</span>
+        <p>一个盘整越是出现在趋势<em>已经走了很长、动能明显衰减</em>之后(趋势棒变小、出现背离、缺口被回填),它越可能是最后旗形。识别它,既能让你<strong>避免追最后一次突破</strong>,又能让你<strong>预判即将到来的反转</strong>——这正好是下一卷《反转与楔形》的入口。</p>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 9.3 -->
+      <section id="s93">
+        <div class="kicker">第 9 章 · 极端</div>
+        <h2>9.3 区间如何结束</h2>
+        <span class="facet what">是什么</span>
+        <p>震荡不会永远持续。它的结束只有一种方式:<strong>一次最终成功的突破。</strong>价格用一根(或几根)强趋势棒干净地冲出区间、并守住,旧的拉锯结束,新的趋势诞生——市场又回到了第二卷的世界。</p>
+        <figure data-fig="resolve"></figure>
+        <span class="facet why">逻辑</span>
+        <p>这就完成了 Brooks 的市场大循环:<strong>趋势 → 震荡 → 突破 → 新趋势 → 再震荡……</strong>无限循环。震荡是趋势的"中场休息",突破是哨声,新趋势是下半场。你学的所有东西,都在这个循环里各就各位:</p>
+        <p>第一卷教你读每一根棒;第二卷教你在<em>趋势段</em>顺势赚钱;这一卷教你在<em>震荡段</em>认出陷阱、保住本金、并在边缘小赚;而识别"成功突破"的那一刻,就是从震荡模式切回趋势模式的开关。</p>
+        <span class="facet hp">最高概率的衔接</span>
+        <p>区间被成功突破后,<strong>最好的入场不是追那根突破棒,而是等突破后的第一次回调(突破回调 BPB)</strong>——你既确认了新方向(突破守住了),又拿到了好的入场和近止损。这句话你应该很熟了:从第二卷到这一卷,Brooks 反复在说同一件事——<em>等回调,胜过追突破</em>。这是贯穿整个体系的、最值钱的一条纪律。</p>
+        <div class="socratic">
+          <div class="q">
+            <div class="tag">三卷综合题</div>
+            <div class="qt">你打开图,看到价格在两条清晰的水平线之间已经来回了很多次。现在它又一次涨到了上沿。把三卷学的合起来——在你做任何决定之前,你脑子里应该依次问哪几个问题?</div>
+            <button>想好了,揭晓 →</button>
+          </div>
+          <div class="a"><div class="a-inner">
+            <p>一个成熟交易者的思考顺序大致是:</p>
+            <p><strong>① 环境?</strong>(这是震荡还是大趋势中的回调?)→ 先看更大周期。如果大周期是强上升趋势,这"区间"可能只是回调,该偏向<em>顺势做多突破</em>;如果大周期也没方向,才按纯震荡处理。</p>
+            <p><strong>② 这道阻力的质量?</strong>(前几次是干脆弹开,还是越来越紧地磨蹭?)→ 弹开干脆 → 偏向在上沿<em>做空回区间</em>;磨蹭啃墙 → 警惕即将突破,别急着做空。</p>
+            <p><strong>③ 这根棒在说什么?</strong>(到达上沿的这根棒,是带长上影被拒绝的弱棒,还是收在极端的强突破棒?)→ 弱棒=做空信号;强棒+跟进=可能真突破。</p>
+            <p><strong>④ 我的盈亏比和止损?</strong>(进场、止损、目标分别在哪,值不值得做?)→ 算一遍交易者方程。</p>
+            <p>看到了吗?<strong>环境 → 位置质量 → 单根棒 → 数学</strong>,从大到小四层。这套思考顺序,就是整个 Brooks 体系的浓缩。你已经具备它了。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <!-- 尾声 -->
+      <section id="end">
+        <div class="endcard">
+          <div class="kicker">尾声</div>
+          <h2>从读棒到下单</h2>
+          <p>三卷走到这里,你已经走完了 Brooks 价格行为的主干。回头看你拥有的:</p>
+          <p><strong>第一卷</strong>给了你一双眼睛——把每根棒读成一场战争。<br>
+          <strong>第二卷</strong>给了你趋势的地图——如何顺势、何处上车、方向何时翻转。<br>
+          <strong>第三卷</strong>给了你最稀缺的能力——<em>认出该收手的 80% 时间</em>,在震荡里保住本金、反做陷阱、并等待下一段趋势。</p>
+          <p>而这三卷自始至终,反复在敲打同两条铁律:<strong>① 形态只是半个答案,环境是另一半。② 等回调,胜过追突破。</strong>当你哪天发现自己看图时,脑子里自动按"环境 → 位置 → 单根棒 → 数学"的顺序在问问题,你就真正会读市场了。</p>
+          <p>还剩最后一块拼图——也是你<em>最早就在写代码的</em>那块:<strong>反转与楔形</strong>。震荡的尾声(最后旗形、突破陷阱)已经把你领到了反转的门口。下一卷《反转与楔形》会精确回答:趋势如何死亡、主要反转 (MTR) 的严格定义、双顶双底、以及——<strong>你那个写了无数遍代码的"三推楔形"在 Brooks 体系里的完整逻辑</strong>:它何时是反转、何时是顺势回调、什么样的三推不该碰。学完那一卷,你会带着完整的体系,回头把你的策略从头到尾重写一遍。</p>
+          <div class="socratic" style="margin-top:30px;">
+            <div class="q">
+              <div class="tag">通向第四卷的问题</div>
+              <div class="qt">趋势靠"更高的高点+更高的低点"维持。那么一个上升趋势真正"死亡"的那一刻——用最严格的标准——应该满足哪两件事同时发生?(提示:光出现一根大阴棒肯定不够。)</div>
+              <button>想好了,揭晓 →</button>
+            </div>
+            <div class="a"><div class="a-inner">
+              <p>Brooks 对"主要趋势反转 (MTR)"的严格标准,核心是两件事必须同时发生:<strong>① 价格先有力地跌破了上升趋势线</strong>(证明趋势的动能结构被打破了);<strong>② 之后再创一个新高、但这个新高<em>失败了</em></strong>(多头做了最后一次尝试却没能延续,留下一个更低的高点或双顶)。</p>
+              <p>跌破趋势线 = "动能没了";新高失败 = "连试都试不动了"。两者叠加,才算趋势真正死亡、反转确立。<strong>而三推楔形,正是"新高失败"最经典的形态之一</strong>——三次推动、一次比一次弱,最后一推就是那个失败的新高。你看,你写了那么久的楔形代码,它在整个体系里的位置,到第四卷就彻底清晰了。</p>
+            </div></div>
+          </div>
+          <p style="margin-top:34px; color:var(--muted); font-size:15px;">两条路任你选:跟我说"<b>开始第四卷</b>",把《反转与楔形》(连同你的三推代码的完整逻辑)讲完;或者说"<b>回头优化策略</b>",我们用这三卷学到的 Brooks 原则,逐个模块对照检查并升级你的 Pine 代码——尤其是给它加上这一卷反复强调的"震荡/铁丝网过滤器"。</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script>
+const NS="http://www.w3.org/2000/svg";
+const C={bull:"#26a69a",bear:"#ef5350",gold:"#d4a657",muted:"#8b94a3",ink:"#e9e5d8",line:"#2c343f",faint:"#5c6573",range:"#7fa8c9"};
+function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}
+function drawCandles(svg,bars,opts={}){
+  const W=720,H=opts.h||230,padX=46,padTop=24,padBot=30;
+  svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
+  let lo=Infinity,hi=-Infinity;
+  bars.forEach(b=>{lo=Math.min(lo,b.l);hi=Math.max(hi,b.h);});
+  if(opts.levels)opts.levels.forEach(L=>{lo=Math.min(lo,L.p);hi=Math.max(hi,L.p);});
+  if(opts.ema)opts.ema.forEach(v=>{if(v!=null){lo=Math.min(lo,v);hi=Math.max(hi,v);}});
+  const pad=(hi-lo)*0.18||1;lo-=pad;hi+=pad;
+  const Y=p=>padTop+(hi-p)/(hi-lo)*(H-padTop-padBot);
+  const n=bars.length,slot=(W-padX*2)/n,X=i=>padX+slot*i+slot/2,cw=Math.min(slot*0.56,24);
+  if(opts.levels)opts.levels.forEach(L=>{
+    svg.appendChild(el("line",{x1:padX-6,x2:W-padX+6,y1:Y(L.p),y2:Y(L.p),stroke:L.color||C.faint,"stroke-width":L.w||1,"stroke-dasharray":L.dash||"5 5",opacity:.9}));
+    if(L.label){const t=el("text",{x:padX-8,y:Y(L.p)+4,fill:L.color||C.muted,"font-size":11,"font-family":"monospace","text-anchor":"end"});t.textContent=L.label;svg.appendChild(t);}
+  });
+  if(opts.ema){let d="";opts.ema.forEach((v,i)=>{if(v==null)return;d+=(d?" L":"M")+X(i)+" "+Y(v);});
+    svg.appendChild(el("path",{d,fill:"none",stroke:C.gold,"stroke-width":2,opacity:.85}));}
+  bars.forEach((b,i)=>{
+    const up=b.c>=b.o,col=b.col||(up?C.bull:C.bear),x=X(i);
+    svg.appendChild(el("line",{x1:x,x2:x,y1:Y(b.h),y2:Y(b.l),stroke:col,"stroke-width":1.6}));
+    const yo=Y(b.o),yc=Y(b.c),top=Math.min(yo,yc);let hgt=Math.abs(yo-yc);if(hgt<2)hgt=2;
+    svg.appendChild(el("rect",{x:x-cw/2,y:top,width:cw,height:hgt,fill:col,rx:1.5}));
+    if(b.n!=null){const t=el("text",{x:x,y:Y(b.l)+18,fill:b.ncol||C.muted,"font-size":12,"font-family":"monospace","text-anchor":"middle","font-weight":b.ncol?"bold":"normal"});t.textContent=b.n;svg.appendChild(t);}
+  });
+  if(opts.notes)opts.notes.forEach(nt=>{
+    const x=nt.i!=null?X(nt.i):nt.x,y=nt.p!=null?Y(nt.p):nt.y;
+    const t=el("text",{x:x,y:y+(nt.dy||0),fill:nt.color||C.ink,"font-size":12.5,"font-family":"monospace","text-anchor":nt.anchor||"middle"});
+    t.textContent=nt.text;svg.appendChild(t);
+  });
+}
+function mkSVG(){return el("svg",{});}
+const RES=22, SUP=8; // common range edges
+
+const figs={
+  range(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:10,h:21,l:9,c:20},{o:20,h:21.5,l:14,c:15},{o:15,h:18,l:9.5,c:10},
+      {o:10,h:20,l:9.5,c:19.5},{o:19.5,h:21,l:15,c:16},{o:16,h:17,l:9.8,c:10.5},
+      {o:10.5,h:21,l:10,c:20},
+    ],{h:235,levels:[
+      {p:21,color:C.bear,label:"阻力(上沿)"},{p:9.5,color:C.bull,label:"支撑(下沿)"}
+    ],notes:[{x:360,p:15,text:"价格在两线间反复撞墙·无方向",color:C.range,dy:0}]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 7.1</b> 震荡区间:楼梯结构消失,变成在上沿(阻力)和下沿(支撑)之间的拉锯。</figcaption>`);
+  },
+  sr(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:9,h:14,l:8.5,c:13},{o:13,h:20.5,l:12.5,c:20},{o:20,h:21,l:16,c:16.5},
+      {o:16.5,h:20.8,l:16,c:20},{o:20,h:27,l:19.5,c:26,col:C.bull},
+      {o:26,h:28,l:20.5,c:21.5},{o:21.5,h:26,l:21,c:25},
+    ],{h:250,levels:[{p:21,color:C.gold,dash:"4 4",label:"原阻力→翻转为支撑"}],
+    notes:[
+      {i:3,p:21.8,text:"两次被阻力压回",color:C.bear,dy:-6},
+      {i:4,p:27,text:"突破!",color:C.bull,dy:-8},
+      {i:6,p:21,text:"回踩→原阻力现在托住价格",color:C.gold,dy:24},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 7.2</b> 支撑阻力会互换角色:阻力一旦被有效突破,常翻转成新的支撑。墙的方向翻转了。</figcaption>`);
+  },
+  neutral(f){const s=mkSVG();
+    const ema=[15,14.6,15.2,14.8,15.1,14.7,15.0];
+    drawCandles(s,[
+      {o:14,h:18,l:12,c:15.5},{o:15.5,h:17,l:11.5,c:13},{o:13,h:18.5,l:12.5,c:17},
+      {o:17,h:18,l:13,c:14},{o:14,h:17.5,l:12,c:16.5},{o:16.5,h:17,l:12.5,c:13.5},
+      {o:13.5,h:18,l:13,c:15},
+    ],{h:230,ema,notes:[{x:360,p:11.5,text:"always-in 中性:没有正确方向→最好空仓",color:C.range,dy:18}]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 7.3</b> 区间里 always-in 中性。新手在这最忙(反复扫损),高手在这最闲(退到一边等)。</figcaption>`);
+  },
+  bovsfail(f){
+    const s=mkSVG();
+    drawCandles(s,[
+      {o:14,h:21,l:13.5,c:20},{o:20,h:28,l:19.5,c:27,col:C.bull},{o:27,h:32,l:26.5,c:31},
+    ],{h:200,levels:[{p:21,color:C.faint,dash:"4 4",label:"阻力"}],
+    notes:[{x:360,p:13,text:"成功:强突破棒+跟进·不回头",color:C.bull,dy:18}]});
+    f.appendChild(s);
+    const s2=mkSVG();
+    drawCandles(s2,[
+      {o:14,h:21,l:13.5,c:20},{o:20,h:27,l:19.5,c:21,col:C.bear},{o:21,h:21.5,l:15,c:16},
+    ],{h:200,levels:[{p:21,color:C.faint,dash:"4 4",label:"阻力"}],
+    notes:[{x:360,p:13,text:"失败:长上影·收回边缘内·被吞没",color:C.bear,dy:18}]});
+    f.appendChild(s2);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 8.1</b> 分辨突破:成功=强棒+跟进+不回头;失败=反向影线+收回边缘+反吞。区间里,失败概率通常更高。</figcaption>`);
+  },
+  trap(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:11,h:16,l:10.5,c:15},{o:15,h:21,l:14.5,c:20.5},
+      {o:20.5,h:27,l:20,c:21,col:C.bear},
+      {o:21,h:21.5,l:15,c:16,col:C.bear},
+      {o:16,h:16.5,l:10,c:10.5},
+    ],{h:250,levels:[{p:21,color:C.bear,dash:"4 4",label:"阻力(上沿)"},{p:10,color:C.bull,dash:"4 4",label:"支撑(目标)"}],
+    notes:[
+      {i:2,p:27.6,text:"骗多头进场",color:C.muted,dy:0},
+      {i:2,p:21,text:"长上影·收回区间内",color:C.bear,dy:-8},
+      {i:3,p:15,text:"被套者止损→助推下跌",color:C.gold,dy:24},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 8.2</b> 失败的突破(陷阱):区间回归力 + 被套者止损,双重燃料。Brooks 在震荡里最主要的赚钱方式。</figcaption>`);
+  },
+  play(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:20,h:21,l:14,c:14.5},{o:14.5,h:16,l:9.5,c:15,col:C.bull},
+      {o:15,h:20,l:14.5,c:19.5},{o:19.5,h:21,l:18,c:16,col:C.bear},
+      {o:16,h:16.5,l:10,c:10.5},{o:10.5,h:15,l:9.8,c:14.5,col:C.bull},
+    ],{h:250,levels:[{p:21,color:C.bear,dash:"4 4",label:"上沿:找空"},{p:9.5,color:C.bull,dash:"4 4",label:"下沿:找多"}],
+    notes:[
+      {i:1,p:9.5,text:"下沿+阳信号棒→做多",color:C.bull,dy:24},
+      {i:3,p:21.5,text:"上沿+阴信号棒→做空",color:C.bear,dy:-8},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 8.3</b> 区间打法:低买·高卖·反做突破·远离中央。和趋势打法几乎完全相反——所以必须先认对环境。</figcaption>`);
+  },
+  barbwire(f){const s=mkSVG();
+    const ema=[15,14.8,15.1,14.9,15.0,14.85,15.05];
+    drawCandles(s,[
+      {o:14,h:17,l:13,c:14.5},{o:14.5,h:16.5,l:13.2,c:13.8},{o:13.8,h:16.8,l:13.5,c:16},
+      {o:16,h:16.6,l:13.4,c:14.2},{o:14.2,h:17,l:13.6,c:15.8},{o:15.8,h:16.4,l:13.3,c:14},
+      {o:14,h:16.7,l:13.5,c:15.5},
+    ],{h:230,ema,notes:[{x:360,p:13,text:"一片重叠 doji·缠着EMA·谁碰谁流血",color:C.bear,dy:20}]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 9.1</b> 铁丝网:随机+狭窄推到极致。唯一的高概率动作是——不做,等它结束。</figcaption>`);
+  },
+  finalflag(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:8,h:14,l:7.5,c:13},{o:13,h:20,l:12.5,c:19},{o:19,h:25,l:18.5,c:24},
+      {o:24,h:25,l:21,c:22},{o:22,h:24,l:21,c:23},{o:23,h:24.5,l:21.5,c:22.5},
+      {o:22.5,h:26,l:22,c:25,col:C.bull},
+      {o:25,h:25.5,l:18,c:18.5,col:C.bear},
+    ],{h:250,notes:[
+      {x:430,p:20.5,text:"最后旗形",color:C.gold,dy:24},
+      {i:6,p:26,text:"最后一次突破→",color:C.muted,dy:-8},
+      {i:7,p:18,text:"失败·反转",color:C.bear,dy:22},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 9.2</b> 最后旗形:趋势末端的小盘整。突破它的人成了最后接盘者——衰竭+陷阱的结合体,通向反转。</figcaption>`);
+  },
+  resolve(f){const s=mkSVG();
+    drawCandles(s,[
+      {o:10,h:21,l:9.5,c:20},{o:20,h:21,l:14,c:15},{o:15,h:20.5,l:14.5,c:20},
+      {o:20,h:21,l:14.5,c:15.5},
+      {o:15.5,h:9.6,l:9,c:9.3,col:C.bear},
+      {o:9.3,h:9.8,l:4,c:5,col:C.bear},{o:5,h:6,l:1,c:2,col:C.bear},
+    ],{h:250,levels:[{p:21,color:C.faint,dash:"4 4",label:"阻力"},{p:9.5,color:C.bear,dash:"4 4",label:"下沿被突破"}],
+    notes:[
+      {x:200,p:22,text:"震荡(中场休息)",color:C.range,dy:-6},
+      {i:5,p:5,text:"强势突破·守住→新下降趋势",color:C.bear,dy:18},
+    ]});
+    f.appendChild(s);
+    f.insertAdjacentHTML("beforeend",`<figcaption><b>图 9.3</b> 区间靠一次成功突破结束→新趋势诞生。市场大循环:趋势→震荡→突破→新趋势。最佳入场仍是突破后的回调。</figcaption>`);
+  },
+};
+document.querySelectorAll("figure[data-fig]").forEach(f=>{const k=f.getAttribute("data-fig");if(figs[k])figs[k](f);});
+
+document.querySelectorAll(".socratic button").forEach(btn=>{
+  btn.addEventListener("click",()=>{const card=btn.closest(".socratic");const open=card.classList.toggle("open");btn.textContent=open?"收起 ↑":"想好了,揭晓 →";});
+});
+const prog=document.getElementById("progress");
+function updProg(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,max=h.scrollHeight-h.clientHeight;prog.style.width=(max>0?(sc/max*100):0)+"%";}
+window.addEventListener("scroll",updProg,{passive:true});updProg();
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll("figure").forEach(f=>io.observe(f));
+const links=[...document.querySelectorAll(".rail a")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const navIO=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}});},{rootMargin:"-10% 0px -75% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>navIO.observe(s));
+</script>
+  <script src="reader.js"></script>
+</body>
+</html>
