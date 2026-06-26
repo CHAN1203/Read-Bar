@@ -3,65 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Read Bar · 书库</title>
+<title>Read Bar · 深夜书架</title>
 <style>
   :root{
-    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
-    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
-    --gold:#d4a657;
-    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
-    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+    --bg:#13161b; --bg-soft:#171b22; --surface:#1b2027; --raise:#222a34;
+    --ink:#e9e5d8; --ink-soft:#dcd8cc; --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --amber:#d4a657; --amber-deep:#bb9038; --terra:#d98a4f;
+    --serif:Georgia,"Songti SC","Noto Serif SC","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --r2:16px; --r3:22px;
+    --ease:cubic-bezier(.25,.1,.25,1);
+    --shadow-soft:0 20px 54px -28px rgba(0,0,0,.72), 0 2px 12px -5px rgba(0,0,0,.42);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans);
-    font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
-  ::selection{background:var(--gold); color:#1a1a1a;}
-  .col{max-width:980px; margin:0 auto; padding:0 28px;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--serif);
+    font-size:17px; line-height:1.85; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden;}
+  ::selection{background:rgba(212,166,87,.30); color:var(--ink);}
+  ::-webkit-scrollbar{width:11px; height:11px;}
+  ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line); border-radius:8px; border:3px solid var(--bg);}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  @keyframes rlFade{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:none;}}
 
-  /* masthead — neutral library identity */
-  header.top{padding:74px 0 30px;
-    background:radial-gradient(100% 70% at 50% -10%, rgba(212,166,87,.08), transparent 55%);}
-  .top .brand{font-family:var(--serif); font-weight:600; font-size:46px; line-height:1; letter-spacing:.01em; margin:0;}
-  .top .brand .dot{color:var(--gold);}
-  .top .tag{color:var(--muted); font-size:16px; margin-top:14px;}
+  /* ambient layers */
+  .veil-vignette{position:fixed; inset:0; pointer-events:none; z-index:40;
+    background:radial-gradient(125% 95% at 50% 36%, transparent 38%, rgba(0,0,0,.5) 100%);}
+  .veil-noise{position:fixed; inset:0; pointer-events:none; z-index:41; opacity:.045; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size:160px;}
+  .glow{position:fixed; inset:0; pointer-events:none; z-index:0;
+    background:radial-gradient(1200px 620px at 50% -8%, rgba(212,166,87,.10), transparent 60%),
+               radial-gradient(900px 500px at 88% 4%, rgba(38,166,154,.07), transparent 62%);}
 
-  /* filter chips */
-  .filters{display:flex; flex-wrap:wrap; gap:10px; padding:22px 0 4px; border-bottom:1px solid var(--line);}
-  .chip{font-family:var(--mono); font-size:13px; letter-spacing:.04em; color:var(--muted);
-    background:transparent; border:1px solid var(--line); border-radius:999px; padding:6px 14px;
-    cursor:pointer; transition:.18s; display:inline-flex; align-items:center; gap:7px;}
+  .wrap{position:relative; z-index:1; max-width:1080px; margin:0 auto; padding:0 32px; animation:rlFade .9s var(--ease) both;}
+
+  header.hero{padding:96px 0 30px;
+    background:radial-gradient(90% 130% at 50% -30%, rgba(212,166,87,.10), transparent 60%);}
+  .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.34em; text-transform:uppercase; color:var(--amber); opacity:.85;}
+  h1.brand{font-family:var(--serif); font-weight:600; font-size:60px; line-height:1; letter-spacing:.01em; margin:20px 0 0;}
+  h1.brand .dot{color:var(--amber);}
+  .tag{color:var(--muted); font-size:17px; margin-top:18px; max-width:540px; line-height:1.7;}
+
+  .filters{display:flex; flex-wrap:wrap; gap:10px; padding:24px 0 26px; border-bottom:1px solid var(--line);}
+  .chip{font-family:var(--mono); font-size:12.5px; letter-spacing:.04em; padding:7px 16px; border-radius:999px;
+    cursor:pointer; border:1px solid var(--line); background:transparent; color:var(--muted); transition:all .4s var(--ease);
+    display:inline-flex; align-items:center; gap:7px;}
   .chip:hover{color:var(--ink); border-color:var(--faint);}
-  .chip.on{color:#1a1a1a; background:var(--gold); border-color:var(--gold); font-weight:600;}
-  .chip .n{font-size:11px; opacity:.7;}
-  .chip.on .n{opacity:.85;}
-  .chip:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+  .chip.on{background:var(--amber); border-color:var(--amber); color:#241a12;}
+  .chip .n{opacity:.55; font-size:11px;}
+  .chip:focus-visible{outline:2px solid var(--amber); outline-offset:3px;}
 
-  /* shelf */
-  main{padding:30px 0 0;}
-  .shelf{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
-  .book{position:relative; display:flex; flex-direction:column; text-decoration:none; color:inherit;
-    background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:22px 22px 20px;
-    transition:transform .2s, border-color .2s, background .2s; overflow:hidden;}
-  .book::before{content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--ac,var(--gold));}
-  .book:hover{transform:translateY(-3px); border-color:var(--ac,var(--gold)); background:var(--surface2);}
-  .book:focus-visible{outline:2px solid var(--ac,var(--gold)); outline-offset:3px;}
-  .book .head{display:flex; align-items:flex-start; justify-content:space-between; gap:12px;}
-  .book .t{font-family:var(--serif); font-size:26px; font-weight:600; line-height:1.15;}
-  .book .badge{flex:none; font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:var(--ac,var(--gold));
-    border:1px solid var(--line); border-radius:999px; padding:3px 10px; margin-top:4px; white-space:nowrap;}
-  .book .one{color:var(--muted); font-size:14.5px; margin:8px 0 0;}
-  .book .open{font-family:var(--mono); font-size:12.5px; color:var(--ac,var(--gold)); margin-top:16px; letter-spacing:.04em;}
+  main{padding:34px 0 0;}
+  .shelf{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .book{position:relative; text-align:left; display:flex; flex-direction:column; text-decoration:none; color:inherit;
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--r3); padding:28px 28px 24px 32px;
+    cursor:pointer; overflow:hidden; box-shadow:var(--shadow-soft);
+    transition:transform .55s var(--ease), border-color .55s var(--ease), box-shadow .55s var(--ease);}
+  .book .bar{position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--ac,var(--amber)); box-shadow:0 0 24px var(--ac,var(--amber));}
+  .book:hover{transform:translateY(-5px); border-color:var(--amber-deep);
+    box-shadow:0 30px 64px -30px rgba(0,0,0,.82), 0 0 56px -14px rgba(212,166,87,.3);}
+  .book:focus-visible{outline:2px solid var(--ac,var(--amber)); outline-offset:3px;}
+  .book .head{display:flex; justify-content:space-between; gap:14px; align-items:flex-start;}
+  .book .t{font-family:var(--serif); font-size:28px; font-weight:600; line-height:1.14; color:var(--ink);}
+  .book .badge{flex:none; font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:var(--muted);
+    border:1px solid var(--line); border-radius:999px; padding:3px 11px; margin-top:6px; white-space:nowrap;}
+  .book .sub{color:var(--muted); font-size:14.5px; margin-top:11px; line-height:1.65; font-family:var(--sans);}
+  .book .cta{font-family:var(--mono); font-size:12px; letter-spacing:.05em; margin-top:20px; color:var(--amber);}
+  .book.soon{cursor:default;}
+  .book.soon:hover{transform:none; border-color:var(--line); box-shadow:var(--shadow-soft);}
+  .book.soon .t,.book.soon .bar{opacity:.6;}
+  .book.soon .cta{color:var(--faint);}
 
-  .state{color:var(--muted); font-size:15px; padding:22px 0;}
-  .state code{font-family:var(--mono); font-size:13px; background:#11161c; color:var(--gold); padding:1px 6px; border-radius:4px;}
+  .state{color:var(--muted); font-size:15px; padding:22px 0; font-family:var(--sans);}
+  .state code{font-family:var(--mono); font-size:13px; background:var(--bg-soft); color:var(--amber); padding:1px 6px; border-radius:4px;}
 
-  footer{margin:90px 0 0; padding:28px 0 70px; border-top:1px solid var(--line); text-align:center;}
+  footer{margin:96px 0 0; padding:30px 0 80px; border-top:1px solid var(--line); text-align:center;}
   footer .by{font-family:var(--mono); font-size:11.5px; color:var(--faint); letter-spacing:.08em;}
 
   @media (max-width:820px){
-    .top .brand{font-size:38px;}
+    h1.brand{font-size:44px;}
     .shelf{grid-template-columns:1fr;}
     body{font-size:16px;}
   }
@@ -71,30 +92,28 @@
 </style>
 </head>
 <body>
+<div class="veil-vignette"></div>
+<div class="veil-noise"></div>
+<div class="glow"></div>
 
-<header class="top">
-  <div class="col">
-    <h1 class="brand">Read Bar<span class="dot">.</span></h1>
-    <div class="tag">一架自己做的交互式电子书 · 划线、批注、检索、进度,都为你记着。</div>
-  </div>
-</header>
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">深夜书架</div>
+    <h1 class="brand">Read&nbsp;Bar<span class="dot">.</span></h1>
+    <div class="tag">点一盏灯，挑一本，坐下来。<br>划线、批注、计时与雨声，都替你安静地记着。</div>
+  </header>
 
-<div class="col">
   <div class="filters" id="filters" role="group" aria-label="按分类筛选"></div>
-</div>
 
-<main>
-  <div class="col">
+  <main>
     <div class="shelf" id="shelf"></div>
     <div class="state" id="state"></div>
-  </div>
-</main>
+  </main>
 
-<footer>
-  <div class="col">
-    <div class="by">Read Bar · 静态托管,零后端 · 一处加书,书架自现</div>
-  </div>
-</footer>
+  <footer>
+    <div class="by">Read Bar · 一架自己做的书 · 沉静地读</div>
+  </footer>
+</div>
 
 <script>
 (function(){
@@ -106,28 +125,29 @@
   var books=[], cats=[], active=ALL;
 
   function card(b){
-    return '<a class="book" href="'+esc(b.href)+'" style="--ac:'+esc(b.accent||"#d4a657")+'">'
+    var soon=b.available===false;
+    var tag='<a class="book'+(soon?' soon':'')+'" style="--ac:'+esc(b.accent||"#d4a657")+'"';
+    tag+= soon ? ' role="img"' : ' href="'+esc(b.href)+'"';
+    return tag+'>'
+      +'<span class="bar"></span>'
       +'<div class="head"><div class="t">'+esc(b.title)+'</div>'
       +(b.category?'<span class="badge">'+esc(b.category)+'</span>':'')+'</div>'
-      +'<div class="one">'+esc(b.subtitle||"")+'</div>'
-      +'<div class="open">翻开 →</div></a>';
+      +'<div class="sub">'+esc(b.subtitle||"")+'</div>'
+      +'<div class="cta">'+(soon?'即将上架':'翻开 →')+'</div></a>';
   }
 
   function renderChips(){
     var chips=[{key:ALL,label:"全部",n:books.length}].concat(
       cats.map(function(c){ return {key:c,label:c,n:books.filter(function(b){return b.category===c;}).length}; }));
-    // a lone category adds no signal — only show chips when there's more than one
     if(cats.length<2){ filters.style.display="none"; return; }
     filters.innerHTML=chips.map(function(c){
-      return '<button class="chip'+(c.key===active?" on":"")+'" data-cat="'+esc(c.key)+'"'
-        +(c.key===active?' aria-pressed="true"':' aria-pressed="false"')+'>'
+      return '<button class="chip'+(c.key===active?" on":"")+'" data-cat="'+esc(c.key)+'" aria-pressed="'+(c.key===active)+'">'
         +esc(c.label)+' <span class="n">'+c.n+'</span></button>';
     }).join("");
     [].forEach.call(filters.querySelectorAll(".chip"),function(ch){
       ch.addEventListener("click",function(){ active=ch.getAttribute("data-cat"); renderChips(); renderCards(); });
     });
   }
-
   function renderCards(){
     var list=active===ALL?books:books.filter(function(b){return b.category===active;});
     shelf.innerHTML=list.map(card).join("");

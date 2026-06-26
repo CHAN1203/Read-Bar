@@ -4,135 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>读棒 · Al Brooks 价格行为 · 第四卷:反转与楔形</title>
-<style>
-  :root{
-    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
-    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
-    --bull:#26a69a; --bear:#ef5350; --gold:#d4a657; --gold-soft:#3a3322;
-    --rev:#b58bd4; --rev-soft:#2c2436;
-    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
-    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans);
-    font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
-  ::selection{background:var(--rev); color:#15101c;}
-  #progress{position:fixed; top:0; left:0; height:3px; width:0%;
-    background:linear-gradient(90deg,var(--bear),var(--rev),var(--bull)); z-index:100; transition:width .1s linear;}
-  .wrap{display:grid; grid-template-columns:240px 1fr; max-width:1180px; margin:0 auto;}
-  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto;
-    padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
-  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--rev);
-    text-transform:uppercase; margin-bottom:4px;}
-  .rail .brand b{color:var(--ink); display:block; font-size:19px; letter-spacing:.04em; margin-top:6px; font-family:var(--serif);}
-  .rail ol{list-style:none; padding:0; margin:26px 0 0;}
-  .rail .chap{font-family:var(--mono); font-size:11px; color:var(--faint); letter-spacing:.1em; margin:20px 0 6px; text-transform:uppercase;}
-  .rail a{display:block; color:var(--muted); text-decoration:none; padding:5px 10px;
-    border-left:2px solid transparent; border-radius:0 4px 4px 0; transition:.18s;}
-  .rail a:hover{color:var(--ink); background:var(--surface);}
-  .rail a.active{color:var(--rev); border-left-color:var(--rev); background:var(--surface);}
-  main{padding:0 0 120px; min-width:0;}
-  .col{max-width:720px; margin:0 auto; padding:0 28px;}
-  header.cover{padding:90px 0 70px; border-bottom:1px solid var(--line); margin-bottom:10px;
-    background:radial-gradient(120% 90% at 75% -10%, rgba(181,139,212,.14), transparent 60%);}
-  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.28em; color:var(--rev); text-transform:uppercase;}
-  .cover h1{font-family:var(--serif); font-weight:600; font-size:62px; line-height:1.02; margin:18px 0 6px; letter-spacing:-.01em;}
-  .cover h1 .small{display:block; font-size:23px; color:var(--muted); font-weight:400; margin-top:18px; letter-spacing:.02em;}
-  .cover .vol{font-family:var(--mono); font-size:13px; color:var(--faint); margin-top:30px; letter-spacing:.1em;}
-  section{padding:54px 0 6px; scroll-margin-top:8px;}
-  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--rev); text-transform:uppercase; margin-bottom:10px;}
-  h2{font-family:var(--serif); font-weight:600; font-size:33px; line-height:1.15; margin:6px 0 4px;}
-  h3{font-family:var(--serif); font-weight:600; font-size:22px; margin:38px 0 2px;}
-  p{margin:16px 0; color:#dcd8cc;}
-  p strong{color:var(--ink); font-weight:600;}
-  em{color:var(--gold); font-style:normal;}
-  .lead{font-size:19px; color:var(--ink);}
-  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em;
-    padding:2px 9px; border-radius:20px; margin:30px 0 -6px; text-transform:uppercase;}
-  .facet.what{background:#22303a; color:#7fd3e0;}
-  .facet.why{background:var(--gold-soft); color:var(--gold);}
-  .facet.gb{background:#33282a; color:#f0a0a0;}
-  .facet.hp{background:#22332b; color:#7fd3a8;}
-  figure{margin:30px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px;
-    padding:20px 20px 14px; opacity:0; transform:translateY(14px); transition:.6s ease;}
-  figure.in{opacity:1; transform:none;}
-  figure svg{width:100%; height:auto; display:block;}
-  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px;
-    padding-top:11px; border-top:1px solid var(--line); letter-spacing:.02em;}
-  figcaption b{color:var(--rev);}
-  .socratic{margin:34px 0; border:1px solid var(--line); border-left:3px solid var(--rev); border-radius:10px;
-    background:linear-gradient(180deg, rgba(181,139,212,.05), transparent); overflow:hidden;}
-  .socratic .q{padding:20px 22px;}
-  .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--rev); text-transform:uppercase;}
-  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:20px; color:var(--ink); margin:8px 0 16px; line-height:1.5;}
-  .socratic button{font-family:var(--mono); font-size:12.5px; letter-spacing:.05em; color:var(--bg);
-    background:var(--rev); border:none; padding:9px 16px; border-radius:7px; cursor:pointer; transition:.18s;}
-  .socratic button:hover{filter:brightness(1.08);}
-  .socratic button:focus-visible{outline:2px solid var(--ink); outline-offset:2px;}
-  .socratic .a{max-height:0; opacity:0; transition:max-height .5s ease, opacity .4s ease; border-top:1px solid transparent;}
-  .socratic.open .a{max-height:900px; opacity:1; border-top-color:var(--line);}
-  .socratic .a-inner{padding:18px 22px 22px;}
-  .socratic .a-inner p:first-child{margin-top:0;}
-  .socratic .a-inner p{font-size:16px; color:#cfcabd;}
-  .connect{margin:30px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15.5px;}
-  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--bull); margin-bottom:6px;}
-  .connect code{font-family:var(--mono); font-size:13px; background:#11161c; color:var(--gold); padding:1px 6px; border-radius:4px;}
-  .divider{height:1px; background:var(--line); margin:64px 0 0;}
-
-  /* poem */
-  .poem{margin:40px 0; padding:34px 30px; border:1px solid var(--line); border-radius:14px;
-    background:radial-gradient(130% 120% at 100% 0%, rgba(181,139,212,.10), transparent 60%);
-    text-align:center;}
-  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.22em; color:var(--rev); text-transform:uppercase; margin-bottom:18px;}
-  .poem .verse{font-family:var(--serif); font-size:21px; line-height:2.0; color:var(--ink); font-style:italic;}
-  .poem .by{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:18px; letter-spacing:.08em;}
-
-  /* animated wedge controls */
-  .replay{font-family:var(--mono); font-size:12px; letter-spacing:.05em; color:var(--rev);
-    background:transparent; border:1px solid var(--rev); padding:6px 14px; border-radius:7px; cursor:pointer; transition:.18s; margin-top:4px;}
-  .replay:hover{background:var(--rev-soft);}
-  .replay:focus-visible{outline:2px solid var(--ink); outline-offset:2px;}
-  .wedge-leg, .wedge-tl, .wedge-arrow, .wedge-dot, .wedge-lbl{}
-
-  /* completeness map */
-  .map{margin:30px 0; border:1px solid var(--line); border-radius:12px; overflow:hidden;}
-  .map .row{display:grid; grid-template-columns:120px 1fr; border-top:1px solid var(--line);}
-  .map .row:first-child{border-top:none;}
-  .map .v{padding:13px 16px; font-family:var(--mono); font-size:12px; color:var(--rev); background:var(--surface); letter-spacing:.04em;}
-  .map .d{padding:13px 16px; font-size:15px; color:#cfcabd;}
-  .map .v b{color:var(--ink); display:block; font-family:var(--serif); font-size:15px; margin-bottom:2px;}
-
-  .endcard{margin:56px 0 0; padding:34px; border:1px solid var(--line); border-radius:14px;
-    background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
-  .endcard h2{margin-top:0;}
-  @media (max-width:880px){
-    .wrap{grid-template-columns:1fr;}
-    nav.rail{position:static; height:auto; border-right:none; border-bottom:1px solid var(--line);
-      display:flex; gap:14px; overflow-x:auto; white-space:nowrap; padding:16px 18px;}
-    .rail ol{display:flex; gap:6px; margin:0;}
-    .rail .brand,.rail .chap{display:none;}
-    .rail a{border-left:none; border-bottom:2px solid transparent; border-radius:4px; padding:6px 10px;}
-    .rail a.active{border-left:none; border-bottom-color:var(--rev);}
-    .cover h1{font-size:42px;} .cover h1 .small{font-size:19px;} body{font-size:16px;}
-    .poem .verse{font-size:18px;} .map .row{grid-template-columns:90px 1fr;}
-  }
-  @media (prefers-reduced-motion: reduce){
-    *{animation:none!important; transition:none!important; scroll-behavior:auto!important;}
-    figure{opacity:1; transform:none;}
-  }
-</style>
-  <link rel="stylesheet" href="reader.css">
+<link rel="stylesheet" href="reader.css">
 </head>
 <body>
 <div id="progress"></div>
 <div class="wrap">
 
   <nav class="rail">
-    <div class="brand">读棒 · READING BARS<b>反转与楔形</b></div>
+    <div class="brand">读棒 · <a href="../../index.html" class="rl-home">READING BARS</a><b>反转与楔形</b></div>
     <div class="shelf-nav" style="margin:12px 0 0;font-family:var(--mono);font-size:11px;display:flex;flex-wrap:wrap;gap:7px;">
-      <a href="index.html" style="color:var(--rev);text-decoration:none;border:1px solid var(--line);padding:3px 9px;border-radius:6px;">📚 书架</a>
+      <a href="index.html" style="color:var(--rev);text-decoration:none;border:1px solid var(--line);padding:3px 9px;border-radius:6px;">📖 封面</a>
       <a href="price_action_book_vol3.html" style="color:var(--muted);text-decoration:none;border:1px solid var(--line);padding:3px 9px;border-radius:6px;">← 第三卷</a>
       <a href="price_action_book_vol5.html" style="color:var(--muted);text-decoration:none;border:1px solid var(--line);padding:3px 9px;border-radius:6px;">第五卷 →</a>
     </div>

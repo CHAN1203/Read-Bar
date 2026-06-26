@@ -27,7 +27,8 @@ readbar/
 │       ├── price_action_book_vol5.html # 第五卷 · 实战(accent 铜 #d98a4f,含交易生命周期动画)
 │       ├── knowledge-map.html          # 知识导图:折叠大纲 / 放射导图 / 知识图谱 三模式
 │       ├── reader.css                  # 【共享阅读层 · 样式】主题滚动条 + 划线/批注/抽屉
-│       └── reader.js                   # 【共享阅读层 · 逻辑】高亮引擎 + 批注 + 检索 + 进度
+│       ├── reader.js                   # 【共享阅读层 · 逻辑】高亮/批注/检索/进度 + 背景音 + 阅读计时 + 编辑模式
+│       └── audio/                      # 背景音:sounds.json 登记清单 + 用户自备的音频文件(mp3 等)
 └── .claude/skills/teaching-ebook/      # (可选)项目级 skill:产出新书用,见下
 ```
 
@@ -43,11 +44,16 @@ readbar/
    等)生成的 K 线插图和自绘 SVG 动画。**不要**把它们硬转成纯数据/JSON——那会丢掉这些图。
 2. **阅读层** = `reader.css` + `reader.js`,通过在每个 HTML 里注入
    `<link rel="stylesheet" href="reader.css">` 和 `<script src="reader.js"></script>` 挂上去。
-   它提供:主题滚动条、选中划线(4 色)、批注、可搜索/筛选/导出的批注抽屉、阅读进度记忆。
-   阅读层**不碰**正文内容和插图,只在 `.col` 里的 `p / h2 / .lead` 上做高亮。
+   它提供:主题滚动条、选中划线(4 色)、批注、可搜索/筛选/导出的批注抽屉、阅读进度记忆,
+   外加**右下角 dock 三件套**——🎧 背景音(播放 `audio/` 里用户自备的音频,循环;按钮由
+   `audio/sounds.json` 清单动态生成;**不是合成噪音**)+ 阅读计时器(开页自动计、切走暂停、记起止)、
+   ✏️ 编辑模式(删/改正文块,存 localStorage,可「导出 HTML」写回源文件)、🔖 批注。
+   划线只在 `.col` 里的 `p / h2 / .lead` 上做;编辑模式按 `data-rl-edit` 顺序键定位块。
+   阅读层**不碰**插图和动画。dock 在**右下角**(别放右上角,会挡知识导图的模式按钮)。
 
 ### 数据存储
-- 用 `localStorage`,带内存兜底。键名:`readbar:notes:<文件名>`、`readbar:prog:<文件名>`。
+- 用 `localStorage`,带内存兜底。键名:`readbar:notes:<文件名>`、`readbar:prog:<文件名>`、
+  `readbar:time:<文件名>`(阅读时长 + 起止记录)、`readbar:edits:<文件名>`(编辑模式的删除/改写)。
 - **按卷各自存**,不跨设备。
 - ⚠️ 在 `file://`(直接双击打开)或沙箱预览里 localStorage 可能不可用 / 外部 JS 不加载。
   **必须用本地服务器或 GitHub Pages 打开**才完整(`python -m http.server` 或 VS Code Live Server)。

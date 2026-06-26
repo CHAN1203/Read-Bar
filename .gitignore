@@ -1,0 +1,18 @@
+# Claude design-tool export (kept locally as reference, not part of the site)
+/Read Bar 沉静阅读设计/
+
+# Subagent-driven-development scratch ledger
+.superpowers/
+
+# Background-sound audio binaries are NOT committed (keep repo light + under
+# GitHub's 100MB/file limit). Put loop files in books/<id>/audio/ locally and
+# list them in sounds.json; ship a small (<~2MB) seamless loop for deploy.
+*.mp3
+*.m4a
+*.ogg
+*.wav
+*.flac
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db

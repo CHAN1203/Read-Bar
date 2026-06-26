@@ -1,0 +1,7 @@
+{
+  "_说明": "在这里登记你自己的音频。把音频文件放进本文件夹(audio/),再在下面 sounds 里加一行:label=按钮显示名, file=文件名(含扩展名)。支持浏览器能播的格式(mp3/ogg/m4a/wav)。改完刷新书页即可。删掉用不到的行,或把 sounds 清空成 [] 就没有声音按钮。",
+  "sounds": [
+    { "label": "海浪", "file": "ocean.mp3" },
+    { "label": "Calm Piano", "file": "1-HOUR STUDY WITH ME  No Break _ Calm Piano 🎹_ My cozy new home on a drizzly day!.mp3" }
+  ]
+}
