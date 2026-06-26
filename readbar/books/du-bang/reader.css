@@ -320,3 +320,13 @@ body.rl-immersive .rl-exit{display:block;}
 .eqnote{font-family:var(--mono); font-size:12.5px; color:var(--muted); text-align:center; margin-top:8px;}
 
 @media (max-width:880px){ .session{grid-template-columns:1fr;} .setup .line{grid-template-columns:64px 1fr;} .map .row{grid-template-columns:90px 1fr;} }
+
+/* ---- reading-settings panel controls ---- */
+.rl-set{margin-top:16px;}
+.rl-set label{display:flex; justify-content:space-between; align-items:baseline; font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); margin-bottom:7px;}
+.rl-set label b{color:var(--amber); font-size:12px;}
+.rl-set input[type=range]{width:100%; accent-color:var(--amber); cursor:pointer;}
+.rl-seg{display:flex; gap:6px;}
+.rl-seg button{flex:1; font-family:var(--sans); font-size:12.5px; color:var(--muted); background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:7px 0; cursor:pointer; transition:.2s var(--ease);}
+.rl-seg button:hover{color:var(--ink);}
+.rl-seg button.on{color:#241a12; background:var(--amber); border-color:var(--amber);}

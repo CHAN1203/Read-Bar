@@ -198,14 +198,33 @@
   function updateCount(){ var c=$("rlCnt"); c.textContent=notes.length; c.classList.toggle("rl-zero", notes.length===0); }
 
   /* ===================== READING LIGHT + IMMERSIVE ===================== */
-  var lBtn=mkBtn("light","阅读光");
-  var lPanel=mkPanel('<h4>阅读光 <button class="rl-x" title="收起">×</button></h4>'
-    +'<div class="rl-sub">把灯,调到刚好不刺眼。</div>'
-    +'<div class="rl-vol"><span>暗</span><input type="range" min="0" max="100" value="0" id="rlDim"><span>亮</span></div>'
-    +'<div class="rl-row"><button id="rlImm">进入沉浸 · 只剩正文</button></div>');
+  var lBtn=mkBtn("light","阅读设置"); lBtn.innerHTML='<span style="font-family:var(--serif);font-size:18px;font-weight:600;line-height:1;">Aa</span>';
+  var lPanel=mkPanel('<h4>阅读设置 <button class="rl-x" title="收起">×</button></h4>'
+    +'<div class="rl-set"><label>字号 <b id="rlFsV"></b></label><input type="range" id="rlFs" min="15" max="22" step="1"></div>'
+    +'<div class="rl-set"><label>行距 <b id="rlLhV"></b></label><input type="range" id="rlLh" min="1.6" max="2.2" step="0.05"></div>'
+    +'<div class="rl-set"><label>版心宽度 <b id="rlMwV"></b></label><input type="range" id="rlMw" min="600" max="820" step="10"></div>'
+    +'<div class="rl-set rl-font"><label>字体</label><div class="rl-seg"><button data-font="serif">衬线</button><button data-font="sans">无衬线</button></div></div>'
+    +'<div class="rl-set"><label>阅读光 · 调暗</label><input type="range" id="rlDim" min="0" max="100" step="1" value="0"></div>'
+    +'<div class="rl-row"><button class="ghost" id="rlReset">恢复默认</button></div>');
   lBtn.addEventListener("click",function(){ showPanel(lPanel,lBtn); });
   lPanel.querySelector(".rl-x").addEventListener("click",function(){ lPanel.classList.remove("open"); lBtn.classList.remove("on"); openPanel=null; });
+
+  var DEF={fs:17,lh:1.85,measure:720,font:"serif"};
+  var settings=store.load("readbar:settings",null)||{}; for(var key in DEF){ if(settings[key]==null) settings[key]=DEF[key]; }
+  function applySettings(){ var r=document.documentElement;
+    r.style.setProperty("--reader-fs",settings.fs+"px"); r.style.setProperty("--reader-lh",settings.lh);
+    r.style.setProperty("--reader-measure",settings.measure+"px"); r.setAttribute("data-font",settings.font);
+    $("rlFs").value=settings.fs; $("rlLh").value=settings.lh; $("rlMw").value=settings.measure;
+    $("rlFsV").textContent=settings.fs+"px"; $("rlLhV").textContent=settings.lh; $("rlMwV").textContent=settings.measure+"px";
+    [].forEach.call(lPanel.querySelectorAll(".rl-seg button"),function(b){ b.classList.toggle("on",b.getAttribute("data-font")===settings.font); }); }
+  function saveSettings(){ store.save("readbar:settings",settings); }
+  $("rlFs").addEventListener("input",function(){ settings.fs=+this.value; applySettings(); saveSettings(); });
+  $("rlLh").addEventListener("input",function(){ settings.lh=+this.value; applySettings(); saveSettings(); });
+  $("rlMw").addEventListener("input",function(){ settings.measure=+this.value; applySettings(); saveSettings(); });
+  [].forEach.call(lPanel.querySelectorAll(".rl-seg button"),function(b){ b.addEventListener("click",function(){ settings.font=b.getAttribute("data-font"); applySettings(); saveSettings(); }); });
+  $("rlReset").addEventListener("click",function(){ for(var k in DEF) settings[k]=DEF[k]; applySettings(); saveSettings(); });
   $("rlDim").addEventListener("input",function(){ veil.style.opacity=Math.min(0.62,(+this.value/100)*0.55); });
+  applySettings();
 
   var iBtn=mkBtn("immersive","沉浸模式");
   var exit=document.createElement("button"); exit.className="rl-exit"; exit.textContent="退出沉浸 · Esc"; document.body.appendChild(exit);
