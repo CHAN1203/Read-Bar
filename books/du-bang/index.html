@@ -110,6 +110,27 @@
   .rl-vprog span{font-family:var(--mono); font-size:11px; color:var(--muted); white-space:nowrap;}
   .rl-vprog.zero span{color:var(--faint);}
   @media (max-width:760px){ #rlStats{flex-wrap:wrap;} }
+  #rlNotebookBtn{margin:18px 0 0;}
+  .rl-nbbtn{display:flex; align-items:center; gap:12px; width:100%; text-align:left; background:var(--surface); border:1px solid var(--line); border-radius:var(--r2); padding:16px 20px; cursor:pointer; color:inherit; transition:border-color .3s var(--ease);}
+  .rl-nbbtn:hover{border-color:var(--amber-deep);}
+  .rl-nbbtn .rl-nbk{font-family:var(--serif); font-size:17px; color:var(--ink);}
+  .rl-nbbtn .rl-nbc{font-family:var(--mono); font-size:12px; color:var(--muted); flex:1;}
+  .rl-nbbtn .rl-nba{color:var(--amber);}
+  .rl-nb{position:fixed; inset:0; z-index:9000; display:none; background:rgba(0,0,0,.55); padding:5vh 16px; overflow:auto;}
+  .rl-nb.open{display:block;}
+  .rl-nb-card{max-width:760px; margin:0 auto; background:var(--bg-soft); border:1px solid var(--line); border-radius:var(--r3); box-shadow:var(--shadow-soft);}
+  .rl-nb-h{display:flex; align-items:center; justify-content:space-between; padding:20px 24px; border-bottom:1px solid var(--line); font-family:var(--serif); font-size:22px; color:var(--ink); position:sticky; top:0; background:var(--bg-soft); border-radius:var(--r3) var(--r3) 0 0;}
+  .rl-nb-x{background:none; border:none; color:var(--muted); font-size:22px; cursor:pointer;}
+  .rl-nb-body{padding:14px 24px 30px;}
+  .rl-nb-empty{color:var(--faint); font-size:14px; line-height:1.8; padding:30px 4px;}
+  .rl-nb-grp{margin-top:22px;}
+  .rl-nb-gh{font-family:var(--mono); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--amber); margin-bottom:12px; display:flex; justify-content:space-between; align-items:baseline;}
+  .rl-nb-gh a{color:var(--muted); text-decoration:none; font-size:11px;}
+  .rl-nb-gh a:hover{color:var(--amber);}
+  .rl-nb-item{border:1px solid var(--line); border-radius:var(--r1); padding:12px 14px; margin-bottom:10px;}
+  .rl-nb-vn{font-size:14.5px; color:var(--ink-soft); line-height:1.8; white-space:pre-wrap;}
+  .rl-nb-hl .rl-nb-quote{font-size:13.5px; color:var(--muted); border-left:3px solid var(--amber); padding-left:10px;}
+  .rl-nb-hl .rl-nb-cmt{font-size:14px; color:var(--ink); margin-top:8px;}
 </style>
 </head>
 <body>
@@ -137,6 +158,8 @@
   </header>
   <div id="rlContinue"></div>
   <div id="rlStats"></div>
+  <div id="rlNotebookBtn"></div>
+  <div id="rlNotebook" class="rl-nb"><div class="rl-nb-card"><div class="rl-nb-h"><span>笔记本</span><button class="rl-nb-x" id="rlNbX">×</button></div><div class="rl-nb-body" id="rlNbBody"></div></div></div>
 
   <div class="poem">
     <div class="pt">门厅 · 一首小诗</div>
@@ -224,6 +247,45 @@
    +'<div class="rl-stat"><b>'+(st?st:0)+'</b><span>连续天数</span></div>'
    +'<div class="rl-stat"><b>'+avg+'%</b><span>完成度</span></div>';
   try{ localStorage.setItem("readbar:book:du-bang", JSON.stringify({pct:avg, ts:Date.now()})); }catch(e){}
+})();
+</script>
+<script>
+(function(){
+  var L=function(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}};
+  var esc=function(s){return (s||"").replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];});};
+  var VOLS=[
+    {f:"price_action_book_vol1",n:"第一卷 · 地基《字母表》"},
+    {f:"price_action_book_vol2",n:"第二卷 · 趋势《趋势》"},
+    {f:"price_action_book_vol3",n:"第三卷 · 震荡《震荡区间》"},
+    {f:"price_action_book_vol4",n:"第四卷 · 反转《反转与楔形》"},
+    {f:"price_action_book_vol5",n:"第五卷 · 实战《实战手册》"}
+  ];
+  var groups=[], total=0;
+  VOLS.forEach(function(v){
+    var vn=L("readbar:vnotes:"+v.f,[])||[];
+    var hl=(L("readbar:notes:"+v.f,[])||[]).filter(function(x){return x.comment;});
+    if(!vn.length && !hl.length) return;
+    total += vn.length + hl.length;
+    groups.push({v:v, vn:vn.slice().sort(function(a,b){return b.ts-a.ts;}), hl:hl});
+  });
+  var btn=document.getElementById("rlNotebookBtn");
+  btn.innerHTML='<button class="rl-nbbtn" id="rlNbOpen"><span class="rl-nbk">笔记本</span><span class="rl-nbc">'+(total?total+' 条':'还没有笔记')+'</span><span class="rl-nba">→</span></button>';
+  var nb=document.getElementById("rlNotebook"), body=document.getElementById("rlNbBody");
+  function build(){
+    if(!groups.length){ body.innerHTML='<div class="rl-nb-empty">还没有笔记。在阅读时划线写批注、或在批注抽屉里写「卷笔记」,都会按卷汇总到这里。</div>'; return; }
+    body.innerHTML=groups.map(function(g){
+      var items='';
+      g.vn.forEach(function(n){ items+='<div class="rl-nb-item rl-nb-vn">'+esc(n.text)+'</div>'; });
+      g.hl.forEach(function(h){ items+='<div class="rl-nb-item rl-nb-hl"><div class="rl-nb-quote">'+esc(h.text)+'</div><div class="rl-nb-cmt">✎ '+esc(h.comment)+'</div></div>'; });
+      return '<div class="rl-nb-grp"><div class="rl-nb-gh">'+esc(g.v.n)+' <a href="'+g.v.f+'.html">去该卷 →</a></div>'+items+'</div>';
+    }).join("");
+  }
+  function open(){ build(); nb.classList.add("open"); }
+  function close(){ nb.classList.remove("open"); }
+  document.getElementById("rlNbOpen").addEventListener("click",open);
+  document.getElementById("rlNbX").addEventListener("click",close);
+  nb.addEventListener("click",function(e){ if(e.target===nb) close(); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape"&&nb.classList.contains("open")) close(); });
 })();
 </script>
 </body>
