@@ -68,6 +68,7 @@
   .vol .num{font-family:var(--mono); font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ac);}
   .vol .t{font-family:var(--serif); font-size:25px; font-weight:600; margin:8px 0 2px; color:var(--ink);}
   .vol .one{color:var(--muted); font-size:14px; font-family:var(--sans);}
+  .vol.wide{grid-column:1 / -1;}
 
   .enter{margin:48px 0 0; display:flex; justify-content:center;}
   .enter a{font-family:var(--sans); font-size:16px; letter-spacing:.04em; color:#241a12; background:var(--amber); border:none;
@@ -147,7 +148,7 @@
       <div class="eyebrow">AL BROOKS · 原版 · BAR BY BAR</div>
       <h1 class="title">Trading Price Action<span class="sub">TRENDS · 原版英文全文 · 逐根 K 线</span></h1>
       <div class="lead">Al Brooks 的趋势原著,477 页、四个部分、26 章。导入 readbar,正文可划线、批注、记进度——把这本出了名难啃的书,一根棒一根棒地读完。</div>
-      <div class="meta">原版英文全文 · 116 张原书 K 线图 · 四部分</div>
+      <div class="meta">原版英文全文 · 前言 + 四部分 26 章 · 120 张原书 K 线图</div>
     </div>
   </header>
   <div id="rlContinue"></div>
@@ -164,6 +165,12 @@
     <div class="kicker">四个部分 · Chapters 1–26</div>
     <h2>从价格行为,到趋势形态</h2>
     <div class="vols">
+      <a class="vol wide" style="--ac:#d98a4f" href="tpa_intro.html">
+        <span class="bar"></span>
+        <div class="num">前言 · Introduction</div>
+        <div class="t">从这里开始</div>
+        <div class="one">Al Brooks 写这本书的缘起,和读懂全书的脉络——先读前言</div>
+      </a>
       <a class="vol" style="--ac:#d4a657" href="tpa_part1_price-action.html">
         <span class="bar"></span>
         <div class="num">Part I · 价格行为</div>
@@ -191,7 +198,7 @@
     </div>
   </section>
 
-  <div class="enter"><a href="tpa_part1_price-action.html">推门,从 Part I 开始 →</a></div>
+  <div class="enter"><a href="tpa_intro.html">推门,从前言开始 →</a></div>
 
   <footer>
     <div class="q">「Price action 是市场亲口说的话——读原文,听他自己怎么讲。」</div>
@@ -202,6 +209,7 @@
 (function(){
   var L=function(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}};
   var SPINE=[
+    {f:"tpa_intro",t:"Introduction",n:"前言"},
     {f:"tpa_part1_price-action",t:"Price Action",n:"Part I"},
     {f:"tpa_part2_lines-and-channels",t:"Trend Lines & Channels",n:"Part II"},
     {f:"tpa_part3_trends",t:"Trends",n:"Part III"},
@@ -215,7 +223,7 @@
   var lv=last&&SPINE.filter(function(v){return v.f===last.file;})[0];
   var cont=document.getElementById("rlContinue");
   if(lv){ cont.innerHTML='<a class="rl-cont" href="'+lv.f+'.html"><span class="rl-ck">继续阅读</span><span class="rl-ct">'+lv.n+' · '+lv.t+' · '+pct(lv.f)+'%</span><span class="rl-ca">→</span></a>'; }
-  else { cont.innerHTML='<a class="rl-cont" href="tpa_part1_price-action.html"><span class="rl-ck">开始阅读</span><span class="rl-ct">从 Part I · Price Action 开始</span><span class="rl-ca">→</span></a>'; }
+  else { cont.innerHTML='<a class="rl-cont" href="tpa_intro.html"><span class="rl-ck">开始阅读</span><span class="rl-ct">从前言 · Introduction 开始</span><span class="rl-ca">→</span></a>'; }
   var totalSec=0, days={};
   SPINE.forEach(function(v){ var t=L("readbar:time:"+v.f,null); if(t){ totalSec+=t.total||0; (t.sessions||[]).forEach(function(s){ days[new Date(s.start).toDateString()]=1; }); } });
   function fmtH(s){ s=Math.floor(s); var h=Math.floor(s/3600), m=Math.floor(s%3600/60); return h?(h+"h "+m+"m"):(m+"m"); }
@@ -236,6 +244,7 @@
   var L=function(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}};
   var esc=function(s){return (s||"").replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];});};
   var VOLS=[
+    {f:"tpa_intro",n:"前言 · Introduction"},
     {f:"tpa_part1_price-action",n:"Part I · Price Action"},
     {f:"tpa_part2_lines-and-channels",n:"Part II · Trend Lines & Channels"},
     {f:"tpa_part3_trends",n:"Part III · Trends"},
