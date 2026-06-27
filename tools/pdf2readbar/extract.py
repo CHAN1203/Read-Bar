@@ -7,6 +7,34 @@ from .figures import figbox_for, render_figure
 def _is_real_fig(box) -> bool:
     return box is not None and box.height >= 60 and box.width >= 120
 
+def _group_bullets(texts):
+    """Split one block's lines into (preamble_paragraph_or_None, bullet_items).
+    Lines before the first 'r '-bullet become the preamble; wrapped continuation
+    lines after a bullet are joined into that item."""
+    fb = next((i for i, t in enumerate(texts) if t.startswith("r ")), None)
+    if fb is None:
+        return None, []
+    preamble = None
+    if fb > 0:
+        s = texts[0]
+        for t in texts[1:fb]:
+            s = (s[:-1] + t) if s.endswith("-") else (s + " " + t)
+        preamble = s
+    items = []
+    cur = None
+    for t in texts[fb:]:
+        if t.startswith("r "):
+            if cur is not None:
+                items.append(cur)
+            cur = t[2:].strip()
+        elif cur.endswith("-"):
+            cur = cur[:-1] + t
+        else:
+            cur = cur + " " + t
+    if cur is not None:
+        items.append(cur)
+    return preamble, items
+
 class Extractor:
     def __init__(self, doc, img_dir: str):
         self.doc = doc
@@ -74,21 +102,9 @@ class Extractor:
                     continue
                 # 项目符号块
                 if any(t.startswith("r ") for t, *_ in L):
-                    items = []
-                    cur = None
-                    for t, *_ in L:
-                        if t.startswith("r "):
-                            if cur is not None:
-                                items.append(cur)
-                            cur = t[2:].strip()
-                        elif cur is None:
-                            cur = t
-                        elif cur.endswith("-"):
-                            cur = cur[:-1] + t
-                        else:
-                            cur = cur + " " + t
-                    if cur is not None:
-                        items.append(cur)
+                    pre, items = _group_bullets([t for t, *_ in L])
+                    if pre:
+                        elements.append((key, {"kind": "para", "t": pre}))
                     elements.append((key, {"kind": "bullets", "items": items}))
                     continue
                 # 段落

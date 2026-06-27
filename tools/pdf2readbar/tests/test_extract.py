@@ -1,5 +1,15 @@
 import fitz
 from pdf2readbar.extract import Extractor
+from pdf2readbar.extract import _group_bullets
+
+def test_group_bullets_simple():
+    assert _group_bullets(["r one", "r two"]) == (None, ["one", "two"])
+
+def test_group_bullets_preamble_becomes_para():
+    assert _group_bullets(["The cases are:", "r one", "r two"]) == ("The cases are:", ["one", "two"])
+
+def test_group_bullets_wrapped_continuation():
+    assert _group_bullets(["r a close below", "its open."]) == (None, ["a close below its open."])
 
 def _doc_one_para(tmp_path):
     doc = fitz.open(); pg = doc.new_page()
