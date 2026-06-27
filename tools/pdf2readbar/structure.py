@@ -10,8 +10,13 @@ class Unit:
 def units_from_toc(toc: list, page_count: int) -> list[Unit]:
     if not toc:
         return units_fallback(page_count)
-    top = min(e[0] for e in toc)
-    tops = [e for e in toc if e[0] == top]
+    levels = sorted(set(e[0] for e in toc))
+    chosen = levels[0]
+    for lv in levels:
+        if sum(1 for e in toc if e[0] == lv) >= 2:
+            chosen = lv
+            break
+    tops = [e for e in toc if e[0] == chosen]
     out = []
     for i, (lvl, title, page) in enumerate(tops):
         start = max(0, page - 1)

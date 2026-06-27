@@ -12,3 +12,8 @@ def test_units_from_toc_uses_shallowest_when_no_level1():
 
 def test_units_fallback_single():
     assert units_fallback(12) == [Unit("Full text", 0, 12, 1)]
+
+def test_units_from_toc_skips_single_entry_top_level():
+    toc = [[1, "Book Title", 1], [2, "Part I", 5], [2, "Part II", 20]]
+    us = units_from_toc(toc, page_count=40)
+    assert us == [Unit("Part I", 4, 19, 2), Unit("Part II", 19, 40, 2)]
