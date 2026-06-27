@@ -291,7 +291,7 @@
   function chapTargets(){ return [].slice.call(document.querySelectorAll("[data-sec], main section[id]")); }
   function gotoChap(dir){ var secs=chapTargets(); if(!secs.length) return; var y=window.scrollY+90, cur=-1;
     for(var i=0;i<secs.length;i++){ if(secs[i].offsetTop<=y) cur=i; }
-    var t=Math.max(0,Math.min(secs.length-1,cur+dir)); if(dir>0&&cur<secs.length-1&&secs[cur+1]) t=cur+1; if(dir<0) t=Math.max(0,cur-1>=0?cur-1:0);
+    var t=dir>0?Math.min(secs.length-1,cur+1):Math.max(0,cur-1);
     var el=secs[t]; if(el) window.scrollTo({top:el.offsetTop-20,behavior:"smooth"}); }
   document.addEventListener("keydown",function(e){
     var a=document.activeElement;
