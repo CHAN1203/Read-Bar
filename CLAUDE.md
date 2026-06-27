@@ -38,6 +38,10 @@ Futures / MGC,5 分钟执行、15 分钟做高周期背景)。这些书就是把
 │       ├── reader.css                  # 【共享阅读层 · 样式】主题滚动条 + 划线/批注/抽屉
 │       ├── reader.js                   # 【共享阅读层 · 逻辑】高亮/批注/检索/进度 + 背景音 + 阅读计时 + 编辑模式
 │       └── audio/                      # 背景音:sounds.json 登记清单 + 用户自备的音频文件(mp3 等)
+├── _inbox/                             # PDF 投放区:把文字版 PDF 拖进来,GitHub Action 自动转换并开 PR
+├── tools/pdf2readbar/                  # PDF→readbar 转换器(五模块:probe/extract/figures/build/cli)
+├── .github/workflows/import-pdf.yml   # 导入流水线:监听 _inbox/ push → 跑 pdf2readbar → 开 PR
+├── books/tpa-original/                 # Al Brooks《Trading Price Action: Trends》原版导入(前言+4部26章+120图)
 └── .claude/skills/teaching-ebook/      # (可选)项目级 skill:产出新书用,见下
 ```
 
@@ -102,6 +106,7 @@ Futures / MGC,5 分钟执行、15 分钟做高周期背景)。这些书就是把
   再往 `books/library.json` 的 `books[]` 追加一条 `{id,title,subtitle,category,accent,href}`。**别去手改顶层
   `index.html`**——它读清单渲染,下次打开自动出现新卡。`category` 决定顶部筛选条:书架从现有书的
   `category` 自动生成筛选 chip(只有一个分类时不显示),用**已有的分类名**就能归到同一类,换个新名就多一类。
+- **用流水线导入 PDF 新书**→ 把文字版 PDF 拖进 `_inbox/` → GitHub Action 跑 `tools/pdf2readbar` → 自动开 PR → 审阅合并即上线。扫描版(图片型 PDF)需 OCR 预处理,不直接支持;细节见 `tools/pdf2readbar/README.md`。
 - **本地预览**→ 用 Live Server 或 `python -m http.server`,**不要**双击 `file://` 打开。
 - **部署**→ push 到 GitHub,Settings → Pages → Deploy from branch → main / root。
   `index.html` 必须在仓库**根目录**。
