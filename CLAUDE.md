@@ -14,7 +14,7 @@ Futures / MGC,5 分钟执行、15 分钟做高周期背景)。这些书就是把
 ## 文件地图
 
 ```
-readbar/
+仓库根/                                  # GitHub Pages 源 = 仓库根目录(index.html 必须在这)
 ├── index.html                          # 【顶层书库书架】GitHub Pages 入口;fetch books/library.json,一书一卡渲染
 ├── books/
 │   ├── library.json                    # 【清单】书架的唯一事实来源;每本书一条 {id,title,subtitle,category,accent,href}

@@ -131,20 +131,20 @@ data).
 
 ### When working inside the `readbar` project (dynamic bookshelf)
 
-The top-level `readbar/index.html` is a **manifest-driven shelf** — it has no
+The top-level `index.html` is a **manifest-driven shelf** — it has no
 hardcoded book cards. To make a new book appear on it, do BOTH:
 
-1. Put the book's self-contained files in their own folder `readbar/books/<id>/`
+1. Put the book's self-contained files in their own folder `books/<id>/`
    (folder per book). A standalone-HTML book keeps its own `reader.css`/`reader.js`
    in that folder; a data-driven book keeps its `book.json` + `reader.html` there.
-2. Append one entry to `readbar/books/library.json` →
+2. Append one entry to `books/library.json` →
    `{ "id", "title", "subtitle", "category", "accent", "href" }`, where `href` points
    at that book's entry page (e.g. `books/<id>/index.html` or `books/<id>/reader.html`).
    `category` drives the shelf's top filter chips (built dynamically from the distinct
    categories present) — reuse an existing category name to group, or use a new one to
    add a chip. Keep it short (e.g. 交易 / 科学 / 技术).
 
-Do NOT edit `readbar/index.html` to add a card — registering in `library.json` is
+Do NOT edit `index.html` to add a card — registering in `library.json` is
 what makes the book auto-appear. The existing 读棒 book lives in `books/du-bang/`.
 
 3. 新书的每个阅读页 `<head>`(在 `reader.css` link 之后)应带一段 pre-paint 设置脚本:读取
