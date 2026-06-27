@@ -312,5 +312,9 @@
   var prog=store.load(PK,null);
   if(prog&&prog.y>40){ setTimeout(function(){ window.scrollTo(0,prog.y); },60); }
   var saveT;
-  window.addEventListener("scroll",function(){ clearTimeout(saveT); saveT=setTimeout(function(){ store.save(PK,{y:window.scrollY}); },300); },{passive:true});
+  window.addEventListener("scroll",function(){ clearTimeout(saveT); saveT=setTimeout(function(){
+    var denom=document.documentElement.scrollHeight-window.innerHeight, pct=denom>0?window.scrollY/denom:0;
+    var old=store.load(PK,null)||{}; store.save(PK,{y:window.scrollY, max:Math.max(old.max||0, pct)});
+    store.save("readbar:last",{file:file, ts:Date.now()});
+  },300); },{passive:true});
 })();
