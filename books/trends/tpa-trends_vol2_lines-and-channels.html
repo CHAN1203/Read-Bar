@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:series" content="Brooks · 趋势卷精讲">
+<meta name="readbar:num" content="第二卷 · Part II">
+<meta name="readbar:title" content="趋势线与通道">
+<meta name="readbar:desc" content="Brooks《趋势》精讲(二):趋势线、通道线、通道、微通道与关键价位——把字母连成有方向的句子。">
+<meta name="readbar:accent" content="#26a69a">
+<meta name="readbar:order" content="2">
+<meta name="readbar:topics" content="趋势线 · 通道线 · 通道 · 微通道 · 水平线/摆动点 · 角色互换 · 关键价位">
+<title>Brooks 趋势卷精讲 · 第二卷 · 趋势线与通道</title>
+<link rel="stylesheet" href="../reader.css">
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#26a69a; --accent-soft:#1d2e2a; --gold:#d4a657; --steel:#7fa8c9;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#08110e;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--steel)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(38,166,154,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#08110e; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--steel); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(38,166,154,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(127,168,201,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">Brooks · 趋势卷精讲<b>第二卷 · 趋势线与通道</b></div>
+    <div class="shelf-nav"><a class="home" href="../index.html">📚 书架</a><a href="tpa-trends_vol1_price-action-basics.html">← 第一卷</a></div>
+    <ol>
+      <a href="#intro">序 · 从字母到句子</a>
+      <a href="#c1">1 · 趋势线</a>
+      <a href="#c2">2 · 通道线</a>
+      <a href="#c3">3 · 通道</a>
+      <a href="#c4">4 · 微通道</a>
+      <a href="#c5">5 · 水平线与关键价位</a>
+      <a href="#end">尾声 · 通往第三卷</a>
+    </ol>
+  </nav>
+
+  <main>
+    <header class="cover">
+      <div class="col">
+        <div class="eyebrow">Brooks《趋势》精讲 · Part II</div>
+        <h1>趋势线与通道<span class="small">认完了字母,现在学画线。一条线,能把"更高的低点""趋势的天花板""价格的记忆"画成你眼睛能一眼抓住的结构。本卷把原书第二部分,用我自己的话、配原创图解重讲一遍。</span></h1>
+        <div class="vol">读棒精讲 · 第二卷 / 共四卷</div>
+      </div>
+    </header>
+
+    <div class="col">
+
+      <section id="intro">
+        <div class="kicker">序</div>
+        <h2>从字母,到句子</h2>
+        <p class="lead">第一卷里,你学会了读单根棒。但一根棒是孤立的字;要读出方向,得把它们连起来。<strong>线,就是连字成句的工具。</strong></p>
+        <p>这一卷讲四种线:斜着托住趋势的<em>趋势线</em>、画出趋势天花板的<em>通道线</em>、两者围成的<em>通道</em>(以及它极端形态<em>微通道</em>),还有横着标出市场记忆的<em>水平线</em>。每个概念依旧四步走、配一张苏格拉底卡和原创图。</p>
+        <div class="src">本卷为原创转化性教学作品,不含原书文字段落或插图。来源:Al Brooks,《Trading Price Action: Trends》,Part II。</div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c1">
+        <div class="kicker">第 1 章</div>
+        <h2>趋势线</h2>
+        <span class="facet what">是什么</span>
+        <p>在上升趋势里,把"<strong>更高的低点</strong>"用一条斜线连起来,就是趋势线——趋势的"地板"。下降趋势则连"更低的高点",是"天花板"。它把"趋势还健不健康"画成了一条看得见的线。</p>
+        <figure data-fig="trendline"></figure>
+        <span class="facet why">它的逻辑</span>
+        <p>价格一次次回调到趋势线附近、又被买回,说明买方还在<em>按节奏</em>接盘——趋势活着。下面这张动画,演示一条趋势线从诞生、被确认,到最终被跌破的一生:</p>
+        <figure>
+          <div data-anim="trendline"></div>
+          <button class="replay" data-replay="trendline">▶ 重播</button>
+          <figcaption><b>图 1.2 · 一条趋势线的一生(动画)</b> 连两个低点画线 → 价格回来再次被托住(确认)→ 终于跌破(趋势受损的警报)。(原创示意图)</figcaption>
+        </figure>
+        <span class="facet gb">好坏对照</span>
+        <p>好的趋势线:有两三个以上触点、斜率不过分陡。坏用法:用一条画得太陡的线去强行预测;或者一看跌破就以为"马上反转"——其实跌破只是"节奏被打断",不等于立刻掉头。</p>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">价格跌破了上升趋势线,你是不是该立刻清仓/做空?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>不一定。跌破趋势线只说明"<strong>原来的上升节奏被打断、动能减弱</strong>"。但趋势常常先破线、再横一阵、甚至再冲一次新高(一次失败的新高)之后,才真正反转。</p>
+            <p>所以破线是"<em>提高警惕的警报</em>",不是"反转的确认"。聪明的做法是:看到破线就收紧戒备、减小预期,等更完整的反转结构(后面卷会讲)出现,再真正反向行动。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c2">
+        <div class="kicker">第 2 章</div>
+        <h2>通道线</h2>
+        <span class="facet what">是什么</span>
+        <p><strong>通道线</strong>是趋势线对侧、与它大致平行的线。上升趋势里,连接"高点"画出的那条,就是趋势的"上沿天花板"。价格通常在趋势线和通道线<em>之间</em>运行。</p>
+        <figure data-fig="channelline"></figure>
+        <span class="facet why">它的逻辑</span>
+        <p>通道线标出"趋势正常能冲到哪"。价格触及通道线后回落,是减仓/获利的好位置。偶尔猛地冲出通道线(overshoot),往往是<strong>过度、力竭</strong>的信号——不是更强,而是要累了。</p>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">价格突然猛冲出通道线上方,看起来势不可挡。这是"更强"了,还是"要累了"?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>多数时候是<strong>要累了</strong>。冲出通道线=过度延伸,常意味着最后一批追买者一拥而上、买力被一次性耗尽——这是高潮的味道,而非加速的开始。</p>
+            <p>所以老手在通道线外的过度延伸处,想的是<em>减仓、获利了结</em>,而不是追多加仓。"冲得越猛=越强"是直觉陷阱;在趋势的边界上,过度往往预告回头。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c3">
+        <div class="kicker">第 3 章</div>
+        <h2>通道</h2>
+        <span class="facet what">是什么</span>
+        <p>趋势线 + 通道线一起,围成一条倾斜的<strong>通道</strong>。价格像在斜坡上的走廊里行进:近下沿(趋势线)找顺势买点,近上沿(通道线)考虑减仓。</p>
+        <figure data-fig="channel"></figure>
+        <span class="facet why">它的逻辑 · 好坏对照</span>
+        <p>通道给了你一个可操作的框。关键在<em>宽窄</em>:通道越窄,趋势越强,越该单纯顺势、且回调很浅;通道越宽,越接近震荡,价格常从一边荡到另一边,逆势(上沿减仓甚至短空)反而有空间。把太宽太乱的"通道"当通道用,其实是把震荡误当趋势。</p>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">同样叫"通道",窄通道和宽通道要用<em>几乎相反</em>的心态去做。差别到底在哪?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p><strong>窄通道 = 趋势极强</strong>:逆势几乎必死,只该顺势,且回调浅、要早上车。<strong>宽通道 = 接近震荡</strong>:价格有空间从一边荡到另一边,在上沿减仓、甚至小心地反手,都变得合理。</p>
+            <p>认错宽窄,你就会在窄通道里逆势送钱、在宽通道里追高被套。所以画出通道后,第一件事不是找买点,而是<em>判断它有多宽</em>——这决定了你该顺还是该逆。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c4">
+        <div class="kicker">第 4 章</div>
+        <h2>微通道</h2>
+        <span class="facet what">是什么</span>
+        <p><strong>微通道</strong>是通道的极端:极窄,几乎<em>每一根棒</em>都贴着线,中间没有像样的回调。它是"强度"的顶点形态。</p>
+        <figure data-fig="microchannel"></figure>
+        <span class="facet why">它的逻辑 · 好坏对照</span>
+        <p>微通道说明一方完全压倒另一方、对手毫无还手之力——极强。但它<strong>危险</strong>:正因为没有回调,你找不到"低风险的顺势上车点"。追进去,一旦它结束(常以一根反向大棒收场),回撤很快。它的价值更多是"<em>告诉你别逆势</em>",而非"给你一个好买点"。</p>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">微通道"每根棒都在涨、从不回调",看着是最好做的趋势。为什么它反而很难下手?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>因为它不给你"<strong>便宜又安全</strong>"的入场点。正常通道里,你能等回调到趋势线附近、用一个近止损上车;微通道一路不回头,你要么追在高位(止损很远、风险大),要么场外干看。</p>
+            <p>它确认了"极强、别逆势",但顺势也未必好上车。常见的稳妥做法是:<em>不在微通道里硬追,等它结束后的第一次回调</em>再考虑顺势进场。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c5">
+        <div class="kicker">第 5 章</div>
+        <h2>水平线:摆动点与关键价位</h2>
+        <span class="facet what">是什么</span>
+        <p>除了斜的趋势线/通道线,还有<strong>水平</strong>的关键价位:前期的摆动高/低点、整数关口等。它们是市场的"记忆",价格常在这些位置剧烈反应。</p>
+        <figure data-fig="horizontal"></figure>
+        <span class="facet why">它的逻辑</span>
+        <p>这些位置反复有效,是因为很多人<em>记得</em>它、在那里下过单。一个关键位被有效突破后,常发生<strong>角色互换</strong>:原来的阻力变成支撑(反之亦然)。它们也像"磁铁",常成为价格奔赴的目标。</p>
+        <span class="facet gb">好坏对照</span>
+        <p>好:在显著的关键位附近,信号含金量更高(支撑处的反转棒、阻力处的失败突破)。坏:把每条小水平线都当圣旨——只有被反复尊重过的、显著的位置,才值得你重视。</p>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">一个之前死死压住价格的阻力位,被突破之后,为什么常常摇身一变,成了支撑?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>因为<strong>记忆和挂单换了边</strong>。突破前在那里做空/卖出的人,突破后被套,价格回踩时他们想"回本就走"→变成买盘;原来想买没买到的人,回踩给了第二次机会→也买。</p>
+            <p>于是同一个价位,挂单方向<em>集体反转</em>,阻力就成了支撑。这就是"角色互换",也是为什么"回踩不破前高/前低"常是极好的顺势入场点。</p>
+          </div></div>
+        </div>
+        <div class="connect">
+          <div class="h">连接 · 回到图表</div>
+          下次看图,找一个被突破的明显阻力位,盯住价格<strong>回踩</strong>它的那一刻——看它是被这条线托住、还是直接跌穿。被托住,就是一次教科书级的"角色互换";跌穿,就是突破失败的警告。把这个画面看上十次,你会对关键价位有完全不同的敏感度。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="end">
+        <div class="endcard">
+          <div class="kicker">尾声</div>
+          <h2>线,会了</h2>
+          <p>现在你手里有了四种线:趋势线托住地板、通道线画出天花板、两者围成通道(微通道是它的极端)、水平线标出市场的记忆与角色互换。字母连成了句子,图表开始有了"方向感"。</p>
+          <div class="poem">
+            <div class="pt">卷二 · 连字</div>
+            <div class="verse">
+              一根根孤立的棒,<br>
+              被一条线轻轻穿起——<br>
+              地板在下,天花板在上,<br>
+              价格在其间呼吸、试探。<br>
+              线还在,趋势就还在;<br>
+              线断了,故事,就要翻页。
+            </div>
+            <div class="by">—— 本卷原创</div>
+          </div>
+          <p style="color:var(--muted); font-size:15px; margin-top:26px;">下一卷(对应原书 <strong>Part III</strong>)直入主题——<strong>趋势</strong>本身:如何完整地交易一段趋势、怎样读出"强势的信号"、以及回调常走的"两腿"。说一声"继续第三卷"即可。</p>
+          <div class="src">来源:Al Brooks,《Trading Price Action: Trends》(2011),Part II。本卷为原创教学改写,不含原书文字或插图。</div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script>
+const NS="http://www.w3.org/2000/svg";
+const C={accent:"#26a69a",pos:"#26a69a",neg:"#ef5350",ink:"#e9e5d8",muted:"#8b94a3",faint:"#5c6573",line:"#2c343f",gold:"#d4a657",steel:"#7fa8c9"};
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}
+function svgScene(host,vb){const s=el("svg",{viewBox:vb});s.style.width="100%";s.style.height="auto";host.appendChild(s);return s;}
+function note(s,o){const t=el("text",{x:o.x,y:o.y,fill:o.color||C.ink,"font-size":o.size||12.5,"font-family":"var(--mono)","text-anchor":o.anchor||"start"});t.textContent=o.text;s.appendChild(t);return t;}
+function drawCandles(svg,bars,opts){
+  opts=opts||{};
+  const W=720,H=opts.h||220,padX=46,padTop=24,padBot=34;
+  svg.setAttribute("viewBox","0 0 "+W+" "+H);
+  let lo=Infinity,hi=-Infinity;
+  bars.forEach(b=>{lo=Math.min(lo,b.l);hi=Math.max(hi,b.h);});
+  if(opts.levels)opts.levels.forEach(L=>{lo=Math.min(lo,L.p);hi=Math.max(hi,L.p);});
+  if(opts.lines)opts.lines.forEach(L=>{[L.from.p,L.to.p].forEach(p=>{lo=Math.min(lo,p);hi=Math.max(hi,p);});});
+  const pad=(hi-lo)*0.16||1;lo-=pad;hi+=pad;
+  const Y=p=>padTop+(hi-p)/(hi-lo)*(H-padTop-padBot);
+  const n=bars.length,slot=(W-padX*2)/n,X=i=>padX+slot*i+slot/2,cw=Math.min(slot*0.56,22);
+  if(opts.levels)opts.levels.forEach(L=>{
+    svg.appendChild(el("line",{x1:padX-6,x2:W-padX+6,y1:Y(L.p),y2:Y(L.p),stroke:L.color||C.faint,"stroke-width":1,"stroke-dasharray":L.dash||"5 5",opacity:.9}));
+    if(L.label)note(svg,{x:W-padX+4,y:Y(L.p)+4,text:L.label,color:L.color||C.muted,anchor:"end",size:11});
+  });
+  if(opts.lines)opts.lines.forEach(L=>{
+    svg.appendChild(el("line",{x1:X(L.from.i),y1:Y(L.from.p),x2:X(L.to.i),y2:Y(L.to.p),stroke:L.color||C.steel,"stroke-width":L.w||1.8,"stroke-dasharray":L.dash||"",opacity:.95}));
+    if(L.label)note(svg,{x:X(L.to.i)-4,y:Y(L.to.p)+(L.ly||-6),text:L.label,color:L.color||C.steel,anchor:"end",size:11});
+  });
+  bars.forEach((b,i)=>{
+    const up=b.c>=b.o,col=b.col||(up?C.pos:C.neg),x=X(i);
+    svg.appendChild(el("line",{x1:x,x2:x,y1:Y(b.h),y2:Y(b.l),stroke:col,"stroke-width":1.6}));
+    const yo=Y(b.o),yc=Y(b.c),top=Math.min(yo,yc);let hgt=Math.abs(yo-yc);if(hgt<2)hgt=2;
+    svg.appendChild(el("rect",{x:x-cw/2,y:top,width:cw,height:hgt,fill:col,rx:1.5}));
+    if(b.n)note(svg,{x:x,y:Y(b.l)+18,text:b.n,color:b.ncol||C.muted,anchor:"middle",size:11.5});
+  });
+  if(opts.notes)opts.notes.forEach(nt=>note(svg,{x:nt.i!=null?X(nt.i):nt.x,y:(nt.p!=null?Y(nt.p):nt.y)+(nt.dy||0),text:nt.text,color:nt.color||C.ink,anchor:nt.anchor||"middle",size:12.5}));
+}
+
+const figs={
+  trendline(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:8,h:12,l:7.5,c:11.5,col:C.pos},
+      {o:11.5,h:12.5,l:10,c:10.5,col:C.neg},
+      {o:10.5,h:15,l:10.2,c:14.5,col:C.pos},
+      {o:14.5,h:15.5,l:13,c:13.5,col:C.neg},
+      {o:13.5,h:18,l:13.2,c:17.5,col:C.pos},
+      {o:17.5,h:19,l:16,c:16.5,col:C.neg},
+      {o:16.5,h:21,l:16.2,c:20.5,col:C.pos}
+    ],{h:240,lines:[{from:{i:0.6,p:9.4},to:{i:6.4,p:18.1},color:C.steel,label:"趋势线(连更高的低点)",ly:20}],
+       notes:[{i:3,p:13,text:"回调踩线被买回",color:C.muted,dy:24}]});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 1.1 · 趋势线</b> 把上升趋势中"更高的低点"连成一条斜线——趋势的地板。价格回调到线上被买回,趋势就还活着。(原创示意图)</figcaption>');
+  },
+  channelline(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:8,h:12,l:7.5,c:11.5,col:C.pos},
+      {o:11.5,h:12.5,l:10,c:10.5,col:C.neg},
+      {o:10.5,h:15,l:10.2,c:14.5,col:C.pos},
+      {o:14.5,h:15.5,l:13,c:13.5,col:C.neg},
+      {o:13.5,h:18,l:13.2,c:17.5,col:C.pos},
+      {o:17.5,h:21.5,l:16.5,c:18,col:C.pos},
+      {o:18,h:18.5,l:15.5,c:16,col:C.neg}
+    ],{h:250,lines:[
+       {from:{i:-0.2,p:8.2},to:{i:6.2,p:17.8},color:C.steel,label:"趋势线(下沿)",ly:18},
+       {from:{i:-0.2,p:11.7},to:{i:6.2,p:21.3},color:C.gold,label:"通道线(上沿)",ly:-6}],
+       notes:[{i:5,p:21.5,text:"冲出通道线 = 过度/力竭",color:C.gold,dy:-8}]});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 2.1 · 通道线</b> 与趋势线大致平行的上沿。价格通常在两线之间运行;猛冲出通道线(过度延伸)常是力竭,而非更强。(原创示意图)</figcaption>');
+  },
+  channel(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:9,h:11,l:8.5,c:9.2,col:C.neg},
+      {o:9.2,h:13,l:9,c:12.8,col:C.pos},
+      {o:12.8,h:13.2,l:10.5,c:10.8,col:C.neg},
+      {o:10.8,h:14.6,l:10.6,c:14.2,col:C.pos},
+      {o:14.2,h:14.6,l:12,c:12.3,col:C.neg},
+      {o:12.3,h:16.2,l:12,c:15.8,col:C.pos}
+    ],{h:240,lines:[
+       {from:{i:-0.2,p:8.3},to:{i:5.2,p:13.9},color:C.steel,label:"下沿:顺势买",ly:18},
+       {from:{i:-0.2,p:10.8},to:{i:5.2,p:16.4},color:C.gold,label:"上沿:减仓",ly:-6}]});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 3.1 · 通道</b> 趋势线与通道线围成倾斜的走廊。近下沿找顺势买点,近上沿考虑减仓;通道越窄趋势越强。(原创示意图)</figcaption>');
+  },
+  microchannel(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:10,h:11.5,l:9.8,c:11.3,col:C.pos},
+      {o:11.3,h:12.8,l:11.1,c:12.6,col:C.pos},
+      {o:12.6,h:14,l:12.4,c:13.9,col:C.pos},
+      {o:13.9,h:15.3,l:13.7,c:15.1,col:C.pos},
+      {o:15.1,h:16.6,l:14.9,c:16.4,col:C.pos},
+      {o:16.4,h:17.9,l:16.2,c:17.7,col:C.pos},
+      {o:17.7,h:18.2,l:14,c:14.4,col:C.neg,n:"结束=反向大棒",ncol:C.neg}
+    ],{h:240,lines:[{from:{i:-0.2,p:9.3},to:{i:5.6,p:16.9},color:C.steel,label:"几乎无回调",ly:18}]});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 4.1 · 微通道</b> 几乎每根棒都贴着线、没有回调=极强,但找不到低风险上车点;它常以一根反向大棒收尾。(原创示意图)</figcaption>');
+  },
+  horizontal(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:10,h:13.6,l:9.5,c:13,col:C.pos},
+      {o:13,h:13.9,l:11,c:11.4,col:C.neg},
+      {o:11.4,h:13.8,l:11,c:13.5,col:C.pos},
+      {o:13.5,h:16.5,l:13.3,c:16,col:C.pos,n:"突破",ncol:C.pos},
+      {o:16,h:16.3,l:13.9,c:14.3,col:C.neg,n:"回踩",ncol:C.accent},
+      {o:14.3,h:17.5,l:14.1,c:17,col:C.pos}
+    ],{h:240,levels:[{p:14,color:C.gold,label:"阻力 → 突破后变支撑"}],
+       notes:[{i:4,p:13.8,text:"角色互换",color:C.accent,dy:20}]});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 5.1 · 水平线与角色互换</b> 价格突破一个旧阻力后回踩,该位置常从阻力变成支撑——挂单方向集体换边的结果。(原创示意图)</figcaption>');
+  }
+};
+document.querySelectorAll("figure[data-fig]").forEach(f=>{const k=f.getAttribute("data-fig");if(figs[k])figs[k](f);});
+
+// "trend line life" self-drawing animation
+document.querySelectorAll("[data-anim='trendline']").forEach(host=>{
+  const s=svgScene(host,"0 0 720 240");
+  const cap=document.createElement("div");cap.className="anim-cap";host.appendChild(cap);
+  // rising trend line from (90,205) to (520,95)
+  const tl=el("line",{x1:90,y1:205,x2:520,y2:95,stroke:C.steel,"stroke-width":2});
+  function dot(x,y,col){return el("circle",{cx:x,cy:y,r:5,fill:col||C.accent});}
+  const d1=dot(150,189),d2=dot(300,150);
+  const d3=dot(430,118);
+  // break: segment dropping below the line after the third touch
+  const brk=el("path",{d:"M520 95 L560 135 L600 185",fill:"none",stroke:C.neg,"stroke-width":2.5});
+  const bx=el("text",{x:600,y:205,fill:C.neg,"font-size":12,"font-family":"var(--mono)","text-anchor":"end"});bx.textContent="跌破";
+  [tl,d1,d2,d3,brk,bx].forEach(e=>{e.style.opacity=reduce?"1":"0";e.style.transition="opacity .5s";s.appendChild(e);});
+  const steps=[
+    {els:[tl,d1,d2],cap:"① 连两个低点,画出趋势线"},
+    {els:[d3],cap:"② 价格回来,再次被托住 = 确认"},
+    {els:[brk,bx],cap:"③ 终于跌破 = 趋势受损的警报(非反转确认)"}
+  ];
+  function play(){
+    if(reduce){steps.forEach(st=>st.els.forEach(e=>e.style.opacity="1"));cap.textContent=steps[steps.length-1].cap;return;}
+    steps.forEach(st=>st.els.forEach(e=>e.style.opacity="0"));cap.textContent="";
+    let t=200;steps.forEach(st=>{setTimeout(()=>{st.els.forEach(e=>e.style.opacity="1");cap.textContent=st.cap;},t);t+=1100;});
+  }
+  const rep=document.querySelector("[data-replay='trendline']");if(rep)rep.addEventListener("click",play);
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){play();io.unobserve(e.target);}}),{threshold:.3});io.observe(host);
+});
+
+document.querySelectorAll(".socratic button").forEach(b=>b.addEventListener("click",()=>{const c=b.closest(".socratic");const o=c.classList.toggle("open");b.textContent=o?"收起 ↑":"想好了,揭晓 →";}));
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a")],map={};links.forEach(a=>{const id=a.getAttribute("href");if(id&&id[0]==="#")map[id.slice(1)]=a;});
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-10% 0px -75% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

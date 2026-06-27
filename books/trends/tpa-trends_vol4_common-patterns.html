@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:series" content="Brooks · 趋势卷精讲">
+<meta name="readbar:num" content="第四卷 · Part IV">
+<meta name="readbar:title" content="常见趋势形态">
+<meta name="readbar:desc" content="Brooks《趋势》精讲(四·终):尖峰与通道、趋势震荡日、开盘趋势与小回调趋势。">
+<meta name="readbar:accent" content="#b58bd4">
+<meta name="readbar:order" content="4">
+<meta name="readbar:topics" content="尖峰与通道 · 趋势震荡日 · 开盘趋势 · 小回调趋势 · 失败突破 · 顺势耐心">
+<title>Brooks 趋势卷精讲 · 第四卷 · 常见趋势形态</title>
+<link rel="stylesheet" href="../reader.css">
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#b58bd4; --accent-soft:#2a2335; --gold:#d4a657; --steel:#7fa8c9;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1322;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--gold)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(181,139,212,.14), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1322; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1500px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(181,139,212,.12), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:34px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(130% 130% at 0% 0%, rgba(212,166,87,.10), transparent 55%), radial-gradient(130% 130% at 100% 100%, rgba(181,139,212,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .series-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:22px 0 6px;}
+  .series-grid .v{border:1px solid var(--line); border-radius:10px; padding:12px 14px; display:flex; gap:10px; align-items:baseline;}
+  .series-grid .v i{width:9px;height:9px;border-radius:3px;flex:none;}
+  .series-grid .v .n{font-family:var(--mono);font-size:11px;color:var(--faint);}
+  .series-grid .v .t{font-size:14.5px;color:var(--ink);}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;} .series-grid{grid-template-columns:1fr;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">Brooks · 趋势卷精讲<b>第四卷 · 常见趋势形态</b></div>
+    <div class="shelf-nav"><a class="home" href="../index.html">📚 书架</a><a href="tpa-trends_vol3_trends.html">← 第三卷</a></div>
+    <ol>
+      <a href="#intro">序 · 趋势的几张面孔</a>
+      <a href="#c1">1 · 尖峰与通道</a>
+      <a href="#c2">2 · 趋势震荡日</a>
+      <a href="#c3">3 · 开盘趋势</a>
+      <a href="#c4">4 · 小回调趋势</a>
+      <a href="#end">终章 · 四卷之后</a>
+    </ol>
+  </nav>
+
+  <main>
+    <header class="cover">
+      <div class="col">
+        <div class="eyebrow">Brooks《趋势》精讲 · Part IV · 终卷</div>
+        <h1>常见趋势形态<span class="small">趋势不是只有一张脸。这一卷,把它最常见的几张面孔一一认全:尖峰与通道、趋势震荡日、开盘趋势、小回调趋势——让你看一眼,就知道自己站在哪一种趋势里。原书第四部分,用我自己的话重讲。</span></h1>
+        <div class="vol">读棒精讲 · 第四卷 / 共四卷 · 终</div>
+      </div>
+    </header>
+
+    <div class="col">
+
+      <section id="intro">
+        <div class="kicker">序</div>
+        <h2>趋势的几张面孔</h2>
+        <p class="lead">认全了字母、句子和整段文章,最后一步,是<strong>一眼成诵</strong>:看到熟悉的形态,不用从头分析,就知道它是谁、该怎么做。</p>
+        <p>这一卷讲四种反复出现的趋势形态。它们不是新知识,而是把前三卷学的东西,<em>打包成几个你能瞬间识别的整体</em>。每个形态依旧四步走、配苏格拉底卡与原创图。读完它,这套《趋势》精讲就走完了。</p>
+        <div class="src">本卷为原创转化性教学作品,不含原书文字段落或插图。来源:Al Brooks,《Trading Price Action: Trends》,Part IV。</div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c1">
+        <div class="kicker">第 1 章</div>
+        <h2>尖峰与通道</h2>
+        <span class="facet what">是什么</span>
+        <p>最常见的趋势形状。一段趋势常分两幕:先是急速突破的"<strong>尖峰</strong>"(几根大趋势棒、几乎不回调),再转为较平缓的"<strong>通道</strong>"(小步上行、有浅回调)。</p>
+        <figure>
+          <div data-anim="spike"></div>
+          <button class="replay" data-replay="spike">▶ 重播</button>
+          <figcaption><b>图 1.1 · 尖峰 → 通道(动画)</b> 急速尖峰(别追)→ 转入平缓通道 → 通道里的第一次回调,才是又便宜又有近止损的上车点。(原创示意图)</figcaption>
+        </figure>
+        <span class="facet why">它的逻辑 · 好坏对照</span>
+        <p>认出这两幕,就知道节奏:尖峰阶段别追(已经走了一大段、回调风险大),等它转入通道、出现<em>第一次回调</em>再顺势上车。好:在通道第一次回调进场;坏:在尖峰里追市价单(止损远、随时可能停下回调)。</p>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">尖峰阶段涨得又快又猛,正是最让人想追的时候。为什么老手反而在尖峰里按兵不动?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>因为尖峰=已经走了一大段、且<strong>没有近的止损位</strong>。追在尖峰里,你买在最贵、止损放得最远,风险收益比最差;而且尖峰随时可能停下、转入通道的第一次回调——那才是又便宜、又有近止损的上车点。</p>
+            <p>老手的耐心,就是在等"<em>尖峰结束、通道开始</em>"的那一刻。看到尖峰,他们想的不是"快追",而是"等它的第一次回调"。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c2">
+        <div class="kicker">第 2 章</div>
+        <h2>趋势震荡日</h2>
+        <span class="facet what">是什么</span>
+        <p>一种磨人的形态:整体在趋势(比如一路偏多),但不是平滑地走,而是走成"<strong>一个接一个的小震荡区间、台阶式地往一个方向挪</strong>"。它是趋势与震荡的混血。</p>
+        <figure data-fig="ttr"></figure>
+        <span class="facet why">它的逻辑 · 好坏对照</span>
+        <p>它最磨人:每个小区间里像震荡(该高抛低吸、反做突破),整体又是趋势(方向偏多)。好:在小区间下沿、顺大方向轻仓买,上沿减;坏:在每个小区间的突破上追进去(多半失败突破),被反复绞杀。</p>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">趋势震荡日里,每次"突破小区间"看着都像新趋势启动,却多半失败。为什么?该怎么做?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>因为它本质是"<strong>趋势包着震荡</strong>":小区间内多空接近平衡,边沿的突破缺乏跟进,容易回落(失败突破)。追每一次突破,正中陷阱。</p>
+            <p>该做的是退一步看大方向:在小区间<em>靠近下沿、且顺着大趋势</em>的位置轻仓买,在上沿减;把"反做失败突破"和"顺大方向"结合起来。耐心 + 轻仓,是这种日子的解药。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c3">
+        <div class="kicker">第 3 章</div>
+        <h2>开盘趋势</h2>
+        <span class="facet what">是什么</span>
+        <p>趋势从当天第一根棒就开始,几乎不回头——<strong>开盘即定方向</strong>,价格再没回到开盘价附近。这是最强的趋势日之一。</p>
+        <figure data-fig="fromopen"></figure>
+        <span class="facet why">它的逻辑 · 好坏对照</span>
+        <p>它强,但难上车:从开盘就一路走,不给你回调。最好的机会,是<em>最早识别出"这是个开盘趋势日"</em>,然后在极浅的停顿(哪怕只是一两根棒)处顺势进。坏:因为"开盘涨太多"去做空(经典送钱),或一直等"像样的回调"结果整天没等到。</p>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">开盘后一路猛涨、再没回到开盘价,你越看越觉得"该回调了"想做空。这是这种日子最常见的亏钱方式,为什么?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>因为开盘趋势日的定义,就是"<strong>不回头</strong>"。它的力量来自一开始就一边倒的订单流;你看到的"涨太多",正是它强的<em>证据</em>,而不是要反转的理由。</p>
+            <p>做空开盘趋势,是在与一整天的趋势对赌少数派事件。正确的心态恰恰相反:一旦确认是开盘趋势日,只找<em>顺势的浅回调买点</em>,别想着抓顶。这一天,顺势者吃肉,逆势者垫底。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c4">
+        <div class="kicker">第 4 章</div>
+        <h2>小回调趋势</h2>
+        <span class="facet what">是什么</span>
+        <p>一种极强的趋势:全程只有"<strong>一两根棒</strong>"的微小回调,价格几乎不停地往一个方向走——像第二卷"微通道"的整段行情版。</p>
+        <figure data-fig="smallpb"></figure>
+        <span class="facet why">它的逻辑 · 好坏对照</span>
+        <p>它确认了极强的趋势、绝不能逆势;但和微通道一样,它不给你舒服的、带近止损的回调入场点。好:认出极强、坚决不逆势,用极浅回调或停顿进场并拿住;坏:嫌"没有好回调"追在高位、止损放太远,或干脆逆势抄顶。</p>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想(收束前三卷)</div>
+            <div class="qt">"小回调趋势"几乎不回调,和第二卷的"微通道"其实是同一种东西的不同尺度。它们共同的两难是什么?共同的解法呢?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>共同的两难是:<strong>极强 ⇒ 绝不能逆势,但它也不给你好上车点</strong>。回调太小,你找不到"便宜又有近止损"的入场;追高则止损被迫放远、风险收益比变差。</p>
+            <p>共同的解法也一样:要么用极浅的停顿(一两根棒的回调)<em>小心地</em>顺势进、并拿住吃一大段;要么干脆等这段超强行情<em>结束后的第一次像样回调</em>再进。但永远不要因为"它太强了、该回了"去逆势——那是整本书里最贵的错误。</p>
+          </div></div>
+        </div>
+        <div class="connect">
+          <div class="h">连接 · 回到图表</div>
+          打开任意一张趋势图,试着给它<strong>归类</strong>:这是尖峰与通道,还是趋势震荡日?是开盘趋势,还是小回调趋势?一旦你能一眼说出"它是哪一种",你就不再是从零分析每一根棒——你在<em>认字成诵</em>了。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="end">
+        <div class="endcard">
+          <div class="kicker">终章</div>
+          <h2>四卷之后</h2>
+          <p>从一根棒,到整段趋势的几张面孔,你走完了这本《趋势》。回头看,这条路其实很简单:</p>
+          <div class="series-grid">
+            <div class="v"><i style="background:var(--gold)"></i><span class="n">卷一</span><span class="t">读一根棒(字母)</span></div>
+            <div class="v"><i style="background:var(--pos)"></i><span class="n">卷二</span><span class="t">用线连成结构(句子)</span></div>
+            <div class="v"><i style="background:var(--steel)"></i><span class="n">卷三</span><span class="t">顺势做完一段趋势(文章)</span></div>
+            <div class="v"><i style="background:var(--accent)"></i><span class="n">卷四</span><span class="t">一眼认出趋势的面孔(成诵)</span></div>
+          </div>
+          <p>但别忘了它最诚实的一句话:这只是三部曲的<strong>第一本</strong>。它把"趋势"讲透了,却把<em>震荡</em>与<em>反转</em>留给了后两本。真正的高手,知道市场大部分时间不在趋势里——那是下一段旅程。</p>
+          <div class="poem">
+            <div class="pt">终卷 · 成诵</div>
+            <div class="verse">
+              起初,我一个字一个字地认;<br>
+              后来,我把字连成了句;<br>
+              再后来,整段趋势在我眼前展开,<br>
+              我学会了顺流、等待、忍住不急。<br>
+              而今再看图,<br>
+              那些面孔,我一眼就能叫出名字——<br>
+              市场,终于成了一篇,<br>
+              我读得懂的文章。
+            </div>
+            <div class="by">—— 《趋势》精讲 · 全四卷 · 终</div>
+          </div>
+          <p style="color:var(--muted); font-size:15px; margin-top:26px;">想继续的话,这套方法可以接着读 Brooks 三部曲的另外两本——<strong>《Trading Ranges》(震荡)</strong>与<strong>《Reversals》(反转)</strong>。把对应的 PDF 给我,我就用同样的规格,为它们各做一套精讲,放进你的书架。</p>
+          <div class="src">来源:Al Brooks,《Trading Price Action: Trends》(2011),Part IV。本卷为原创教学改写,不含原书文字或插图。全四卷完。</div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script>
+const NS="http://www.w3.org/2000/svg";
+const C={accent:"#b58bd4",pos:"#26a69a",neg:"#ef5350",ink:"#e9e5d8",muted:"#8b94a3",faint:"#5c6573",line:"#2c343f",gold:"#d4a657",steel:"#7fa8c9"};
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}
+function svgScene(host,vb){const s=el("svg",{viewBox:vb});s.style.width="100%";s.style.height="auto";host.appendChild(s);return s;}
+function note(s,o){const t=el("text",{x:o.x,y:o.y,fill:o.color||C.ink,"font-size":o.size||12.5,"font-family":"var(--mono)","text-anchor":o.anchor||"start"});t.textContent=o.text;s.appendChild(t);return t;}
+function drawCandles(svg,bars,opts){
+  opts=opts||{};
+  const W=720,H=opts.h||220,padX=46,padTop=24,padBot=34;
+  svg.setAttribute("viewBox","0 0 "+W+" "+H);
+  let lo=Infinity,hi=-Infinity;
+  bars.forEach(b=>{lo=Math.min(lo,b.l);hi=Math.max(hi,b.h);});
+  if(opts.levels)opts.levels.forEach(L=>{lo=Math.min(lo,L.p);hi=Math.max(hi,L.p);});
+  const pad=(hi-lo)*0.16||1;lo-=pad;hi+=pad;
+  const Y=p=>padTop+(hi-p)/(hi-lo)*(H-padTop-padBot);
+  const n=bars.length,slot=(W-padX*2)/n,X=i=>padX+slot*i+slot/2,cw=Math.min(slot*0.56,22);
+  if(opts.levels)opts.levels.forEach(L=>{
+    svg.appendChild(el("line",{x1:padX-6,x2:W-padX+6,y1:Y(L.p),y2:Y(L.p),stroke:L.color||C.faint,"stroke-width":1,"stroke-dasharray":L.dash||"5 5",opacity:.9}));
+    if(L.label)note(svg,{x:W-padX+4,y:Y(L.p)+4,text:L.label,color:L.color||C.muted,anchor:"end",size:11});
+  });
+  bars.forEach((b,i)=>{
+    const up=b.c>=b.o,col=b.col||(up?C.pos:C.neg),x=X(i);
+    svg.appendChild(el("line",{x1:x,x2:x,y1:Y(b.h),y2:Y(b.l),stroke:col,"stroke-width":1.6}));
+    const yo=Y(b.o),yc=Y(b.c),top=Math.min(yo,yc);let hgt=Math.abs(yo-yc);if(hgt<2)hgt=2;
+    svg.appendChild(el("rect",{x:x-cw/2,y:top,width:cw,height:hgt,fill:col,rx:1.5}));
+    if(b.n)note(svg,{x:x,y:Y(b.l)+18,text:b.n,color:b.ncol||C.muted,anchor:"middle",size:11.5});
+  });
+  if(opts.notes)opts.notes.forEach(nt=>note(svg,{x:nt.i!=null?X(nt.i):nt.x,y:(nt.p!=null?Y(nt.p):nt.y)+(nt.dy||0),text:nt.text,color:nt.color||C.ink,anchor:nt.anchor||"middle",size:12.5}));
+}
+
+const figs={
+  ttr(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:11,h:13,l:10,c:12.5,col:C.pos},
+      {o:12.5,h:13,l:10.5,c:10.8,col:C.neg},
+      {o:10.8,h:12.8,l:10.2,c:12.6,col:C.pos},
+      {o:12.6,h:15,l:12.4,c:14.8,col:C.pos,n:"突破",ncol:C.pos},
+      {o:14.8,h:16,l:14,c:14.4,col:C.neg},
+      {o:14.4,h:16,l:14.2,c:15.8,col:C.pos},
+      {o:15.8,h:16.2,l:14.5,c:14.9,col:C.neg},
+      {o:14.9,h:18,l:14.7,c:17.8,col:C.pos,n:"突破",ncol:C.pos},
+      {o:17.8,h:19,l:17,c:17.4,col:C.neg},
+      {o:17.4,h:19,l:17.2,c:18.8,col:C.pos}
+    ],{h:250,notes:[{i:1,p:10,text:"小区间",color:C.muted,dy:20},{i:8,p:17,text:"台阶式上行",color:C.accent,dy:22}]});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 2.1 · 趋势震荡日</b> 一个接一个的小震荡区间、台阶式向上。每个小区间像震荡,整体却是趋势——别追小区间的突破,顺大方向在下沿轻仓买。(原创示意图)</figcaption>');
+  },
+  fromopen(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:10,h:13,l:9.9,c:12.8,col:C.pos,n:"开盘棒",ncol:C.accent},
+      {o:12.8,h:15.5,l:12.6,c:15.2,col:C.pos},
+      {o:15.2,h:17.5,l:15,c:17.2,col:C.pos},
+      {o:17.2,h:18,l:16,c:16.4,col:C.neg},
+      {o:16.4,h:19.5,l:16.2,c:19.2,col:C.pos},
+      {o:19.2,h:21.5,l:19,c:21.2,col:C.pos}
+    ],{h:240,levels:[{p:10,color:C.gold,label:"开盘价(再没跌回)"}],
+       notes:[{i:3,p:18.3,text:"停顿一两根 → 顺势进",color:C.accent,dy:-6}]});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 3.1 · 开盘趋势</b> 从第一根棒就定方向、再没回到开盘价。最强的趋势日之一;别因"涨太多"做空,只找极浅停顿处顺势进。(原创示意图)</figcaption>');
+  },
+  smallpb(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:10,h:12.5,l:9.9,c:12.3,col:C.pos},
+      {o:12.3,h:14.5,l:12.1,c:14.3,col:C.pos},
+      {o:14.3,h:14.6,l:13.6,c:13.9,col:C.neg,n:"1根回调",ncol:C.muted},
+      {o:13.9,h:16.5,l:13.7,c:16.3,col:C.pos},
+      {o:16.3,h:18.5,l:16.1,c:18.3,col:C.pos},
+      {o:18.3,h:18.7,l:17.6,c:17.9,col:C.neg,n:"1根回调",ncol:C.muted},
+      {o:17.9,h:20.5,l:17.7,c:20.3,col:C.pos}
+    ],{h:240,notes:[{i:4,p:18.6,text:"回调只有一两根棒 = 极强",color:C.accent,dy:-6}]});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 4.1 · 小回调趋势</b> 全程只有一两根棒的微小回调——极强,绝不逆势;但和微通道一样,不给你舒服的近止损上车点。(原创示意图)</figcaption>');
+  }
+};
+document.querySelectorAll("figure[data-fig]").forEach(f=>{const k=f.getAttribute("data-fig");if(figs[k])figs[k](f);});
+
+// spike & channel self-drawing animation
+document.querySelectorAll("[data-anim='spike']").forEach(host=>{
+  const s=svgScene(host,"0 0 720 250");
+  const cap=document.createElement("div");cap.className="anim-cap";host.appendChild(cap);
+  function bar(x,bodyTop,bodyBot,wTop,wBot,col){
+    const g=el("g",{});
+    g.appendChild(el("line",{x1:x,y1:wTop,x2:x,y2:wBot,stroke:col,"stroke-width":1.6}));
+    g.appendChild(el("rect",{x:x-9,y:bodyTop,width:18,height:Math.max(2,bodyBot-bodyTop),fill:col,rx:1.5}));
+    return g;
+  }
+  // group 1: spike (3 big bars, fast rise)
+  const g1=el("g",{});
+  [[95,205,178,210,175],[140,178,140,182,136],[185,140,100,144,96]].forEach(a=>g1.appendChild(bar(a[0],a[1],a[2],a[3],a[4],C.pos)));
+  note(g1,{x:130,y:228,text:"尖峰",color:C.pos,anchor:"middle",size:12});
+  // group 2: channel (smaller stair bars, with small pullbacks)
+  const g2=el("g",{});
+  [[245,104,90,108,86,C.pos],[290,100,108,96,112,C.neg],[335,98,82,102,78,C.pos],[380,86,70,90,66,C.pos],[425,80,90,76,94,C.neg],[470,82,62,86,58,C.pos]].forEach(a=>g2.appendChild(bar(a[0],a[1],a[2],a[3],a[4],a[5])));
+  note(g2,{x:380,y:228,text:"通道",color:C.gold,anchor:"middle",size:12});
+  // group 3: first channel pullback = entry
+  const g3=el("g",{});
+  g3.appendChild(el("circle",{cx:290,cy:108,r:9,fill:"none",stroke:C.accent,"stroke-width":2}));
+  g3.appendChild(el("path",{d:"M290 124 L290 140",stroke:C.accent,"stroke-width":2}));
+  note(g3,{x:290,y:158,text:"通道第一次回调 = 上车",color:C.accent,anchor:"middle",size:12});
+  [g1,g2,g3].forEach(gp=>{gp.style.opacity=reduce?"1":"0";gp.style.transition="opacity .5s";s.appendChild(gp);});
+  const steps=[
+    {g:g1,cap:"① 尖峰:急速突破,别追"},
+    {g:g2,cap:"② 转入通道:小步上行、有浅回调"},
+    {g:g3,cap:"③ 通道的第一次回调 = 又便宜又有近止损的上车点"}
+  ];
+  function play(){
+    if(reduce){steps.forEach(st=>st.g.style.opacity="1");cap.textContent=steps[steps.length-1].cap;return;}
+    steps.forEach(st=>st.g.style.opacity="0");cap.textContent="";
+    let t=200;steps.forEach(st=>{setTimeout(()=>{st.g.style.opacity="1";cap.textContent=st.cap;},t);t+=1150;});
+  }
+  const rep=document.querySelector("[data-replay='spike']");if(rep)rep.addEventListener("click",play);
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){play();io.unobserve(e.target);}}),{threshold:.3});io.observe(host);
+});
+
+document.querySelectorAll(".socratic button").forEach(b=>b.addEventListener("click",()=>{const c=b.closest(".socratic");const o=c.classList.toggle("open");b.textContent=o?"收起 ↑":"想好了,揭晓 →";}));
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a")],map={};links.forEach(a=>{const id=a.getAttribute("href");if(id&&id[0]==="#")map[id.slice(1)]=a;});
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-10% 0px -75% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

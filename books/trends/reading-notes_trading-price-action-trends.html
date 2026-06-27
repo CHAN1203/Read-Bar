@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:series" content="读棒 · 价格行为">
+<meta name="readbar:num" content="读书笔记 · 精读">
+<meta name="readbar:title" content="《Trading Price Action: Trends》分析阅读">
+<meta name="readbar:desc" content="用《如何阅读一本书》的分析阅读法，精读 Al Brooks 趋势卷。">
+<meta name="readbar:accent" content="#7fa8c9">
+<meta name="readbar:order" content="6">
+<meta name="readbar:topics" content="题解归类 · 结构地图 · 关键词与主张 · 解决/未解决 · 批判评价 · 于我何用">
+<title>读书笔记 · 《Trading Price Action: Trends》分析阅读</title>
+<link rel="stylesheet" href="../reader.css">
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#7fa8c9; --accent-soft:#27313c; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#11151a;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:240px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase; margin-bottom:4px;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:24px 0 0;}
+  .rail .chap{font-family:var(--mono); font-size:11px; color:var(--faint); letter-spacing:.1em; margin:18px 0 6px; text-transform:uppercase;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:5px 10px; border-left:2px solid transparent; border-radius:0 4px 4px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:84px 0 60px; border-bottom:1px solid var(--line); margin-bottom:10px; background:radial-gradient(120% 90% at 78% -10%, rgba(127,168,201,.14), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.24em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:50px; line-height:1.05; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:50px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:31px; line-height:1.15; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:var(--bg); background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .connect code{font-family:var(--mono); font-size:13px; background:#11161c; color:var(--accent); padding:1px 6px; border-radius:4px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:22px 0;}
+  .term{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:13px 15px;}
+  .term .t{font-family:var(--mono); font-size:12.5px; color:var(--accent); margin-bottom:4px;}
+  .term .d{font-size:13.5px; color:#cfcabd; line-height:1.6;}
+  .verdict{display:grid; grid-template-columns:120px 1fr; border:1px solid var(--line); border-radius:12px; overflow:hidden; margin:22px 0;}
+  .verdict .k{padding:12px 15px; font-family:var(--mono); font-size:12px; background:var(--surface); border-top:1px solid var(--line); color:var(--accent);}
+  .verdict .v{padding:12px 15px; font-size:14.5px; border-top:1px solid var(--line); color:#cfcabd;}
+  .verdict .k:first-child,.verdict .v:nth-child(2){border-top:none;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(127,168,201,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:10px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand,.rail .chap{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:34px;} .grid2,.verdict{grid-template-columns:1fr;} .verdict .k{border-top:1px solid var(--line);} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">读书笔记 · 精读<b>Trading Price Action: Trends</b></div>
+    <div class="shelf-nav"><a class="home" href="../index.html">📚 书架</a></div>
+    <ol>
+      <li><div class="chap">序</div><a href="#intro">为什么精读这本书</a></li>
+      <li><div class="chap">阶段一 · 结构</div>
+        <a href="#s1">① 题解与归类</a>
+        <a href="#s2">② 结构地图</a></li>
+      <li><div class="chap">阶段二 · 诠释</div>
+        <a href="#s3">③ 关键词与主张</a>
+        <a href="#s4">④ 解决了/没解决</a></li>
+      <li><div class="chap">阶段三 · 评价</div>
+        <a href="#s5">⑤ 它可信吗</a>
+        <a href="#s6">⑥ 于我何用</a></li>
+      <li><div class="chap">尾声</div><a href="#end">一句话与一首诗</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <header class="cover">
+      <div class="col">
+        <div class="eyebrow">读书笔记 · 分析阅读</div>
+        <h1>《Trading Price Action: Trends》<span class="small">用《如何阅读一本书》的分析阅读法,精读 Al Brooks 的"趋势卷"——四问 + 三阶段,全部用我自己的话重述,配原创图解与动画。</span></h1>
+        <div class="vol">AL BROOKS · 趋势卷(三部曲之一)· 477 页 / 4 部分 / 23+ 章</div>
+      </div>
+    </header>
+
+    <div class="col">
+
+      <section id="intro">
+        <div class="kicker">序</div>
+        <h2>为什么值得精读这一本</h2>
+        <p class="lead">这本书是你那套 Pine 策略的"源代码"——它讲的趋势识别、回调入场、信号棒止损、双腿测量,正是你想用代码复刻的东西。精读它,等于回到源头校准你的理解。</p>
+        <p>这篇笔记不复述、不照抄原文与插图,而是用<strong>分析阅读</strong>的方法把它"拆开重装":先弄清它整体在讲什么、结构如何(阶段一),再提炼它的关键词与核心主张(阶段二),最后<em>读懂之后</em>再评价它可信与否、对你意味着什么(阶段三)。下面所有图,都是我为帮助理解而重画的示意图。</p>
+        <div class="src">说明:本笔记为原创转化性作品,不含原书文字段落或插图;仅在我自己的语言中概述其方法与思想。</div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="s1">
+        <div class="kicker">阶段一 · 结构</div>
+        <h2>① 题解与归类</h2>
+
+        <div class="socratic">
+          <div class="q"><div class="tag">先想一想</div>
+            <div class="qt">在翻开之前先判断:你觉得这是一本"让你<em>知道</em>"(理论)还是"让你<em>会做</em>"(实用)的书?这个归类为什么会改变你读它的方式?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>它是一本<strong>实用类(how-to)</strong>的书。分析阅读的第一条规则就是先给书<em>归类</em>,因为类型决定读法:实用书的检验标准不是"我读懂了吗",而是"<strong>照着做,有没有用</strong>";读它要带着"我要怎么行动"的眼睛。</p>
+            <p>多数人亏在这一步——把交易书当理论书读,满足于"知道了 always-in、知道了回调",却从不拿去看图、下单、回测。归类对了,你才会用对力气。</p>
+          </div></div>
+        </div>
+
+        <span class="facet what">这是一本什么书</span>
+        <p>体裁上,它是一本<strong>实用类技术分析书</strong>——目的不是让你"知道",而是让你"会做"。它教的是<strong>裸 K 线</strong>(几乎不用指标)的逐棒解读,面向认真做日内/波段的自由裁量交易者。它是三部曲的第一本,主攻<em>趋势</em>(后两本讲震荡与反转)。</p>
+        <span class="facet why">一句话主旨</span>
+        <p>用一句话说出全书的统一主旨:<strong>市场任何时刻都处在"强趋势 ↔ 窄震荡"这条光谱的某一点上;每根 K 线都是多空搏斗的快照;学会逐棒读出这场搏斗、并只在"交易者方程"为正时出手,你就能把概率与盈亏比握在自己这边。</strong>这一本,把这套世界观建立起来,并专讲"趋势"那一端。</p>
+        <figure data-fig="spectrum"></figure>
+        <div class="divider"></div>
+      </section>
+
+      <section id="s2">
+        <div class="kicker">阶段一 · 结构</div>
+        <h2>② 结构地图</h2>
+        <span class="facet what">全书架构(四部分)</span>
+        <p>它不是松散的技巧合集,而是一座有地基的建筑。四个部分层层向上:先建"读棒"的字母表,再画线定结构,然后专讲趋势,最后归纳常见趋势形态。</p>
+        <figure data-fig="arch"></figure>
+        <span class="facet why">作者要解决的问题</span>
+        <p>把全书还原成它要回答的几个问题,你会读得更清醒:<strong>① 怎样只看裸图就实时判断"现在是强趋势还是弱势/震荡"?② 趋势里在哪进场、止损放哪、目标在哪?③ 怎样避开中间那段最难做的来回?④ 怎样把每一笔决策,都变成一个正期望的下注?</strong>整本书就是对这四问的展开。</p>
+        <div class="divider"></div>
+      </section>
+
+      <section id="s3">
+        <div class="kicker">阶段二 · 诠释</div>
+        <h2>③ 关键词与核心主张</h2>
+
+        <span class="facet what">先学会读一根棒</span>
+        <p>这本书的整座大厦,建在一个动作上:把一根 K 线读成一场战争。下面这张动画把它拆给你看——</p>
+        <figure>
+          <div data-anim="bar"></div>
+          <button class="replay" data-replay="bar">▶ 重播</button>
+          <figcaption><b>图 · 读一根棒(动画)</b> 高低点=多空各打到的最远;实体=净胜负;收盘=最终比分。(原创示意图)</figcaption>
+        </figure>
+
+        <span class="facet why">与作者达成共识:关键词(我的话)</span>
+        <div class="grid2">
+          <div class="term"><div class="t">always-in</div><div class="d">市场此刻"总是在场"的方向——多还是空。它会翻转,但门槛很高。</div></div>
+          <div class="term"><div class="t">信号棒 / 入场棒</div><div class="d">据以挂单的那根棒(信号),价格越过它一跳成交的那根棒(入场)。</div></div>
+          <div class="term"><div class="t">突破 / 回调</div><div class="d">价格冲过关键位=突破;突破后的逆向小波动=回调,顺势上车的机会。</div></div>
+          <div class="term"><div class="t">尖峰与通道</div><div class="d">趋势常先急冲(尖峰)、再平缓(通道);两段性格不同,打法不同。</div></div>
+          <div class="term"><div class="t">两腿 / 第二入场</div><div class="d">回调常走两腿;第二次入场信号通常比第一次可靠。</div></div>
+          <div class="term"><div class="t">交易者方程</div><div class="d">胜率×盈利 是否大于 败率×亏损;只做这个不等式明显为正的单子。</div></div>
+        </div>
+
+        <p>下面三张图,把几个最核心的词画出来:</p>
+        <figure data-fig="signalbar"></figure>
+        <figure data-fig="spike"></figure>
+        <figure data-fig="twolegs"></figure>
+
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">always-in 的"翻转"门槛,Brooks 设得很高(要强趋势棒同时收过均线和近期摆动点)。设低一点不是能更早抓到反转吗?他为什么不?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>因为门槛低 = <strong>不停被甩</strong>。在一段趋势里,"看起来像要反转了"几乎每隔几根棒就发生一次;门槛低,你就会一次次反向、一次次被打回,被来回绞杀。</p>
+            <p>高门槛是用"<em>晚一点</em>"换"<strong>假翻转少得多</strong>"——你放弃完美的顶/底,换来不被铁丝网割死。这和"等第二入场"是同一种取舍。<strong>这也正是你代码里 flip 条件要 close 同时越过 EMA 和近期摆动点的原因</strong>:把门槛设高,过滤掉噪声翻转。</p>
+          </div></div>
+        </div>
+
+        <span class="facet hp">作者的核心主张(我提炼的命题)</span>
+        <p><strong>一、每根棒都有意义,收盘位置最重要。</strong><br>
+        <strong>二、一切形态,几乎都是"突破 / 回调 / 反转"的变体。</strong><br>
+        <strong>三、顺着 always-in 方向、在回调处入场,胜过追突破抢第一次;第二入场更稳。</strong><br>
+        <strong>四、只在交易者方程为正时出手——胜率不是关键,期望才是。</strong></p>
+        <p>他怎么支撑这些主张?靠<em>海量的逐棒图例</em>。其底层假设是:机构的订单流会在 K 线上留下可读的脚印。</p>
+        <div class="divider"></div>
+      </section>
+
+      <section id="s4">
+        <div class="kicker">阶段二 · 诠释</div>
+        <h2>④ 它解决了什么、没解决什么</h2>
+        <span class="facet what">解决了</span>
+        <p>它给了你一套<strong>完整的裸图词汇 + 概率框架</strong>,尤其把"趋势"这一端讲到了别处少见的细。读完,你对着一张没有指标的图,能开始逐棒讲出多空力量的此消彼长。</p>
+        <span class="facet gb">(诚实地)没解决 / 留给别处</span>
+        <p>① <strong>震荡与反转</strong>本卷只是引子,要等三部曲后两本。<br>
+        ② 方法高度<strong>自由裁量</strong>,难以机械化、难以回测——这点书里坦承,也正是你写代码时撞的墙。<br>
+        ③ <strong>仓位/风险的数学</strong>(破产风险、加减仓)着墨较轻。<br>
+        ④ <strong>"读得懂"和"做得到"之间的执行/心理鸿沟</strong>有提及但未深教。</p>
+        <div class="divider"></div>
+      </section>
+
+      <section id="s5">
+        <div class="kicker">阶段三 · 评价(读懂之后)</div>
+        <h2>⑤ 它可信吗</h2>
+        <p>分析阅读要求:<em>先读懂,再下判断;不同意要给依据</em>。按"信息是否充分 / 是否有误 / 逻辑是否有缺 / 是否完整"四把尺子:</p>
+        <div class="verdict">
+          <div class="k">信息充分?</div><div class="v">非常。出自全职交易者,例证密度极高,趋势部分尤其扎实。</div>
+          <div class="k">是否有误?</div><div class="v">事实层面少有硬错;但"从棒读出机构意图"属于<em>解读</em>,非可证伪的事实,需保留。</div>
+          <div class="k">逻辑有缺?</div><div class="v">概率/期望框架是自洽的;但图例多为<strong>事后挑选</strong>,会让形态显得比实盘更干净(读者易过度自信)。</div>
+          <div class="k">是否完整?</div><div class="v">刻意不完整(三部曲之一);且对仓位数学、执行心理着墨少。</div>
+        </div>
+        <div class="socratic">
+          <div class="q"><div class="tag">批判性提问</div>
+            <div class="qt">书里每个形态都配着"完美应验"的图例。作为读者,这种"满纸都是对的例子"最大的风险是什么?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p><strong>幸存者/事后偏差。</strong>事后选出的图,自然是形态成立的那些;它不展示"长得一模一样却失败"的同样多的情形。于是读者会<em>高估</em>形态的可靠度,实盘一遇失败案例就怀疑人生。</p>
+            <p>正确的读法是:把书里的形态当成"<strong>提高概率的倾向</strong>",而非"必然规律";并用自己的<em>看图回放和回测</em>去估真实胜率——这恰恰是书没替你做、需要你补的功课,也是你写策略的意义。</p>
+          </div></div>
+        </div>
+        <p>净评价:一本<strong>严谨、原创、要求很高</strong>的趋势地基书。它不是快读物,密集到需要反复啃;最好的用法是"读一段 → 去看图验证"。把它当倾向与框架,而非圣经。</p>
+        <div class="divider"></div>
+      </section>
+
+      <section id="s6">
+        <div class="kicker">阶段三 · 评价</div>
+        <h2>⑥ 于我何用(那又如何)</h2>
+        <span class="facet hp">这本书与你的代码</span>
+        <p>这是全篇对你最重要的部分:<strong>你的 Pine 策略,本质就是这本书"趋势卷"的一次机械化尝试。</strong>书里的 always-in 翻转、EMA/H2 回调、信号棒/摆动点止损、双腿测量移动、尖峰与通道、开盘趋势——几乎逐条对应你代码里的模块。</p>
+
+        <figure data-fig="equation"></figure>
+
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想(本篇最关键)</div>
+            <div class="qt">这本书里,哪些部分天生"能写成代码",哪些注定"写不出来"?为什么这条界线决定了你策略的天花板?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p><strong>能写成代码的</strong>(有清晰定义的):棒的分类、always-in 翻转规则、回调入场、信号棒/摆动止损、等距双腿目标。<br>
+            <strong>注定难写的</strong>(整体直觉):当下究竟"强趋势中段"还是"将反转"、几条 signs of strength 的综合火候、何时该完全收手。</p>
+            <p>为什么这是天花板?因为可定义的那 ~70% 你能机械化,但剩下 ~30% 的<strong>环境火候</strong>,是作者用整体盘感做的判断,if-else 写不出。你能做的,是把能机械化的做扎实、把难的<em>用过滤器尽量逼近</em>(你已在做的震荡过滤、强度评分),并接受它永远不会 100% 复刻一个人的盘感。</p>
+            <p>这也重新解释了你撞的墙:<strong>零成交、过度过滤,不是 bug,而是"把自由裁量方法机械化"的固有摩擦。</strong>读懂这条界线,你就知道该把精力花在哪、对哪部分别强求。</p>
+          </div></div>
+        </div>
+
+        <div class="connect">
+          <div class="h">可机械化 vs 难机械化</div>
+          <strong>能写</strong>:<code>bullTrendBar</code>、always-in 翻转、回调入场、信号棒/摆动止损、等距双腿目标。<br>
+          <strong>难写</strong>:环境火候、signs of strength 的综合、何时彻底收手。<br>
+          → 把能机械化的做扎实,把难的用过滤器逼近,其余交给你自己的盘感。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="end">
+        <div class="endcard">
+          <div class="kicker">尾声</div>
+          <h2>一句话,与一首诗</h2>
+          <p>如果这本书只让你带走一句话,我会选:<strong>"不要预测趋势,要读取趋势已经出示的证据,并只在概率与盈亏比都站在你这边时,才下注。"</strong></p>
+          <div class="poem">
+            <div class="pt">读后 · 顺流</div>
+            <div class="verse">
+              他教我读一根棒,<br>
+              像读一张绷紧的脸——<br>
+              谁在用力,谁已力竭,<br>
+              收盘的位置,是最后的表情。<br>
+              我合上书,打开图,<br>
+              第一次,看见趋势在呼吸。
+            </div>
+            <div class="by">—— 本笔记原创,读《Trading Price Action: Trends》后</div>
+          </div>
+          <p style="color:var(--muted); font-size:15px; margin-top:26px;">这是一篇<strong>精读笔记</strong>。如果你想,我可以用同一套方法,把这本书<strong>逐部分重讲成完整的多卷教学书</strong>(原创图解 + 动画 + 苏格拉底题,每个概念一张卡)——从第一部分"价格行为字母表"开始。告诉我"继续做教学书"即可。</p>
+          <div class="src">来源:Al Brooks,《Trading Price Action: Trends》(2011)。本页为原创读书笔记,不含原书文字或插图。</div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script>
+const NS="http://www.w3.org/2000/svg";
+const C={accent:"#7fa8c9",pos:"#26a69a",neg:"#ef5350",ink:"#e9e5d8",muted:"#8b94a3",faint:"#5c6573",line:"#2c343f",gold:"#d4a657"};
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}
+function svgScene(host,vb){const s=el("svg",{viewBox:vb});s.style.width="100%";s.style.height="auto";host.appendChild(s);return s;}
+function note(s,o){const t=el("text",{x:o.x,y:o.y,fill:o.color||C.ink,"font-size":o.size||12.5,"font-family":"var(--mono)","text-anchor":o.anchor||"start"});t.textContent=o.text;s.appendChild(t);return t;}
+
+// candlestick renderer (house style)
+function drawCandles(svg,bars,opts){
+  opts=opts||{};
+  const W=720,H=opts.h||220,padX=46,padTop=24,padBot=34;
+  svg.setAttribute("viewBox","0 0 "+W+" "+H);
+  let lo=Infinity,hi=-Infinity;
+  bars.forEach(b=>{lo=Math.min(lo,b.l);hi=Math.max(hi,b.h);});
+  if(opts.levels)opts.levels.forEach(L=>{lo=Math.min(lo,L.p);hi=Math.max(hi,L.p);});
+  if(opts.ema)opts.ema.forEach(v=>{if(v!=null){lo=Math.min(lo,v);hi=Math.max(hi,v);}});
+  const pad=(hi-lo)*0.16||1;lo-=pad;hi+=pad;
+  const Y=p=>padTop+(hi-p)/(hi-lo)*(H-padTop-padBot);
+  const n=bars.length,slot=(W-padX*2)/n,X=i=>padX+slot*i+slot/2,cw=Math.min(slot*0.56,22);
+  if(opts.levels)opts.levels.forEach(L=>{
+    svg.appendChild(el("line",{x1:padX-6,x2:W-padX+6,y1:Y(L.p),y2:Y(L.p),stroke:L.color||C.faint,"stroke-width":1,"stroke-dasharray":L.dash||"5 5",opacity:.9}));
+    if(L.label)note(svg,{x:padX-8,y:Y(L.p)+4,text:L.label,color:L.color||C.muted,anchor:"end",size:11});
+  });
+  if(opts.ema){let d="";opts.ema.forEach((v,i)=>{if(v==null)return;d+=(d?" L":"M")+X(i)+" "+Y(v);});svg.appendChild(el("path",{d:d,fill:"none",stroke:C.gold,"stroke-width":2,opacity:.8}));}
+  bars.forEach((b,i)=>{
+    const up=b.c>=b.o,col=b.col||(up?C.pos:C.neg),x=X(i);
+    svg.appendChild(el("line",{x1:x,x2:x,y1:Y(b.h),y2:Y(b.l),stroke:col,"stroke-width":1.6}));
+    const yo=Y(b.o),yc=Y(b.c),top=Math.min(yo,yc);let hgt=Math.abs(yo-yc);if(hgt<2)hgt=2;
+    svg.appendChild(el("rect",{x:x-cw/2,y:top,width:cw,height:hgt,fill:col,rx:1.5}));
+    if(b.n)note(svg,{x:x,y:Y(b.l)+18,text:b.n,color:b.ncol||C.muted,anchor:"middle",size:11.5});
+  });
+  if(opts.notes)opts.notes.forEach(nt=>note(svg,{x:nt.i!=null?X(nt.i):nt.x,y:(nt.p!=null?Y(nt.p):nt.y)+(nt.dy||0),text:nt.text,color:nt.color||C.ink,anchor:nt.anchor||"middle",size:12.5}));
+}
+
+const figs={
+  spectrum(f){
+    const s=svgScene(f,"0 0 720 150");
+    const defs=el("defs",{}); const lg=el("linearGradient",{id:"g",x1:"0",x2:"1"});
+    lg.appendChild(el("stop",{offset:"0","stop-color":C.pos}));
+    lg.appendChild(el("stop",{offset:"0.5","stop-color":C.gold}));
+    lg.appendChild(el("stop",{offset:"1","stop-color":C.neg}));
+    defs.appendChild(lg); s.appendChild(defs);
+    s.appendChild(el("rect",{x:40,y:60,width:640,height:14,rx:7,fill:"url(#g)"}));
+    [["强趋势",40,C.pos],["通道",190,C.pos],["宽通道/弱趋势",360,C.gold],["震荡",520,C.neg],["铁丝网",660,C.neg]].forEach(a=>{
+      s.appendChild(el("line",{x1:a[1],y1:54,x2:a[1],y2:80,stroke:a[2],"stroke-width":1.5}));
+      note(s,{x:a[1],y:104,text:a[0],color:a[2],anchor:"middle",size:11.5});
+    });
+    note(s,{x:40,y:44,text:"← 一端",color:C.faint,size:11});
+    note(s,{x:680,y:44,text:"另一端 →",color:C.faint,anchor:"end",size:11});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 · 价格行为光谱</b> 全书世界观:任何时刻,市场都落在"强趋势 ↔ 窄震荡"这条连续光谱的某一点。先认位置,再谈打法。(原创示意图)</figcaption>');
+  },
+  arch(f){
+    const s=svgScene(f,"0 0 720 300");
+    const parts=[
+      ["PART I","价格行为·字母表","棒/信号棒/突破·回调·反转·收盘",C.gold,30],
+      ["PART II","趋势线与通道","趋势线·通道线·微通道·关键水平位",C.accent,108],
+      ["PART III","趋势","如何交易趋势·强势信号·两腿",C.pos,186],
+      ["PART IV","常见趋势形态","尖峰与通道·趋势震荡日·开盘趋势",C.neg,264]
+    ];
+    parts.forEach(a=>{const p=a[0],t=a[1],d=a[2],c=a[3],y=a[4];
+      s.appendChild(el("rect",{x:30,y:y,width:660,height:64,rx:10,fill:"#1b2027",stroke:c,"stroke-width":1.5}));
+      s.appendChild(el("rect",{x:30,y:y,width:5,height:64,rx:2,fill:c}));
+      note(s,{x:48,y:y+24,text:p,color:c,size:11.5});
+      const tt=el("text",{x:48,y:y+46,fill:C.ink,"font-size":16,"font-family":"var(--serif)"});tt.textContent=t;s.appendChild(tt);
+      note(s,{x:680,y:y+38,text:d,color:C.muted,anchor:"end",size:11});
+      if(y<240)s.appendChild(el("line",{x1:360,y1:y+64,x2:360,y2:y+78,stroke:C.line,"stroke-width":1.5}));
+    });
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 · 全书架构</b> 四部分层层向上:先建读棒的字母表 → 用画线定结构 → 专讲趋势 → 归纳趋势形态。(原创结构图)</figcaption>');
+  },
+  signalbar(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:20,h:21,l:15,c:15.5,col:C.neg},
+      {o:15.5,h:16,l:11,c:11.5,col:C.neg},
+      {o:11.5,h:15,l:11,c:14.5,col:C.pos,n:"信号棒",ncol:C.accent},
+      {o:15.2,h:19,l:15,c:18.5,col:C.pos,n:"入场棒",ncol:C.pos},
+      {o:18.5,h:23,l:18,c:22,col:C.pos}
+    ],{h:230,levels:[{p:15.3,color:C.accent,dash:"4 4",label:"买入止损单"}],
+       notes:[{i:3,p:19,text:"价格越过信号棒高点→成交",color:C.accent,dy:-8}]});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 · 信号棒 → 入场棒</b> 一根强阳信号棒后,把买入止损单挂在其高点上方一跳;价格越过才成交——市场用真金白银确认方向。(原创示意图)</figcaption>');
+  },
+  spike(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:8,h:14,l:7.5,c:13.5,col:C.pos},
+      {o:13.5,h:20,l:13,c:19.5,col:C.pos},
+      {o:19.5,h:26,l:19,c:25.5,col:C.pos},
+      {o:25.5,h:27,l:24,c:26.5},
+      {o:26.5,h:29,l:25.5,c:28},
+      {o:28,h:30.5,l:27,c:29.5},
+      {o:29.5,h:32,l:28.5,c:31}
+    ],{h:230,notes:[{i:1,p:7,text:"尖峰(急冲)",color:C.pos,dy:14},{i:5,p:25,text:"通道(缓升)",color:C.gold,dy:14}]});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 · 尖峰与通道</b> 趋势常先以大趋势棒急冲(尖峰),再转为小步上行(通道)。两段性格不同:尖峰别追,等通道第一次回调。(原创示意图)</figcaption>');
+  },
+  twolegs(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:8,h:14,l:7.5,c:13},
+      {o:13,h:20,l:12.5,c:19},
+      {o:19,h:19.5,l:15,c:15.5,col:C.neg},
+      {o:15.5,h:18,l:15,c:17.5,n:"H1",ncol:C.muted},
+      {o:17.5,h:18,l:13.5,c:14,col:C.neg},
+      {o:14,h:18,l:13.5,c:17.5,col:C.pos,n:"H2",ncol:C.accent},
+      {o:17.5,h:24,l:17,c:23,col:C.pos}
+    ],{h:240,ema:[9,12,14.5,15.5,15,15.4,18],
+       notes:[{i:5,p:18.5,text:"两腿走完(H2)→ 顺势再上车",color:C.accent,dy:-8}]});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 · 两腿回调(H2)</b> 上升趋势中的回调常走两腿:第一次反弹失败(H1),第二次(H2)回到均线附近走完两腿,是更可靠的顺势入场点。(原创示意图)</figcaption>');
+  },
+  equation(f){
+    const s=svgScene(f,"0 0 720 200");
+    // two stacked bars: expected gain vs expected loss
+    note(s,{x:46,y:30,text:"交易者方程:胜率×盈利  >  败率×亏损",color:C.ink,size:14});
+    // gain bar
+    s.appendChild(el("rect",{x:46,y:60,width:420,height:34,rx:6,fill:C.pos,opacity:.9}));
+    note(s,{x:56,y:82,text:"40% 胜率 × 2R 盈利 = 0.80",color:"#0c1410",size:13,anchor:"start"});
+    // loss bar
+    s.appendChild(el("rect",{x:46,y:108,width:315,height:34,rx:6,fill:C.neg,opacity:.85}));
+    note(s,{x:56,y:130,text:"60% 败率 × 1R 亏损 = 0.60",color:"#1a0c0c",size:13,anchor:"start"});
+    // net
+    s.appendChild(el("line",{x1:361,y1:54,x2:361,y2:150,stroke:C.faint,"stroke-width":1,"stroke-dasharray":"4 4"}));
+    note(s,{x:480,y:104,text:"净期望 = +0.20R / 笔",color:C.gold,size:14,anchor:"start"});
+    note(s,{x:46,y:176,text:"→ 即使 60% 在亏,只要盈亏比够好,长期仍然赚。胜率不是关键,期望才是。",color:C.muted,size:12,anchor:"start"});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 · 交易者方程</b> 全书的下注准则:只做这个不等式明显为正的单子。(原创示意图)</figcaption>');
+  }
+};
+document.querySelectorAll("figure[data-fig]").forEach(f=>{const k=f.getAttribute("data-fig");if(figs[k])figs[k](f);});
+
+// self-drawing "read a bar" animation
+(function(){
+  document.querySelectorAll("[data-anim='bar']").forEach(host=>{
+    const s=svgScene(host,"0 0 720 240");
+    const cap=document.createElement("div");cap.className="anim-cap";host.appendChild(cap);
+    const cx=300;
+    const wick=el("line",{x1:cx,y1:30,x2:cx,y2:200,stroke:C.pos,"stroke-width":2});
+    const body=el("rect",{x:cx-20,y:70,width:40,height:95,fill:C.pos,rx:2});
+    const clab=el("text",{x:cx+40,y:78,fill:C.gold,"font-size":14,"font-family":"var(--mono)"});clab.textContent="收盘收在上端 = 强";
+    const hl=el("text",{x:cx-40,y:34,fill:C.muted,"font-size":11.5,"font-family":"var(--mono)","text-anchor":"end"});hl.textContent="最高";
+    const ll=el("text",{x:cx-40,y:202,fill:C.muted,"font-size":11.5,"font-family":"var(--mono)","text-anchor":"end"});ll.textContent="最低";
+    [wick,hl,ll,body,clab].forEach(e=>{e.style.opacity=reduce?"1":"0";e.style.transition="opacity .5s";s.appendChild(e);});
+    const steps=[
+      {els:[wick,hl,ll],cap:"① 先看高低点:多空各打到的最远"},
+      {els:[body],cap:"② 实体 = 开盘到收盘的净胜负"},
+      {els:[clab],cap:"③ 收盘位置 = 这场战争的最终比分"}
+    ];
+    function play(){
+      if(reduce){steps.forEach(st=>st.els.forEach(e=>e.style.opacity="1"));cap.textContent=steps[steps.length-1].cap;return;}
+      steps.forEach(st=>st.els.forEach(e=>e.style.opacity="0"));cap.textContent="";
+      let t=200;steps.forEach(st=>{setTimeout(()=>{st.els.forEach(e=>e.style.opacity="1");cap.textContent=st.cap;},t);t+=1050;});
+    }
+    const rep=document.querySelector("[data-replay='bar']");if(rep)rep.addEventListener("click",play);
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){play();io.unobserve(e.target);}}),{threshold:.3});io.observe(host);
+  });
+})();
+
+document.querySelectorAll(".socratic button").forEach(b=>b.addEventListener("click",()=>{const c=b.closest(".socratic");const o=c.classList.toggle("open");b.textContent=o?"收起 ↑":"想好了,揭晓 →";}));
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll("figure").forEach(f=>io.observe(f));
+const links=[...document.querySelectorAll(".rail a")],map={};links.forEach(a=>{const id=a.getAttribute("href");if(id&&id[0]==="#")map[id.slice(1)]=a;});
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-10% 0px -75% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

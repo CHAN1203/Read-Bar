@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:series" content="Brooks · 趋势卷精讲">
+<meta name="readbar:num" content="第三卷 · Part III">
+<meta name="readbar:title" content="趋势">
+<meta name="readbar:desc" content="Brooks《趋势》精讲(三):顺势的纪律、如何完整交易一段趋势、强势信号与两腿。">
+<meta name="readbar:accent" content="#7fa8c9">
+<meta name="readbar:order" content="3">
+<meta name="readbar:topics" content="always-in顺势 · 交易趋势全流程 · 强势信号 · 回调深度 · 两腿H1/H2 · 测量移动">
+<title>Brooks 趋势卷精讲 · 第三卷 · 趋势</title>
+<link rel="stylesheet" href="../reader.css">
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#7fa8c9; --accent-soft:#22303a; --gold:#d4a657; --steel:#7fa8c9;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#0c161d;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--gold)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(127,168,201,.14), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#0c161d; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(127,168,201,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(181,139,212,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">Brooks · 趋势卷精讲<b>第三卷 · 趋势</b></div>
+    <div class="shelf-nav"><a class="home" href="../index.html">📚 书架</a><a href="tpa-trends_vol2_lines-and-channels.html">← 第二卷</a></div>
+    <ol>
+      <a href="#intro">序 · 进入趋势本体</a>
+      <a href="#c1">1 · 顺势的纪律</a>
+      <a href="#c2">2 · 如何交易一段趋势</a>
+      <a href="#c3">3 · 强势的信号</a>
+      <a href="#c4">4 · 两腿</a>
+      <a href="#end">尾声 · 通往第四卷</a>
+    </ol>
+  </nav>
+
+  <main>
+    <header class="cover">
+      <div class="col">
+        <div class="eyebrow">Brooks《趋势》精讲 · Part III</div>
+        <h1>趋势<span class="small">认了字母、连了句子,现在读整段文章——趋势本身。这一卷讲:顺势的纪律、如何完整地交易一段趋势、怎样读出"强势的信号",以及回调常走的"两腿"。原书第三部分,用我自己的话重讲。</span></h1>
+        <div class="vol">读棒精讲 · 第三卷 / 共四卷</div>
+      </div>
+    </header>
+
+    <div class="col">
+
+      <section id="intro">
+        <div class="kicker">序</div>
+        <h2>进入趋势本体</h2>
+        <p class="lead">趋势,是价格行为里最赚钱、也最考验纪律的状态。前两卷都是准备:为的就是让你在这一卷,能稳稳地<strong>站在趋势这一边</strong>。</p>
+        <p>这一卷只回答三个问题:趋势里我该用什么<em>心态</em>(顺势的纪律)?一段趋势我该怎么<em>完整地做完</em>(从进场到离场)?以及,我怎么判断它<em>有多强</em>、回调会怎么走?每个概念依旧四步走、配苏格拉底卡与原创图。</p>
+        <div class="src">本卷为原创转化性教学作品,不含原书文字段落或插图。来源:Al Brooks,《Trading Price Action: Trends》,Part III。</div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c1">
+        <div class="kicker">第 1 章</div>
+        <h2>顺势的纪律</h2>
+        <span class="facet what">是什么</span>
+        <p>趋势里的第一纪律:<strong>顺着 always-in 的方向做</strong>。always-in 是市场此刻"总是在场"的方向。趋势越强,顺势越该坚决,逆势越该彻底放弃——书里反复说,强趋势里几乎所有逆势信号都该忽略。</p>
+        <figure data-fig="alwaysin"></figure>
+        <span class="facet why">它的逻辑</span>
+        <p>趋势的本质,是一方<em>持续</em>占优。逆势抓顶/底,是在赌少数派事件;顺势在回调处上车,是站在多数派一边。两者的胜率,天差地别。</p>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">"已经涨这么多了,该回调了吧?"——为什么这句话在强趋势里,是最危险的念头?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>因为"涨多了"不是一个<strong>信号</strong>,是一种<strong>情绪</strong>。强趋势之所以强,正是因为它不断超出多数人的预期;每个觉得"该回了"而去做空的人,反而成了推动它继续上涨的燃料——他们的止损,就是新的买盘。</p>
+            <p>顺势的纪律,是把"涨多了"换成"<em>它还 always-in 多,我只找回调买点</em>",直到趋势真正出示了反转的证据(后面卷会讲)。在那之前,不抄顶。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c2">
+        <div class="kicker">第 2 章</div>
+        <h2>如何交易一段趋势</h2>
+        <span class="facet what">是什么</span>
+        <p>完整地做一段趋势,是一套流水线动作,不是一个孤立的买点:<strong>① 认出方向(always-in)→ ② 等顺势回调的信号棒(常回到均线附近)→ ③ 越过信号棒入场 → ④ 止损跟着摆动点上移 → ⑤ 强势减仓 / 到目标了结。</strong></p>
+        <figure>
+          <div data-anim="trade"></div>
+          <button class="replay" data-replay="trade">▶ 重播</button>
+          <figcaption><b>图 2.1 · 一段趋势交易的全流程(动画)</b> 认出趋势 → 等回调与信号棒 → 入场 → 止损跟随 → 强势/目标了结。(原创示意图)</figcaption>
+        </figure>
+        <span class="facet why">它的逻辑 · 好坏对照</span>
+        <p>多数人输在"只想着进场"。一段趋势真正的钱,在于"<em>进得对 + 拿得住 + 退得巧</em>"。好的执行:回调浅时坚定持有、止损跟随;坏的执行:刚有浮盈就慌忙跑掉(强趋势里过早离场),或回调一深就恐慌平在最差的位置。</p>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">同一段上涨,为什么"什么时候卖"往往比"什么时候买"更难,也更决定你的盈亏?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>因为买点有清晰的信号(回调 + 信号棒),而卖点要在<strong>贪婪与恐惧之间走钢丝</strong>:卖早了吃不到大行情,卖晚了把利润还回去。</p>
+            <p>更关键的是:趋势交易的利润分布<em>极不均匀</em>——少数几笔拿住的大趋势,贡献了绝大部分盈利。所以"拿得住"的纪律(止损跟随、强势不轻易下车),比找买点更决定你的长期结果。学会卖,才算学会做趋势。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c3">
+        <div class="kicker">第 3 章</div>
+        <h2>强势的信号</h2>
+        <span class="facet what">是什么</span>
+        <p>一组帮你判断"这趋势有多强"的线索:<strong>大趋势棒(实体大、影线小)、跳空缺口不被回补、回调很浅(碰不到均线)、连续同向的强收盘、突破后跟进有力、不断创出新极值。</strong>信号越多越一致,趋势越强。</p>
+        <figure data-fig="strength"></figure>
+        <span class="facet why">它的逻辑 · 好坏对照</span>
+        <p>强弱决定打法:越强,越该顺势、回调越浅越买、越别逆势。好:综合多个信号判断火候;坏:只看一根大棒就断定"强",或没注意到"强势信号正在一个个消失"——那是趋势转弱最早的迹象。</p>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">如果只准用一个指标判断趋势强弱,我会选"回调有多深"。浅回调和深回调,分别在说什么?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p><strong>浅回调</strong>(碰不到均线就被买回)= 顺势方太急太强、根本不给对手机会,趋势很强。<strong>深回调</strong>(轻松跌破均线、回吐大半)= 顺势方力量在减弱、对手在反扑,趋势在转弱,甚至可能进入震荡或反转。</p>
+            <p>所以"回调深度"是趋势的<em>体温计</em>:当回调一次比一次更深,这是趋势走向衰老最早的信号之一——你该开始收紧预期、准备让位给震荡或反转的打法。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c4">
+        <div class="kicker">第 4 章</div>
+        <h2>两腿</h2>
+        <span class="facet what">是什么</span>
+        <p>价格的移动,尤其是回调,往往不是一腿走完,而是"<strong>两腿</strong>":跌一段(腿1)、反弹一下、再跌一段(腿2),才结束。数这两腿,就是 H1/H2;两腿也用于<em>测量移动</em>——用第一腿的长度,投影第二腿的目标。</p>
+        <figure data-fig="twolegs"></figure>
+        <span class="facet why">它的逻辑 · 好坏对照</span>
+        <p>知道"常走两腿",你就不会在第一腿结束就急着进(那常是 H1,易失败),而是等第二腿走完(H2)、结构更全再上车;同时对目标有了量化预期。坏:把第一腿的结束当成回调结束,过早进场,被第二腿打掉。</p>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">回调里,为什么"第一次反弹(H1)"常失败,而"第二次(H2)"更可靠?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>因为一次回调常需要"<strong>两腿</strong>"才能把获利了结盘和被套筹码消化干净。第一次反弹(H1)时,卖压还没出完,很容易再被打下来走第二腿;等第二腿走完(H2),该卖的卖完了、结构(常是个小双底,或回到均线)也凑齐了,顺势方重新占优,上车自然更稳。</p>
+            <p>这就是第一卷那条纪律——"<em>等第二次胜过抢第一次</em>"——在回调里的具体形态。把"等 H2"变成默认动作,你的顺势入场会稳很多。</p>
+          </div></div>
+        </div>
+        <div class="connect">
+          <div class="h">连接 · 回到图表</div>
+          找一段趋势里的回调,亲手数一数它的腿:第一次反弹(H1)之后是不是又跌了一段?第二次(H2)走完、回到均线附近时,趋势是不是就重新启动了?把"<strong>等两腿</strong>"这个画面,在十段不同的趋势里各看一遍。
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="end">
+        <div class="endcard">
+          <div class="kicker">尾声</div>
+          <h2>趋势,会读了</h2>
+          <p>到这里,你能顺着 always-in 站对方向、把一段趋势从进场做到离场、用强势信号判断火候、用两腿等到更稳的上车点。你已经能读"整段文章"了。最后一卷,是把这些拆成几种<strong>反复出现的趋势形态</strong>,让你一眼认出。</p>
+          <div class="poem">
+            <div class="pt">卷三 · 顺流</div>
+            <div class="verse">
+              别问它涨了多少,<br>
+              问它,还在不在用力。<br>
+              回调浅,它就还年轻;<br>
+              等两腿走完,再轻轻上船。<br>
+              难的从来不是上船,<br>
+              是风正顺时,忍住不急着下。
+            </div>
+            <div class="by">—— 本卷原创</div>
+          </div>
+          <p style="color:var(--muted); font-size:15px; margin-top:26px;">最后一卷(对应原书 <strong>Part IV</strong>)讲常见趋势形态:<strong>尖峰与通道、趋势震荡日、开盘趋势与小回调趋势</strong>——把趋势的几张常见面孔,一一认全。说一声"继续第四卷"即可。</p>
+          <div class="src">来源:Al Brooks,《Trading Price Action: Trends》(2011),Part III。本卷为原创教学改写,不含原书文字或插图。</div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script>
+const NS="http://www.w3.org/2000/svg";
+const C={accent:"#7fa8c9",pos:"#26a69a",neg:"#ef5350",ink:"#e9e5d8",muted:"#8b94a3",faint:"#5c6573",line:"#2c343f",gold:"#d4a657",steel:"#7fa8c9"};
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}
+function svgScene(host,vb){const s=el("svg",{viewBox:vb});s.style.width="100%";s.style.height="auto";host.appendChild(s);return s;}
+function note(s,o){const t=el("text",{x:o.x,y:o.y,fill:o.color||C.ink,"font-size":o.size||12.5,"font-family":"var(--mono)","text-anchor":o.anchor||"start"});t.textContent=o.text;s.appendChild(t);return t;}
+function drawCandles(svg,bars,opts){
+  opts=opts||{};
+  const W=720,H=opts.h||220,padX=46,padTop=24,padBot=34;
+  svg.setAttribute("viewBox","0 0 "+W+" "+H);
+  let lo=Infinity,hi=-Infinity;
+  bars.forEach(b=>{lo=Math.min(lo,b.l);hi=Math.max(hi,b.h);});
+  if(opts.levels)opts.levels.forEach(L=>{lo=Math.min(lo,L.p);hi=Math.max(hi,L.p);});
+  if(opts.ema)opts.ema.forEach(v=>{if(v!=null){lo=Math.min(lo,v);hi=Math.max(hi,v);}});
+  const pad=(hi-lo)*0.16||1;lo-=pad;hi+=pad;
+  const Y=p=>padTop+(hi-p)/(hi-lo)*(H-padTop-padBot);
+  const n=bars.length,slot=(W-padX*2)/n,X=i=>padX+slot*i+slot/2,cw=Math.min(slot*0.56,22);
+  if(opts.levels)opts.levels.forEach(L=>{
+    svg.appendChild(el("line",{x1:padX-6,x2:W-padX+6,y1:Y(L.p),y2:Y(L.p),stroke:L.color||C.faint,"stroke-width":1,"stroke-dasharray":L.dash||"5 5",opacity:.9}));
+    if(L.label)note(svg,{x:W-padX+4,y:Y(L.p)+4,text:L.label,color:L.color||C.muted,anchor:"end",size:11});
+  });
+  if(opts.ema){let d="";opts.ema.forEach((v,i)=>{if(v==null)return;d+=(d?" L":"M")+X(i)+" "+Y(v);});svg.appendChild(el("path",{d:d,fill:"none",stroke:C.gold,"stroke-width":2,opacity:.8}));
+    note(svg,{x:padX,y:Y(opts.ema[0])-8,text:"均线",color:C.gold,size:10.5,anchor:"start"});}
+  bars.forEach((b,i)=>{
+    const up=b.c>=b.o,col=b.col||(up?C.pos:C.neg),x=X(i);
+    svg.appendChild(el("line",{x1:x,x2:x,y1:Y(b.h),y2:Y(b.l),stroke:col,"stroke-width":1.6}));
+    const yo=Y(b.o),yc=Y(b.c),top=Math.min(yo,yc);let hgt=Math.abs(yo-yc);if(hgt<2)hgt=2;
+    svg.appendChild(el("rect",{x:x-cw/2,y:top,width:cw,height:hgt,fill:col,rx:1.5}));
+    if(b.n)note(svg,{x:x,y:Y(b.l)+18,text:b.n,color:b.ncol||C.muted,anchor:"middle",size:11.5});
+  });
+  if(opts.notes)opts.notes.forEach(nt=>note(svg,{x:nt.i!=null?X(nt.i):nt.x,y:(nt.p!=null?Y(nt.p):nt.y)+(nt.dy||0),text:nt.text,color:nt.color||C.ink,anchor:nt.anchor||"middle",size:12.5}));
+}
+
+const figs={
+  alwaysin(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:10,h:13,l:9.8,c:12.8,col:C.pos},
+      {o:12.8,h:15.5,l:12.5,c:15.2,col:C.pos},
+      {o:15.2,h:16,l:14.3,c:14.6,col:C.neg},
+      {o:14.6,h:18.5,l:14.4,c:18.2,col:C.pos},
+      {o:18.2,h:21,l:17.8,c:20.7,col:C.pos},
+      {o:20.7,h:21.3,l:19.2,c:19.6,col:C.neg},
+      {o:19.6,h:23.5,l:19.4,c:23.2,col:C.pos}
+    ],{h:240,ema:[11,13,14,15.5,18,19,21],
+       notes:[{i:2,p:14.3,text:"回调浅·不破均线 = always-in 多",color:C.accent,dy:24}]});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 1.1 · always-in 多</b> 回调一次次浅、碰不到均线就被买回——市场"总是在场"的方向是多。强趋势里,"涨多了"不是做空的理由。(原创示意图)</figcaption>');
+  },
+  strength(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:10,h:12.5,l:9.8,c:12.3,col:C.pos},
+      {o:13.4,h:16,l:13.2,c:15.8,col:C.pos},
+      {o:15.8,h:16.2,l:14.9,c:15.1,col:C.neg},
+      {o:15.1,h:18.6,l:15,c:18.4,col:C.pos},
+      {o:18.4,h:21,l:18.2,c:20.8,col:C.pos},
+      {o:20.8,h:21.3,l:19.9,c:20.2,col:C.neg},
+      {o:20.2,h:23.6,l:20.1,c:23.4,col:C.pos,n:"连续强收盘",ncol:C.pos}
+    ],{h:250,ema:[11,13.4,14.6,16,18.5,19.6,21.2],
+       notes:[
+         {i:1,p:16,text:"跳空(缺口不补)",color:C.gold,dy:-8},
+         {i:2,p:14.9,text:"回调浅·不破均线",color:C.accent,dy:22}
+       ]});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 3.1 · 强势的信号</b> 大实体小影线、跳空缺口不补、回调浅得碰不到均线、连续强收盘——多个信号一致,趋势很强。(原创示意图)</figcaption>');
+  },
+  twolegs(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:8,h:12,l:7.8,c:11.8,col:C.pos},
+      {o:11.8,h:16,l:11.6,c:15.8,col:C.pos},
+      {o:15.8,h:16.2,l:13.5,c:13.8,col:C.neg},
+      {o:13.8,h:15,l:13.6,c:14.8,col:C.pos,n:"H1",ncol:C.muted},
+      {o:14.8,h:15,l:12.6,c:12.9,col:C.neg},
+      {o:12.9,h:15.5,l:12.7,c:15.2,col:C.pos,n:"H2",ncol:C.accent},
+      {o:15.2,h:18.5,l:15,c:18.2,col:C.pos},
+      {o:18.2,h:21,l:18,c:20.8,col:C.pos}
+    ],{h:250,ema:[10,13,14,14.3,13.8,14.2,16,18],
+       levels:[{p:20.6,color:C.gold,label:"测量目标(第一腿投影)"}],
+       notes:[{i:5,p:15.7,text:"两腿走完(H2)→ 上车",color:C.accent,dy:-8}]});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 4.1 · 两腿(H1/H2)与测量移动</b> 回调常走两腿:第一次反弹失败(H1),第二次走完(H2)回到均线附近,更可靠;第一腿的长度可投影出目标。(原创示意图)</figcaption>');
+  }
+};
+document.querySelectorAll("figure[data-fig]").forEach(f=>{const k=f.getAttribute("data-fig");if(figs[k])figs[k](f);});
+
+// trade-lifecycle self-drawing animation
+document.querySelectorAll("[data-anim='trade']").forEach(host=>{
+  const s=svgScene(host,"0 0 720 250");
+  const cap=document.createElement("div");cap.className="anim-cap";host.appendChild(cap);
+  // scaffold price path: rise, pullback dip near x=300, rise to target
+  const path=el("path",{d:"M70 215 L150 150 L210 130 L300 178 L380 120 L470 88 L580 58",fill:"none",stroke:C.steel,"stroke-width":2,opacity:.5});
+  const ema=el("path",{d:"M70 222 L150 175 L210 162 L300 185 L380 150 L470 122 L580 100",fill:"none",stroke:C.gold,"stroke-width":1.6,"stroke-dasharray":"4 4",opacity:.6});
+  s.appendChild(ema);s.appendChild(path);
+  // groups
+  function g(){return el("g",{});}
+  const g1=g(),g2=g(),g3=g(),g4=g(),g5=g();
+  // 1 identify
+  g1.appendChild(el("rect",{x:120,y:120,width:110,height:50,fill:"none",stroke:C.pos,"stroke-width":1.4,rx:6,opacity:.8}));
+  note(g1,{x:175,y:112,text:"① always-in 多",color:C.pos,anchor:"middle",size:12});
+  // 2 pullback + signal bar
+  g2.appendChild(el("circle",{cx:300,cy:178,r:7,fill:"none",stroke:C.accent,"stroke-width":2}));
+  note(g2,{x:300,y:202,text:"② 回调到均线·信号棒",color:C.accent,anchor:"middle",size:12});
+  // 3 entry arrow
+  g3.appendChild(el("path",{d:"M330 178 L330 150",stroke:C.ink,"stroke-width":2}));
+  g3.appendChild(el("path",{d:"M330 150 L325 158 M330 150 L335 158",stroke:C.ink,"stroke-width":2}));
+  note(g3,{x:344,y:156,text:"③ 入场",color:C.ink,anchor:"start",size:12});
+  // 4 trailing stop
+  g4.appendChild(el("path",{d:"M300 196 L380 168 L470 140",fill:"none",stroke:C.neg,"stroke-width":1.6,"stroke-dasharray":"5 4"}));
+  note(g4,{x:450,y:158,text:"④ 止损跟随",color:C.neg,anchor:"start",size:12});
+  // 5 target
+  g5.appendChild(el("line",{x1:520,y1:58,x2:600,y2:58,stroke:C.gold,"stroke-width":1.6,"stroke-dasharray":"6 4"}));
+  note(g5,{x:600,y:50,text:"⑤ 强势减仓/目标",color:C.gold,anchor:"end",size:12});
+  [g1,g2,g3,g4,g5].forEach(gp=>{gp.style.opacity=reduce?"1":"0";gp.style.transition="opacity .5s";s.appendChild(gp);});
+  const steps=[
+    {g:g1,cap:"① 认出趋势:always-in 多"},
+    {g:g2,cap:"② 等回调到均线、出现信号棒"},
+    {g:g3,cap:"③ 越过信号棒,顺势入场"},
+    {g:g4,cap:"④ 止损跟着摆动点上移"},
+    {g:g5,cap:"⑤ 强势减仓 / 到测量目标了结"}
+  ];
+  function play(){
+    if(reduce){steps.forEach(st=>st.g.style.opacity="1");cap.textContent=steps[steps.length-1].cap;return;}
+    steps.forEach(st=>st.g.style.opacity="0");cap.textContent="";
+    let t=200;steps.forEach(st=>{setTimeout(()=>{st.g.style.opacity="1";cap.textContent=st.cap;},t);t+=1050;});
+  }
+  const rep=document.querySelector("[data-replay='trade']");if(rep)rep.addEventListener("click",play);
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){play();io.unobserve(e.target);}}),{threshold:.3});io.observe(host);
+});
+
+document.querySelectorAll(".socratic button").forEach(b=>b.addEventListener("click",()=>{const c=b.closest(".socratic");const o=c.classList.toggle("open");b.textContent=o?"收起 ↑":"想好了,揭晓 →";}));
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a")],map={};links.forEach(a=>{const id=a.getAttribute("href");if(id&&id[0]==="#")map[id.slice(1)]=a;});
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-10% 0px -75% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:series" content="Brooks · 趋势卷精讲">
+<meta name="readbar:num" content="第一卷 · Part I">
+<meta name="readbar:title" content="价格行为字母表">
+<meta name="readbar:desc" content="Brooks《趋势》精讲(一):光谱、棒、突破与信号棒——读懂裸图的字母。">
+<meta name="readbar:accent" content="#d4a657">
+<meta name="readbar:order" content="1">
+<meta name="readbar:topics" content="价格行为光谱 · 趋势棒/doji/高潮 · 突破震荡测试反转 · 信号棒入场棒 · 反转棒 · 外包棒 · 收盘 · 第二入场">
+<title>Brooks 趋势卷精讲 · 第一卷 · 价格行为字母表</title>
+<link rel="stylesheet" href="../reader.css">
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#d4a657; --accent-soft:#33301f; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1408;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0; counter-reset:c;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(212,166,87,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1408; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(212,166,87,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">Brooks · 趋势卷精讲<b>第一卷 · 价格行为字母表</b></div>
+    <div class="shelf-nav"><a class="home" href="../index.html">📚 书架</a></div>
+    <ol>
+      <a href="#intro">序 · 学会读字母</a>
+      <a href="#c1">1 · 价格行为光谱</a>
+      <a href="#c2">2 · 棒、十字星与高潮</a>
+      <a href="#c3">3 · 四种基本事件</a>
+      <a href="#c4">4 · 信号棒与入场棒</a>
+      <a href="#c5">5 · 反转棒</a>
+      <a href="#c6">6 · 外包棒</a>
+      <a href="#c7">7 · 收盘的重要性</a>
+      <a href="#c8">8 · 第二次入场</a>
+      <a href="#end">尾声 · 通往第二卷</a>
+    </ol>
+  </nav>
+
+  <main>
+    <header class="cover">
+      <div class="col">
+        <div class="eyebrow">Brooks《趋势》精讲 · Part I</div>
+        <h1>价格行为字母表<span class="small">在读懂"句子"(趋势、形态)之前,先学会读"字母"——单根 K 线,以及它们最基本的几种组合。本卷把原书第一部分,用我自己的话、配原创图解,从零重讲一遍。</span></h1>
+        <div class="vol">读棒精讲 · 第一卷 / 共四卷(对应原书四部分)</div>
+      </div>
+    </header>
+
+    <div class="col">
+
+      <section id="intro">
+        <div class="kicker">序</div>
+        <h2>学会读字母</h2>
+        <p class="lead">没有人能一上来就读懂整段趋势。就像识字,要先认字母、再拼词、最后才读句子。这一卷,只教字母:一根棒在说什么,几根棒凑在一起又在说什么。</p>
+        <p>方法上,每个概念我都走四步:<strong>是什么 → 它的逻辑 → 好的样子和坏的样子 → 什么时候是高概率</strong>;每节都先抛一个问题,请你<em>先想一下再揭晓</em>。图全是我重画的示意图,帮助你建立画面感。</p>
+        <div class="src">本卷为原创转化性教学作品,不含原书的文字段落或插图;仅以我自己的语言重讲其概念。来源:Al Brooks,《Trading Price Action: Trends》。</div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c1">
+        <div class="kicker">第 1 章</div>
+        <h2>价格行为光谱</h2>
+        <span class="facet what">是什么</span>
+        <p>任何时刻,市场都落在一条连续光谱的某一点上:一端是<strong>极强的趋势</strong>(一路向上几乎不回头),另一端是<strong>极窄的震荡</strong>(在一条窄带里来回磨)。中间是各种强弱不一的趋势和宽窄不一的区间。</p>
+        <figure data-fig="spectrum"></figure>
+        <span class="facet why">它的逻辑</span>
+        <p>为什么先讲它?因为<em>你做的每一个决定,都取决于你现在站在光谱的哪一段</em>。强趋势里要顺势、要追;震荡里要反着边沿做、要避开中间。认错位置,再好的技巧都会用反。</p>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">如果你连"现在是趋势还是震荡"都还没判断,就急着找买点卖点,会发生什么?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>你会<strong>用对的技巧、做错的市场</strong>。在震荡里追突破(趋势打法),会一次次被假突破套牢;在强趋势里逆势抄顶(震荡打法),会被一浪高过一浪碾过去。</p>
+            <p>所以这本书的第一课不是"怎么买",而是"<em>先认清环境</em>"。光谱,就是你每次看图的第一个问题。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c2">
+        <div class="kicker">第 2 章</div>
+        <h2>趋势棒、十字星与高潮</h2>
+        <span class="facet what">是什么</span>
+        <p>单根棒粗分两类:<strong>趋势棒</strong>(实体大、影线小,方向明确),和<strong>十字星 doji</strong>(实体很小,多空僵持)。当一根趋势棒大到异常、远离其它棒,往往是<strong>高潮</strong>——一方用尽全力,反而接近力竭。</p>
+        <p>但在分类之前,得先会读一根棒本身。下面这张动画把它拆开:</p>
+        <figure>
+          <div data-anim="bar"></div>
+          <button class="replay" data-replay="bar">▶ 重播</button>
+          <figcaption><b>图 2.1 · 读一根棒(动画)</b> 高低点=多空各打到的最远;实体=开盘到收盘的净胜负;收盘位置=这场战争的最终比分。(原创示意图)</figcaption>
+        </figure>
+        <figure data-fig="bartypes"></figure>
+        <span class="facet why">它的逻辑</span>
+        <p>实体的大小,直接等于"赢家赢得有多干脆"。大实体=一方压倒性获胜,常会延续;小实体=势均力敌,等待方向。高潮则相反:涨得太猛太急,往往把最后的买家都吸进来了,接力的人没了,反而见顶。</p>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">一根特别大的阳线,直觉上是"强";但为什么它有时反而是趋势<em>即将结束</em>的信号?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>因为它可能是<strong>高潮</strong>。一根超大阳线意味着"所有还想买的人,几乎都在这一根里买完了"。买力一次性耗尽,后面没有人接力,价格就容易停、容易回。</p>
+            <p>所以强弱不能只看一根棒的大小,要看<em>它在什么位置出现</em>:趋势刚启动时的大阳线是力量,趋势走了很久后的大阳线,可能是力竭。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c3">
+        <div class="kicker">第 3 章</div>
+        <h2>四种基本事件</h2>
+        <span class="facet what">是什么</span>
+        <p>市场里发生的事,几乎都能归进四个词:<strong>突破</strong>(冲过一个关键价位)、<strong>震荡</strong>(在区间里来回)、<strong>测试</strong>(回去碰一下某个旧价位)、<strong>反转</strong>(方向掉头)。后面所有复杂形态,都是这四件事的组合。</p>
+        <figure data-fig="events"></figure>
+        <span class="facet why">它的逻辑</span>
+        <p>把纷繁的走势压缩成四个词,你的大脑才不会过载。看图时你只需要反复问:<em>这是在突破,还是在震荡?这次突破是真的成功,还是会被测试、然后反转?</em></p>
+        <span class="facet gb">好坏对照</span>
+        <p>好的突破:大趋势棒 + 跟进、不回头。坏的(易失败的)突破:孤零零一根冲出去、马上被影线收回——这往往变成<strong>失败突破</strong>,也就是反着做的好机会。</p>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">价格冲破了区间上沿,你该立刻追多吗?在判断之前,你最想看到下一根棒做什么?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>先别急。你最想看到的是<strong>跟进</strong>:突破之后,下一两根棒能不能继续往上、收在高位。能,突破才被确认;不能,反手收回区间,就是<em>失败突破</em>,真正的高手反而在这里反着做。</p>
+            <p>区间里,失败的突破比成功的多——这正是为什么"等确认"几乎总比"抢第一根"划算。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c4">
+        <div class="kicker">第 4 章</div>
+        <h2>信号棒与入场棒</h2>
+        <span class="facet what">是什么</span>
+        <p>两个最基础的操作词:<strong>信号棒</strong>是"给出信号、让你据此挂单"的那根棒;<strong>入场棒</strong>是"价格越过信号棒、你真正成交"的那根棒。买入时,把止损买单挂在信号棒高点上方一跳,价格碰到才成交。</p>
+        <figure data-fig="signalbar"></figure>
+        <span class="facet why">它的逻辑</span>
+        <p>为什么要等价格"越过"信号棒才进?因为这是让<em>市场用真金白银替你确认</em>。一根好看的信号棒只是"候选";只有价格真的往你的方向走、触发了你的挂单,才证明这一刻买方确实占了上风。</p>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">为什么不在信号棒收盘那一刻就直接买,而要多等"价格越过它高点"这一步?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>因为信号棒只是"<strong>有可能</strong>"。很多漂亮的信号棒,下一根直接反向、根本没人跟。要求"价格先越过它的高点"才成交,等于加了一道<em>确认闸门</em>:走不出去,你压根不进场,省掉一大批假信号。</p>
+            <p>代价是你买得比最低点高一点点——这一点点,换来的是高得多的胜率和一个清晰的止损位(信号棒下方)。这笔交换,几乎总是值的。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c5">
+        <div class="kicker">第 5 章</div>
+        <h2>反转棒</h2>
+        <span class="facet what">是什么</span>
+        <p><strong>反转棒</strong>是"一方先赢后输"的棒:比如一根长下影的阳线——价格先被砸到很低(空头先赢),收盘又被拉回高位(多头后来居上)。那条长长的下影,就是空头被夺回的失地。</p>
+        <figure data-fig="reversal"></figure>
+        <span class="facet why">它的逻辑</span>
+        <p>长下影在说:这里有人大力买进、把价格托起来了。它<em>暗示</em>下方有支撑。但注意——它只是暗示,绝不能单独使用。</p>
+        <span class="facet gb">好坏对照</span>
+        <p>好的反转棒:出现在一段下跌的末端、跌到某个旧支撑、影线很长、收盘很强。坏的(没用的)反转棒:出现在强趋势的半山腰、孤立无依——逆着强趋势抓这种,十有八九被埋。</p>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">同样一根"长下影阳线",为什么出现在下跌末端是好信号,出现在强势下跌的中段却几乎没用?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>因为<strong>位置(环境)才是裁判</strong>,形态只是半个答案。下跌末端、砸到旧支撑时的长下影,背后是"早就在等的买家终于动手";而强势下跌中段的长下影,常常只是顺势者短暂获利了结,空头很快卷土重来。</p>
+            <p>这是本书反复强调的一条铁律:<em>同一个形态,在不同环境里,含义可以完全相反。</em>永远先看环境,再看形态。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c6">
+        <div class="kicker">第 6 章</div>
+        <h2>外包棒</h2>
+        <span class="facet what">是什么</span>
+        <p><strong>外包棒</strong>(outside bar)是高点更高、低点也更低、把前一根棒整个"包"进去的棒。它一根之内既扫了上方、又扫了下方,信息常常自相矛盾。</p>
+        <figure data-fig="outside"></figure>
+        <span class="facet why">它的逻辑</span>
+        <p>外包棒意味着这一根里多空都发动过、波动被放大,但谁最终赢要看收盘。它常常制造混乱:既扫掉了做多的止损,又扫掉了做空的止损。所以它好坏参半,要结合收盘和环境读,别一看见就激动。</p>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">一根又扫上方、又扫下方的外包棒,为什么常被称作"双向陷阱"?它最坑哪一种人?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>它最坑<strong>把止损放得太近、又急于进场的人</strong>。它先冲高,引诱追多、并扫掉空头止损;又砸低,引诱杀跌、并扫掉多头止损。两边的人都被它晃进去、又被甩出来。</p>
+            <p>对策:不被它的剧烈波动牵着走,<em>等它收盘、看它落在哪个方向</em>,再结合环境决定——甚至更多时候,最好的反应是这一根先不做。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c7">
+        <div class="kicker">第 7 章</div>
+        <h2>收盘的重要性</h2>
+        <span class="facet what">是什么</span>
+        <p>一根棒里信息最重的一个点,是<strong>收盘价</strong>。同样的最高、最低,只要收盘位置不同,这根棒的含义可以完全相反。收盘,是这场战争停战时的"最终比分"。</p>
+        <figure data-fig="close"></figure>
+        <span class="facet why">它的逻辑</span>
+        <p>最高最低只说明"双方一度打到过哪里",而收盘说明"<em>结束时谁还站着</em>"。收在顶端=买方掌控到最后一刻;收在底端=卖方笑到最后。看棒先看收盘,你就抓住了那根棒的结论。</p>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">两根棒最高最低完全一样,一根收在最顶、一根收在最底。它们"长得几乎一样",却为何在讲完全相反的故事?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>因为影线讲"<strong>曾经</strong>",收盘讲"<strong>最终</strong>"。两根棒都曾摸到同样的高和低,但收顶的那根说"买方把价格守在了最高处",收底的那根说"卖方把价格压回了最低处"。最终归属截然不同。</p>
+            <p>这就是为什么有经验的人看图,眼睛第一个落点是<em>每根棒收在哪里</em>——而不是它涨了还是跌了。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="c8">
+        <div class="kicker">第 8 章</div>
+        <h2>第二次入场</h2>
+        <span class="facet what">是什么</span>
+        <p>同一个方向上,第一次出现的信号常常失败;紧接着出现的<strong>第二次入场</strong>,通常更可靠。市场往往要"试两次":第一次试探失败,第二次才真正走出去。</p>
+        <figure data-fig="second"></figure>
+        <span class="facet why">它的逻辑</span>
+        <p>第一次信号失败,本身就淘汰掉了一批弱手、也凑齐了更完整的结构(比如一个双底、一段两腿回调)。当第二次同向信号出现时,背景已经更扎实,胜算更高。这呼应一条贯穿全书的纪律:<em>等待,胜过追逐。</em></p>
+        <div class="connect">
+          <div class="h">连接 · 回到图表</div>
+          下次你看图,挑一段趋势,找出回调里"第一次反弹失败、第二次才走"的位置。你会发现,<strong>第二次</strong>那个点,事后看几乎总是更舒服的上车点。把这个画面刻进眼睛里。
+        </div>
+        <div class="socratic">
+          <div class="q"><div class="tag">想一想</div>
+            <div class="qt">"第一次常失败、第二次更可靠"——如果你天生急性子,总想抓第一个信号,这条经验会怎样改变你的下单习惯?</div>
+            <button>想好了,揭晓 →</button></div>
+          <div class="a"><div class="a-inner">
+            <p>它会让你学会<strong>放过第一次</strong>。第一次信号像是市场在"探路",失败率高;真正值得下注的,往往是它失败之后、结构更完整的第二次。急着抓第一个,你赚到的是偶尔的早,赔掉的是经常的错。</p>
+            <p>把"等第二次"变成默认动作,你的胜率和心态都会稳很多——这也是从"看懂"走向"做对"的关键一步。</p>
+          </div></div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section id="end">
+        <div class="endcard">
+          <div class="kicker">尾声</div>
+          <h2>字母,认完了</h2>
+          <p>到这里,你已经握住了价格行为的字母表:光谱定环境,棒讲力量,收盘定结论,突破/震荡/测试/反转是四个基本动词,信号棒/入场棒/反转棒/外包棒是你最先要认得的几个"字",而"等第二次"是第一条贯穿始终的纪律。</p>
+          <div class="poem">
+            <div class="pt">卷一 · 识字</div>
+            <div class="verse">
+              先别急着读整句,<br>
+              一个字一个字地认:<br>
+              这一根,是谁在用力,<br>
+              那一根,是谁已力竭。<br>
+              等你认全了字母,<br>
+              趋势,自己会开口说话。
+            </div>
+            <div class="by">—— 本卷原创</div>
+          </div>
+          <p style="color:var(--muted); font-size:15px; margin-top:26px;">下一卷(对应原书 <strong>Part II</strong>)进入"画线":趋势线、通道线、通道、微通道、关键水平位——把一根根字母,连成有方向的句子。说一声"继续第二卷"即可。</p>
+          <div class="src">来源:Al Brooks,《Trading Price Action: Trends》(2011),Part I。本卷为原创教学改写,不含原书文字或插图。</div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script>
+const NS="http://www.w3.org/2000/svg";
+const C={accent:"#d4a657",pos:"#26a69a",neg:"#ef5350",ink:"#e9e5d8",muted:"#8b94a3",faint:"#5c6573",line:"#2c343f",gold:"#d4a657",steel:"#7fa8c9"};
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}
+function svgScene(host,vb){const s=el("svg",{viewBox:vb});s.style.width="100%";s.style.height="auto";host.appendChild(s);return s;}
+function note(s,o){const t=el("text",{x:o.x,y:o.y,fill:o.color||C.ink,"font-size":o.size||12.5,"font-family":"var(--mono)","text-anchor":o.anchor||"start"});t.textContent=o.text;s.appendChild(t);return t;}
+function drawCandles(svg,bars,opts){
+  opts=opts||{};
+  const W=720,H=opts.h||220,padX=46,padTop=24,padBot=34;
+  svg.setAttribute("viewBox","0 0 "+W+" "+H);
+  let lo=Infinity,hi=-Infinity;
+  bars.forEach(b=>{lo=Math.min(lo,b.l);hi=Math.max(hi,b.h);});
+  if(opts.levels)opts.levels.forEach(L=>{lo=Math.min(lo,L.p);hi=Math.max(hi,L.p);});
+  if(opts.ema)opts.ema.forEach(v=>{if(v!=null){lo=Math.min(lo,v);hi=Math.max(hi,v);}});
+  const pad=(hi-lo)*0.16||1;lo-=pad;hi+=pad;
+  const Y=p=>padTop+(hi-p)/(hi-lo)*(H-padTop-padBot);
+  const n=bars.length,slot=(W-padX*2)/n,X=i=>padX+slot*i+slot/2,cw=Math.min(slot*0.56,22);
+  if(opts.levels)opts.levels.forEach(L=>{
+    svg.appendChild(el("line",{x1:padX-6,x2:W-padX+6,y1:Y(L.p),y2:Y(L.p),stroke:L.color||C.faint,"stroke-width":1,"stroke-dasharray":L.dash||"5 5",opacity:.9}));
+    if(L.label)note(svg,{x:W-padX+4,y:Y(L.p)+4,text:L.label,color:L.color||C.muted,anchor:"end",size:11});
+  });
+  if(opts.ema){let d="";opts.ema.forEach((v,i)=>{if(v==null)return;d+=(d?" L":"M")+X(i)+" "+Y(v);});svg.appendChild(el("path",{d:d,fill:"none",stroke:C.gold,"stroke-width":2,opacity:.85}));}
+  bars.forEach((b,i)=>{
+    const up=b.c>=b.o,col=b.col||(up?C.pos:C.neg),x=X(i);
+    svg.appendChild(el("line",{x1:x,x2:x,y1:Y(b.h),y2:Y(b.l),stroke:col,"stroke-width":1.6}));
+    const yo=Y(b.o),yc=Y(b.c),top=Math.min(yo,yc);let hgt=Math.abs(yo-yc);if(hgt<2)hgt=2;
+    svg.appendChild(el("rect",{x:x-cw/2,y:top,width:cw,height:hgt,fill:col,rx:1.5}));
+    if(b.n)note(svg,{x:x,y:Y(b.l)+18,text:b.n,color:b.ncol||C.muted,anchor:"middle",size:11.5});
+  });
+  if(opts.notes)opts.notes.forEach(nt=>note(svg,{x:nt.i!=null?X(nt.i):nt.x,y:(nt.p!=null?Y(nt.p):nt.y)+(nt.dy||0),text:nt.text,color:nt.color||C.ink,anchor:nt.anchor||"middle",size:12.5}));
+}
+
+const figs={
+  spectrum(f){
+    const s=svgScene(f,"0 0 720 150");
+    const defs=el("defs",{}),lg=el("linearGradient",{id:"sg",x1:"0",x2:"1"});
+    lg.appendChild(el("stop",{offset:"0","stop-color":C.pos}));
+    lg.appendChild(el("stop",{offset:"0.5","stop-color":C.gold}));
+    lg.appendChild(el("stop",{offset:"1","stop-color":C.neg}));
+    defs.appendChild(lg);s.appendChild(defs);
+    s.appendChild(el("rect",{x:40,y:60,width:640,height:14,rx:7,fill:"url(#sg)"}));
+    [["强趋势",40,C.pos],["通道",190,C.pos],["宽通道/弱趋势",360,C.gold],["震荡",520,C.neg],["铁丝网",660,C.neg]].forEach(a=>{
+      s.appendChild(el("line",{x1:a[1],y1:54,x2:a[1],y2:80,stroke:a[2],"stroke-width":1.5}));
+      note(s,{x:a[1],y:104,text:a[0],color:a[2],anchor:"middle",size:11.5});
+    });
+    note(s,{x:40,y:44,text:"← 一端",color:C.faint,size:11});
+    note(s,{x:680,y:44,text:"另一端 →",color:C.faint,anchor:"end",size:11});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 1.1 · 价格行为光谱</b> 任何时刻,市场都落在"强趋势 ↔ 窄震荡"这条连续光谱的某一点。先认位置,再谈打法。(原创示意图)</figcaption>');
+  },
+  bartypes(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:10,h:18,l:9.5,c:17.5,col:C.pos,n:"趋势棒",ncol:C.pos},
+      {o:17.6,h:19,l:16.4,c:17.5,n:"十字星",ncol:C.muted},
+      {o:17.5,h:18,l:11,c:11.5,col:C.neg,n:"趋势棒",ncol:C.neg},
+      {o:11.5,h:12,l:3,c:4,col:C.neg,n:"高潮(过度)",ncol:C.gold}
+    ],{h:230});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 2.2 · 棒的家族</b> 大实体=趋势棒(力量);小实体=十字星(僵持);异常巨大的趋势棒常是高潮(力竭)。(原创示意图)</figcaption>');
+  },
+  events(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:12,h:14,l:11,c:13},
+      {o:13,h:14,l:11.5,c:11.8,col:C.neg},
+      {o:11.8,h:13.8,l:11,c:13.4},
+      {o:13.4,h:16.6,l:13,c:16.2,col:C.pos,n:"突破",ncol:C.pos},
+      {o:16.2,h:16.4,l:13,c:13.2,col:C.neg,n:"测试失败→反转",ncol:C.neg},
+      {o:13.2,h:13.6,l:10.5,c:11}
+    ],{h:240,levels:[{p:14,color:C.faint,label:"阻力"},{p:11,color:C.faint,label:"支撑"}]});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 3.1 · 四种基本事件</b> 区间里来回(震荡)→ 冲过上沿(突破)→ 回头碰旧位(测试)→ 站不住、掉头(反转)。复杂形态都是这四件事的组合。(原创示意图)</figcaption>');
+  },
+  signalbar(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:20,h:21,l:15,c:15.5,col:C.neg},
+      {o:15.5,h:16,l:11,c:11.5,col:C.neg},
+      {o:11.5,h:15,l:11,c:14.5,col:C.pos,n:"信号棒",ncol:C.accent},
+      {o:15.2,h:19,l:15,c:18.5,col:C.pos,n:"入场棒",ncol:C.pos},
+      {o:18.5,h:23,l:18,c:22,col:C.pos}
+    ],{h:230,levels:[{p:15.3,color:C.accent,dash:"4 4",label:"买入止损单"}],
+       notes:[{i:3,p:19.4,text:"越过信号棒高点→成交",color:C.accent,dy:-6}]});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 4.1 · 信号棒 → 入场棒</b> 把买入止损单挂在信号棒高点上方一跳;价格越过才成交——让市场替你确认方向。(原创示意图)</figcaption>');
+  },
+  reversal(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:20,h:20.5,l:16,c:16.3,col:C.neg},
+      {o:16.3,h:16.6,l:12,c:12.4,col:C.neg},
+      {o:12.4,h:15,l:9.5,c:14.5,col:C.pos,n:"反转棒",ncol:C.accent},
+      {o:14.6,h:17.5,l:14,c:17,col:C.pos}
+    ],{h:230,notes:[{i:2,p:9.5,text:"长下影 = 空头先赢后输",color:C.accent,dy:18}]});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 5.1 · 反转棒</b> 价格先被砸到低位(空头先赢),收盘又被拉回高位(多头后来居上)。长下影=被夺回的失地,暗示下方有买盘——但必须看环境。(原创示意图)</figcaption>');
+  },
+  outside(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:14,h:15,l:12.5,c:12.8,col:C.neg},
+      {o:12.6,h:16,l:11,c:15.4,col:C.pos,n:"外包棒",ncol:C.accent},
+      {o:15.4,h:16.5,l:14.5,c:15.2}
+    ],{h:220,notes:[{i:1,p:16,text:"高更高、低更低,吞掉前一根",color:C.accent,dy:-8}]});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 6.1 · 外包棒</b> 一根之内既扫上方又扫下方,把前一根整个包住。双向扫损,信息常矛盾——看收盘、看环境,多数时候宁可不做。(原创示意图)</figcaption>');
+  },
+  close(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:12,h:18,l:11,c:17.5,col:C.pos,n:"收顶=强",ncol:C.pos},
+      {o:17,h:18,l:11,c:11.5,col:C.neg,n:"收底=弱",ncol:C.neg}
+    ],{h:220,notes:[{x:360,y:30,text:"同样的最高/最低,收盘不同 → 含义相反",color:C.muted,anchor:"middle"}]});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 7.1 · 收盘定结论</b> 两根棒最高最低一样,只因收盘位置相反,就讲着相反的故事。影线讲"曾经",收盘讲"最终"。(原创示意图)</figcaption>');
+  },
+  second(f){
+    const s=svgScene(f,"");
+    drawCandles(s,[
+      {o:20,h:20.5,l:15,c:15.3,col:C.neg},
+      {o:15.3,h:17,l:15,c:16.6,col:C.pos,n:"第一次",ncol:C.muted},
+      {o:16.6,h:16.8,l:13,c:13.3,col:C.neg,n:"失败",ncol:C.neg},
+      {o:13.3,h:16.5,l:12.6,c:16,col:C.pos,n:"第二次",ncol:C.accent},
+      {o:16,h:20,l:15.5,c:19.5,col:C.pos}
+    ],{h:235,notes:[{i:3,p:16.6,text:"结构更全→更可靠",color:C.accent,dy:-8}]});
+    f.insertAdjacentHTML("beforeend",'<figcaption><b>图 8.1 · 第二次入场</b> 第一次反转/入场信号常失败;它的失败淘汰了弱手、凑齐了结构,使紧随的第二次更可靠。等待,胜过追逐。(原创示意图)</figcaption>');
+  }
+};
+document.querySelectorAll("figure[data-fig]").forEach(f=>{const k=f.getAttribute("data-fig");if(figs[k])figs[k](f);});
+
+// "read a bar" self-drawing animation
+document.querySelectorAll("[data-anim='bar']").forEach(host=>{
+  const s=svgScene(host,"0 0 720 240");
+  const cap=document.createElement("div");cap.className="anim-cap";host.appendChild(cap);
+  const cx=300;
+  const wick=el("line",{x1:cx,y1:30,x2:cx,y2:200,stroke:C.pos,"stroke-width":2});
+  const body=el("rect",{x:cx-20,y:70,width:40,height:95,fill:C.pos,rx:2});
+  const clab=el("text",{x:cx+40,y:78,fill:C.gold,"font-size":14,"font-family":"var(--mono)"});clab.textContent="收盘收在上端 = 强";
+  const hl=el("text",{x:cx-40,y:34,fill:C.muted,"font-size":11.5,"font-family":"var(--mono)","text-anchor":"end"});hl.textContent="最高";
+  const ll=el("text",{x:cx-40,y:202,fill:C.muted,"font-size":11.5,"font-family":"var(--mono)","text-anchor":"end"});ll.textContent="最低";
+  [wick,hl,ll,body,clab].forEach(e=>{e.style.opacity=reduce?"1":"0";e.style.transition="opacity .5s";s.appendChild(e);});
+  const steps=[
+    {els:[wick,hl,ll],cap:"① 先看高低点:多空各打到的最远"},
+    {els:[body],cap:"② 实体 = 开盘到收盘的净胜负"},
+    {els:[clab],cap:"③ 收盘位置 = 这场战争的最终比分"}
+  ];
+  function play(){
+    if(reduce){steps.forEach(st=>st.els.forEach(e=>e.style.opacity="1"));cap.textContent=steps[steps.length-1].cap;return;}
+    steps.forEach(st=>st.els.forEach(e=>e.style.opacity="0"));cap.textContent="";
+    let t=200;steps.forEach(st=>{setTimeout(()=>{st.els.forEach(e=>e.style.opacity="1");cap.textContent=st.cap;},t);t+=1050;});
+  }
+  const rep=document.querySelector("[data-replay='bar']");if(rep)rep.addEventListener("click",play);
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){play();io.unobserve(e.target);}}),{threshold:.3});io.observe(host);
+});
+
+document.querySelectorAll(".socratic button").forEach(b=>b.addEventListener("click",()=>{const c=b.closest(".socratic");const o=c.classList.toggle("open");b.textContent=o?"收起 ↑":"想好了,揭晓 →";}));
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a")],map={};links.forEach(a=>{const id=a.getAttribute("href");if(id&&id[0]==="#")map[id.slice(1)]=a;});
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-10% 0px -75% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>
