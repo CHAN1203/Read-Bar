@@ -275,6 +275,38 @@
     });
   })();
 
+  /* ===================== KEYBOARD NAV ===================== */
+  var help=document.createElement("div"); help.className="rl-help";
+  help.innerHTML='<div class="rl-help-card"><div class="rl-help-h">键盘快捷键 <button class="rl-x" id="rlHelpX">×</button></div>'
+    +'<div class="rl-help-row"><kbd>↑</kbd><kbd>↓</kbd><kbd>空格</kbd><span>滚动翻页</span></div>'
+    +'<div class="rl-help-row"><kbd>[</kbd><kbd>]</kbd><span>上 / 下一章</span></div>'
+    +'<div class="rl-help-row"><kbd>g</kbd><span>回到顶部</span></div>'
+    +'<div class="rl-help-row"><kbd>f</kbd><span>沉浸模式</span></div>'
+    +'<div class="rl-help-row"><kbd>Esc</kbd><span>退出沉浸 / 关闭</span></div>'
+    +'<div class="rl-help-row"><kbd>?</kbd><span>这张帮助</span></div></div>';
+  document.body.appendChild(help);
+  function toggleHelp(on){ help.classList.toggle("open", on==null?!help.classList.contains("open"):on); }
+  $("rlHelpX").addEventListener("click",function(){ toggleHelp(false); });
+  help.addEventListener("click",function(e){ if(e.target===help) toggleHelp(false); });
+  function chapTargets(){ return [].slice.call(document.querySelectorAll("[data-sec], main section[id]")); }
+  function gotoChap(dir){ var secs=chapTargets(); if(!secs.length) return; var y=window.scrollY+90, cur=-1;
+    for(var i=0;i<secs.length;i++){ if(secs[i].offsetTop<=y) cur=i; }
+    var t=Math.max(0,Math.min(secs.length-1,cur+dir)); if(dir>0&&cur<secs.length-1&&secs[cur+1]) t=cur+1; if(dir<0) t=Math.max(0,cur-1>=0?cur-1:0);
+    var el=secs[t]; if(el) window.scrollTo({top:el.offsetTop-20,behavior:"smooth"}); }
+  document.addEventListener("keydown",function(e){
+    var a=document.activeElement;
+    if(e.ctrlKey||e.metaKey||e.altKey) return;
+    if(a&&(a.tagName==="INPUT"||a.tagName==="TEXTAREA"||a.isContentEditable)) return;
+    if(help.classList.contains("open")){ if(e.key==="Escape"||e.key==="?"){ toggleHelp(false); e.preventDefault(); } return; }
+    switch(e.key){
+      case "[": gotoChap(-1); e.preventDefault(); break;
+      case "]": gotoChap(1); e.preventDefault(); break;
+      case "g": window.scrollTo({top:0,behavior:"smooth"}); e.preventDefault(); break;
+      case "f": setImmersive(!document.body.classList.contains("rl-immersive")); e.preventDefault(); break;
+      case "?": toggleHelp(true); e.preventDefault(); break;
+    }
+  });
+
   /* ===================== init ===================== */
   collectBlocks(); applyAll(); updateCount();
   var prog=store.load(PK,null);

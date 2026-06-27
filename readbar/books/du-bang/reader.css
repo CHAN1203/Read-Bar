@@ -330,3 +330,14 @@ body.rl-immersive .rl-exit{display:block;}
 .rl-seg button{flex:1; font-family:var(--sans); font-size:12.5px; color:var(--muted); background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:7px 0; cursor:pointer; transition:.2s var(--ease);}
 .rl-seg button:hover{color:var(--ink);}
 .rl-seg button.on{color:#241a12; background:var(--amber); border-color:var(--amber);}
+
+/* ---- keyboard help overlay ---- */
+.rl-help{position:fixed; inset:0; z-index:9600; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.5);}
+.rl-help.open{display:flex;}
+.rl-help-card{width:340px; max-width:90vw; background:var(--raise); border:1px solid var(--line); border-radius:var(--r2); padding:20px 22px; box-shadow:var(--shadow-soft);}
+.rl-help-h{display:flex; align-items:center; justify-content:space-between; font-family:var(--serif); font-size:18px; color:var(--ink); margin-bottom:14px;}
+.rl-help-h .rl-x{background:none; border:none; color:var(--muted); font-size:18px; cursor:pointer;}
+.rl-help-row{display:flex; align-items:center; gap:8px; padding:7px 0; font-family:var(--sans); font-size:14px; color:var(--ink-soft);}
+.rl-help-row span{margin-left:auto; color:var(--muted); font-size:13px;}
+.rl-help-row kbd{font-family:var(--mono); font-size:12px; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:3px 8px; min-width:24px; text-align:center;}
+@media (prefers-reduced-motion: reduce){ .rl-help{transition:none;} }
