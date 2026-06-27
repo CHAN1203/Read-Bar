@@ -370,3 +370,10 @@ body.rl-immersive .rl-exit{display:block;}
 .rl-vn .rl-vndel{margin-top:6px; font-family:var(--mono); font-size:11px; color:var(--faint); background:none; border:none; cursor:pointer;}
 .rl-vn .rl-vndel:hover{color:var(--bear);}
 .rl-vnotes .rl-vempty{font-size:13px; color:var(--faint); line-height:1.6; padding-bottom:8px;}
+
+/* ---- mobile: bottom-fixed selection toolbar ---- */
+.rl-tool.rl-tool-bottom{position:fixed; left:0; right:0; top:auto; bottom:0; width:100%;
+  justify-content:center; gap:12px; padding:14px 12px calc(14px + env(safe-area-inset-bottom,0px));
+  border-radius:14px 14px 0 0; box-shadow:0 -10px 30px rgba(0,0,0,.55); z-index:9100;}
+.rl-tool.rl-tool-bottom .rl-sw{width:30px; height:30px;}
+.rl-tool.rl-tool-bottom .rl-cbtn{font-size:14px; padding:8px 16px;}

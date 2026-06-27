@@ -146,15 +146,21 @@
 
   var pending=null;
   function hideTool(){ tool.style.display="none"; }
-  document.addEventListener("mouseup",function(){ setTimeout(function(){
+  function showToolForSelection(){
     var sel=window.getSelection(); if(!sel||sel.isCollapsed||!sel.rangeCount){ hideTool(); return; }
     var r=sel.getRangeAt(0); var anc=r.commonAncestorContainer.nodeType===1?r.commonAncestorContainer:r.commonAncestorContainer.parentElement;
     var block=anc.closest("[data-rk]"); if(!block){ hideTool(); return; }
     var a=charOffset(block,r.startContainer,r.startOffset), b=charOffset(block,r.endContainer,r.endOffset); if(Math.abs(b-a)<1){ hideTool(); return; }
     pending={k:block.getAttribute("data-rk"),start:Math.min(a,b),end:Math.max(a,b),text:sel.toString(),sec:nearestSec(block)};
-    var rect=r.getBoundingClientRect(); tool.style.display="flex";
-    tool.style.left=Math.max(8,Math.min(rect.left+rect.width/2-80, window.innerWidth-180))+"px"; tool.style.top=Math.max(8,rect.top-46)+"px";
-  },10); });
+    tool.style.display="flex";
+    if(window.matchMedia("(max-width:820px)").matches){ tool.classList.add("rl-tool-bottom"); tool.style.left=""; tool.style.top=""; }
+    else { tool.classList.remove("rl-tool-bottom"); var rect=r.getBoundingClientRect();
+      tool.style.left=Math.max(8,Math.min(rect.left+rect.width/2-80, window.innerWidth-180))+"px"; tool.style.top=Math.max(8,rect.top-46)+"px"; }
+  }
+  var selChT;
+  document.addEventListener("mouseup",function(){ setTimeout(showToolForSelection,10); });
+  document.addEventListener("touchend",function(){ setTimeout(showToolForSelection,10); },{passive:true});
+  document.addEventListener("selectionchange",function(){ clearTimeout(selChT); selChT=setTimeout(showToolForSelection,250); });
   [].forEach.call(tool.querySelectorAll(".rl-sw"),function(sw){ sw.addEventListener("click",function(){ create(sw.getAttribute("data-c"),false); }); });
   $("rlComment").addEventListener("click",function(){ create("amber",true); });
   function create(color,withComment){ if(!pending)return;
