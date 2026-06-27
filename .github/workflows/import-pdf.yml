@@ -38,3 +38,4 @@ jobs:
           commit-message: "feat: import PDF book via pdf2readbar"
           add-paths: |
             books/**
+            _inbox/**
