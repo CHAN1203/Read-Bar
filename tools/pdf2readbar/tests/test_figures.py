@@ -3,10 +3,10 @@ from pdf2readbar.figures import figbox_for, render_figure
 
 def _page_with_chart():
     doc = fitz.open(); pg = doc.new_page(width=400, height=600)
-    # 画 40 条短线段,聚在上半页 → 模拟矢量图表
+    # 40 small filled rects clustered in the upper region → mimic candle bodies
     for i in range(40):
         x = 50 + i * 6
-        pg.draw_line((x, 100), (x, 100 + (i % 20) + 5))
+        pg.draw_rect(fitz.Rect(x, 100, x + 4, 100 + (i % 20) + 8), fill=(0, 0, 0))
     return doc, pg
 
 def test_figbox_detected_in_upper_region():
