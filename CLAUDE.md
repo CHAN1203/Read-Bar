@@ -55,9 +55,9 @@ Futures / MGC,5 分钟执行、15 分钟做高周期背景)。这些书就是把
    阅读层**不碰**插图和动画。dock 在**右下角**(别放右上角,会挡知识导图的模式按钮)。
 
 ### 数据存储
-- 用 `localStorage`,带内存兜底。键名:`readbar:notes:<文件名>`、`readbar:prog:<文件名>`、
+- 用 `localStorage`,带内存兜底。键名:`readbar:notes:<文件名>`、`readbar:prog:<文件名>`(续读定位 `{y,max}`,其中 `max` = 已读最远比例 0–1,单调递增,滚回不倒退;`y` = 续读定位滚动量)、
   `readbar:time:<文件名>`(阅读时长 + 起止记录)、`readbar:edits:<文件名>`(编辑模式的删除/改写)、
-  `readbar:settings`(阅读设置:字号/行距/版心/字体,全站通用)。
+  `readbar:settings`(阅读设置:字号/行距/版心/字体,全站通用)、`readbar:last`(全站最后在读 {file,ts})、`readbar:marks:<文件名>`(书签 [{id,y,label,ts}])、`readbar:book:<id>`(整书进度缓存 {pct,ts},封面页写 / 书库读)。
 - **按卷各自存**,不跨设备。
 - ⚠️ 在 `file://`(直接双击打开)或沙箱预览里 localStorage 可能不可用 / 外部 JS 不加载。
   **必须用本地服务器或 GitHub Pages 打开**才完整(`python -m http.server` 或 VS Code Live Server)。

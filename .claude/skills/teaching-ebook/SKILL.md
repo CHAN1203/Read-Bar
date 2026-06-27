@@ -147,7 +147,9 @@ hardcoded book cards. To make a new book appear on it, do BOTH:
 Do NOT edit `index.html` to add a card — registering in `library.json` is
 what makes the book auto-appear. The existing 读棒 book lives in `books/du-bang/`.
 
-3. 新书的每个阅读页 `<head>`(在 `reader.css` link 之后)应带一段 pre-paint 设置脚本:读取
+3. 新书若要"进度/续读/统计":阅读层 reader.js 已按卷写 `readbar:prog:<file>.max`(已读最远) + `readbar:last`(最后在读) + `readbar:marks:<file>`(书签)。封面页(hub)用内联脚本读这些 + `readbar:time` 渲染「继续阅读 / 每卷进度 / 统计」,并写 `readbar:book:<id>`={pct} 供顶层书库卡片显示整书 %。
+
+4. 新书的每个阅读页 `<head>`(在 `reader.css` link 之后)应带一段 pre-paint 设置脚本:读取
    `localStorage["readbar:settings"]` 并把 `--reader-fs`/`--reader-lh`/`--reader-measure` +
    `data-font` 写到 `document.documentElement`,以继承全站阅读设置且开页不闪烁:
    ```html
