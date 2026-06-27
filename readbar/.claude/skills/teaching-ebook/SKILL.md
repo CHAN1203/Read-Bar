@@ -147,6 +147,13 @@ hardcoded book cards. To make a new book appear on it, do BOTH:
 Do NOT edit `readbar/index.html` to add a card — registering in `library.json` is
 what makes the book auto-appear. The existing 读棒 book lives in `books/du-bang/`.
 
+3. 新书的每个阅读页 `<head>`(在 `reader.css` link 之后)应带一段 pre-paint 设置脚本:读取
+   `localStorage["readbar:settings"]` 并把 `--reader-fs`/`--reader-lh`/`--reader-measure` +
+   `data-font` 写到 `document.documentElement`,以继承全站阅读设置且开页不闪烁:
+   ```html
+   <script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
+   ```
+
 ## Quality bar (what "good" looks like)
 
 - It opens with a clear, warm "how to use" that explains the Socratic pauses.

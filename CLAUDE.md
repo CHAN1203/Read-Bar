@@ -48,12 +48,16 @@ readbar/
    外加**右下角 dock 三件套**——🎧 背景音(播放 `audio/` 里用户自备的音频,循环;按钮由
    `audio/sounds.json` 清单动态生成;**不是合成噪音**)+ 阅读计时器(开页自动计、切走暂停、记起止)、
    ✏️ 编辑模式(删/改正文块,存 localStorage,可「导出 HTML」写回源文件)、🔖 批注。
+   阅读光按钮已升级为「**阅读设置**」(Aa):含字号/行距/版心宽度/衬线⇄无衬线切换 + 调暗,设置存
+   `readbar:settings`,全站通用,各阅读页 `<head>` 内联脚本在开页前应用(无闪烁)。另新增
+   **键盘导航**:`[`/`]` 上/下一章 · `g` 回顶 · `f` 沉浸 · `?` 帮助;输入/编辑时自动禁用。
    划线只在 `.col` 里的 `p / h2 / .lead` 上做;编辑模式按 `data-rl-edit` 顺序键定位块。
    阅读层**不碰**插图和动画。dock 在**右下角**(别放右上角,会挡知识导图的模式按钮)。
 
 ### 数据存储
 - 用 `localStorage`,带内存兜底。键名:`readbar:notes:<文件名>`、`readbar:prog:<文件名>`、
-  `readbar:time:<文件名>`(阅读时长 + 起止记录)、`readbar:edits:<文件名>`(编辑模式的删除/改写)。
+  `readbar:time:<文件名>`(阅读时长 + 起止记录)、`readbar:edits:<文件名>`(编辑模式的删除/改写)、
+  `readbar:settings`(阅读设置:字号/行距/版心/字体,全站通用)。
 - **按卷各自存**,不跨设备。
 - ⚠️ 在 `file://`(直接双击打开)或沙箱预览里 localStorage 可能不可用 / 外部 JS 不加载。
   **必须用本地服务器或 GitHub Pages 打开**才完整(`python -m http.server` 或 VS Code Live Server)。
