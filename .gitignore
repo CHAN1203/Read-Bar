@@ -4,14 +4,18 @@
 # Subagent-driven-development scratch ledger
 .superpowers/
 
-# Background-sound audio binaries are NOT committed (keep repo light + under
-# GitHub's 100MB/file limit). Put loop files in books/<id>/audio/ locally and
-# list them in sounds.json; ship a small (<~2MB) seamless loop for deploy.
+# Background-sound audio binaries are ignored by default (keep repo light +
+# under GitHub's 100MB/file limit). Big source files stay local-only.
+# To SHIP a loop on the deployed site, add an explicit exception below for it
+# (a small, web-friendly file — a few tens of MB max), like calm-piano.mp3.
 *.mp3
 *.m4a
 *.ogg
 *.wav
 *.flac
+
+# Shipped background loops (exceptions — these ARE deployed):
+!books/du-bang/audio/calm-piano.mp3
 
 # OS / editor cruft
 .DS_Store
