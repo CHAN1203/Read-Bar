@@ -357,3 +357,16 @@ body.rl-immersive .rl-exit{display:block;}
 .rl-mk .rl-mkdel{flex:none; background:none; border:none; color:var(--faint); font-size:15px; cursor:pointer; line-height:1;}
 .rl-mk .rl-mkdel:hover{color:var(--bear);}
 @media (prefers-reduced-motion: reduce){ .rl-toast{transition:none;} }
+
+/* ---- volume notes ---- */
+.rl-vnotes{padding:10px 14px 4px; border-top:1px solid var(--line); margin-top:6px;}
+.rl-vnotes .rl-vh{font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); margin:2px 0 8px;}
+.rl-vadd{display:flex; flex-direction:column; gap:8px; margin-bottom:10px;}
+.rl-vadd textarea{width:100%; min-height:56px; resize:vertical; background:var(--bg); color:var(--ink); border:1px solid var(--line); border-radius:8px; padding:9px 11px; font-family:var(--serif); font-size:14px;}
+.rl-vadd button{align-self:flex-end; font-family:var(--mono); font-size:12px; color:#241a12; background:var(--amber); border:none; border-radius:7px; padding:7px 14px; cursor:pointer;}
+.rl-vadd button:hover{background:var(--amber-deep);}
+.rl-vn{border:1px solid var(--line); border-radius:9px; padding:10px 12px; margin-bottom:8px;}
+.rl-vn .rl-vnt{font-size:14px; color:var(--ink-soft); line-height:1.7; white-space:pre-wrap;}
+.rl-vn .rl-vndel{margin-top:6px; font-family:var(--mono); font-size:11px; color:var(--faint); background:none; border:none; cursor:pointer;}
+.rl-vn .rl-vndel:hover{color:var(--bear);}
+.rl-vnotes .rl-vempty{font-size:13px; color:var(--faint); line-height:1.6; padding-bottom:8px;}

@@ -302,6 +302,26 @@
   nBtn.addEventListener("click",renderMarks);
   renderMarks();
 
+  /* ===================== VOLUME NOTES ===================== */
+  var VK="readbar:vnotes:"+file;
+  var vnotes=store.load(VK,[])||[];
+  function saveVnotes(){ store.save(VK,vnotes); }
+  var vWrap=document.createElement("div"); vWrap.className="rl-vnotes";
+  vWrap.innerHTML='<div class="rl-vh">卷笔记</div>'
+    +'<div class="rl-vadd"><textarea id="rlVText" placeholder="记一条关于本卷的笔记…"></textarea><button id="rlVAdd">加笔记</button></div>'
+    +'<div id="rlVList"></div>';
+  var rlListForV=$("rlList"); rlListForV.parentNode.insertBefore(vWrap, rlListForV);
+  function renderVnotes(){ var L=$("rlVList");
+    if(!vnotes.length){ L.innerHTML='<div class="rl-vempty">还没有卷笔记。写一条关于这一卷的想法。</div>'; return; }
+    L.innerHTML=vnotes.slice().sort(function(a,b){return b.ts-a.ts;}).map(function(n){
+      return '<div class="rl-vn"><div class="rl-vnt">'+esc(n.text)+'</div><button class="rl-vndel" data-del="'+n.id+'">删除</button></div>'; }).join("");
+    [].forEach.call(L.querySelectorAll("[data-del]"),function(b){ b.addEventListener("click",function(){
+      vnotes=vnotes.filter(function(x){return x.id!==b.getAttribute("data-del");}); saveVnotes(); renderVnotes(); }); }); }
+  $("rlVAdd").addEventListener("click",function(){ var t=$("rlVText").value.trim(); if(!t) return;
+    vnotes.push({id:"v"+Date.now()+Math.floor(Math.random()*1e3),text:t,ts:Date.now()}); saveVnotes(); $("rlVText").value=""; renderVnotes(); });
+  nBtn.addEventListener("click",renderVnotes);
+  renderVnotes();
+
   /* ===================== KEYBOARD NAV ===================== */
   var help=document.createElement("div"); help.className="rl-help";
   help.innerHTML='<div class="rl-help-card"><div class="rl-help-h">键盘快捷键 <button class="rl-x" id="rlHelpX">×</button></div>'
