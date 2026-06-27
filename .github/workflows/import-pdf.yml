@@ -1,0 +1,40 @@
+name: Import PDF
+on:
+  push:
+    paths: ["_inbox/**.pdf"]
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install pymupdf english-words
+      - name: Convert new PDFs
+        id: conv
+        run: |
+          set -e
+          shopt -s nullglob
+          changed=0
+          for pdf in _inbox/*.pdf; do
+            echo "Converting $pdf"
+            PYTHONPATH=tools python -m pdf2readbar.cli "$pdf" --books-dir books --library books/library.json || { echo "convert failed"; exit 1; }
+            git rm -f "$pdf"
+            changed=1
+          done
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
+      - name: Open PR
+        if: steps.conv.outputs.changed == '1'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: import/pdf-${{ github.run_id }}
+          title: "Import: 新书(自动转换)"
+          body: |
+            自动从 `_inbox/` 转换的新书,请预览质量后合并。
+            (草稿级:扫描版不支持、复杂表格/公式会简化)
+          commit-message: "feat: import PDF book via pdf2readbar"
+          add-paths: |
+            books/**
