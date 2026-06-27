@@ -18,7 +18,16 @@ Futures / MGC,5 分钟执行、15 分钟做高周期背景)。这些书就是把
 ├── index.html                          # 【顶层书库书架】GitHub Pages 入口;fetch books/library.json,一书一卡渲染
 ├── books/
 │   ├── library.json                    # 【清单】书架的唯一事实来源;每本书一条 {id,title,subtitle,category,accent,href}
-│   └── du-bang/                        # 《读棒》= 一个自包含书文件夹(folder per book)
+│   ├── reader.css                      # 【共享阅读层 · 样式】给用 ../reader.css 的书(如 trends);读棒不用这份
+│   ├── reader.js                       # 【共享阅读层 · 逻辑】同上;内容 = du-bang 那份的副本
+│   ├── trends/                         # 《价格行为·趋势》= 4 卷正文 + 1 册读书笔记;卷用 ../reader.css 走共享层
+│   │   ├── index.html                  # 趋势封面/枢纽页(进度/统计/笔记本 + 4 卡 + 读书笔记卡)
+│   │   ├── tpa-trends_vol1_price-action-basics.html  # 第一卷 价格行为字母表(金 #d4a657)
+│   │   ├── tpa-trends_vol2_lines-and-channels.html   # 第二卷 趋势线与通道(绿 #26a69a)
+│   │   ├── tpa-trends_vol3_trends.html               # 第三卷 趋势(钢蓝 #7fa8c9)
+│   │   ├── tpa-trends_vol4_common-patterns.html      # 第四卷 常见趋势形态(紫 #b58bd4)
+│   │   └── reading-notes_trading-price-action-trends.html  # 读书笔记 · 分析阅读(钢蓝 #7fa8c9)
+│   └── du-bang/                        # 《读棒》= 一个自包含书文件夹(folder per book);自带 reader.css/js
 │       ├── index.html                  # 读棒封面/枢纽页,底部有知识导图入口
 │       ├── price_action_book_vol1.html # 第一卷 · 地基(accent 金 #d4a657)
 │       ├── price_action_book_vol2.html # 第二卷 · 趋势(accent 绿 #26a69a)
@@ -34,8 +43,10 @@ Futures / MGC,5 分钟执行、15 分钟做高周期背景)。这些书就是把
 
 > **书架是动态的,别再硬编码卡片。** 顶层 `index.html` 不含任何写死的书卡——它读
 > `books/library.json` 渲染。加书 = 在 `books/<id>/` 放好该书自包含的文件,再往
-> `library.json` 的 `books[]` 追加一条。`reader.css`/`reader.js` **各书自带一份**,放在该书
-> 文件夹里(读棒的 5 卷靠同级裸链接 `reader.css` 引用,所以必须和卷同目录)。
+> `library.json` 的 `books[]` 追加一条。**阅读层(`reader.css`/`reader.js`)两种挂法,看卷里怎么写链接**:
+> ① **自带**——裸链接 `reader.css`(同级),文件就放该书文件夹里(读棒 5 卷走这条,所以 `books/du-bang/`
+> 内必须各有一份);② **共享**——链接 `../reader.css`,用 `books/reader.css` + `books/reader.js` 这份**共享层**
+> (趋势卷 `books/trends/` 走这条,文件夹里不放,自动用 `books/` 那份)。要给某书定制就改回自带。
 
 ## 架构要点(改之前必读)
 
