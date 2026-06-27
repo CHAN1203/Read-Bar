@@ -51,13 +51,14 @@ Futures / MGC,5 分钟执行、15 分钟做高周期背景)。这些书就是把
    阅读光按钮已升级为「**阅读设置**」(Aa):含字号/行距/版心宽度/衬线⇄无衬线切换 + 调暗,设置存
    `readbar:settings`,全站通用,各阅读页 `<head>` 内联脚本在开页前应用(无闪烁)。另新增
    **键盘导航**:`[`/`]` 上/下一章 · `g` 回顶 · `f` 沉浸 · `?` 帮助;输入/编辑时自动禁用。
+   批注抽屉除"划线批注"外含**「卷笔记」区**(自由笔记,不必先选中文字,存 `readbar:vnotes`);封面页有**「笔记本」**按钮,按卷汇总卷笔记 + 有批注的划线;选区工具条在**窄屏改底部固定**(触屏靠 `selectionchange`/`touchend` 触发)。
    划线只在 `.col` 里的 `p / h2 / .lead` 上做;编辑模式按 `data-rl-edit` 顺序键定位块。
    阅读层**不碰**插图和动画。dock 在**右下角**(别放右上角,会挡知识导图的模式按钮)。
 
 ### 数据存储
 - 用 `localStorage`,带内存兜底。键名:`readbar:notes:<文件名>`、`readbar:prog:<文件名>`(续读定位 `{y,max}`,其中 `max` = 已读最远比例 0–1,单调递增,滚回不倒退;`y` = 续读定位滚动量)、
   `readbar:time:<文件名>`(阅读时长 + 起止记录)、`readbar:edits:<文件名>`(编辑模式的删除/改写)、
-  `readbar:settings`(阅读设置:字号/行距/版心/字体,全站通用)、`readbar:last`(全站最后在读 {file,ts})、`readbar:marks:<文件名>`(书签 [{id,y,label,ts}])、`readbar:book:<id>`(整书进度缓存 {pct,ts},封面页写 / 书库读)。
+  `readbar:settings`(阅读设置:字号/行距/版心/字体,全站通用)、`readbar:last`(全站最后在读 {file,ts})、`readbar:marks:<文件名>`(书签 [{id,y,label,ts}])、`readbar:book:<id>`(整书进度缓存 {pct,ts},封面页写 / 书库读)、`readbar:vnotes:<文件名>`(卷级自由笔记 [{id,text,ts}])。
 - **按卷各自存**,不跨设备。
 - ⚠️ 在 `file://`(直接双击打开)或沙箱预览里 localStorage 可能不可用 / 外部 JS 不加载。
   **必须用本地服务器或 GitHub Pages 打开**才完整(`python -m http.server` 或 VS Code Live Server)。

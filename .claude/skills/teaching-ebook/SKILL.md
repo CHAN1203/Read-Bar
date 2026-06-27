@@ -156,6 +156,8 @@ what makes the book auto-appear. The existing 读棒 book lives in `books/du-ban
    <script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
    ```
 
+5. 笔记:选中划线的批注存 `readbar:notes:<file>`,卷级自由笔记存 `readbar:vnotes:<file>`(=[{id,text,ts}]);封面页可用内联脚本按卷汇总两者做「笔记本」浮层(只读浏览,空卷不显)。
+
 ## Quality bar (what "good" looks like)
 
 - It opens with a clear, warm "how to use" that explains the Socratic pauses.
