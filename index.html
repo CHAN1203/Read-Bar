@@ -89,6 +89,9 @@
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important; transition:none!important; scroll-behavior:auto!important;}
   }
+  .book-prog{display:flex; align-items:center; gap:8px; margin:14px 0 0;}
+  .book-prog i{display:block; height:3px; background:var(--ac,var(--amber)); border-radius:2px; box-shadow:0 0 10px var(--ac,var(--amber)); min-width:2px;}
+  .book-prog span{font-family:var(--mono); font-size:11px; color:var(--muted); white-space:nowrap;}
 </style>
 </head>
 <body>
@@ -128,11 +131,13 @@
     var soon=b.available===false;
     var tag='<a class="book'+(soon?' soon':'')+'" style="--ac:'+esc(b.accent||"#d4a657")+'"';
     tag+= soon ? ' role="img"' : ' href="'+esc(b.href)+'"';
+    var bp=null; try{ var bk=JSON.parse(localStorage.getItem("readbar:book:"+b.id)||"null"); if(bk&&bk.pct!=null) bp=bk.pct; }catch(e){}
     return tag+'>'
       +'<span class="bar"></span>'
       +'<div class="head"><div class="t">'+esc(b.title)+'</div>'
       +(b.category?'<span class="badge">'+esc(b.category)+'</span>':'')+'</div>'
       +'<div class="sub">'+esc(b.subtitle||"")+'</div>'
+      +(bp!=null?'<div class="book-prog"><i style="width:'+bp+'%"></i><span>已读 '+bp+'%</span></div>':'')
       +'<div class="cta">'+(soon?'即将上架':'翻开 →')+'</div></a>';
   }
 
