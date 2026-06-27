@@ -35,13 +35,13 @@ def build(book: Book, books_dir: str) -> dict:
         page = T.unit_page(book.id, book.title, _esc(u.title), book.accent, railitems, sections, nav)
         with open(os.path.join(out_dir, u.slug + ".html"), "w", encoding="utf-8") as f:
             f.write(page)
-    # 极简 hub(完整 hub 见 Task 8 增强;此处保证可点进各单元)
-    hub = ("<!DOCTYPE html><html lang='zh-CN'><head><meta charset='UTF-8'>"
-           "<meta name='viewport' content='width=device-width, initial-scale=1.0'>"
-           "<title>%s</title></head><body style='background:#13161b;color:#e9e5d8;font-family:Georgia,serif;max-width:800px;margin:0 auto;padding:40px'>"
-           "<a href='../../index.html'>← 书架</a><h1>%s</h1><p>%s</p>%s</body></html>") % (
-               _esc(book.title), _esc(book.title), _esc(book.subtitle),
-               "".join('<p><a style="color:#d4a657" href="%s.html">%s →</a></p>' % (u.slug, _esc(u.title)) for u in book.units))
+    hub = T.hub_page(
+        book_id=book.id,
+        title=book.title,
+        subtitle=book.subtitle,
+        accent=book.accent,
+        units=[(u.slug, u.title) for u in book.units],
+    )
     with open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8") as f:
         f.write(hub)
     return {"id": book.id, "title": book.title, "subtitle": book.subtitle,
