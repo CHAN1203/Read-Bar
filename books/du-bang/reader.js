@@ -275,12 +275,40 @@
     });
   })();
 
+  /* ===================== BOOKMARKS ===================== */
+  var MK="readbar:marks:"+file;
+  var marks=store.load(MK,[])||[];
+  function saveMarks(){ store.save(MK,marks); }
+  var bToast=document.createElement("div"); bToast.className="rl-toast"; document.body.appendChild(bToast);
+  var bToastT;
+  function bFlash(msg){ bToast.textContent=msg; bToast.classList.add("show"); clearTimeout(bToastT); bToastT=setTimeout(function(){ bToast.classList.remove("show"); },1400); }
+  function curHeading(){ var hs=[].slice.call(document.querySelectorAll("main .col h2, main .col h3")); var y=window.scrollY+120, t="阅读位置";
+    for(var i=0;i<hs.length;i++){ if(hs[i].offsetTop<=y) t=(hs[i].textContent||"").trim().slice(0,30); } return t; }
+  function toggleMark(){ var y=window.scrollY, near=window.innerHeight*0.5, hit=-1;
+    for(var i=0;i<marks.length;i++){ if(Math.abs(marks[i].y-y)<near){ hit=i; break; } }
+    if(hit>=0){ marks.splice(hit,1); bFlash("已移除书签"); } else { marks.push({id:"m"+Date.now()+Math.floor(Math.random()*1e3),y:y,label:curHeading(),ts:Date.now()}); bFlash("已加书签 · b"); }
+    saveMarks(); renderMarks(); }
+  var marksWrap=document.createElement("div"); marksWrap.className="rl-marks"; marksWrap.id="rlMarks";
+  var rlListEl=$("rlList"); rlListEl.parentNode.insertBefore(marksWrap, rlListEl);
+  function renderMarks(){
+    if(!marks.length){ marksWrap.innerHTML='<div class="rl-mh">书签</div><div class="rl-mempty">按 <kbd>b</kbd> 在当前位置加书签,回头点这里跳回。</div>'; return; }
+    marksWrap.innerHTML='<div class="rl-mh">书签 · '+marks.length+'</div>'+marks.slice().sort(function(a,b){return a.y-b.y;}).map(function(m){
+      return '<div class="rl-mk" data-go="'+m.id+'"><span class="rl-mkl">'+esc(m.label)+'</span><button class="rl-mkdel" data-del="'+m.id+'" title="删除">×</button></div>'; }).join("");
+    [].forEach.call(marksWrap.querySelectorAll(".rl-mk"),function(el){ el.addEventListener("click",function(e){ if(e.target.closest("[data-del]"))return;
+      var m=marks.filter(function(x){return x.id===el.getAttribute("data-go");})[0]; if(m){ drawer.classList.remove("open"); scrim.classList.remove("on"); window.scrollTo({top:m.y,behavior:"smooth"}); } }); });
+    [].forEach.call(marksWrap.querySelectorAll("[data-del]"),function(b){ b.addEventListener("click",function(e){ e.stopPropagation();
+      marks=marks.filter(function(x){return x.id!==b.getAttribute("data-del");}); saveMarks(); renderMarks(); }); });
+  }
+  nBtn.addEventListener("click",renderMarks);
+  renderMarks();
+
   /* ===================== KEYBOARD NAV ===================== */
   var help=document.createElement("div"); help.className="rl-help";
   help.innerHTML='<div class="rl-help-card"><div class="rl-help-h">键盘快捷键 <button class="rl-x" id="rlHelpX">×</button></div>'
     +'<div class="rl-help-row"><kbd>↑</kbd><kbd>↓</kbd><kbd>空格</kbd><span>滚动翻页</span></div>'
     +'<div class="rl-help-row"><kbd>[</kbd><kbd>]</kbd><span>上 / 下一章</span></div>'
     +'<div class="rl-help-row"><kbd>g</kbd><span>回到顶部</span></div>'
+    +'<div class="rl-help-row"><kbd>b</kbd><span>加 / 取消书签</span></div>'
     +'<div class="rl-help-row"><kbd>f</kbd><span>沉浸模式</span></div>'
     +'<div class="rl-help-row"><kbd>Esc</kbd><span>退出沉浸 / 关闭</span></div>'
     +'<div class="rl-help-row"><kbd>?</kbd><span>这张帮助</span></div></div>';
@@ -302,6 +330,7 @@
       case "[": gotoChap(-1); e.preventDefault(); break;
       case "]": gotoChap(1); e.preventDefault(); break;
       case "g": window.scrollTo({top:0,behavior:"smooth"}); e.preventDefault(); break;
+      case "b": toggleMark(); e.preventDefault(); break;
       case "f": setImmersive(!document.body.classList.contains("rl-immersive")); e.preventDefault(); break;
       case "?": toggleHelp(true); e.preventDefault(); break;
     }
