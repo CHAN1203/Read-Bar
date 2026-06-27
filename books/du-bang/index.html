@@ -94,6 +94,22 @@
     *{animation:none!important; transition:none!important; scroll-behavior:auto!important;}
     .hero .rain{display:none;}
   }
+  #rlContinue{margin:30px 0 0;}
+  .rl-cont{display:flex; align-items:center; gap:14px; text-decoration:none; color:inherit; background:var(--surface);
+    border:1px solid var(--line); border-left:3px solid var(--amber); border-radius:var(--r2); padding:18px 22px; box-shadow:var(--shadow-soft); transition:border-color .3s var(--ease), transform .3s var(--ease);}
+  .rl-cont:hover{border-color:var(--amber-deep); transform:translateY(-2px);}
+  .rl-cont .rl-ck{font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--amber);}
+  .rl-cont .rl-ct{font-family:var(--serif); font-size:18px; color:var(--ink); flex:1;}
+  .rl-cont .rl-ca{color:var(--amber); font-size:18px;}
+  #rlStats{display:flex; gap:18px; margin:18px 0 0;}
+  .rl-stat{flex:1; background:var(--surface); border:1px solid var(--line); border-radius:var(--r2); padding:16px 18px; text-align:center;}
+  .rl-stat b{display:block; font-family:var(--mono); font-size:24px; color:var(--ink); letter-spacing:.02em; font-variant-numeric:tabular-nums;}
+  .rl-stat span{font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint);}
+  .rl-vprog{display:flex; align-items:center; gap:8px; margin-top:14px; border-top:1px solid var(--line); padding-top:12px;}
+  .rl-vprog i{display:block; height:3px; background:var(--ac); border-radius:2px; box-shadow:0 0 10px var(--ac);}
+  .rl-vprog span{font-family:var(--mono); font-size:11px; color:var(--muted); white-space:nowrap;}
+  .rl-vprog.zero span{color:var(--faint);}
+  @media (max-width:760px){ #rlStats{flex-wrap:wrap;} }
 </style>
 </head>
 <body>
@@ -119,6 +135,8 @@
       <div class="meta">苏格拉底式 · 手绘图解 · 自绘动画 · 五卷 + 一张知识导图</div>
     </div>
   </header>
+  <div id="rlContinue"></div>
+  <div id="rlStats"></div>
 
   <div class="poem">
     <div class="pt">门厅 · 一首小诗</div>
@@ -174,5 +192,39 @@
     <div class="q">「棒是字，势是句，市场是一篇终于被你读懂的文章。」</div>
   </footer>
 </div>
+<script>
+(function(){
+  var L=function(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}};
+  var VOLS=[
+    {f:"price_action_book_vol1",t:"字母表",n:"第一卷"},
+    {f:"price_action_book_vol2",t:"趋势",n:"第二卷"},
+    {f:"price_action_book_vol3",t:"震荡区间",n:"第三卷"},
+    {f:"price_action_book_vol4",t:"反转与楔形",n:"第四卷"},
+    {f:"price_action_book_vol5",t:"实战手册",n:"第五卷"}
+  ];
+  function pct(f){ var p=L("readbar:prog:"+f,null); return p&&p.max?Math.round(p.max*100):0; }
+  VOLS.forEach(function(v){ var card=document.querySelector('.vol[href="'+v.f+'.html"]'); if(!card) return;
+    var P=pct(v.f); var d=document.createElement("div"); d.className="rl-vprog"+(P?"":" zero");
+    d.innerHTML=P?('<i style="width:'+P+'%"></i><span>'+P+'%</span>'):'<span>未开始</span>'; card.appendChild(d); });
+  var last=L("readbar:last",null);
+  var lv=last&&VOLS.filter(function(v){return v.f===last.file;})[0];
+  var cont=document.getElementById("rlContinue");
+  if(lv){ cont.innerHTML='<a class="rl-cont" href="'+lv.f+'.html"><span class="rl-ck">继续阅读</span><span class="rl-ct">'+lv.n+' · 《'+lv.t+'》 · '+pct(lv.f)+'%</span><span class="rl-ca">→</span></a>'; }
+  else { cont.innerHTML='<a class="rl-cont" href="price_action_book_vol1.html"><span class="rl-ck">开始阅读</span><span class="rl-ct">从第一卷 · 《字母表》开始</span><span class="rl-ca">→</span></a>'; }
+  var totalSec=0, days={};
+  VOLS.forEach(function(v){ var t=L("readbar:time:"+v.f,null); if(t){ totalSec+=t.total||0; (t.sessions||[]).forEach(function(s){ days[new Date(s.start).toDateString()]=1; }); } });
+  function fmtH(s){ s=Math.floor(s); var h=Math.floor(s/3600), m=Math.floor(s%3600/60); return h?(h+"h "+m+"m"):(m+"m"); }
+  function streak(){ var d=new Date(); function key(x){return x.toDateString();}
+    if(!days[key(d)]){ d.setDate(d.getDate()-1); if(!days[key(d)]) return 0; }
+    var n=0; while(days[key(d)]){ n++; d.setDate(d.getDate()-1); } return n; }
+  var avg=Math.round(VOLS.reduce(function(a,v){return a+pct(v.f);},0)/VOLS.length);
+  var st=streak();
+  document.getElementById("rlStats").innerHTML=
+    '<div class="rl-stat"><b>'+fmtH(totalSec)+'</b><span>累计阅读</span></div>'
+   +'<div class="rl-stat"><b>'+(st?st:0)+'</b><span>连续天数</span></div>'
+   +'<div class="rl-stat"><b>'+avg+'%</b><span>完成度</span></div>';
+  try{ localStorage.setItem("readbar:book:du-bang", JSON.stringify({pct:avg, ts:Date.now()})); }catch(e){}
+})();
+</script>
 </body>
 </html>
