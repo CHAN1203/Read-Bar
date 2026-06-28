@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:accent" content="#d4a657">
+<title>股票大作手回忆录 · 五 大势！大势！大势！</title>
+<link rel="stylesheet" href="../reader.css">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#d4a657; --accent-soft:#33301f; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1408;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0; counter-reset:c;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(212,166,87,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1408; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(212,166,87,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+<style>figure img{width:100%;height:auto;display:block;border-radius:6px;}figure{padding:14px;}ul{margin:14px 0 14px 4px;padding-left:22px;color:#dcd8cc;}li{margin:6px 0;}h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:30px 0 4px;color:var(--ink);}.col section{padding:40px 0 6px;}</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">股票大作手回忆录<b>五 大势！大势！大势！</b></div>
+    <div class="shelf-nav"><a class="home" href="../../index.html">📚 书架</a> <a class="home" href="index.html">📖 本书</a> <a href="gushou_u06.html">← 上一篇</a> <a href="gushou_u08.html">下一篇 →</a></div>
+    <ol><a href="#u" class="active">五 大势！大势！大势！</a></ol>
+  </nav>
+  <main>
+    <header class="cover"><div class="col">
+      <div class="eyebrow">股票大作手回忆录</div>
+      <h1>五 大势！大势！大势！</h1>
+    </div></header>
+    <div class="col">
+      <section id="u"><div class="kicker">五 大势！大势！大势！</div><h2>五 大势！大势！大势！</h2>
+        <h3>五 大势！大势！大势！</h3>
+        <p>一般水平的凭报价纸带侦探行情的投机者——或者正如人们常常称呼他们的，纸带虫子 ——因为偏执于市场的单一方向而出错。我猜想，这和他们因为其他原因出错的机会不相上下。褊狭，意味着高度僵化，因此代价高昂。归根结蒂，投机的行当并不纯粹是数学，或者一套固定规则，无论这门行当的基本行为法则要求多么严格。即使在我自己阅读纸带的过程中，也加进了某些东西，而不单单是数学。其中包括我称之为股票习性的东西，即通过股票的行为特征来判断，未来它到底会不会按照你观察到的特定前兆来变化。如果某股票行为不对路，就不要碰它；因为，既然你不能准确揭示何处不对，就不能分辨它到底要走哪条路。不能查清事实，便不能判断。没有判断，就没有利润。</p>
+        <p>关注股票的习性并研究它的历史表现，其实是老生常谈。当我刚到纽约的时候，在一家经纪行的营业厅，有一位法国佬经常谈起他的图表。起初，我以为他是公司有意保留的一位怪人，因为公司的人都拿他没脾气。后来我发觉，他是一位很有说服力、很能打动人的说客。他说，唯一不撒谎的是数学，因为数学本来就不会撒谎。通过他绘制的曲线，他能够预测市场运动。他还能分析曲线，从中揭示，比如说，为什么基恩在其操纵出名的艾奇逊优先股（Atchison preferred）牛市行情时做法是正确的，为什么后来他在合伙操纵南太平洋铁路（Southern Pacific）行情时出了问题。曾经有这位或那位职业交易者前前后后尝试过法国人的系统——不过，他们后来都回到原来不科学的老一套，还是靠老一套谋生。他们说，他们临场随机应变的那一套更便当。我听说，法国人曾经声称基恩承认他的图表百分之百准确，但是如果在活跃市场实际应用的话，这种方法太慢了。</p>
+        <p>后来，有一家营业厅绘制了每天价格变化的图表。在图表上，股票数月内的价格变化一目了然。客户在打听到某个股票“不科学”的秘密利好消息之后，通过比较个股的行情曲线和一般市场的行情曲线，再牢记一定规则，就可能分辨它是不是具备相当的上涨可能性。他们把这些图表用作某种互补性的内幕消息来源。如今，大量的佣金经纪行都提供交易图表。它们都是由统计专家机构制作的，其中不仅包括股票行情，也包括商品行情。</p>
+        <p>我应该说，图表对会读图表的人有帮助，或者更准确地说，对那些能够消化图表信息的人有帮助。然而，普通的图表阅读者容易变得偏执于这样的看法，即谷、峰、主要运动和次要运动等就是股票投机的全部。如果他按照逻辑把他的信心扩大到极限，那就注定要破产。有一位极出色的人才，一家著名的股票交易所经纪公司的前合伙人，确实是一位训练有素的数学家。他毕业于一家著名的技术院校。他非常认真和细致地研究了许多市场的价格行为— —包括股票、债券、谷物、棉花、货币等市场，以此为基础设计了各类图表。他回溯了很多年的历史数据，跟踪市场之间的相关性以及市场的季节性变化——噢，每个方面都研究到了。他采用他的图表从事股票交易多年。他所做的，其实是利用了某种高智能平均方法的优势。据他们所说，他以前经常赢利——直到世界大战打破了所有市场先例为止。我听说，他本人和追随他的大客户在最终停手之前蒙受了千百万美元的巨大损失。然而，如果市场大势看涨，那么即便是一场世界大战，也不能阻止牛市行情；或者如果大势看跌，也不能阻止熊市行情。想赢利，判别大势便是你需要了解的一切。</p>
+        <p>我并不是有意离题，而是因为每当我想起自己在华尔街开头那几年，就忍不住要强调这一点。我现在知道当初自己不知道的是什么，之所以想起自己当年因无知而犯的错误，是因为这些错误恰恰也是一般股票投机者经年累月一犯再犯的。</p>
+        <p>我第三度重返华尔街，再次试图击败市场，我在正规股票交易所经纪行交易，手法相当活跃。我没有指望自己的业绩能够和我在对赌行一样漂亮，不过，我认为过一段时间自己会</p>
+        <p>比以前做得好得多，因为现在我有能力支配大得多的头寸。并且，我这时候已经看出，自己的主要缺陷在于，未能掌握股票赌博和股票投机的重大区别。话说回来，借助我阅读报价纸带的7 年宝贵经验，以及对这个行当拥有的一些天赋，我运用本金的结果虽然算不上挣到了大笔财富，但确实挣到了很高的回报率。和过去一样，我有时赢有时输，但是总体在赢利。我挣得越多，花得也就越多。对绝大多数人来说，这都是寻常的做法。不，不必一定只有挣快钱、容易钱的人才这样，而是对每一个人来说，只要他不是天生的守财奴。某些人，比如老拉塞尔·塞奇（Russell Sage），挣钱的本能和藏钱的本能都很发达，自然，他死的时候富得流油，但这有啥光彩呢。</p>
+        <p>每天，从早晨十点到下午三点，我专心致志地沉浸在击败股票市场的游戏中；三点之后，同样一心一意地沉浸在优游生活的游戏中。请不要误会。我绝不让享乐影响生意。当我亏损的时候，只是因为做错了，而不是因为生活放荡散佚而影响交易。我从来没有发生过精神涣散或四肢麻木而损害交易的情况。我承担不起任何可能导致身体和精神不适的事情。即使现在，我通常都在晚上十点之前就寝。当我年轻的时候，从来不玩得太晚，因为如果睡眠不足，便不能精力充沛地投入生意。因为我的总体业绩赢大于亏，所以我认为没有必要省吃俭用，放弃生活中的美好事物。市场总能供我所需。我逐渐建立信心，我的自信来自于对待自己谋生手段的职业化、不带感情色彩的态度。</p>
+        <p>我的交易方法第一个变化和时间因素有关。我不能像在对赌行一样，等到事态明朗而确有把握之后出击，捕获1～2 点。如果要在富勒顿的营业厅里捕获市场运动，就必须提早很多动手。换句话说，我不得不研判即将出现的行情，预期股票价格变动。这听起来平常得可笑，但是，你知道我到底说的是什么。这标志着我对待这行当态度的根本转变，这一点对我具有超乎寻常的重大意义。市场一点一滴地教诲我，博取小幅波动与预期必将发生的上涨行情和下跌行情之间具有本质区别，赌博和投机之间具有本质区别。</p>
+        <p>当我研究市场时，不得不回溯超过一个小时以上的历史行情——这样的研究方法，即使是在世上最大的对赌行里，我也不可能学会。我逐渐培养起对交易报告、铁路公司赢利、金融统计数据和商贸统计数字的兴趣。当然。我乐于大手笔交易，他们都叫我“豪赌小子”，不过，我也喜欢研究市场运动。凡是能帮助我更明智地交易的，我来者不拒、从不厌倦。为了解决某个问题，我首先必须对自己清楚地表述问题。当我认为自己已经发现了解决方案时，我必须证明自己是正确的。我知道，唯有一条途径可以证明自己正确，那就是，通过我自己的金钱。</p>
+        <p>现在看，我进步的过程似乎很慢。然而我觉得，当时我的学习过程已经达到了所能达到的最快程度，考虑到我正处在总体赢利状态。如果我当时更经常处于亏损状态，或许更有利于刺激我全身心地投入学习和研究。我肯定能够发现更多的自身缺陷。不过，我吃不准亏损到底有什么好处，因为如果我亏损更多的话，就会缺钱来实际检验我对交易方法的改进。</p>
+        <p>通过研究我在富勒顿公司赢利的交易记录，我发现，虽然我对市场的预期经常是100% 正确——也就是说，我对市场形势和普遍趋势的诊断——但是，我并没有挣到自己的“正确” 判断本身应有的那么多赢利。我为什么没做到呢？</p>
+        <p>从部分胜利的案例中可以学到和失败的案例一样多的东西。举例来说，在牛市行情开始的时候，我就已经看多了，并且知、行一致，已经买入股票。随后出现一轮上升行情，如我当初曾经清晰地预料的那样。到此为止，一切都好。然而，接下来我是怎么做的呢？唉，我听从老成持重的忠告，克制年轻人的轻浮毛躁。我决意要明智，谨慎从事、保守一点。谁都清楚，这么做的办法就是，先拿回到手的利润，等市场回调的时候再买回来。这正是我采取的做法，或者更准确地说，正是我力图做到的，因为我常常入袋为安，再等市场回落。事与愿违的是，回回都等不来市场回落。就这样，眼睁睁看着我的股票绝尘而去，继续上涨10 点，而我却拱手坐在一旁，只有4 点利润安稳收藏在“保守的”</p>
+        <p>口袋里。他们说，获利平仓绝不会让你变穷。是，你不会变穷。但是，在牛市行情下，你只拿到4 点利润，也绝不会变富。</p>
+        <p>当我本该挣到2 万美元的时候，却只挣到了2 千。这就是我的保守策略给我的报答。大约就在这个时期，我注意到，在本该挣到大钱的地方，我实际上只挣回了其中如此之小的比例；于是，我有了另一项发现，肥羊们的行事方式和他们的经验深浅有关，经验深浅决定方式的差异。</p>
+        <p>初学的羊羔一无所知，其他每个人，甚至包括他自己在内，都知道这一点。但是，下一个层次的投机者，或者说第二阶段的投机者，自以为知道很多，而且也让别人觉得他知道很多。他是有经验的肥羊，他可是做了功课的——不是研究市场本身，而是打听到了更高阶段的某些肥羊评论市场的只言片语。第二阶段的肥羊懂得一些避免损失金钱的方法，这些方法尚不为第一阶段的新手所知。正是这些半瓶子醋的肥羊，而不是那些100%的羊羔，一年365 天真正为佣金经纪行提供了收入来源。平均来看，他能挺上3 年半的时间；相比之下，初到华尔街一试身手的羊羔，通常只能挨过一个赛季，3 个星期到30 个星期不等。当然了，正是这些半瓶子醋的肥羊张嘴就是金光闪闪的交易格言和本行业各种金科玉律。从老经验们金口玉牙里掉出来的所有禁忌戒条，他都滚瓜烂熟——除了最主要的一条：绝不当肥羊。</p>
+        <p>这些半瓶子醋的肥羊是那种自以为经验丰富的人，因为他喜欢在股价下跌时买进。他等待市场下跌。他根据市场从顶部下跌的点数来计算自己占到的便宜。在大牛市行情里，普通新入市的羊羔对清规戒律和市场成例一无所知，因为盲目期望市场上涨而盲目买进。他挣的钱最多——直到出现某个正常回调，行情剧烈下跌，一把扫光他的利润。然而，半瓶子醋肥羊小心翼翼的做法，正是我自以为明智的那种做法——根据其他人的老经验。我知道自己必须改变在对赌行养成的做法，我以为自己正在通过改变来纠正自己的问题，特别是借助了一条客户群中老练交易者口中足赤真金的金科玉律。</p>
+        <p>绝大多数交易者——请允许我们称之为“客户”——都是相似的。你会发现，其中极少有人能够老实承认华尔街不欠他们分文的。在富勒顿公司，也是常见的客户群。各种层次、各种阶段皆备！喔，倒是有一位老兄和别人都不一样。头一件，他确实年长得多。第二件，他从不主动向旁人提供交易建议，从不吹嘘自己的赢利经历。他是一位倾听高手，专心致志地听取其他人的言谈。他似乎不大热衷于打听内幕消息——也就是说，他从来不问说话的人听说了什么或者知道什么。不过，如果某人主动给他提供消息，他总是礼貌有加地感谢提供者。有时候，他会再次感谢消息提供者——当消息证明是真的时候。但是，如果消息未被证实，他也从不抱怨，因此，没人知道他到底是采纳了那条消息，还是当作了耳旁风。他是交易厅里的一个传奇，这老家伙很富有，能够动用相当大的头寸。然而，从佣金上说，他并没有给这家公司贡献多少，至少别人很难注意得到。他的名字叫帕特里奇（Partridge），不过，他们背后给他起诨名叫“火鸡”，因为他胸膛宽厚，而且习惯把下巴搁在胸口，大摇大摆地在各间办公室走来走去。</p>
+        <p>那些客户统统渴望有人推一把，迫使自己有所作为，这一来如果失败的话就可以把错处都推到别人头上了，他们习惯于有事便找老帕特里奇，告诉他某位圈内人士的朋友的朋友建议他们操作某个股票。他们告诉他，听到这消息后什么都没做呢，想听他说说他们该怎么做。但是，不论他们听到的是买进还是卖出的消息，这老先生的回话总是同一句。</p>
+        <p>等那位客户讲完故事、诉说了自己的困惑后，接着问他：“您认为我应该怎么做？” 这时，这老火鸡把脑袋歪向一边，带着慈父般的微笑注视着那位交易同行，终于语重心长地开了口：“你知道，这是牛市！”</p>
+        <p>一次又一次，我听他说“噢，这是牛市，你知道！”好像他正在赠给你一份价值连城的护身符，而且用价值100 万的意外事故险保单包好了。当然，那时我并不懂他的意思。</p>
+        <p>有一天，一位名叫埃尔默·哈伍德（Elmer Harwood）的家伙冲进营业厅，火急火燎地</p>
+        <p>写好一张指令，交给店员。随即赶到帕特里奇身边，后者正彬彬有礼地听约翰·范宁（John Fannings）絮叨他那个老故事，说当时约翰凑巧听说基恩给他的一家经纪行下的指令，于是跟风买进，但是约翰只买了100 股，而且只挣了微不足道的3 点，当然了，紧接着约翰卖出之后，那股票3 天上涨了24 点。约翰向帕特里奇倾诉这件伤心事，这至少是第四回了，但是这老火鸡脸上堆满同情的微笑，就像头一回听说一样。</p>
+        <p>好，埃尔默找着这位老先生，和约翰·范宁招呼也不打一个，便急匆匆通报老火鸡：“帕特里奇先生，我刚刚出掉所有的克莱美斯汽车（Climax Motors）。我的人说，市场肯定要回调，我能用更便宜的价格买回来。所以你最好也这么办吧。我是说，如果你还没卖掉的话。”</p>
+        <p>埃尔默满腹狐疑地看着这个人，当初就是他把第一手买进消息传授给这个人的。业余的，或者说义务奉送的消息提供者，总觉得得着他消息的人欠了他天大的人情，甚至在他还不知道消息到底灵不灵的时候就是这感觉。</p>
+        <p>“是呀，哈伍德先生，我还拿着哪。当然了！”火鸡感激地说。埃尔默还惦记着这位老人，多好的人啊。</p>
+        <p>“好，是时候了，现在卖掉入袋为安，下次跌下来的时候再进。”埃尔默说，好像他刚刚给老人开了一张存款单。埃尔默从受益人的脸上没看到激动感恩的神色，于是继续道， “我刚刚卖掉手上的每一张股票！”</p>
+        <p>从他的声音和神态来看，保守估计，你也会觉得他至少是1 万股的大手笔。然而，帕特里奇面带难色地摇摇头，低声嘟囔：“不！不！我做不来！” “为啥？”埃尔默叫出声来。 “做不来就是做不来！”帕特里奇说。他一副极为难的样子。 “难道不是我给你消息买进的吗？” “是您，哈伍德先生，我对您非常感激。真的，打心里感激，先生。但是——” “打住！听我说！难道这股票没有在10 天里连涨7 点吗？难道没有吗？” “的确，我对您感恩戴德，我亲爱的兄弟。但是，我不能考虑卖掉这股票。” “你不能？”埃尔默反问，脸上开始显出疑惑的神色。绝大多数消息提供者同时也习惯于打探消息。</p>
+        <p>“是的，我不能。” “为什么不能？”埃尔默往前凑得更近。 “为什么，这是牛市啊！”老家伙说这话的样子，好像刚刚交代了长篇大论的详尽解答。 “那是啊，”埃尔默说，看上去因为失望而气恼。“是牛市，我跟你一样清楚。但是，你最好先把你那些股票卖了，回落的时候再买回来。这样，就好降低持股成本了。”</p>
+        <p>“我亲爱的兄弟，”老帕特里奇说着，显得十分痛苦——“我亲爱的兄弟，要是现在我把股票卖了，就丧失了自己的立场，那样的话，我到哪儿立足呢？”</p>
+        <p>埃尔默·哈伍德两手甩得高高的，摇着脑袋，走到我这边，寻求我的同情：“是不是莫名其妙？”他对我做耳语状，可调门却像在台上表演，“你说！”</p>
+        <p>我没吱声。于是，他继续道：“我告诉他看好克莱美斯汽车的消息。他买了500 股。现在已经有了7 点利润了，我建议他先出手，回调的时候再买回来，其实早该回调了。我刚才告诉他，你听他说什么？他说要是他卖了，就要丢饭碗。这话是怎么说的？”</p>
+        <p>“求您原谅，哈伍德先生。我没说我要丢饭碗，”老火鸡插嘴道，“我说的是丢掉我的头寸。等您和我一样老了，就会经历跟我一样多的繁荣和恐慌的轮回，到那时候就会知道，没人承担得起失去头寸的后果，就算约翰·D·洛克菲勒（John D Rockefeller）也不行。先生，我希望这股票回落，您能用低得多的价钱再买回你的筹码。但是我自己的能力仅限于根据自己多年的经验来交易。为得到这些经验，我已经支付大价钱了，我不想要再付第二次学费。不管说什么，我对您的感激就像已经把这笔钱存在银行里一样。这是牛市，你知道。”</p>
+        <p>说完，他踱着方步走开了，留下满脸茫然的埃尔默。</p>
+        <p>老帕特里奇的话对我当时没有多大影响，当我开始琢磨自己数不清的“捡了芝麻丢了西瓜”的败招时，才如梦方醒——我对大市的判断那么准，本应赚到大笔利润，然而每每只抓住其中一小部分。我对这个问题研究得越多，就越能清晰地认识到这位老人多么有智慧（图 5.1）。显然，当他年轻的时候，曾经遭遇同样的挫折，由此清楚地认识到自身的人性弱点。因此，他再也不允许自己受到这样的诱惑。多年经验教导他，这样的诱惑难以抵挡，另一方面，这样的诱惑总是被证明代价沉重，就像我已经付出的一样。</p>
+        <p>图5.1  经过1902 年的平淡和1903 年的下降趋势后，终于迎来了1904 年和1905 年波澜壮阔的大牛</p>
+        <p>市，最大涨幅超过l00%。请记住老帕特里奇语重心长的教诲：“噢，你知道，这是牛市！”正是在这轮牛市行</p>
+        <p>情中，26、27 岁的利弗莫尔终于领悟到大势的重要性，虽然他的资产并没有很快增长。</p>
+        <p>老帕特里奇之所以再三告诫其他客户：“噢，你知道，这是牛市！”本意乃是告诫他们，大钱不是从哪一次或几次个别起伏中产生的，而是从主要趋势中产生的——就是说，大钱不在于阅读行情纸带，而在于全面估量总体市场及其趋势。当我终于认识到这一点的时候，我觉得，我的交易教育前进了一大步。</p>
+        <p>就是这儿，请让我强调一点。我已经在华尔街打滚多年，赢过千百万美元，也亏过千百万美元，我要给你的忠告是：我之所以挣大钱，从来不是凭我的作为，而是始终凭我的无为。明白吗？凭我的耐心坚守。正确判断市场方向，其实没有什么奥妙可言。你总是发现很多人在牛市早期便已经看多，在熊市早期便已经看空。我认识许多人，他们都有能力精准把握时机并正确行动，当价格恰恰处在有潜力造就巨额利润之处时，便开始买进或卖出。然而，他们的经历总是和我同出一辙——也就是说，他们都没有从中实现真正算数的利润。既能够正确判断，又能够耐心坚守，这样的人凤毛麟角。我发现，这属于最难学会的内容之一。但是，作为一名股票作手，只有牢牢掌握这一点之后，才能赚大钱。对一名交易者来说，真正学会交易后赢得百万美元，比他在懵里懵懂的日子要挣几百美元还容易。 “会者不难，难者不会”，千真万确。</p>
+        <p>原因就在于，某人也许看市场一目了然，但是当市场正在花时间逐步酝酿他预料必然出现的进程时，却变得没有耐心或者怀疑动摇。如此之多的华尔街才俊，根本不属于肥羊的层次，甚至也不属于第三个等级，竟然不能幸免亏损，这正是其根源所在。不是市场打败了他们，是他们自己把自己打败了。他们虽然有脑子，却不能持之以恒。老火鸡如是操作，并如</p>
+        <p>是告诫同行，完全正确。他不仅有勇气把自己确信的判断付诸行动，更有明智的耐心坚持到底。</p>
+        <p>不理会市场大幅运动，一门心思抢进抢出，是我一项致命的错误。没有人能够捕获所有的波折。在牛市行情中，做法只能是买进并持有，直到你确信牛市已经接近尾声。要这么做，你就必须研究总体市场状况，既不是内幕消息，也不是影响个别股票的特殊因素。然后，忘掉你所有的股票；忘掉，才能保住！耐心等待，直到你看到——或者如果你愿意这么说的话，直到你认为你看到——市场方向逆转，即总体市场状况开始反向。你必得施展自己的才智和眼光才能做到这些，否则，我的忠告就像叫你“买低卖高”，白痴一般。最有益的一桩，任何人都能学会，是不再企图抓住行情最后的⅛美元——或者行情最初的⅛美元。这两个⅛美元，是世上代价最高的⅛美元。它们令股票交易者付出的代价加起来何止千百万美元，足以修建一条横跨美洲大陆的水泥高速公路。</p>
+        <p>通过研究自己在富勒顿营业厅的交易记录，我有另一个发现，在我交易懵里懵懂的程度减轻之后，我的操作最初很少出现亏损的情况。这自然导致我决定开仓就是大笔交易。同时，这也增强了我对自己判断能力的信心，使自己不至于受他人建议的干扰，甚至也不至于受自己偶尔沉不住气的干扰。在这个行当里，如果对自己的判断缺乏信心，没人能够走得很远。这些就是我学到的全部内容——研判总体市场状况，建立头寸，并坚持到底。我能不带丝毫急躁地等待。我能眼看着市场回调而不动摇，心里明白这只是暂时现象。我曾经在卖空10 万股的过程中预计市场出现大幅回升。我已经预计——并且是正确地预计——这样的回升，在我看来，这是不可避免的，甚至对行情是有益的，可能会对我的账面利润造成100 万美元的差别。尽管如此，我仍坚守立场，眼看着自己的账面利润席卷而去，却从不曾动一动这样的念头：先平回空头头寸，等市场上涨时再卖空。我明白，如果这么做，我就会丧失头寸，而只有我的头寸才会给我带来一网打尽的现实性。唯有大行情，才能为你造就大利润。</p>
+        <p>我学会这一切的过程之所以如此之慢，是因为我是从自己的错误中学习的，从犯错误到认识错误总是要花费时日，而从认识错误到确切纠正错误耗费的时间有过之而无不及。不过在这期间，我的小日子过得相当舒适，又很年轻，这些也算不无小补。我的大部分赢利在某种程度上还是得自我的行情纸带阅读技巧，因为当时所处的市场环境相当适合找的操作方法。我亏损的时候已经没有当年初闯纽约时那么频繁，或者那么气人了。当你想到我曾经在不到两年的时间内破产了3 次，那可没什么光彩的。当然，我曾经对你说过，破产是一种极为有效的教育方式。</p>
+        <p>我的本金并没有很快增长，因为我始终尽我所能地痛快过活。我并不克制自己拥有我这个年纪和口味的年轻人都想拥有的许多物质享受。我有自己的汽车，既然我的钱都是从市场上挣来的，生活马马虎虎不讲究，我觉得没有任何道理。理所当然，报价机只在星期天和节假日才停摆。每当我发现导致亏损的原因，或者查究出为什么犯、怎样犯另一个错误的时候，就会为自己的资产清单添加一款崭新的戒条。那么，如何把我日益增长的资产变现呢，最美妙的办法便是不削减生活开销。自然，我既享受过好玩的时光，也有过一些不那么愉快的体验，不过，要是我对你啰嗦这些细节，可就没完没了了。事实上，能够在我脑子里立刻浮现出来的那些事情，都是明确有益于我的交易教育的，都是增长我在这个行当的才干的——还有帮助我认识我自己的！</p>
+        <div class="divider"></div></section>
+    </div>
+  </main>
+</div>
+<script>
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a[href^='#']")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-8% 0px -80% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

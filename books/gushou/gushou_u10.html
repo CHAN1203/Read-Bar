@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:accent" content="#d4a657">
+<title>股票大作手回忆录 · 八 时机！时机！时机！</title>
+<link rel="stylesheet" href="../reader.css">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#d4a657; --accent-soft:#33301f; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1408;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0; counter-reset:c;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(212,166,87,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1408; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(212,166,87,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+<style>figure img{width:100%;height:auto;display:block;border-radius:6px;}figure{padding:14px;}ul{margin:14px 0 14px 4px;padding-left:22px;color:#dcd8cc;}li{margin:6px 0;}h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:30px 0 4px;color:var(--ink);}.col section{padding:40px 0 6px;}</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">股票大作手回忆录<b>八 时机！时机！时机！</b></div>
+    <div class="shelf-nav"><a class="home" href="../../index.html">📚 书架</a> <a class="home" href="index.html">📖 本书</a> <a href="gushou_u09.html">← 上一篇</a> <a href="gushou_u11.html">下一篇 →</a></div>
+    <ol><a href="#u" class="active">八 时机！时机！时机！</a></ol>
+  </nav>
+  <main>
+    <header class="cover"><div class="col">
+      <div class="eyebrow">股票大作手回忆录</div>
+      <h1>八 时机！时机！时机！</h1>
+    </div></header>
+    <div class="col">
+      <section id="u"><div class="kicker">八 时机！时机！时机！</div><h2>八 时机！时机！时机！</h2>
+        <h3>八 时机！时机！时机！</h3>
+        <p>1906 年夏天我在萨拉图加关于联合太平洋铁路的遭遇，令我对内幕消息和他人的谈论更加敬而远之——也就是说，他人的观点、推测和猜疑，无论出自交情深厚的朋友，还是精明强干的大能人，我一概敬谢不敏。事实，而非自负，已经向我证明，我有能力比其他绝大多数人更精准地阅读行情纸带。不仅如此，我的条件也比哈丁兄弟公司其他普通客户宽裕得多，因为我完全免受各种戴着有色眼镜的盘算或推测的影响。对我来说，做空不再比做多更有吸引力，反过来也一样。我唯一择善固执的一点是，绝不允许自己站在错误一边。</p>
+        <p>当我甚至还在少年的时候，就总是自己观察事实、自己刨根究底、自己领会意义。唯有经过这条道路，我才能真正认清事物的本质。如果是别人叫我从中领悟什么道理，我反而做不到。那些事实本来就是我自己的事实，明白吗？要是我信奉什么，你可以肯定，那必定就是因为我不得不信。我之所以做多股票，是因为我对市场状况的研究迫使我不得不看多。你看看，很多人徒有精明的名声，他们之所以看多，是因为他们已经持有股票。我不允许手上已有的头寸——或者先入为主的成见——为我做任何思考。我再三强调我从不和行情纸带争论，这就是缘故。因为市场意外地、甚或毫无道理地对你不利，你便对市场生气，那就像得肺炎的时候对肺生气一样荒唐。</p>
+        <p>我经历了一个逐步摸索的过程才最终完全认识股票投机事业的全貌，除了阅读行情纸带之外，还有极为丰富的其他内涵。帕特里奇老人认为，在牛市行情下必须始终保持看多的立场，这一点具有生死攸关的重要性。毫无疑问，正是他的执着促使我一心扑在压倒一切的头等大事上——确定当前市场大势。于是，我开始领悟到，大钱必然，也只能来自大规模行情。无论看上去可能是什么原因最初刺激了市场，事实是，大规模行情之所以持续，既不是因为有人联手操纵，也不是因为金融家的阴谋诡计，而是由基础环境条件所决定的。无论谁来阻碍，大规模行情都将不可避免地必然按照其推动力量所决定的幅度、速度和持续时间来展开。</p>
+        <p>在萨拉图加经历之后，我开始看得更清楚——或许应该说更成熟——既然整个市场的股票都按照大潮流的方向运动，那么，我过去自以为是地研究个别波动或者研究这个、那个股票的表现就没那么必要了。同时，如果某人以大规模行情为出发点，在交易时并不会受什么限制。他可以买进或者卖出整个名单里的股票。就单独某个股票而言，如果某人卖空的数量超过了总股本的一定比例，则做空是危险的，具体数额取决于该股票的持有情况，比如谁持有、以什么方式持有、成本价如何等。然而，如果他能交易总体性股票组合的话，那么即使卖出100 万股，也不可能出现逼空的风险。从前，卖空者不得不加意防范市场操纵和轧空陷阱，内幕交易者充分利用空头们杯弓蛇影的心理状态，每隔一段时间便能从他们身上榨取一笔巨额金钱。</p>
+        <p>显然，该做的就是在牛市行情看多、在熊市行情看空。这听起来有点傻，不是吗？然而，只有牢牢掌握这条基本原则之后，我才学会付诸行动，才明白如此行动乃是预期市场演变的大概率。我是花了很长时间才最终学会遵照上述原则交易的。不过，为自己说一句公道话，我得提醒你，其实直到这时候为止，我一直都没有足够充足的本金来按照这样的方式投机。要是你的交易限额足够大，那大幅行情当然就意味着大笔利润，而要有足够大的限额，你就必须在经纪商的账户上有一大笔本金。</p>
+        <p>我总是不得不——或者自认为不得不——每天从股票市场挣出当天的面包和黄油。这干扰了我积累本金的努力，本金多就可以采用获利更丰的长线方法，但是这样的方法来得慢，短期成本显得比较高，和炒作小幅波动的手法比起来，不那么立竿见影。</p>
+        <p>不过，现在不仅我对自己的信心增强了不少，我的经纪商也对我刮目相看，不再把我看</p>
+        <p>成偶尔走运的“豪赌小子”了。他们曾经从我身上大把大把地赚佣金，但是现在我很有希望成为他们的明星客户，如此一来，我对他们的价值就超过了实际的交易量。真能赚钱的客户对任何经纪公司来说都是一笔财富。</p>
+        <p>从我不再只见行情纸带不见市场全貌的那一刻起，我便不再让自己削尖脑袋只顾追求哪只股票的日常波动了，从此以后，我简直脱胎换骨，采用了一个全新的角度来看待市场。我从一个报价接着一个报价的歧途回归到上述基本原则的正道，从日常价格波动回归到市场基本趋势。</p>
+        <p>当然，我曾经在很长一段时间内每天照例吸食市场“麻醉剂”——财经媒介。所有交易者概莫能外。然而，其中大多数内容属于闲言碎语，部分甚至存心误导，余下的则纯属作者个人意见。也有声誉良好的每周评论，不过，当它们谈及市场基础状况的时候，也不能令我完全解渴。一般说来，金融编辑的角度和我的角度不同。整理事实并根据事实获取结论，对他们谈不上生死攸关，而对我来说却是。不仅如此，在考虑时间因素方面，他们和我之间也存在一道鸿沟。对我来说，分析已经过去的一周，不如预测即将到来的几周更有意义。</p>
+        <p>多年来，在我身上同时存在缺乏经验、年轻识浅、本金不足三方面弱点，于是我不幸沦为三重组合的受害者。但是，现在我终于体会到茅塞顿开的喜悦。我对市场的态度今是而昨非，也悟出了我企图在纽约挣大钱却屡遭败绩的原因。现在，我既有足够的资源，也有足够的经验和信心，但是我太急于尝试新发现的这把钥匙，以至于没有注意到大门上还挂着另一把锁——时机之锁！这样的大意再自然不过了。我不得不照例支付学费——每一次挫折和锤炼，以求得每一次进步。</p>
+        <p>我研究了1906 年的形势，认为资金前景特别严峻。世上很多实际财富已遭损毁。迟早，每个人都会感受到紧缩的压力，人人自顾不暇，难以帮助他人。打个比方，如果把一栋价值 1 万美元的住宅折腾为价值8000 美元的一车皮赛马，那是日子每况愈下。然而，我们这次面临的远不止是这类一般性的艰难时期。这一次，是房子遭了火灾，完全毁灭了；是火车失事，一车皮赛马所剩无几。这次是布尔战争期间百姓的血汗钱在大炮的缕缕青烟中化为灰烬，老百姓累千巨万地供给远在南非不事生产的士兵们，同历史上类似案例一样，对远在英国本土的投资者没有任何益处。这次也像旧金山的大地震和随后的大火灾，以及其他自然灾害一样，其影响席卷了每一个人——制造商、农场主、商人、劳工和百万富翁们。铁路必定遭受重创。我思量，已经没有任何东西能够挽狂澜于既倒。事已至此，那就只有一个选择了—— 卖股票！</p>
+        <p>我曾经告诉你，我注意到，一旦我下定决心选择某一方向交易，那么在最初尝试性建仓后，往往马上便能出现账面利润。不过，这一次我决定一笔倾囊卖出。我们正进入如假包换的熊市行情，既然对此已经不存疑问，我便确信应该挣到自人行以来最大的一笔战果。</p>
+        <p>市场下挫。然后，回升。一点点逐渐拉回，最后开始稳步上升。我的账面利润消失了，账面亏损逐步增加。一天，市场上看起来没有哪头熊能够大难不死，有机会讲讲这个的确如假包换的熊市了。我胆怯了。我轧平头寸。还算侥幸。要是没平仓，最后剩下的钱恐怕连买一张明信片都不够。我的大部分毛皮都被剥掉了，但是好歹留下一条性命，留得青山在，不怕没柴烧。</p>
+        <p>我犯了错误。但是，到底错在哪儿呢？我在熊市里看空，这是明智之举。我卖空股票，这也当得。但是，我卖得太快了。代价不菲。我的头寸是对的，但做法是错的。不管怎么说，每一天过去，市场距离无可避免的崩溃就近一天。于是，我等待，上涨势头开始畏缩，进而陷入停滞，我便尽我可惜已经缩水的保证金的最大限度，让他们替我卖出股票。这一次我是正确的——准确地说，是下一天一整天是正确的，因为再下一天，又是一轮上涨。再咬你一大块肉，真是痛彻骨髓！于是，我研读纸带，平仓，再等待。在这过程中，我再一次卖出— 再一次，市场先是很有希望地下跌，然后再毫不客气地上涨。</p>
+        <p>看起来市场好像存心和我过不去，尽其最大能事要把我打回原形，重新开始对赌行那种简单的交易方式。这是我头一次按照事先盘算好的明确的前瞻性方案、以总体市场为依归、不只看一两只股票的方式操作。我觉得如果坚持到底就必定能赢。当然，当时我还没有形成自己系统的下单方法，不然我会在下降行情中逐步建立空头头寸的，上次我曾经给你解释过这种办法。要是这样的话，也不至于损失这么多保证金。我也许会同样地犯错，但不会损伤如此惨重。你看，我已经观察到各方面的相关事实，但是尚未学会把它们融会贯通。由于我的观察不完整，结果非但没有给我帮忙，反而拖了我的后腿。</p>
+        <p>我已经发现，通过研究自己犯的错误，总能从中获益。就这样，我终于体会到，在熊市行情中不丧失空头头寸确实没错，但是不论什么时候，都应该先研读行情纸带，再抉择恰当的入市时机。如果你有一个良好的开端，就不会看到本已产生赢利的头寸遭到严重威胁；那么，在坚持到底的过程中就不会经受多少困扰。</p>
+        <p>当然，如今我对自己观察市场的精确性拥有更高的自信—其中既不掺杂一厢情愿，也不掺杂个人癖好——同时，我也拥有更多手段来确认我观察到的事实，并可以从各种角度来测试自己观点的正确性。然而，1906 年接连出现的回升行情严重地削弱了我的保证金（图6.1）。</p>
+        <p>当时我27 岁不到。我从事这个行业已经有12 年的经验了。但是，这是我生平第一次根据自己预期的尚未到来的市场危机来交易的，我透过望远镜观察到这场危机的到来。从观察到暴风雨滚滚乌云的第一瞥，到市场真正开始大幅下挫为我带来利润，之间的时间差距显然太大了，远远超过了我当初的预计，我不禁怀疑自己到底是否确实看到了我曾经认为清楚地观察到的景象。当时我们已经看到了许多警告信号，活期借款利率惊人地飙升。不过，有些大金融家还在发表乐观的看法——至少他们对报纸是这么说的——而股票市场一波又一波的上涨行情似乎证明那些悲观的看法不过是杞人忧天的谎言。我看空的立场是根本错误的呢，还是只是因为过早卖空而是暂时错误的呢？</p>
+        <p>我断定只是自己动手太早了，但是我实在忍不住。后来，市场开始下挫。我的机会来了。我倾全力抛空，之后市场再次回升，达到了相当高的水平。</p>
+        <p>这次我被扫地出门。就这样——我正确，却破产了！我告诉你，这事不同寻常。事情的经过是这样的：我朝前看，看到了一大堆美元堆在路边。在这一大堆美元上戳着一块牌子，牌子上大书着“任您自便”。旁边停着一辆大车，大车两侧刷着“劳伦斯·利文斯顿货运公司”的字样。我手上提着一把崭新的铁锨。视野所及，看不到其他人，因此在这场挖金子大赛中没有竞争对手，这是领先他人一步看到这个美元堆子的一大好处。或许有人也看到了这堆美元，但他们此刻没看，他们可能正忙着观看垒球比赛，或者正忙着开车兜风，或者正忙着看房子，并且打算用我盯着的这堆钱来付款买房。这是我头一回看到前头堆着大钱，自然要赶紧冲上去。然而，就在我碰到这堆钱之前，我的好运气转向了，我摔了个跟斗。那堆钱还在，但是我的铁锨却不见了，大车也没了踪影。欲速则不达！我太急于求成，太急于证明自己看到的是真金白银，而不是海市蜃楼。我看到了，而且心里很清楚自己看到了。我一门心思只想着我的好眼力即将带来的回报，以至于从来没有想一想自己和那堆美元之间还有多远的距离。我本该一路走过去，而不是一头扑上去。</p>
+        <p>这就是实际发生的情况。我没有耐心判断当时到底是不是正确的入市时机，便已经一头扎进空头一边。就在这一时刻，我本当发挥自己阅读纸带的长处，但我却没有。就这样我学到了一个教训，在熊市行情刚刚开始的时候即使看空是完全正确的，但最好也不要马上开始大笔卖出，一定要等到不存在发动机回火风险之后。</p>
+        <p>这么多年以来，我在哈丁的营业厅已经交易了千千万万股，更重要的是，公司对我有信心，我和公司的关系极为融洽。我觉得他们相信，过不了多久市场一定会再次证明我是正确的。他们知道我习惯于穷追猛打，只需一笔启动资金，我不仅能扳回所有损失，还能有赢</p>
+        <p>利。他们已经从我的交易中赚了很多佣金，将来还要赚更多。因此，只要我的信用保持可靠，在这里从头开始交易就一点儿问题也没有。</p>
+        <p>接连挨了这么多记板子，终于迫使我不再像当初那样过度自信，或许我应该说是更少一点粗心草率，因为我当然清楚自己离彻底完蛋只有一步之遥了。我竭尽所能地仔细观察并耐心等待，嗨，当初跳进市场之前早该这么做了。现在这么做并不是为了亡羊补牢，而是不得不慎之又慎，下一次尝试必须确有把握。人如果不犯错误，用不了1 个月就能拥有整个世界。但是反过来，如果他不能从自己的错误中汲取经验教训，迟早会一文不名。</p>
+        <p>好了，先生，一个晴朗的早晨当我来到城里的时候，又一次感到自信满满了。这一次没有任何疑问。我在所有报纸的金融版上都读到了同一则广告，而这正是我要的信号，当初入市的时候问题正在于我没有明智地等待这样的信号。北太平洋铁路和大北方铁路（Great Northern）两家同时宣布增发股票。为了持股人的便利，认购股票的款项可以用分期付款的方式支付。这样的体贴在华尔街还是头一回听说。我立即意识到，这显然不是什么好兆头。</p>
+        <p>多年以来，大北方铁路的优先股一直有一个屡试不爽的利好题材，公司每次宣告增发股票都意味着又要切开一个甜瓜分给优先股股东们，因为这些幸运的股票持有人有权按照发行价格买入增发的大北方股票。这些认购权很有价值，因为股票的市场价格总是高于发行价格。然而，现在货币市场银根如此之紧，以至于本国最有实力的投资银行家们对优先股持有人有没有能力一下子拿出这么多现金来兑现上述差价感到根本没把握。大北方铁路优先股当时的股价大约为330 美元！</p>
+        <p>我一赶到营业厅便对埃德·哈丁说：“现在正是卖出的时候了。我本该等到现在才动手的。只要看一眼那则广告你就全明白了，你不看看吗？”</p>
+        <p>他已经读过那则广告了。我向他指出我对银行家们让步分期付款的看法，但是他不太看得出大崩溃已经高悬在我们头顶。他认为最好还是等一等再动手大笔卖空，理由是市场已经习惯于大幅回升了。等一等，卖出价格或许会低一点，但是操作也更安全些。</p>
+        <p>“埃德，”我对他说，“这场崩跌酝酿的时间越久，发生的时候就会越剧烈。那则广告简直是银行家们签字画押的自白书。他们担心的，恰恰是我期待的。这是我们应该登上做空大船的信号，该等的都等到了。如果我有1000 万美元，此时此刻我要把每分钱都押上去。”</p>
+        <p>我不得不继续软磨硬泡。那则广告令人惊异，理性的人从中只能得出唯一的结论，但是埃德觉得还不满意。对我来说，这已经足够了，但是对营业厅里的大多数人来说都还不够。我卖出了一点点，可惜卖得太少了。</p>
+        <p>几天之后，圣保罗铁路非常好心地出来宣布它也计划再融资，要么是股票，要么是债券，我记不清了。不过，是什么并不要紧。要紧的是，我看到广告的第一眼就注意到，它再融资的支付日安排在早几天已经宣布的大北方铁路和北太平洋铁路增发股票的缴款日之前。明摆着的，这就像拿着扩音喇叭四处吆喝，声威赫赫的老圣保罗铁路正使尽浑身解数抢占另两家铁路公司的上风，因为华尔街上已经没有多少流动资金了。圣保罗铁路聘用的投资银行家们显然相当担心资金不够三家公司同时再融资，于是他们先下手为强，可不想玩什么“你先来，我亲爱的兄弟！”如果资金已经如此吃紧——你可以打赌，银行家们一清二楚——那么下一步是什么呢？铁路公司为争抢资金打破了头。可是没钱。答案是什么？</p>
+        <p>卖了它们！当然要卖！公众眼里只盯着眼前这一周的股票行情，对此几乎毫无觉察。明智的股票作手看到的是这一年的行情，于是注意到很多细节。外行看热闹，内行看门道，这就是区别。</p>
+        <p>对我来说，所有疑虑和踌躇一扫而光。从这一刻起，我下定决心。就在这一天早晨，我按照从此之后我始终遵守不渝的原则真正打响了我的第一场战役。我把我的想法和立场告诉了哈丁，他不反对我在330 左右卖出大北方铁路优先股，以及其他高价股票。我从早先犯下的巨大错误中得益匪浅，实施了更明智的卖出方式。</p>
+        <p>转眼之间，我的名声和资金状况就重新恢复了。在经纪公司营业厅里谋生，这也算是一个好处，无论赢利来自偶然还是并非偶然。不过，这一次我的正确绝对来自冷静和清醒，既不是出自一时灵感，也不是来自高明的行情纸带阅读技巧，而是认真分析影响总体股票市场的基本因素的结果。我不是在猜测，而是在预期市场不可避免的未来动向。我卖空股票，并不需要任何勇气的支撑。除了股票价格走低之外，我看不到其他的可能性，因此不得不照此行事，不是吗？舍此还能怎么办呢？</p>
+        <p>所有股票都像稀泥般疲软。不久，市场有些回升，于是人们跑来警告我，下跌行情已经触底了。那帮大鳄知道空头敞口的数量极为庞大，决意清洗筹码，要把老熊们的胆汁都挤出来。如此一来，就能让看空者们吐回千百万利润。这种事必定会发生，因为那帮大鳄丝毫不会心慈手软。我总是温言感谢那些善意的顾问，我甚至从不和他们争辩，因为那么一来他们就会觉得我不知好歹，不知道感激他们的警告。</p>
+        <p>那位曾经和我一道光顾亚特兰大城的朋友正备受煎熬。他能理解我当时的直觉，那一次不久之后就发生了大地震。他不能不相信直觉的魔力，因为我就是明智地服从了自己盲目的直觉卖出联合太平洋而获得了25 万美元的巨额利润。他甚至说，那一次是天意以某种神秘方式对我起了作用，驱使我卖出股票，而当时他自己是多头。而且他也能理解我在萨拉图加的第二次联合太平洋交易，他能理解任何只涉及一个股票的交易，因为他相信在单个股票上，内部消息早已预先确定了股票行情变动，涨也罢跌也罢。但是，预言所有股票必定下跌，这可真把他惹毛了。这样的消息究竟能对任何人有任何好处呢？在这种情况下，到底该怎么办才好呢？</p>
+        <p>我回想起老帕特里奇最喜欢的那句口头禅——“噢，这是牛市，你知道”——他说这话的意思，好像只要你足够明智，那么这句话就算得上十足的内幕消息了，而事实也的确如此。有一点令人非常好奇，市场已经崩跌了15～20 点，人们蒙受了巨大的损失，但是大家却依然抱着头寸不放，3 点的回升便足以勾起人们的期待，让大家坚信下跌行情已经到达底部，接下来就要完全恢复了。</p>
+        <p>一天，我的朋友来找我，他问我：“你平仓了吗？” “为什么平仓？”我说。 “理由充足到家了。” “什么理由呢？” “为了挣钱嘛。股票已经触底回升了，跌多少还得涨多少。难道不是吗？” “是呀，”我回道，“它们首先沉到底，然后再浮上来，可是不会马上便浮上来。它们必定要死气沉沉一些日子。现在还不到那些死尸浮上来的时候。它们甚至还没死透呢。”</p>
+        <p>一位老前辈听到了我俩的对话。他是那种总是触景生情、缅怀往事的老头。他说，威廉·R·特拉弗（William R．Travers）是个空头，有一次遇到一位看多的朋友。他们相互交流了对市场的看法，那位朋友对他说， “特拉弗先生，你对市场看空的想法怎么这么僵硬呢？” 特拉弗当即回道：“对！像尸——尸首那样死——死硬！”下面这事只有特拉弗干得出来。他来到一家公司的办公室，要求查阅公司的账簿。公司职员问他，“您持有本公司的股票吗？” 特拉弗回答：“应——应该说——说我有！我卖——卖空了2——2——20 万股——股票！”</p>
+        <p>好，回升势头越来越虚弱。我乘胜追击，倾囊卖出。每当我卖出几千股大北方铁路优先股的时候，股票价格便下挫几个点。我也在其他地方探索薄弱点，卖空一些股票。所有股票都低头屈服，但有一只例外，令人印象深刻，那就是雷丁公司（Reading）。</p>
+        <p>其他所有股票都像坐了滑梯，但是雷丁公司却岿然不动，就像直布罗陀山一样稳固。每个人都说这个股票被庄家控盘了。从它的表现来看，肯定像是这么回事。他们总是告诉我，卖空雷丁公司简直是自杀。营业厅里现在也有人和我一样看空其他所有股票。然而，但凡有人提到卖空雷丁公司，他们就会尖叫着喊救命。我自己卖空了一些，并且毫不动摇。与此同</p>
+        <p>时，我自然更喜欢探寻、攻击薄弱点，而不是进攻防守更顽强的堡垒。凭我阅读纸带的技巧，在其他股票上更容易获取利润。</p>
+        <p>关于做庄雷丁公司多头行情的那伙人，我的耳朵已经听出茧子了。这伙人实力极雄厚。根据我的朋友们透露的情形，他们起初在低位持有大量股票，因此他们的平均价位实际上低于当前主要价位。不仅如此，该团伙的主要成员与为他们重仓持有雷丁股份提供融资的各家银行人脉关系很深。只要股票价格保持在高位，他们与银行家朋友的交情就是牢靠的、不动摇的。团伙成员之一账面利润超过300 万美元。这样即使市场有所下跌，也不会伤筋动骨。无怪乎这只股票价格坚挺，藐视空头客的挑战。每过一阵子，场内交易商就会查查这只股票的价格，咂咂嘴，卖出1000～2000 股试试它的动静。一张跟风卖出的股票他们都没法子引出来，于是他们轧平头寸，到其他地方另谋更容易到手的钱。每次我看这个股票的时候，都会继续卖出一小部分——数量刚够用来说服我自己，表示我确实遵守了自己新的交易原则，不再只操作自己偏好的股票。</p>
+        <p>如果是往常，雷丁公司行情坚挺或许已经骗我中计了。行情纸带老在说：“别动它！”然而，我的理智要求我采取不同的做法。我预期的是普遍性崩跌，所有股票都不会例外，无论背后有没有做庄的团伙。</p>
+        <p>我从来都是单打独斗。在对赌行最初开始交易生涯的时候，我就是这样，从此一直保持不变。这是我的头脑施展才能的方式。我必须自己双眼观察、独自深思熟虑。但是，我可以告诉你，在市场开始朝我的方向运动后，有生以来我第一次感觉到自己有并肩作战的同盟军 ——世上最强大、最可靠的同盟军：基本形势。它们正竭尽全力来帮助我。或许有时候它们为了动员后备力量会稍稍延迟片刻，但是它们是值得信赖的，只要我没有过于不耐心。我不是凭自己阅读纸带的本事或者自己的直觉在和机会对抗。在一系列市场事件的背后存在着不可抗拒的内在逻辑，是它帮助我获利。</p>
+        <p>关键是选择正确的一边，知道哪边正确，并采取相应的措施。基本形势，我真正的盟友，命令“下跌！”，而雷丁公司拒绝服从命令。这冒犯了我们。其他所有股票都静伏下来，而雷丁依然坚挺如初，我开始感到恼怒。现在它应该成了所有股票中最佳的卖空对象，因为它还没有下跌，而做庄团伙持有太多股票，随着银根紧缩进一步加剧，将会无力继续持有。迟早有一天，银行家们的这伙狐朋狗友的际遇会落得和没有银行家做朋友的大众不分高下。这只股票必定逃不掉和其他股票一样的命运。如果雷丁不下跌，则我的推理是错误的；如果我的推理是错误的，则事实就是错误的；如果事实是错误的，则内在逻辑就是错误的。</p>
+        <p>我料想，该股票的价格之所以能够坚持，是因为华尔街害怕卖空它。于是有一天我给两家经纪商同时发出一份指令，分别卖空4000 股。</p>
+        <p>你真该在场亲眼看看那只被做庄的股票、那只被说成谁卖空谁就是自杀的股票，当卖空指令争相袭来时，它如断线的风筝一头栽下。我让他们再卖几千股。当我开始卖空的时候，股票价格是111 美元。几分钟之内，我便在92 美元的价位轧平了全部空头头寸。</p>
+        <p>在这之后，我度过了一段精彩的时光，1907 年2 月间，我全部清仓（图6.1、9.1）。大北方铁路优先股已经下跌了60 或70 点，其他股票下跌的比例不相上下。我已经获利不菲了，不过清仓的原因在于，我盘算下跌的幅度已经贴现了近期市场前景。我预期即将出现相当幅度的反弹，但是还不至于看好到入市做反转行情。我还不想完全放弃自己的立场。短期之内，市场可能不适合我介入交易。我之所以赔掉我从对赌行挣到的第一笔1 万美元，就是因为不顾季节、不分日子跳进跳出，不管市场条件是否合适。我不会重蹈当年的覆辙。另外，别忘了就在不久前我曾经破产过，因为我过早地预期这场崩跌的到来，在时机到来之前过早地开始卖出。现在既然已经拥有了巨额利润，我希望变现，以便更真切地感受到我始终站在正确的一边。回升行情曾经令我破产。我不会再让下一步的回升把我一扫而光。我没有坚持到底，而是去了佛罗里达。我热爱钓鱼，也需要休整一番。在那儿可以一举两得。此外，在华尔街</p>
+        <p>和棕榈滩之间，也安装了直连电报线。</p>
+        <div class="divider"></div></section>
+    </div>
+  </main>
+</div>
+<script>
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a[href^='#']")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-8% 0px -80% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:accent" content="#d4a657">
+<title>股票大作手回忆录 · 九 从基本形势预见流动性危机，成为市场之王</title>
+<link rel="stylesheet" href="../reader.css">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#d4a657; --accent-soft:#33301f; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1408;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0; counter-reset:c;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(212,166,87,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1408; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(212,166,87,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+<style>figure img{width:100%;height:auto;display:block;border-radius:6px;}figure{padding:14px;}ul{margin:14px 0 14px 4px;padding-left:22px;color:#dcd8cc;}li{margin:6px 0;}h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:30px 0 4px;color:var(--ink);}.col section{padding:40px 0 6px;}</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">股票大作手回忆录<b>九 从基本形势预见流动性危机，成为市场之王</b></div>
+    <div class="shelf-nav"><a class="home" href="../../index.html">📚 书架</a> <a class="home" href="index.html">📖 本书</a> <a href="gushou_u10.html">← 上一篇</a> <a href="gushou_u12.html">下一篇 →</a></div>
+    <ol><a href="#u" class="active">九 从基本形势预见流动性危机，成为市场之王</a></ol>
+  </nav>
+  <main>
+    <header class="cover"><div class="col">
+      <div class="eyebrow">股票大作手回忆录</div>
+      <h1>九 从基本形势预见流动性危机，成为市场之王</h1>
+    </div></header>
+    <div class="col">
+      <section id="u"><div class="kicker">九 从基本形势预见流动性危机，成为市场之王</div><h2>九 从基本形势预见流动性危机，成为市场之王</h2>
+        <h3>九 从基本形势预见流动性危机，成为市场</h3>
+        <h3>之王</h3>
+        <p>我乘船沿着佛罗里达海岸巡游。钓鱼的过程很顺利，钓饵都用完了，身心放松。这段日子很美好。一天在棕榈滩外边，有些朋友乘摩托艇来到船上，其中一位随身带着一份报纸。我有日子没看报了，也提不起兴趣看。但当我扫了一眼朋友带到游艇上的那份报纸后，我看到市场已经经历了一轮大幅回升，幅度有10 点或更多。</p>
+        <p>我告诉朋友们我打算和他们一起上岸。市场不时形成温和的回升行情是合理的。然而，熊市还没有结束，要么是华尔街，要么是愚蠢的大众，要么是那些绝望的多头，他们不顾紧缩的货币环境，亲自上阵或者唆使他人把价格推升到了合理的范围之外。在我看来，这太过分了。我必须观察一下市场。我还不清楚自己下一步会不会有所动作，但是我很清楚自己现在迫切需要看到报价板。</p>
+        <p>我的经纪商，哈丁兄弟公司，在棕榈滩设有一个分部。当我走进去之后，发现很多相熟的老伙计都在这里。其中大多数人的言论都是看多的。他们是那种凭纸带交易的类型，喜欢快进快出。这类交易者不愿意费心向前看得太远，因为他们的交易方式不需要。我曾告诉你，我是怎么在纽约的营业厅成为颇有名气的“豪赌小子”的。当然，人们总是对某人的赢利和交易手笔夸大其词。营业部里那群伙计已经听说我在纽约做空狠狠赚了一票，现在他们预期我会再次一头扎进空头一边。他们自己的想法是回升行情还将持续相当长时间，不过他们宁愿认为对多头进行反击是我的责任。</p>
+        <p>我来佛罗里达是一趟钓鱼之旅。我已经经受了相当紧张的交易压力，需要享受一个假期。但是，当我看到反弹行情把价格推高到这种地步的时候，便不再感觉需要度假了。当我上岸的时候，本来没有考虑下一步该做什么。但是，现在我知道我必须卖空股票了。我是正确的，我必须通过我习以为常的途径，也是唯一的途径来证明这一点——用金钱说话。卖出总体市场性的股票组合可能是合适的、理性的、有利可图的，甚至可以说是爱国的行为。</p>
+        <p>我从报价板上第一眼看到的是阿纳康达公司（Anaconda），它正处在跨越300 点的边缘。它已经经历了突飞猛进般的回升过程。显然它背后藏着一伙咄咄逼人的多头群体。我有一个由来已久的交易诀窍，当股票第一次超越100、200 或300 点整数大关之后，价格不会停留在这些整数附近，而是继续上升较大的幅度，因此，如果在它刚刚穿越界线时立即买进，你几乎肯定能看到利润。胆小的人不喜欢在股票创历史新高的时候买入。但是，我对这类价格运动的历史案例的观察指引着我。</p>
+        <p>阿纳康达公司只是一个低四分位的股票——也就是说，该股票的面值仅有25 美元。这个股票需要400 股才相当于通常面值为100 美元的100 股其他股票。我估计，当它突破300 点之后，就应该继续上涨，转眼之间便可能触及340 点。</p>
+        <p>请记住，我是看空的，不过我也是一个凭行情纸带交易的人。我了解阿纳康达公司，如果它果真按照我所预料的走法，变化会很快。不管什么，只要变化快，总是对我的胃口。我已经学会既要有耐性，还要坚持到底，不过，我天生偏好快速变化，而阿纳康达公司肯定不是慢性子。我之所以当它超越300 就买进它，是受到内心欲望的驱使，那就是要验证自己的观察，这种欲望在我身上总是十分强烈。</p>
+        <p>就在这一时刻，纸带说买进力量强于卖出力量，因此市场普遍性的上涨态势或许容易再延续一段。审慎的做法是等一等再卖空。不过，我也可以为我的等待挣一点酬劳。从阿纳康</p>
+        <p>达公司上快速抢进30 点的利润差不多就能实现这个心愿了。对整个市场看空，单单对一个股票看多！于是我买进了3.2 万股阿纳康达公司——相当于8000 股整数面值的股票。这有点儿孤注一掷，但是我确信自己的假说，而且我料想这笔交易的利润有助于膨胀我的保证金，更有利于下一步做空。</p>
+        <p>第二天，因为北方暴风雪或者其他类似的原因，电报线被刮断了。我在哈丁的营业部等待进一步的消息。人群中不时发出牢骚，什么想法都有，交易商们做不成交易的时候就是这样。后来我们得到了一个报价——整天就得着这一个：阿纳康达，292。</p>
+        <p>有位伙计和我在一起，他是我在纽约遇到的一位经纪商。他知道我做多了8000 股整数面值的股票，并且我猜他也给自己买了一些，因为当我们得到那个报价的时候，他肯定眼前一黑。他搞不清此刻这个股票是又跌去了10 点呢，还是停住不动了。从阿纳康达涨上来的样子来看，要是它一下子跌掉20 点也没什么不寻常的。不过，我对他说：“别担心，约翰。明天就好了。”我真是这么感觉的。但是他看着我，摇了摇头。他觉得他自己更明白，他就是这样的人。于是我大笑作罢，继续在营业部里等着，说不定还会有一些报价滴漏过来。然而没有，先生。那一个是我们当天的唯一收获：阿纳康达，292。这意味着我的账面亏损接近10 万美元。我想来个快的，好，快的来了。</p>
+        <p>下一天，电报线路恢复，如常收到最新报价了。阿纳康达开市于298，上升到302¾，但是很快它的势头就慢慢消磨掉了。同时，市场上其他股票表现得也不像还有进一步上涨余地的样子。我打定主意，如果阿纳康达跌回301，我就必须断定它的整个这轮行情都是假象。如果它的上涨行情合理的话，价格应该已经一鼓作气达到310 了。如果它不涨反跌，就意味着我观察的那些范例辜负了我，我现在是错误的，而当一个人犯错的时候，唯一该做的就是停止继续犯错、重回正确的一边。因为预期30～40 点的上涨，所以我买进了8000 股整股。这不是我第一次犯错，也不会是最后一次。</p>
+        <p>果不其然，阿纳康达跌回到301。就在市场触及这个数字的那一刻，我悄悄溜到电报员旁边——他们和纽约营业厅之间有直线电报——对他说，“卖出我所有的阿纳康达，8000 股整股。”我压低嗓门。我不打算让任何人知道我在干什么。</p>
+        <p>他抬起头看着我，几乎吓呆了。然而我点点头，“全卖掉！” “没问题，利文斯顿先生，您的意思不是市价方式吧？”他的神色看起来好像因为漫不经心的经纪商会把指令执行得很拙劣，他自己就要赔掉几百万美元了。不过，我简短地吩咐他，“卖出！别多问！”</p>
+        <p>营业部里有两个布莱克家族（Black）的小伙子，吉姆（詹姆斯的昵称）和奥利（奥利弗的昵称），他俩听见了电报员和我之间的对话。他们都是大交易商，从芝加哥来，在那儿曾经是小麦市场的著名炒家，现在他们都在纽约股票交易所大手笔交易。他们很富有，喜欢挥金如土。</p>
+        <p>当我离开电报员走回报价板前的座位时，奥利弗·布莱克对我微笑着点点头。 “你会后悔的，拉里。”他说。我停住脚，问他：“你是什么意思？” “明天你会把它再买回来的。” “把什么买回来？”我说。除了那个电报员，我对谁都没说过。 “阿纳康达，”他说，“你会付320 的价钱。这次的做法可不怎么高明，拉里。”他再次微笑起来。</p>
+        <p>“什么不高明？”我做出一副茫然的神色。 “按市价卖出你的8000 股阿纳康达，而且你还一再坚持。”奥利弗·布莱克说。我知道他应该是非常聪明的，而且总能凭内幕消息交易。但是，他怎么能这么清楚我的生意呢？我搞不明白。我确信营业部没有出卖我。</p>
+        <p>“奥利，你怎么知道这些的？”我向他打听。他大笑，然后告诉我，“我从查理·克拉泽那儿知道的。”就是那位电报员。 “但是他从来没有离开过座位呀。”我纳闷道。 “我听不到你和他的耳语，”他咯咯笑着，“但是我听到了他发给纽约营业厅的电报上的每个字。好几年前我学会了发电报，当时我的一份电报被弄错了一个地方，结果和他们大吵一场。从那之后每当我要像你刚才那样办事的时候——向电报员口授交易指令的时候—— 一定要确保电报员发出的电报正如我口授的内容。我知道他以我的名义发出的内容。但是你会后悔卖出阿纳康达的。它要涨到500。”</p>
+        <p>“不是这一趟，奥利。”我回道。他瞪着我，对我说：“你口气不小嘛。” “不是我，是纸带。”我说。那里没有报价机，因此没有行情纸带。但是他知道我指什么。</p>
+        <p>“我听说过那些伙计，”他说，“他们盯着纸带，眼里看到的却不是价格，而是一张股票到站、出站的铁路时刻表。不过他们都被关到墙上装了衬垫的精神病院病房里了，这样才不会伤着自己。”</p>
+        <p>我一句也没回他，因为就在这时营业部的小伙计送来了成交报告。他们在299¾卖出了 5000 股。我知道这里的报价稍稍落后于市场。当我向电报员发出卖出指令的时候，棕榈滩营业部报价板上的价格是301。就在那一时刻，我有很确定的感觉，纽约股票交易所场内该股票的实际交易价格一定更低，要是有任何人提出愿意以296 的价格从我手中接过这些股票，我一定会一口答应，并且开心得要死。刚刚发生的事情说明，我从来不以限价方式交易是对的。假定我把卖出价格限定在300，结果会怎样呢？我就绝不可能脱手了。不，先生！当你想离场的时候，一定要离场。</p>
+        <p>现在，我的股票成本价差不多在300。他们在299¾又脱手了500 股——我指的当然是整股。下一笔是1000 股，在299⅝卖出。然后，100 股，299½；200 股，299⅜；200 股，299¼。最后剩下的股票在298¾脱手。哈丁公司最聪明的场内交易员足足花了15 分钟才能脱手最后那100 股。他们不想把口子撕得太大。</p>
+        <p>在接到最后一笔多头股票卖出成交回报的那一刻，我开始做我这趟上岸真正想做的事情 ——那就是，卖空股票。这是不得不为。市场在肆无忌惮地回升之后，正乞求你来卖空。嗨，人们正开始重新拾起看多的话头呢。然而，市场演变轨迹告诉我，回升行情的路已经走到头了。现在卖空是安全的。这无须多想。</p>
+        <p>下一天，阿纳康达开盘价低于296。奥利弗·布莱克满心期待它进一步上涨，一大早就来到营业部，希望亲眼目睹该股票跨越320。我不知道他做多了多少股，一股没有也说不定。不过，当他看到开盘价的时候，没有哈哈大笑；该股票当天后来进一步走低，当时他也没有笑；我们在棕榈滩得到的最新报告说，该股票根本没有市场。他还是没笑。</p>
+        <p>自然，对任何人来说，这就是他需要的全部验证信号。我的账面利润每个小时都在不断增长，不断提醒我，我是正确的。当然，我卖出了更多股票。什么都卖！这是熊市。所有股票都在下跌。再下一天是星期五，华盛顿生辰纪念日</p>
+        <p>①（图6.1、9.1）。我不能再待在佛罗里达钓鱼，因为我已经建立了相当大的空头头寸。对我来说很大。我必须赶回纽约。那儿谁需要我？我自己！棕榈滩离市场太遥远、太偏僻了。来来回回打电报，耗费了太多宝贵时间。</p>
+        <p>我离开棕榈滩，返回纽约。星期一，我不得不在圣奥古斯丁消磨3 个小时，等下一趟火车。那里也有一家经纪商营业部，在等车的空当里我自然必须去看一看市场今天的表现。阿纳康达从上一个交易日向下突破了几个点。实际上，它从来没有停止下跌，直到当年秋天大崩溃之后。</p>
+        <p>① 华盛顿生展纪念日是2 月22 日，利弗莫尔指的是1907 年2 月22 日，请对照图6.1 和9.1。</p>
+        <p>我赶回了纽约，继续做空了大约4 个月（图9.1）。和往常一样，市场时常出现回升行情，我总是先平仓然后伺机再卖出。严格说来，我并没有持股坚守。请记住，我曾经亏光了从1 日金山大地震的崩跌行情中挣到的30 万美元的每个子儿。当时我是正确的，但是却依然免不了破产。现在我谨慎从事——人在走完背运之后，终究有时来运转的时候，即便不一定能好到极点。挣钱的办法就是挣钱本身。挣大钱的办法就是精准地在恰当的时机选择正确的一边。在这行生意中，人必须既考虑到理论，又考虑到实际。投机客一定不能仅仅当一名学生，他必须既是学生，同时也是投机者。</p>
+        <p>图9.1  本图译者辑自【美】肯·费雪的《华尔街的华尔兹》（第89 页，刘雨译，中国青年出版社，2008</p>
+        <p>年）。利弗莫尔在1906 年下半年已经开始看空股市，但是没有耐心等待时机，过早卖空又不得不斩仓。以</p>
+        <p>至于把他在旧金山大地震期间获得的25 万美元赢利损失殆尽。不过，他终于学乖了，1907 年既看空，又</p>
+        <p>有耐心等待时机，还能采取逐步建仓的试错方法，终于获得重大赢利。</p>
+        <p>我干得相当漂亮，虽然从我现在的角度看，当时在战略上还有不足之处。夏天开始的时候，市场变得沉闷起来。看来，不到仲秋之后，肯定没有什么大行情可做了。我认识的每个人要么已经去了要么正打算去欧洲旅行。我觉得，去一趟肯定对我有好处。于是我出清所有头寸。当我开始向欧洲航行时，我的盈余比整百万美元的¾稍微多一点。在我看来，这个数字像是一笔盈余的样子了。</p>
+        <p>我在艾克斯温泉镇（Aix—les—Bains）逍遥。我为自己挣来了这趟休假。揣着大把钞票，和朋友们、熟人们以及其他悠游放松的人们一起呆在这样的地方，实在太好了。在艾克斯，</p>
+        <p>所有享受都来得轻松愉快。我远离华尔街，脑子里几乎没有闪过一丝关于它的念头。我敢说，这里的度假胜地胜过美国本土的任何一处。在这里，我不必听人讨论股票市场，我无需做交易。我有足够的钱来维持相当长时间的开销。不仅如此，当我回去的时候，我还知道怎样做能够挣到更多利润，比我夏天在欧洲的开销多得多。</p>
+        <p>一天，我在《巴黎先驱报》（Paris Herald）上看到一则从纽约发来的报道，斯梅尔特冶炼公司（Smelters）宣布额外增发红利。他们做庄推高了该股价格，整个市场相当强劲地回升。看到这个消息后，对我来说艾克斯温泉镇的一切都不同了。这个消息明白地显示，多头圈子依然负隅顽抗，绝望地对抗基本形势——对抗普通的常识和普通的诚实，因为他们知道即将到来的是什么，他们施展这样的诡计，意图在风暴到来之前推高股市他们好出货。也可能他们真的不相信危险的局面如此严重，或者如此迫在眉睫，和我的想法不同。华尔街大佬们的想法往往倾向于一厢情愿，正如政治家们或者寻常的肥羊们一样。我不允许自己以这种方式思考。在投机者身上，这样的态度是致命的错误。或许炮制新证券或者推销新企业的投资银行家有本钱沉湎于满怀希望的幻觉之中。</p>
+        <p>我清楚，一切多头操纵无论多么天衣无缝，在熊市行情下都已经注定了失败的命运。我在读到那则消息的一刻便知道，只有唯一的一件事可以安心地做，那就是卖空斯梅尔特。嗨，内部人士的行径无异于跪倒在地求我这么做，因为他们就在发生货币恐慌的边缘提高了股利率。这就像在少年时代别人挑战你“敢不敢”时那样令你激怒。他们挑战我不敢卖空这个特别的股票。</p>
+        <p>我打电报发出了一些卖空斯梅尔特的指令，也建议我在纽约的朋友卖空它。当我从经纪商那里拿到成交回报时，看到他们做到的成交价格比我曾经在《巴黎先驱报》上读到的报价低6 个点。这就向你揭示了当前形势。</p>
+        <p>我原本计划当月底回巴黎，3 个星期之后航行回纽约，但我一从经纪商那里得到成交回报的电报，就动身返回巴黎。到达巴黎当天，我打电话给蒸汽船公司，发现第二天就有一趟快船前往纽约，于是我便赶上这趟船。</p>
+        <p>就这样，我返回纽约，比我原先的计划几乎提早了一个月，因为在这里做空市场最令人安心。我手上的现金远超过50 万美元，都可以用作保证金。我的回报不是来自我看空，而是来自我的行动服从逻辑。</p>
+        <p>我卖出更多股票。随着银根进一步收紧，短期贷款利率继续上升，股票价格继续走低。我已经预见到这种局面。起初，我的远见曾经令我破产。但是，现在我既正确又成功。无论如何，真正令人开心的是清醒地意识到，作为一名交易者，我终于走上了正确的轨道。我还有很多东西需要学习，但是我知道做什么了。再也没有踉跄挣扎，再也不是半生不熟的方法；纸带阅读技巧是这个行当的重要组成部分，选择正确的时机入市同样重要，坚定持有你的头寸也同样重要。然而，我最大的发现在于，你必须研究总体形势，按照各方面的影响大小排列顺序，由此就能预期市场未来发展的可能性。一言以蔽之，我学到了必须通过自己的努力才能获得回报。我不再盲目赌博，或者偏执于追求这门游戏的技巧，而是通过艰苦的研究和清晰的思维来赢得成功。同时我还发现，没人能够真正避免肥羊交易方式的危险。肥羊交易方式只能带给你肥羊的待遇。财神爷不打盹，他从不会错过给你派发你应得的酬劳。</p>
+        <p>我们的营业厅挣到了大笔利润。我自己的操作如此成功，渐而至于被他们传为佳话，当然了，免不了大大地添油加醋。我被誉为许多股票崩跌行情的始作俑者。常常有我叫不上名字的人走过来向我表示祝贺。他们统统认为最了不起的是我赢取的巨额利润。他们对我第一次向他们鼓吹看空观点时的情形只字不提，当时他们认为我是一头疯狂的熊，是股市投机的失意者，满腹牢骚、存心报复。对我预见到货币市场即将遭遇困境这一点没有留下丝毫的印象。在他们看来，我的经纪商的会计要用完一滴墨水的⅓才能在我名下的分类账上写全赢余的数字，这简直是奇迹般的成就。</p>
+        <p>朋友们曾经对我说，在许多营业厅，时常有人提起哈丁兄弟营业厅里的豪赌男孩，说他声明要采取各种各样的手段来对付做多的那帮人，因为事情早已水落石出，市场注定要寻求低得多的水平，但是这伙人却依然顽固地力图推升许多股票的价格。直到今天，他们还对我发动的一波波袭击津津乐道。</p>
+        <p>从9 月中下旬开始，货币市场用大喇叭对整个世界发出警告。但是人们相信会发生奇迹，不愿意卖出他们手上持有的投机性持仓。嗨，一位经纪商曾经在10 月的第一个星期给我讲了一个故事，这个故事令我对自己的自我节制几乎感到羞愧。</p>
+        <p>你还记得，交易所场内的短期贷款通常在资金席位发放。经纪商从他们的银行那里得到通知当日需要偿付短期贷款，他们知道当日大致需要借入多少资金。银行家们当然知道他们当日可供借出的头寸，有钱可借的银行会把钱发送到交易所。来自银行的这笔钱通过几家资金经纪商来处置，他们的主要业务就是短期拆借。大约中午时分，发布当日最新的拆借利率。通常该利率代表当日截至此时为止所有拆借交易的平均中间利率。一般说来，上述业务通过报买价和报卖价公开进行，因此每个人都知道正在发生的行情。在中午和下午大约两点之间，资金拆借方面平常没有太多业务，但是在交割时间之后——也就是下午2:15——经纪商都会知道当日准确的资金状况，这样他们就能联系资金席位，借出他们富裕的资金头寸，或者借人他们短缺的资金头寸。这些业务也是公开进行的。</p>
+        <p>好，10 月初的一天，那位我前面提到的经纪商过来找我，他告诉我，事情已经发展到这种地步，当经纪商资金头寸富裕的时候他们不去找资金席位。原因是几家著名的佣金经纪行会员守在那儿，随时准备攫取任何一笔借出的资金。自然，没有哪一位公开拆出资金的出借者能够拒绝借钱给这些公司。他们的信誉完好，抵押品也足够抵值。但是麻烦在于，一旦这些公司拆入短期资金，那些出借者就看不到还钱的日子了。他们只要说一时还不上款，那些出借者不管愿意不愿意都不得不把贷款展期。因此，任何一家交易所会员如果资金富裕打算拆出，总会越过资金席位，派自己的人在场内四处打听，这些人会和他们的好朋友耳语： “要不要10 万？”意思是，“你想借入10 万美元吗？”那些资金经纪商代表银行方，现在他们也采用同样的手法。再看资金席位，那里现在一片荒凉。想想看！</p>
+        <p>嗨，他还告诉我，在10 月的这些日子里，借款方按照其各自的利率拆入资金，这实际上已经是交易所内的成规了。你看，年化的拆借利率在100%～150%之间波动。我猜想，通过让借入方确定利率的办法，借出方以某种古怪的方式自我感觉不那么像是冷血的高利贷者了。然而你可以笃定，他比其他人一文都不少拿。借入方自然做梦也不敢不付高利息。公平游戏，别人付多少，他就得付多少。无论如何，他要的是资金，能弄到手就已经不错了。</p>
+        <p>情形越来越糟糕。多头们、乐观者们、一厢情愿者们以及巨大的肥羊群，可怕的算总账的一天终于来了。起初他们害怕忍耐小额亏损的疼痛，现在不得不遭受完全截肢的重创—— 而且没有麻醉。这一天，1907 年10 月24 日，我永不忘怀（图9.2）。</p>
+        <p>图9.2  1907 年1 月开始的熊市行情延续到当年11 月，10 月是其高潮的一部分。当年利弗莫尔大约</p>
+        <p>29、30 岁。他对熊市早有预期井曾经因为过早动手卖空而遭受挫折。后来，他终于在正确的时机采取了正</p>
+        <p>确的卖空方法。10 月24 日，市场已经进入恐慌状态，利弗莫尔应摩根之请，同时也出于自己的稳妥考虑，</p>
+        <p>获利平仓并转手做多，当日其总赢利超过100 万美元。这是他的第一个百万美元，当日他是“股市之王”。</p>
+        <p>早晨来自资金经纪商的报告显示，不论借出方开出什么样的价码，借人方只有照单付账的份。资金不足以满足所有流动性需求。那天，到处找钱的人比往常多得多。那天下午当交割时间到来后，肯定有100 位资金经纪人围在资金席位周围，每个人都急切地希望借到自己公司迫切需要的资金。没有资金就不得不卖出客户以保证金买入的股票——按照市价方式以任何价格卖出，只要能卖出，而股票市场上的买方现在就像资金一样稀少—此时此刻，一眼望去看不到哪儿有1 元。</p>
+        <p>我朋友的合伙人和我一样看空，因此他们公司无须借钱。但是我那位朋友，就是前面提到的那位经纪人，刚在资金席位附近看到了周围那一张张憔悴绝望的面容，他赶回来找我。他知道我重仓卖空整个市场。</p>
+        <p>他说：“我的天哪，拉里！我不知道要出什么事。我从没见过这样的场面。这样子可持续不下去了。总得有人做点什么。我看这会儿好像每个人都破产了。你不可以卖股票，场子里绝对没钱了。”</p>
+        <p>“你在说什么？” 然而，他是这么答复我的：“你曾经听说过那种课堂实验吗？把一只小白鼠放入一个玻璃钟里，然后把钟里的空气抽出来。看那可怜的小老鼠呼吸越来越急促，两胁大起大伏，就像过度做功的折叠风箱，它费尽力气企图从钟里越来越稀薄的空气中汲取足够的氧气。你看着它窒息，直到它的双眼鼓得几乎从眼眶里掉出来，它喘息着，一点点走向死亡。唉，当我在资金席位看着周围的人群时，这就是我脑子里想到的！哪儿都没钱，你也不能出清股票，因为没人买入。此时此刻，整条华尔街都破产了，要叫我说！”</p>
+        <p>这番话引起我的深思。我曾经预见市场将要重挫，但是没有——我必须承认——没有预见出现我们历史上最悲惨的恐慌。这对任何人都没有好处——如果市场走得太远的语。</p>
+        <p>最后看来显而易见，在资金席位旁等待拆人资金已经毫无用处。因为不会有任何资金。</p>
+        <p>于是地狱来临了。</p>
+        <p>那天再晚些时候我听说，股票交易所主席，R·H·托马斯（R．H．Thomas）先生，心里清楚华尔街上的每间公司都正走向灾难，走出去四处寻求救援。他拜访了詹姆斯·斯蒂尔曼（James Stillman），国民城市银行（National City Bank）的董事长，这是美国最富有的银行。它曾经夸口从来没有按照高于6%的利率出借过资金。</p>
+        <p>斯蒂尔曼听了纽约股票交易所主席的请求。他对后者说：“托马斯先生，这事我们必须拜访摩根先生，听他怎么说。”</p>
+        <p>两位先生怀着避免发生我们金融史上最灾难性的恐慌的期望，前往J·P·摩根公司（J．P．Morgan ＆ Co．）拜会摩根先生。托马斯先生对他和盘托出。他的话音刚落，摩根先生便对他说：“你回交易所，告诉他们会有资金供应他们的。”</p>
+        <p>“哪儿来的资金？” “从银行来！” 在这样的关键时刻，所有人都对摩根先生怀有无比强大的信念，于是托马斯先生一句也不多问，立即赶回交易所，向场内他那些已经被判了死刑的同行会员们宣布死刑缓期执行。</p>
+        <p>这时，不到下午两点半，J·P·摩根派遣范·恩伯里与阿特伯里公司（Van Emburgh ＆ Atterbury）的约翰·T·阿特伯里（John T．Atterbury）来到了找钱的人群中，他以和J．P．摩根公司关系亲密而闻名。我的朋友说，这位老经纪人快步走向资金席位。他举起手，就像复兴布道会上的劝勉者。人群当初听了托马斯先生的宣布之后曾经平静了一些，现在正开始担心救援计划流产，最糟糕的结局无可避免。但是，当他们看到阿特伯里先生的面孔、看到他举起的手时，马上像是变成了一群石像。</p>
+        <p>在随后的鸦雀无声之中，阿特伯里先生宣布：“我获得授权借给诸位1000 万美元。放松一点！有足够的资金，足够每一位！”</p>
+        <p>然后他开始分派。他没有向每位借人者告诉借出者的名字，而是简洁地快速记下每位借入者的名字和借入金额。他告诉借入者：“会通知你到哪儿领取资金。”他指的是借人者稍后可以借到钱的银行的名字。</p>
+        <p>一两天之后我听说，摩根先生只是向被吓坏了的纽约银行家们捎了个口信，要他们必须提供股票交易所需要的资金。</p>
+        <p>“可是我们也没有资金。我们的贷款数额已经到顶了。”银行家们反对。 “不是还有准备金嘛！”摩根先生厉声反驳。 “但是我们已经低于法定准备金的限度了。”他们哀号。 “动用准备！这正是准备金派用场的时候！”各家银行服从了，动用了大约2000 万美元规模的准备金。这挽救了股票市场。银行间的恐慌直到下一个星期才出现。他是真丈夫， J·P·摩根。他们的恐慌并不比股市的大多少。</p>
+        <p>在我作为股票作手生涯的所有日子里，我对这一天的记忆最鲜活。正是这一天，我的赢利首度超过100 万美元。它标志着我头一次按照预先计划的交易战略成功地收官。当初我预见到的一切已经成为过去的事实。然而，超越所有这一切的是：我的狂热梦想已经成为现实。在这一天里，我是市场之王！</p>
+        <p>当然，我会解释的。我来纽约已经有好几个年头了，常常绞尽脑汁力图从中查明准确原因，为什么我在纽约股票交易所的经纪公司不能从这场游戏中取胜，而在波士顿的对赌行里从15 岁的孩提起就一直能够做到。我知道，总有一天我会发现到底什么地方出了问题，不会再继续做错下去。到那时，我不仅具备正确作为的意愿，而且具备确保正确作为的知识。这意味着力量。</p>
+        <p>请不要误会我。我并不是白日做梦的自大狂，或者天生傲慢的虚荣之徒。虽然当我在富勒顿和哈丁的营业厅交易的时候股票市场令我如此困惑，但是我始终有一种感觉，同样还是</p>
+        <p>这个股票市场，终有一天会对我俯首帖耳。我只是感觉这样的一天迟早会到来。它确实来了 ——l907 年l0 月24 日（图9.2）。</p>
+        <p>我之所以这么说的原因是，那天早晨，一位曾经为我所在的经纪公司做过很多业务的经纪人——他知道我一直在空头一边重仓操作——和华尔街最显要的银行的一位合伙人一同乘车。我的朋友告诉那位银行家我有多么大的交易手笔，因为我肯定穷追猛打。如果你的做法是正确的，那就应该把所有可能带来好处的成果都摘取到手，否则即使正确又有什么用处呢？</p>
+        <p>那位经纪人为了使他说的事情听起来更有分量，也许有些夸大。也许是因为在我后面跟风操作的人比我知道的还多。也许那位银行家远比我清楚形势究竟危急到了什么地步。不管怎么说，我的朋友告诉我：“他带着极大的兴趣听取了我的介绍，特别是当我说到你曾说过市场只需再推动一两把真正的抛售行情就会开始、那时市场将是何等局面的时候。当我说完后他回道，当天晚些时候他可能会请我做点事。”</p>
+        <p>当佣金经纪行在资金市场上发现不论报出什么价格都拿不到一分钱的时候，我知道那一刻终于到了。我派出若干经纪人到各处人群中去打听情况。嗨，有一段时间，联合太平洋铁路竟然连一张申报买入的单子都没有。任何价位上都没有！想想看！其他股票的处境也一样。没有资金用来买股票，没有人打算买股票。</p>
+        <p>我已经拥有巨额的账面利润，而且我也有把握，要让价格进一步暴跌，全部动作只需再发出指令卖出l 万张联合太平洋以及其他六七个分红不错的股票，接下来的行情简直就是地狱了。在我看来，即将从天而降的恐慌将会如此猛烈、如此特别，以至于交易所理事会在估量形势后可能会建议临时关闭交易所，就像1914 年8 月第一次世界大战爆发时采取的措施（图13.1c）。</p>
+        <p>这可能意味着极大地增加账面利润；这也可能意味着没办法把这些账面利润转化为实在的现金。然而，还有其他方面需要考虑，其中一个考虑是，再进一步下挫可能会延缓复苏行情的到来，现在我已经开始预期它的到来了，这是市场大失血之后的补偿性改善。此外，这样的恐慌可能会对国家造成很大的普遍性伤害。</p>
+        <p>我打定主意，既然继续采取积极的空头策略是不明智、不友善的，那么继续持有空头头寸也就不合逻辑了。于是，我掉转方向，开始买进。</p>
+        <p>在我的经纪人开始为我买进之后不久——顺便说一句，我拿到的都是底部价格——那位银行家派人找我的朋友。</p>
+        <p>“我派人找你，”他说，“因为我要你立即找你的朋友利文斯顿，告诉他我们希望他今天不要再卖出任何股票。市场已经承受不起进一步的压力了。照情形来看，要避免毁灭性的大恐慌已经成为一项非常艰难的挑战了。请唤起你朋友的爱国心。在这种情形下，一个人必须为所有人的利益着想。请立即通知我他的回话。”</p>
+        <p>我朋友立即过来找我，告诉我这席话。他说得很委婉。我猜测他一定认为我早已预谋打垮市场，所以要我接受他的请求等于要我放弃挣得1000 万美元的大机会。他知道我对某些华尔街巨头颇为痛恨，因为他们和我一样清楚即将出现什么样的局面，但是他们依然向公众大批倾销股票。</p>
+        <p>事实上，大人物们也是遭受大损失的，我在底部买入的许多股票恰恰原本是在著名金融人物名下的。当时我并不知道，但是这无关紧要。我实际上已经轧平了全部空头头寸，而且在我看来当时有机会廉价买入股票，同时帮助股票市场形成急需的复苏行情——如果没有其他人再重锤市场的话。</p>
+        <p>于是，我告诉我的朋友：“请回去告诉布莱克先生，我同意他们的看法，并且完全认识到事态的严重性，甚至在他派你来之前就已经认识到了。我不仅今天不再卖出任何股票，而且还要入场买入股票，我的保证金允许买多少就买多少。”我兑现了我的诺言。那天我买进</p>
+        <p>了10 万股，站在多头一边。此后9 个月之内，我没有卖空一股。</p>
+        <p>图9.3  利弗莫尔说，自从他于1907 年10 月24 日轧平空头并转手做多后，9 个月之内来做空一股。</p>
+        <p>事实上，1908 年、1909 年股市终于从大跌转为上涨行情，几乎完全收复失地。无论他在1907 年的做空</p>
+        <p>还是1908 年的做多，都符合股市大势。这个阶段他30、31 岁。</p>
+        <p>这就是我之所以告诉我的朋友我的梦想已经成真、我当上了一小段时间的股市之王的缘故。那天有一段时间，如果有人有意捶打的话，股票市场确实会听凭他的摆布。我并没有受到自大狂病症的侵害而产生幻觉，事实上，当有人指责我袭击市场的时候，在华尔街的闲言碎语中，当人们夸大我的操作时，你能体会到我的感受。</p>
+        <p>我肢体完好地走出这一切。报纸上说，拉里·利文斯顿，那个“豪赌小子”，挣了好几百万。噢，那天收市之后，我的身家远超过100 万美元。然而，我最大的收获并不是美元，而在于无形的方面：我一直是正确的，我一直向前看，一直遵守一份清晰厘定的计划。我已经掌握了为挣大钱而必须遵守的准则，我已经永远超越了赌徒的层次，我终于学舍在动用大头寸的情况下明智地交易。在我的一生中，这一天最重要。</p>
+        <div class="divider"></div></section>
+    </div>
+  </main>
+</div>
+<script>
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a[href^='#']")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-8% 0px -80% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

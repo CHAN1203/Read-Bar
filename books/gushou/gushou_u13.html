@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:accent" content="#d4a657">
+<title>股票大作手回忆录 · 十一 声东击西，唯变所适</title>
+<link rel="stylesheet" href="../reader.css">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#d4a657; --accent-soft:#33301f; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1408;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0; counter-reset:c;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(212,166,87,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1408; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(212,166,87,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+<style>figure img{width:100%;height:auto;display:block;border-radius:6px;}figure{padding:14px;}ul{margin:14px 0 14px 4px;padding-left:22px;color:#dcd8cc;}li{margin:6px 0;}h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:30px 0 4px;color:var(--ink);}.col section{padding:40px 0 6px;}</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">股票大作手回忆录<b>十一 声东击西，唯变所适</b></div>
+    <div class="shelf-nav"><a class="home" href="../../index.html">📚 书架</a> <a class="home" href="index.html">📖 本书</a> <a href="gushou_u12.html">← 上一篇</a> <a href="gushou_u14.html">下一篇 →</a></div>
+    <ol><a href="#u" class="active">十一 声东击西，唯变所适</a></ol>
+  </nav>
+  <main>
+    <header class="cover"><div class="col">
+      <div class="eyebrow">股票大作手回忆录</div>
+      <h1>十一 声东击西，唯变所适</h1>
+    </div></header>
+    <div class="col">
+      <section id="u"><div class="kicker">十一 声东击西，唯变所适</div><h2>十一 声东击西，唯变所适</h2>
+        <h3>十一 声东击西，唯变所适</h3>
+        <p>现在我要回到1907 年10 月。我买了一艘游艇，做好了所有准备，打算离开纽约到南方水域游弋一番。我对钓鱼简直疯魔了，一心想着在自己的游艇上尽情地钓鱼，想去哪儿就去哪儿，想呆多久就呆多久。万事皆备。我已经在股票市场大有斩获，然而，就在出发前的最后一刻玉米却把我绊住了。</p>
+        <p>这里必须作一番解释，在那场给我带来第一个100 万美元资金的市场恐慌之前，我曾经一直在芝加哥交易谷物。当时我做空了1000 万蒲式耳小麦和1000 万蒲式耳玉米。我对谷物市场已经跟踪研究了很长时间，我在看空股票市场的同时，也看空玉米和小麦。</p>
+        <p>好，两个市场都开始下跌，不过就在小麦持续下跌的时候，芝加哥规模最大的作手—— 我就称他为斯特拉顿（Stratton）吧——忽发奇想，打算囤积操纵玉米。我在股票市场清仓后，本来已经准备乘我的游艇前往南方，却发现虽然小麦市场给我带来了不俗的利润，但在玉米上，斯特拉顿已经炒高了价格，我有相当大的亏损。</p>
+        <p>我知道国内市场上玉米的数量比这个价格所显示的多得多。供求规律一如往常地发挥作用。但是，需求主要来自斯特拉顿，而供给根本还没有到达市场，因为玉米运输方面遇到了严重交通梗阻的情况。我记得，我那时总是祈祷来一场寒潮把泥泞不堪的路面冻结实，好让农户们把玉米运送到市场来。然而，每次都落空。</p>
+        <p>就这样，一方面我期盼计划中的钓鱼旅程快快成行，另一方面玉米上的亏损却生生拽着不让走。市场像现在这样子，我是不能甩手就走的。斯特拉顿自然随时密切关注空头的动向。他知道他已经抓到我了，而我对双方的情况和他一样清楚。不过，正如我前面说的，我当时正盼着自己或许能够打动老天爷，让老天爷赶紧动手帮帮我。老天爷也罢，任何其他神灵也罢，对我的需求都没有一分一毫的关照，于是我死了心，认真琢磨怎样通过自己的努力摆脱当前的困境。</p>
+        <p>我轧平小麦的头寸，利润丰厚。然而，玉米的问题无疑棘手得多。要是能够按照当时的市场价格平掉自己的1000 万蒲式耳，我会很开心地立即照办的，虽然亏损还是比较大。但是，一旦我开始买进平仓，逼空主谋斯特拉顿自然一刻也不耽误，立即加紧挤压市场，如此一来，就会因为我自己的买进把价格一路抬上去，简直是用自己的刀割自己的喉咙。</p>
+        <p>虽然玉米行情坚挺，但是我希望尽快开始钓鱼旅程的心情更迫切，因此我必须靠自己找法子立即解脱。我必须进行一场战略大撤退。我必须买回1000 万蒲式耳的空头头寸，与此同时还必须把亏损限制在越少越好的范围内。</p>
+        <p>碰巧当时斯特拉顿同时也在囤积操纵燕麦行情，并把该市场控制得很好。我密切跟踪所有谷物市场收成方面的新闻、交易池内的流言等，我听说强大的阿莫阵营（Armour interests）在市场方面对斯特拉顿来意不善。我当然知道斯特拉顿不会让我如愿买到玉米的，除非按照他定的价钱，但是在我听说阿奠阵营有意修理斯特拉顿的传言的那一刻，立即想到或许可以指望芝加哥的交易商的援手。他们有可能帮到我的唯一办法是他们卖给我斯特拉顿不愿意卖给我的玉米。其他都好办。</p>
+        <p>首先，我安排好向下每隔⅛美分一笔、每笔50 万蒲式耳玉米的买入指令。在这些指令就绪后，我让四家经纪公司各自同时按照市价卖出5 万蒲式耳燕麦。我料想，这一招应该引发燕麦的一波快速下跌。我知道那些交易商脑子里是怎么盘算的，他们很容易就会猜想阿莫阵营正在对斯特拉顿发动攻击。他们看到燕麦市场已经打响了，就会顺理成章地推论，下一个快速下挫的就该轮到玉米了，就会开始卖出它。要是逼空玉米的诡计破产了，那油水可就太大了。</p>
+        <p>我对芝加哥交易商们心理的揣摩绝对正确。当他们看到燕麦市场由于四面而来的卖出指令快速下跌的时候，立即跳入玉米市场，追不及待地卖出玉米。在接下来的10 分钟之内，我便买到了600 万蒲式耳的玉米。当我发现他们停手不卖玉米的那一刻，立即按市价买进了剩下的400 万蒲式耳。这自然导致价格再度上升，但是经过这么一番腾挪之后，我轧平了 1000 万蒲式耳的全部空头头寸，并且和我利用交易商们卖出的机会开始买入平仓时的市场价格相比，净成交价格的差距不到1.5 美分。为了诱导交易商们卖出玉米，当初我做空了20 万蒲式耳燕麦，平仓的时候损失仅为3000 美元。这是成本相当廉价的看跌诱饵。我在小麦上挣到的利润冲抵了我在玉米上的大部分亏损，我在谷物市场所有交易的总体亏损仅有2.5 万美元。后来，玉米上涨了25 美分每蒲式耳。毫无疑问，斯特拉顿曾经有机会对我任意宰割。倘若我径直买进我的1000 万蒲式耳玉米、没有用心考虑价格成本的话，到底将会付出什么样的代价就很难说了。</p>
+        <p>某人在某事上浸淫多年之后，不可能不对它养成某种习惯性的态度，这和普通初学者有相当大的差别。正是这种差别把专业人员和业余人员区分开来。正是他看待事物的方式决定了他在投机市场上挣钱还是赔钱。公众往往对自己的交易操作采取半严肃半随意的立场。他们的自我每每不合时宜地掺和进来，因此他们的思考不可能深入或透彻。专业人员关心的是把事情做对，而不是只惦记着挣钱，他们明白，只要把其他事项都安排妥帖，利润自会自己照顾自己。交易者必须学会按照专业台球选手的方式来从事本行——也就是说，他要前瞻好几步，而不是只考虑眼前这一杆。要以头寸为本，必须把这一点转化为职业本能。</p>
+        <p>我想起曾经听到的关于艾迪生·坎迈克（Addison Cammack）的一则故事，这则故事十分贴切地说明了我打算揭示的内容。就我所听说的情况来看，我宁愿认为坎迈克是华尔街有史以来最出色的股票交易者之一。</p>
+        <p>许多人相信他总是做空，这并非实情，不过他确实觉得空头一边的交易更有吸引力，并且确实乐于充分借助人性的两大要素——希望和恐惧来达到自己的目的。以下警句据说是他原创的：“势道不减不可卖股票！”老一辈们告诉我，他最大的几次赢利都是在做多的时候取得的，显然，他并非根据自己的成见而是根据市场条件来交易的。不管怎么说，他都是一位完美的交易者。好像有那么一次，那是很久以前了，在一轮牛市行情的末端，坎迈克看空。而J·阿瑟·约瑟夫（J．Arthur Joseph）得知了，他是一位金融撰稿人，也健谈。无论如何，市场当时不但坚挺，甚至还在上涨，响应着多方领头者和报纸上乐观报道的刺激。约瑟夫知道，对于像坎迈克这样的交易者来说，看空的信息具有极大的利用价值，于是这一天他带着好消息急匆匆赶到坎迈克的办公室。</p>
+        <p>“坎迈克先生，我有一位非常要好的朋友，在圣保罗营业厅担任转运交收员。他刚刚告诉我一些事儿，我想你应该知道。”</p>
+        <p>“啥事儿？”坎迈克漫不经心地问道。 “你已经掉头了，对吧？你现在看空啦？”约瑟夫问道，要确认一下。如果坎迈克没有兴趣，他就不打算浪费宝贵的资源。</p>
+        <p>“是。到底是什么了不起的信息呢？” “今天我到圣保罗的办公室转了转，为了搜集新闻平常每周都要去两三趟的，我那儿的朋友告诉我：‘老头儿正在卖股票。’他指的是威廉·洛克菲勒。‘吉米，他真在卖吗？’ 我对他说，他答道：‘是的。他正在卖出，向上每隔⅜美元卖出1500 股。我这两三天里一直在转送那股票。’我一分钟都不曾浪费，立刻赶来见你。”</p>
+        <p>坎迈克并不容易被打动，不仅如此，他早已习惯于各色人等火急火燎地冲进他的办公室带来各色各样的消息、街谈巷议、谣传、内部消息以及谎言，以至于对他们统统失去了信任。他淡淡地答道，“你确实听说是这样的吗，约瑟夫？”</p>
+        <p>“我确实？那还有假！你以为我是聋子吗？”约瑟夫说。</p>
+        <p>“你那位朋友靠得住吗？” “绝对可靠！”约瑟夫断言，“我已经认识他很多年了。他从不对我扯谎。他不会！没得说！我知道他绝对靠得住，并且我愿意拿性命担保他告诉我的话。他是这个世界上我最了解的人——似乎比你了解我的程度可深多了，尽管咱俩相处了这么多年。”</p>
+        <p>“对他有把握，嗯？”坎迈克说着，再次凝视着约瑟夫。于是他说道：“好，你应该知道。”他叫来他的经纪人，W·B·惠勒（W．B．Wheeler）。约瑟夫期待着他会给后者下指令卖出至少5 万股圣保罗。威廉·洛克菲勒利用市场坚挺的机会正大举抛售他的圣保罗持仓。到底他卖这些股票属于投资性质还是投机性质并不相干。唯一重要的事实是，标准石油一系（Standard oil erowd）中最厉害的股票交易商正在脱手圣保罗。如果一位普通人从可靠的消息来源听到这样的消息，他会怎么做呢？根本不用问。</p>
+        <p>然而，坎迈克，他那个时代最精明的空头交易者，当时又正对市场看空，却对他的经纪人说：“比利，跑一趟交易所，向上每隔⅜美元买进15000 万股圣保罗。”该股票那时的行情在90 多美元。</p>
+        <p>“你是说卖出吧？”约瑟夫急忙插话道。他在华尔街可不是新学乍练，不过他对市场的看法是从一位新闻记者的角度出发的，顺便提一句，这正是一般大众的角度。从内部人卖出的消息来看，价格肯定是应该走低的。不仅如此，还能有什么内部人能够比得上威廉·洛克菲勒先生这样的内部人呢？标准石油出货，而坎迈克买进！不可能！</p>
+        <p>“不，”坎迈克重申，“我指买进！” “难道你不相信我？” “相信！” “难道你不相信我的消息？” “相信。” “难道你不看空吗？” “看空。” “好，怎么讲？” “这正是我买入的原因。现在听我说：你要和你那位可靠的朋友保持联系，一旦他们按比例卖出的行动停手了，要立刻让我知道。立刻！你明白吗？”</p>
+        <p>“好。”约瑟夫答应道，然后告辞离开。他没多少把握，不知道自己是不是真的理解坎迈克买进威廉·洛克菲勒的股票的用心。他知道坎迈克对整个市场是看空的，这令他对坎迈克的这番举动更加困惑。无论如何，约瑟夫还是去见了他那位担任转运交收员的朋友，要他盯紧老头儿何时停止抛售，第一时间把消息告诉自己。约瑟夫每天两次找他的朋友打探消息。</p>
+        <p>一天，转运交收员告诉他：“现在老头儿那里没有运来更多股票了。”约瑟夫谢了他，赶紧跑到坎迈克的办公室通报消息。</p>
+        <p>坎迈克一字不漏地仔细听了，回身问惠勒：“比利，我们营业厅总共有多少圣保罗？” 惠勒查了查，报告说他们总共累积了6 万股。</p>
+        <p>坎迈克当时是看空的，甚至在他开始买进圣保罗之前，便已经卖空了其他铁路公司以及各种各样的股票。现在他重仓卖空股市。他马上吩咐惠勒卖出他们做多的6 万股圣保罗，并且继续卖空。他利用他在圣保罗的多头持仓做杠杆，压低了整个市场，这轮下跌给他的操作带来了极大的好处。</p>
+        <p>圣保罗持续下跌，直到44 美元，坎迈克从中狠狠赚了一笔。他出牌的技艺已经达到登峰造极的地步，也获得了相称的利润。我这里要说的是他对待交易的习惯性态度。他连想都不用想，立即看出比在一只股票上获利重要得多的东西。他深谋远虑，看出这是天赐良机，这么做不仅可以为将来发动大规模的空头操作选择合适的时机，而且可以恰到好处地形成最初推动。关于圣保罗的那则内部消息导致他买进而不是卖出，因为他立即看出这正好可以为</p>
+        <p>他的空头行动提供精良的巨大弹药储备。</p>
+        <p>还是回头说我自己。我轧平了小麦和玉米的交易后，驾着游艇前往南方。我在佛罗里达的海域巡航，度过了一段开心时光。钓鱼真是棒极了。诸事顺遂。我对尘世了无牵挂，也无意自寻烦恼。</p>
+        <p>一天，我在棕榈滩登岸。我碰到了许多华尔街的朋友和其他熟人。所有人都在议论一位当时最丰富多彩的棉花投机客。来自纽约的一则报道说，珀西·托马斯（Percy Thomas）赔光了每个子儿。这不是一场商业破产，而是仅仅风传这位世界闻名的大作手在棉花市场第二次遭遇滑铁卢。</p>
+        <p>我始终对他抱有极高的仰慕之情。我头一次听说他是从报纸上看到的，当时的故事是股票交易所的经纪会员谢尔登和托马斯公司（Sheldon ＆ Thomas）破产，而托马斯正在力图操纵棉花市场。谢尔登缺少他的合伙人的远见或者勇气，就在其即将成功的前夕临阵畏缩。至少，当时华尔街上都是这么说的。不管怎么说，尽管他们没能狠赚一票，却弄出了多年之内最为轰动的一场大败仗。我忘了他们赔了几百万。他们的公司关门大吉，于是托马斯开始单干。他将全部身心都投入到棉花上，没过多久就重新站了起来。他连本带利偿还了债主的债务——在法律上，这些债务已经不再是他的义务—此外，还给自己剩下了100 万美元。他在棉花市场东山再起的传奇色彩，堪比S·V·怀特执事在股票市场的著名事迹，后者在一年内清偿了100 万美元债务。托马斯的勇气和智慧令我佩服得五体投地。</p>
+        <p>棕榈滩的每个人都在议论托马斯交易3 月棉花合约时的倾覆。你可以想见这类议论越传越邪乎的情形，当你听到的时候免不了夹杂着以讹传讹、添油加醋或者修饰演义的成分。嗨，我就遇到过关于我自己的一则传言，它一边传来传去，一边不断增加新内容和绘声绘色的细节，变得面目全非，不到24 小时就重新传回始作俑者那里，结果甚至他本人也辨认不出自己的杰作了。</p>
+        <p>托马斯再度遭遇不幸的新消息把我的心思从钓鱼拉到了棉花市场。我搜集了有关的交易报告，阅读这些资料来理清市场环境演变的脉络。当我回到纽约的时候，便全神贯注地研究该市场。每个人都看空，每个人都在卖空7 月棉花合约。你知道人们怎么回事。我猜测，人们之所以做某件事，往往是因为他身边的每个人都在做同样的事，这是感染作用的典型案例。或许这属于合群本能某种阶段的表现，或者是合群本能的改头换面的某种形式。无论如何，根据千百位交易者的看法，卖出7 月棉花乃是明智之举、稳妥之举——并且只有这么做才安全！把一般人的卖空归结为轻率，那是太轻描淡写了。交易者们眼中只有市场的一个侧面，只有大把大把的利润。他们确信不疑地预期价格即将崩跌。</p>
+        <p>我当然看到了所有这一切，有一点给我很深的印象，那就是做空的伙计们已经没有太多时间用来买进平仓了。我对形势研究得越深入，则我对这一点的观察越清晰，终至于决定买进7 月棉花。说干就干，我很快买入了10 万包。吃货的过程没有遇到任何麻烦，因为实在太多的人都在卖出。在我看来，假设我悬赏100 万美元，不论死活，只要能够找到一位不再卖出7 月棉花的交易者就行，但是恐怕没人有法子拿得到这笔赏金。</p>
+        <p>这话说的是5 月的下半个月。我继续买进更多棉花，他们则继续卖出给我，直到最终我接手了所有流动的合约，总共12 万包。就在我买进了最后一笔之后没过几天，市场开始上涨。上涨行情一旦开头便一发不可收拾，对我偏爱有加——也就是说，它每天都上升40～ 50 点。</p>
+        <p>在一个星期六，大约在我动手操作的10 天之后，价格开始慢慢爬升。我不知道市面上还有没有更多7 月合约卖出。这得靠我自己来探明，于是我按兵不动等待最后10 分钟。我知道，那些伙计通常都在这个时间卖空，如果当天市场的收市价上升，那么这些人就笃定被套住了。于是我给四家经纪人同时发出买入指令，每一家买进5000 包，都按市价，同时入场。这一招刺激行情上涨了30 点，空头们施展浑身解数力求挣扎脱困。当天市场收市于最</p>
+        <p>高点。请记住，我所做的一切，就是买光了最后的2 万包。</p>
+        <p>下一天是星期日。星期一，利物浦的开市价应当上升20 点，才能和纽约的上涨持平。然而，它上涨了50 点。这意味着利物浦的涨幅比我们这里的涨幅高100%。我和那里的市场上涨毫无干系。这向我表明，我的推理建筑在牢靠的基础上，我的交易符合阻力最小路线。与此同时，我并没有失去清醒的头脑，我有天量的多头仓位需要处置出手。不论市场急剧上涨，还是逐渐上涨，吸纳卖盘数量的能力终究有一个极限。</p>
+        <p>来自利物浦的电讯当然驱使我们的市场狂热起来。然而我注意到，行情越高，7 月棉花似乎就越稀少。我没有释放自己的任何持仓。对空头们来说，虽然星期一的走势既不值得兴奋也没什么可高兴的，但是，我没有察觉到即将出现空头恐慌的任何蛛丝马迹，没有任何迹象显示空头将要狼奔豕突竞相平仓了。我手上有14 万包的巨额多头仓位，必须为它们找到市场。</p>
+        <p>星期二早晨，当我前往办公室的时候，在大楼的入口处碰到了一位朋友。 “今天早晨《世界报》上的报道相当引人注目。”他微笑着说道。 “什么报道？”我问他。 “什么？你是说你没有看到报道吗？” “我从来不看《世界报》，”我说，“报道什么啦？” “嘿，说的都是你。报道说你把7 月棉花控盘了。 “我没有看到。”我告诉他，然后便和他分手了。我不知道他到底相信不相信我的话。他可能会认为，我没有对他坦言那篇报道到底是不是真的，实在不够意思。</p>
+        <p>我赶到办公室后，打发人去找来一份报纸。没错，确实有一篇报道，在头版上，标题大大的：</p>
+        <p>7 月棉花被拉里·利文斯顿控盘当然，我立即意识到这篇文章将会把市场的水完全搅浑。即使我已经处心积虑地为处置我的14 万包找到了最周全的方法和手段，也不可能找到比这更好的机会了。根本不可能找到这样的机会。这篇文章正巧出现在节骨跟上，正在传遍全国，人们要么从《世界报》上读到，要么从其他报纸的转述中读到。文章也通过电报传到了欧洲。从利物浦的价格来看，这一点是显然的。市场简直疯狂了。既然有这样的消息，其结果便毫不奇怪。</p>
+        <p>我自然料到纽约会有怎样的反映，也知道我该怎么做。这里的市场10 点开市。10 点过 10 分的时候，我手上已经一包棉花都没有了。我让他们拿走了我14 万包棉花的每一包。我的大部分头寸的卖出成交价最终都被证明是当日的最高价。交易者们为我创造了市场。我所做的一切不过是看出了卖出我的棉花的天赐良机。我抓住机会，因为这已经由不得我了。舍此还能做什么呢？</p>
+        <p>我很清楚，这个问题本来需要我花费大量心血才能求解的，不期然天上掉下这篇文章解了我的心结。如果《世界报》没有刊登这篇文章，那我绝不可能不牺牲一大块账面利润才能最终脱手我的大额头寸。在卖出14 万包7 月棉花的同时避免价格下跌，这样的魔法已经超出了我的能力范围。然而，《世界报》的报道干脆利落地替我表演了这出把戏。</p>
+        <p>《世界报》发表它出于什么目的，我说不上来。我绝不知情。我猜测作者可能得到了某位棉花市场朋友的内幕消息，以为自己能够抢先推出独家新闻。我从来没有遇到过他或者《世界报》的其他任何人。那天直到9 点之后，我才知道报纸上有这篇文章，并且要是我那位朋友没有引起我对它的注意的话，我可能到那时还不知道这事。</p>
+        <p>没有它，便没法找到足够大的市场来卸载我的头寸。这是大手笔交易的一大麻烦。当你离场的时候没法悄悄溜掉，不像小额交易那样稳便。当你希望卖出时，或者当你认为应当卖出的时候，并不是总能如愿以偿。你必须在你能够卖出的时候离场，当市场足以吸纳你所有头寸的时候。抓不住离场机会，可能会让你付出数百万美元的代价。不可犹豫，机会稍纵即</p>
+        <p>逝。你还不能耍花招，比如和空头竞争报价把价格打上去，结果就会削弱市场的吸纳能力。这里我要向你强调，察觉你的机会说起来容易做起来难。你必须时刻保持高度警惕，这样当机会来敲门的时候你才能一把抓住。</p>
+        <p>当然，并不是每个人都知道我这次幸运的际遇。在华尔街，实际上哪儿都一样，给某人带来大钱的任何事件都被视为大有可疑。如果该事件没有给他带来好处，那就从来不会被人看成是意外事件，而是因为你贪婪或者狂妄自大而咎由自取。然而，如果带来了利润，那他们就会称之为打劫，说是狂妄奸诈之徒得志、保守正派的好人遭殃云云。</p>
+        <p>那些心术不正的空头自己行事草率招致了市场的惩罚，这些人遭受伤痛之余便指责我一手策划了这次意外而成功的行动。不但他们，其他人也持有同样的想法。</p>
+        <p>一两天之后，一位在全世界棉花市场都可以称雄的仁兄碰到我，说：“这一定是你有史以来干得最滑头的一次，利文斯顿。我很想知道，如果你在市场上自行处置那些头寸会损失多少钱。你知道，如果不想引发大抛售，那这个市场就只能吸纳不超过5 万～6 万包，那么剩下的你怎么设法才能既不丧失账面利润、又能出货呢，这个问题开始让我感到很好奇。我可想不出你的诡计。油滑，真油滑。”</p>
+        <p>“我与这事毫不相干。”我向他保证，尽最大努力表达自己的诚意。然而，他一个劲地反复唠叨：“太油滑了，我的孩子。太油滑了！不要这么谦虚嘛！” 正是在这桩交易之后，某些报纸把我称为棉花大王。不过，我已经说过，我真的不配戴这顶桂冠。我想没有必要提醒你，要收买纽约《世界报》的那个专栏，把全美国的钱拿来都不够，或者说谁都不可能发挥个人影响力来确保它刊登那样一篇报道。当时它给我带来的完全是名实不符的名声。</p>
+        <p>然而，我之所以讲这个故事，并不是为了卖弄什么桂冠，这类桂冠有时张冠李戴，硬压到了其实并不相称的某人头上；也不是为了强调抓住机会的重要性，不论机会是什么时候来的、怎么来的。我的目的只不过是为了说明自从7 月棉花合约交易之后报纸上对我大泼脏水的原因。如果不是这些报纸，我可能就遇不到那位著名人物，珀西·托马斯。</p>
+        <div class="divider"></div></section>
+    </div>
+  </main>
+</div>
+<script>
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a[href^='#']")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-8% 0px -80% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

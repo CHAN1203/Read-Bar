@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:accent" content="#d4a657">
+<title>股票大作手回忆录 · 二十 分销大量股票的操作过程与交易本质一致</title>
+<link rel="stylesheet" href="../reader.css">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#d4a657; --accent-soft:#33301f; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1408;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0; counter-reset:c;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(212,166,87,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1408; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(212,166,87,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+<style>figure img{width:100%;height:auto;display:block;border-radius:6px;}figure{padding:14px;}ul{margin:14px 0 14px 4px;padding-left:22px;color:#dcd8cc;}li{margin:6px 0;}h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:30px 0 4px;color:var(--ink);}.col section{padding:40px 0 6px;}</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">股票大作手回忆录<b>二十 分销大量股票的操作过程与交易本质一致</b></div>
+    <div class="shelf-nav"><a class="home" href="../../index.html">📚 书架</a> <a class="home" href="index.html">📖 本书</a> <a href="gushou_u21.html">← 上一篇</a> <a href="gushou_u23.html">下一篇 →</a></div>
+    <ol><a href="#u" class="active">二十 分销大量股票的操作过程与交易本质一致</a></ol>
+  </nav>
+  <main>
+    <header class="cover"><div class="col">
+      <div class="eyebrow">股票大作手回忆录</div>
+      <h1>二十 分销大量股票的操作过程与交易本质一致</h1>
+    </div></header>
+    <div class="col">
+      <section id="u"><div class="kicker">二十 分销大量股票的操作过程与交易本质一致</div><h2>二十 分销大量股票的操作过程与交易本质一致</h2>
+        <h3>二十 分销大量股票的操作过程与交易本质</h3>
+        <h3>一致</h3>
+        <p>我本人从来没有和华尔街仍然在谈论的那些股票市场大操作者有过直接接触。我指的不是那些大老板，而是市场操作者。他们都是比我这代更早期的人物，虽然当我刚来到纽约的时候，詹姆斯·R·基恩，他们之中最了不起的一位，正如日中天。但是，我那时只是一个小后生，一心想的是在一家信誉良好的经纪商营业厅完全再现自己在家乡对赌行里曾经享有的成功交易方式。而且那个时候基恩正忙着美国钢铁股票——他的市场操作案例中的杰作— —我对市场操作没有任何经验，实际上对其一无所知，既不知道它有什么用处，也不知道它是什么意思，而且我也不怎么需要这样的知识。如果我曾经对它有过什么想法的话，估计一定把它看成了包装更加冠冕堂皇的高级骗术，我在对赌行里曾经遭遇的那些骗局与其本质一致，只是更赤裸裸、更低级。此后我听到的这类话题在很大程度上是由臆断、疑惑组成的，与其说是理性分析，毋宁说是猜测。</p>
+        <p>在熟悉基恩的人当中，不止一位曾经对我说，他是华尔街有史以来最大胆也最卓越的作手。这已经很说明问题了，因为华尔街曾经出现过一些了不起的交易者。他们的名字差不多已经被遗忘了，然而不管怎么说，他们在自己的时代无不风云一时——至少曾经有一天成为市场的王者！行情纸带把他们从籍籍无名中抬举出来，在金融舞台的聚光灯下争得了一席之地。不过，小小行情纸带的作用看来并不坚久，不足以让他们的声望长久维持，在金融史上留名。无论如何，基恩毫无疑问是他那个时代最棒的市场操作者—那真是漫长而激动人心的一天。</p>
+        <p>他充分利用自己对市场的了解，作为一名作手的经验以及天赋来获利，当时他正为哈夫迈耶兄弟打工，他们要求他为糖业股份的股票开发市场。当时他处在破产状态，不然必定继续在自己名下交易，他是一位了不起的豪赌客！他在糖业股份上很成功，使得该股票成为热门的交易股票，很容易卖出去。在这之后，不停地有人请求他主持集合资产池的管理。据说在他管理这些集合资产池时，从不要求或者接受任何管理费，而是和集合资产池的其他成员一样，按照自己的份额获得报酬。当然，集合资产池的市场运作完全由他说了算。时常传出有人背信弃义的议论——既有说他的，也有说他的合作方的。他和惠特尼—瑞安派系（Whitney-Ryan clique）之间的恩怨便是由这类风声而起。操作者很容易被他的合作者误解。他们不能像他那样看出有些事不得不为。我根据自己的经验对这一点深有体会。</p>
+        <p>很遗憾，基恩没有把他最出色的英勇事迹留下准确记录——即1901 年春对美国钢铁公司股份的成功操作。照我理解，基恩从来没有就此事和J·P·摩根面谈过。摩根的公司通过塔尔博特·J·泰勒公司（Talbot J．Taylor ＆ Co.）交易，或者与之交易，而基恩正是以这家公司的营业部作为自己的大本营。塔尔博特·泰勒是基恩的女婿。有人言之凿凿地告诉我，基恩从其工作中获得的回报包括他在工作过程中体验到的乐趣。那年春天他为行情上涨助了一臂之力，自己也获利数百万美元，这事众所周知。他曾经对我的一位朋友说，在几个星期之内，他通过公开市场为股票承销团卖出了超过75 万股股票。考虑到以下两项因素，这个业绩实在不差：第一，该公司的股票初次发行，未经市场考验，并且其总市值比当时美国政府的全部债务总额还要大；第二，在基恩助力造成的市场上，D·G·里德、W·B·利兹、穆尔兄弟、亨利·菲普斯、H·C·弗里克以及其他钢铁巨头利用同一个市场、于同一时间也向公众发售了数十万、上百万的股票。</p>
+        <p>当然，总体形势对他有利。当时不仅有良好的商业形势，还有普遍的乐观预期以及不受限制的强大资金后盾，为他的成功铺平了道路。当时不仅存在一个巨大的牛市行情，还有高涨的商业景气以及人们亢奋的精神状态，这些以后不大可能再遇到了。市场对这批证券消化不良，后来引发了大恐慌，美国钢铁的普通股基恩在1901 年标价为55 美元，l903 年跌到 10 美元，1904 年再下跌到8⅞美元。</p>
+        <p>我们无从分析基恩手法巧妙的销售活动。找不到他的著作，也不存在足够翔实的文件记录。举例来说，如果有机会研究一下他在联合铜业（Amalgamated Copper）上的处理手法，会很有意思的。H·H·罗杰斯和威廉·洛克菲勒曾经试图在市场上把他们多余的股票销售出去，但是失败了。最终他们请求基恩来销售他们的库存，他答应了。请记着，H·H·罗杰斯在他的时代曾经是华尔街最精明强干的生意人之一，而威廉·洛克菲勒在整个标准石油公司的小集团内当属最为大胆进取的投机客。他们拥有几乎无尽的资源、显赫的声望，并且自己也在股票市场的游戏中浸淫多年。然而，他们依然不得不求助于基恩。我之所以指出这一点，是为了向你说明，有些事务非得交给行家里手不可。这只股票曾经得到广泛的策动，其控股股东是美国最了不起的资本家，但是就是不好出手，除非折让一大笔价钱，再牺牲一些声誉。罗杰斯和洛克菲勒的确明智，他们决定寻求基恩的帮助。</p>
+        <p>基恩立即着手工作。市场正处在牛市行情，他展开工作，共在面值附近卖出了22 万股联合铜业。当他把内部人的持仓减持完毕后，公众继续保持买进的势头，股价继续上涨了 10 点。当内部人看到公众接盘如此踊跃的时候，虽然他们自己刚刚卖完股票，却对自己的股票转而看多。有一个故事说，罗杰斯当真建议基恩做多联合铜业。这不大可能是罗杰斯意图把股票转嫁给基恩。他太精明了，不可能不清楚基恩可不是温驯的羔羊。基恩的操作手法一如既往——也就是说，在市场经过大幅上涨后的下跌途中完成大额卖出。当然，他的战术取决于他的具体需要，以及日复一日市场短线潮流的具体变化。股票市场如战场，最好时刻在意战略和战术的区别。</p>
+        <p>基恩的铁杆亲信之一——他是我认识的最出色的飞线钓手——就在前几天亲口告诉我，在运作联合铜业期间，有一次基恩发现自己手上几乎1 股都没有了。也就是说，在推高价格的过程中，他不得不吃进一些股票，现在这些股票全卖光了。卖光之后的第二天，他可能买回几千股。第三天，再卖出，达到总体平衡。然后，他便放手不管市场，看看市场是不是能够自己照顾自己，同时也引导市场逐步适应独立交易。到了他真正动手销售那笔头寸的时候，采取的就是刚才我说的做法：在市场下跌途中卖出。公众交易者总是习惯于抢市场反弹，此外做空的人此时也在买入平仓。</p>
+        <p>那位基恩的亲信对我说，在基恩完成罗杰斯—洛克菲勒持仓的销售任务之后，卖得了大约2000 万～2500 万美元的现金，罗杰斯派人送来一张20 万美元的支票。这个故事很容易令人联想起另一则故事，一位百万富翁的夫人在大都会歌剧院遗失了一条价值10 万美元的珍珠项链，剧院清扫女工拾得项链并完璧归赵，结果这位夫人只打赏50 美分。基恩退回那张支票，并彬彬有礼地附了一张便条，写道，他不是股票经纪商，不过很高兴给他们提供服务。他们留下支票，寄来一封信，说他们会很乐意再次跟他合作。之后不久，H·H·罗杰斯好心地给了基恩一个贴士，叫他在130 买进联合铜业！</p>
+        <p>詹姆斯·R·基恩，多么卓越的作手！他的私人秘书对我说，当市场演变方向对基恩先生有利的时候，他性情暴躁。了解他的人都说，他发脾气表现为喜欢发表嘲讽式的警句，这些警句往往在听者的脑海中萦绕多日。然而，当他处在亏损状态时，反而是心情最好的状态，举止文质彬彬，态度平易近人，言谈机智风趣。</p>
+        <p>世界各地的成功投机者具备一种共同的思维素质，他属于其中最高级别的。显而易见，他从不和行情纸带争辩。他完全不受恐怖情绪的影响，但并不是不计后果的轻率鲁莽。他能够并且的确做到一旦发现自己做错便在刹那之间掉转方向。</p>
+        <p>自从他那个时代以来，股票交易所的规则已经发生了太多的修改，对交易规则的推行也比过去严厉得多，股票卖出和盈利被征收了如此之多的新税种，不一而足，以至于交易这个行当似乎与过去全然不同。基恩运用自如并有利可图的那些技巧已经不再可以应用。与此同时，我们还得到许诺，说华尔街的商业道德已经上升到了一个新台阶。虽然如此，公允地说，无论在我们金融史的哪个阶段，基恩都能够成为一位伟大的市场操作者，因为他是一位伟大的股票作手，他彻底精通投机的行当。他之所以能够取得那些成就，是因为当时的市场形势允许他这么做。如果他是在1922 年承担那些重大任务的，那么他将和在1901 年或者在1876 年取得同样的成功。他在1876 年从加利福尼亚初次来到纽约，两年的时间赢利900 万美元。有些人的步伐远远快于熙攘众生。他们注定成为领先者——不论熙攘众生发生了多大的变迁。</p>
+        <p>事实上，变化根本不像我们想象得那么激进。回报不再有过去那么大，因为工作也不再如过去那样具有开创性，当然不可能得到开创阶段的高回报。无论如何，在某些特定方面，市场操作比过去更容易，而在其他方面则比基恩的时代难得多了。</p>
+        <p>毫无疑问，广告推销是一门艺术，而市场操作则是以行情纸带为媒介的一门广告推销艺术。行情纸带应当讲述操作者希望读者看到的故事。故事越真实，则必定越有说服力；说服力越强，则广告推销的效果越好。举例来说，今天的操作者不仅要让股票行情看起来坚挺，还要让它果真坚挺。因此，操作者必须以扎实的交易原则为依归。正是凭着这一点，基恩才能成为如此杰出的操作者，他首先是一位完美的交易者。</p>
+        <p>“操纵”这个词现在已经带有恶名声了，因此需要一个代称。如果市场操作的目的是为了整批销售股票，并且在操作过程中没有不实的陈述，那么我不认为其过程带有任何神秘的色彩，或者过程本身带有任何欺诈的意味。毫无疑问，市场操作者必须在投机者中间寻求买主。他的诉求对象是那些期望为其资本谋求大回报的人们，因此，这些人愿意承担比常规商业更高的风险。如果有人明知这一点，但是在未能如愿赚到来得容易的快钱时便归咎于他人，对这样的人我没有多少同情心。你看，当他获利的时候，觉得自己多么英明啊。然而，当他亏钱的时候，他的替罪羊便成了骗子，成了操纵者！到了这种时候，从这种人嘴里说出来的往往是“有人搞鬼”。实情并非如此。</p>
+        <p>通常，市场操作的目的是为了形成证券的销售市场——也就是在任何时间都能够在某个价位发行相当大数额的证券。当然，在市场的总体形势发生不利逆转的情况下，集合资产池的管理者可能会发现，除非在价格上做出大到难以愉快接受的折让，否则难以卖出变现。这时，他们可能会决定聘用一位职业作手，相信借助他的技巧和经验能够引导他们有序地撤退，而不至于发生一场丢盔卸甲的大溃败。</p>
+        <p>你会注意到，我讲的并不是意图通过操纵市场而以尽可能低廉的价格搜集股票筹码的做法，举例来说，通过大批买进达到控制盘面的目的，因为这类行为如今已经不再经常发生了。</p>
+        <p>当杰伊·古尔德打算确保自己对西联汇款公司（Western Union）的控制的时候，决定买入一大批该公司股票。华盛顿·E·康纳（Washington E．Connor）已经有多年没在股票交易所场内露过面了，突然亲自跑到西联汇款公司的交易席位上。他开始叫买西联汇款。场内交易者对他大笑——嘲笑他如此愚蠢，竟然以为他们会简单、天真地上钩——他们开心地把他叫买的所有股票都抛给他。这样的把戏太浅陋了，他以为只要装出古尔德先生打算买进西联汇款的样子，就能够把该股的价格推高。这算操纵市场吗？我想我只能这样回答：“既不是，也是！”</p>
+        <p>前面已经说过，在大多数情况下市场操作的目的是尽可能以最好的价格把股票卖给公众。这不仅仅是一个卖出的问题，而且还是一个派发的问题。如果某个股票的持有人达到 1000 人，那么无论从哪个角度来看，显然都优于只有1 个持有人的情况——对该股票的市场更有利。因此，操作者必须考虑不仅要卖出一个好的价格，还要让股票具备良好的分布特</p>
+        <p>性。</p>
+        <p>如果不能引导公众从你手中接过股票，那么把股票价格提高到非常高的水平便没有意义了。只要哪位经验不足的操作者企图在顶部出货而遭遇败绩，老经验们便显出一副明察秋毫的架势，对你说，你可以把牛牵到水边，但是牛不喝水强按头也不成。狡猾的老狐狸！事实上，你最好牢记一条市场操作规则，基恩和他之前那些精明的先行者们对这条规则烂熟于心。规则如下：通过操作把股票价格尽可能推高到高位，然后在市场下跌的过程中把股票卖给公众。</p>
+        <p>请让我从头说起。假定有人，某个承销团、集合资产池或者个人，持有大数额的股票，希望尽可能按照最好的价格卖出。这是一只计划在纽约股票交易所正式上市的股票。卖出该股的最佳选择应该是在公开市场，而最佳的买入者应当是公众投资者。卖方有人负责谈判发行事宜。他本人或者他委托的某位代理人已经尝试在纽约股票交易所卖出股票，但未取得成功。他或者原来便熟悉股票市场运作，或者很快就意识到，发行工作所需要的市场操作技能超过了他自己的资质水平。他本人认识或者听说过有几位作手曾经在处置类似的交易案例中有过成功经验，于是他决定借助他们的职业技能。他寻求他们中间某位的帮助，正如当他生病时需要寻求医生的帮助或者当他需要专业技术时寻求工程师的帮助一样。</p>
+        <p>假定他听说我了解这个行当。好，我认为他会尽量查访关于我的一切情况。然后，他安排一场面谈，在约定的时间访问我的办公室。</p>
+        <p>当然，很可能我熟悉那个股票，知道有关的背景。干我这一行就该知道。我是凭这个来谋生的。我的来访者告诉我他和他的合作者们的意图，并请求我来承担这笔交易。</p>
+        <p>接下来轮到我说话。我会向他查问我认为必要的所有信息，让我清楚地理解到底对方要求我做什么。我判断股票的价值，评估市场接受该股票的可能性。这些情况加上我对当前市场总体形势的研读，有助于我评估提议中的操作项目成功的把握有多大。</p>
+        <p>如果上述情况倾向于得出有利的结论，我便接受提议，而且当场提出我的服务所需的条款。如果他接受我的条款——包括酬金和条件——我便立即着手工作。</p>
+        <p>我一般要求得到大数额股票的买入期权。我坚持逐步设置买入期权的执行价格，这对所有参与方都是最公平的。买入期权的执行价从稍稍低于当前市场价格的位置开始，然后逐步上升。举例来说，我总共得到10 万股的买入期权，该股票当前价格为40。我从35 开始得到几千股的买入期权，下一笔在37，接下来是40、45、50，以此类推，直至75 或80。</p>
+        <p>如果我的专业工作——我的操作——起了作用，股价上升，并且在最高价格市场对该股的需求旺盛，我就能够卖出标的股票中的相当数额，自然会行使买入权。我挣到钱，我的客户也挣到钱。这是天经地义的。如果我的市场技巧值得他们支付的价码，他们就应该得到价值回报。当然，也有时候某个集合资产池的运作结果是亏损的，不过这种时候只占极少数，因为当初除非我已经清楚地看到获利的前景，否则是不会承接项目的。今年有一两笔交易我不太走运，没有获利。事出有因，但那是另一个故事了，以后或许可以讲一讲。</p>
+        <p>要推动某个股票形成上涨行情，第一个步骤是大做广告，让大家都知道该股票即将形成上涨行情。听起来挺笨，不是吗？好，停下来想一想。这并不像听上去那么笨，是吧？事实上，要让大家知道你的诚实意图，做广告的最有效的办法是促进该股票交易活跃和行情坚挺。说一千道一万，世上最了不起的公共关系代理人乃是行情报价机，最有效的广告媒介乃是行情纸带。我用不着为我的客户发布任何文字资料，我不必通知各家日报该股价值多少，也不必说动财经评论人员对该公司的前景发表研究报告，我也不需要他人跟风买进。我达到上述最需要的目的的手段是，只需促进该股成交活跃。只要股票交易活跃，则必定同时引起人们对其中缘由的追问。这当然意味着市场将自动发布必要的理由，根本无需我做任何努力。</p>
+        <p>交易活跃是场内交易者唯一的要求。不论什么股票，只要存在流动性良好的市场，他们便愿意在任何水平买入或卖出。任何时候，只要他们看到交易活跃，他们便会成千上万股地</p>
+        <p>交易，他们的买卖能力加总起来相当可观。他们必然是操作者争取到的第一批买主。他们将在股价上升的过程中一路追随你，因此他们在操作过程的所有阶段都发挥着巨大的协助作用。据我所知，詹姆斯·R·基恩习惯于雇佣场内最活跃的交易者，既以此掩盖市场操作的源头，也因为他深知他们是最佳的业务推广者和贴士散布者。他经常向他们口头授予股票买入期权，执行价在当前市场价格之上，因此他们或许会先帮着做一些有益的工作，然后把期权变现。他迫使他们自己挣得自己的利润。为了获得职业交易者的跟随，我自己的做法从来没有超出促使标的股票交易活跃的范围。交易者并无更多的要求。当然，我们最好记住，交易所场内的这些职业交易者之所以买入股票，是因为他们希望在卖出时获得利润，倒不一定必须是大利润，但是一定必须是尽快了结的利润。</p>
+        <p>我促使股票成交活跃的另一个目的是为了把投机者的注意力吸引过来，原因我已经交代了。我买入它、卖出它，交易者们依葫芦画瓢。如果你像我一样，坚持要求通过买入期权的方式将如此之多的投机性持股控制起来，那么卖出压力就不会趋于增强。因此，买进的力量超越了卖出的力量。公众则更多地追随场内交易者，而不是操作者。他们作为买方入市。这是最希望得到的需求，我满足他们——也就是说，我为了保持平衡而卖出股票。如果市场需求达到应有的水平，那么他们吸纳的数量将超过我在操作初期阶段不得不吃进的筹码数量。果真如此，我会进一步做空——从技术上来说。换句话说，我卖出的股票超过我实际持有的股票。对我来说，这样做完全是有保障的，因为我其实是凭着自己的买入期权来卖出的。当然，当公众对股票的需求降低后，该股停止上涨。此时，我开始等待。</p>
+        <p>比如说，这时该股票停止了上涨的进程，这一天形成了一个疲软的交易日。总体市场或许正在酝酿回落的倾向，或者某位眼尖的交易者或许注意到在我的股票上几乎谈不上有任何买进指令，于是他卖出该股票，他的伙伴追随卖出。无论可能什么原因，总之我的股票开始下跌。好，我开始买进它。我给予该股应有的支持，如果该股票还受他的引领人欢迎的话，就应该出现这样的支撑。不仅如此，我有能力在不增加持仓的条件下支撑它——也就是说，不会增加我后来应当卖出的股票数量。请注意，我这样做就不会导致我的财务资源的减少。当然，其实我所做的不过是买入轧平之前在较高位置卖出做空的头寸，当时是为了满足公众的需求或者交易者的需求或者两方共同的需求而卖空的。当该股票下跌的时候，市场对它有需求，让交易者还有公众清楚地看到这一点总是有益的。这既有助于防止鲁莽的职业交易者做空，也有助于防止股票持有人被吓坏而出货变现——当一个股票变得越来越疲软的时候，你通常可以观察到这类卖出行为，而当一个股票得不到应有的支撑时，就会形成这类恶性循环。通过我买入平仓的支撑行动，形成了我所称的稳定工序。</p>
+        <p>随着市场的拓展，我当然会在行情上涨的过程中卖出股票，但是卖出的数量绝不会达到阻止上涨的程度。这一点与我的稳定计划是严格一致的。显然，我在合理而有序的上涨过程中卖出的股票越多，便越能鼓励那些保守的投机者，他们的人数远远超过草率的场内交易员。不仅如此，在随后不可避免地出现回落的日子里，我就能够为该股票提供更多的支撑。通过总是做空的方式，我便随时做好准备支撑股票价格而不增加自己的风险。通常，我总是在成交价格足以带来利润的时候开始卖出。但是我也经常在没有利润的条件下卖出，目的只在于造就或者进一步增强我所称的无风险买进能力。我的生意不只是要推高股票价格，或是替我的客户卖出一大批股票，还要为我自己挣钱。正因为此，我不要求任何客户为我的操作提供资金融通。我的项目费用收入取决于我成功的程度。</p>
+        <p>当然，上面描述的做法并不是一成不变。我从来没有一个固定的套路，也从不机械刻板地遵循什么套路。我根据环境条件相机修订自己的条款和条件。</p>
+        <p>如果打算分销某个股票，就应该操作市场到达尽可能高的点位再卖出。之所以要重申这一点，既因为这是一项基本规则，也因为公众显然相信股票派发统统发生在市场顶部。有时候，某个股票在某种程度上像被水沤烂了，就是涨不起来。这便是卖出的时候。在你卖出的</p>
+        <p>时候，股价自然会下降，并且下降的幅度超过你的意愿，不过一般都可以慢慢调理让它涨回来。只要我操作的股票在我买进的时候能够上涨，我便知道一切顺利，如果需要的话，我会满怀信心地动用自己的资金买进而无须担忧——在任何其他股票上如果出现同样的表现，我都会买进的。这便是最小阻力路线。你还记得我关于最小阻力路线的交易理论吧？好，当最小阻力路线确立后，我追随之，不是因为我在此一特定时刻正在操作此一特定股票，而是因为无论何时我都是一名股票交易者。</p>
+        <p>当我买进的时候如果不能推动股价上升，我便停手不再买进，然后转而把股票价格卖下来。如果同一个股票出现了同样的表现，即使我不是碰巧操作这个股票，也会按照完全相同的方式来应对。你知道，股票分销的主要工作发生在股价下跌过程中。在市场下跌过程你能够脱手的股票数量那么大，令人惊诧不已。</p>
+        <p>请允许我重复，在操作过程中绝无片刻我会忘记自己是一名股票交易者。无论如何，作为一名市场操作者所面临的问题，与作为一名交易者所面临的问题是一致的。如果操作者不能使得某个股票按照他所谋划的方式来表现，那么一切操作方案都将化为泡影。如果你正在操作的股票没有按照它应有的方式变化，那就放弃。不要与行情纸带争辩。不要企图把利润引诱回来。须放手时便放手，放手的成本也低。</p>
+        <div class="divider"></div></section>
+    </div>
+  </main>
+</div>
+<script>
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a[href^='#']")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-8% 0px -80% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

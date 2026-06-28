@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:accent" content="#d4a657">
+<title>股票大作手回忆录 · 十七 敬慎不败、当机立断，养成职业本能</title>
+<link rel="stylesheet" href="../reader.css">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#d4a657; --accent-soft:#33301f; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1408;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0; counter-reset:c;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(212,166,87,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1408; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(212,166,87,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+<style>figure img{width:100%;height:auto;display:block;border-radius:6px;}figure{padding:14px;}ul{margin:14px 0 14px 4px;padding-left:22px;color:#dcd8cc;}li{margin:6px 0;}h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:30px 0 4px;color:var(--ink);}.col section{padding:40px 0 6px;}</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">股票大作手回忆录<b>十七 敬慎不败、当机立断，养成职业本能</b></div>
+    <div class="shelf-nav"><a class="home" href="../../index.html">📚 书架</a> <a class="home" href="index.html">📖 本书</a> <a href="gushou_u18.html">← 上一篇</a> <a href="gushou_u20.html">下一篇 →</a></div>
+    <ol><a href="#u" class="active">十七 敬慎不败、当机立断，养成职业本能</a></ol>
+  </nav>
+  <main>
+    <header class="cover"><div class="col">
+      <div class="eyebrow">股票大作手回忆录</div>
+      <h1>十七 敬慎不败、当机立断，养成职业本能</h1>
+    </div></header>
+    <div class="col">
+      <section id="u"><div class="kicker">十七 敬慎不败、当机立断，养成职业本能</div><h2>十七 敬慎不败、当机立断，养成职业本能</h2>
+        <h3>十七 敬慎不败、当机立断，养成职业本能</h3>
+        <p>我最亲密的朋友之一非常喜欢对人讲述我的一些故事，把它们归结到我的直觉。他总是给我添加一些不可思议的能力。他宣称，我只是盲目遵循一定的神秘冲动，由此可以精确地选择正确的股票市场出市时机。在早餐桌边，他最喜欢讲的一则轶事和一只黑猫有关，他说这只黑猫叫我卖掉我持有的股票，我在收到这只小猫咪的信息后变得喋喋不休、心神不宁，直到卖光我做多的每一只股票之后才算万事大吉。我实际上卖到了那一波行情顶部的价格，这么一来，自然更加加强了我那位头脑顽固的朋友关于我的所谓直觉理论。</p>
+        <p>我当时已经前往华盛顿，试图说服几位国会议员，对我们往死里加重课税并没有什么智慧可言</p>
+        <p>①，当时我对股票市场并不十分关注。我之卖出所有持仓的决定来得很突然，这是我朋友时常讲述这则奇闻轶事的缘故。</p>
+        <p>我承认，有时候我确实会产生无法抗拒的冲动在市场上采取特定的行动。和我当时到底是在做多还是在做空皆无关，就是必须离场。除非完全离场，否则心神不宁。我自己的看法是，当时的情况实际上是因为我看到了许多警告信号。或许没有哪一个单独的信号清晰到或者强烈到足以向我提供一个确定无疑的原因，驱使我突然觉得必须那样采取行动。可能是所有信号综合起来形成了他们所谓的“盘感”。据老一辈交易者说，詹姆斯·R·基恩就养成了强烈的盘感，在他之前也有其他作手具备这样的才能。坦白说，这类警告信号通常都从后来的结果中得到了有力的证明，并且其时机精确到了那一分钟。不过，上面这个事例其实和直觉并没有关系。那只黑猫和整件事毫无关联。他对每个人说那天早晨我突然变得牢骚满腹，我觉得是可以解释的——如果我当时真是牢骚满腹的话——那是出于我的失望。我知道我没能说服见到的那些国会议员，该委员会在向华尔街征税的问题上看法和我相左。我并不是企图阻止或者逃避股票交易的税赋，而是向他们建议采取适当的课税水平，我作为一位有经验的股票交易者觉得既不失公平，又不失远见的课税水平。我不愿意看到山姆大叔杀鸡取卵，因为如果得到公平的对待，将来可以生很多金蛋的。可能因为我未能成功说服他们，不仅令我烦躁不安，也驱使我对这个遭受不公平课税的行业的未来变得悲观了。不过，请听我一五一十地慢慢道来。</p>
+        <p>当时在牛市行情刚开始的时候，我曾经同时看好钢铁贸易和铜市场的前景，因此对这两个板块的股票看多。于是开始搜集其中某些股票的筹码。最初买入了5000 股犹他铜业（Utah Copper），但是就此停手，因为它的表现不对头。也就是说，它没有表现出应有的状态，不足以说服我继续买进是明智的。我觉得它的价格大约在114。在差不多同样的价位上，我还买进了美国钢铁。第一天我便买进了2 万股之多，因为它的表现是对头的。我遵循了前面曾经介绍的那种方法。</p>
+        <p>美国钢铁继续表现对路，因此我继续买进，直到持有的总数达到了7.2 万股。但是我持有的犹他铜业只是最初买进的那些。从来没有超过5000 股。它的表现并没有鼓励我继续买进。</p>
+        <p>后来的情形众所周知。市场形成了一轮巨大的牛市行情。我知道市场即将上涨。总体形势是有利的。甚至当股票价格已经上涨了很大幅度之后，我的账面利润已经不可小觑，行情纸带仍然不停地大鸣大放：没完！没完！当我到达华盛顿的时候，纸带仍然向我发出同样的</p>
+        <p>① 美国第一次征收股票交易税大致可以追溯到早期共扣国，在内战和美国西班牙战争期间又再度出现。1914 年，国会为备战</p>
+        <p>再次开征股票交易税，不过这一次该税持续了50 年有余。1914 年的税收法规定，每100 美元面额的股票交易或过户征收2 美</p>
+        <p>分。该税种的主要目的是筹集收入，而不是管制市场，但其拥护者预言这项税收也能减少投机。</p>
+        <p>信息。当然，已经这么晚了，我也没有进一步增加持仓的意愿，尽管我仍然对市场看多。与此同时，市场显然正朝着对我有利的方向走，没有必要整天坐在报价板前面，从逐小时的市场变化中寻求退出市场的信号。在撤退的号角吹响之前——当然，不考虑完全出乎意外的灾祸——市场应当先出现犹豫徘徊的迹象，或者以其他形式表明投机形势已经逆转，提示我做好准备。正是出于这个原因我才得以心无挂碍地和这班国会议员厮混。</p>
+        <p>与此同时，价格不停息地上涨，这意味着牛市行情的终结越来越近了。我并没有预期牛市在哪个具体的日子终结。判断这一点超出了我的能力范围。然而，用不着对你强调，我当然随时警惕逆转信号的出现。无论如何，我从来都是保持警惕的。这已经成为我在业务上的日常惯例。</p>
+        <p>我不能肯定一定是这样，不过相当怀疑是这样的，就在我卖出的前一天，当我看到市场的高价位之后，想到了自己账面利润之大，还有我的头寸规模之大，再加上后来我力图劝导立法者们公平、明智地处理华尔街的事务但是徒劳无功。可能就是这样，在这个时候，我心里播下了种子。我的潜意识在这个问题上盘算了一整夜。第二天早晨当我考虑市场的时候，对当天的走势开始疑惑。当我走到办公室的时候，我看到并没有太多股票继续创出更高价位，而我自己的账面利润已经相当满意，同时眼前确实是个大市场，有巨大的流动性来吸纳筹码。在这样的市场上可以卖出任何数量的股票，并且理所当然地，如果你已经满仓持股的话，就应该随时关注市场寻机把账面利润转化为实在的现金。在转化过程中，应该尽可能避免损失账面利润。我的经验教导我，你总是能够发现机会来实现账面利润，而这个机会通常出现在当前行情的尾声。这可不是纸带阅读技巧或者一时灵感。</p>
+        <p>当然，那天早晨当我发现市场流动性极大，可以卖出所有股票而不会有任何麻烦，于是我就这样办了。当你决意卖出时，卖出50 股还是5 万股在英明程度或者勇敢程度上并不见得有差别。当然，你可以在最平淡的市场上卖出50 股，价格也不会有什么风吹草动，但是要在单一股票上一下子卖出5 万股，那完全是另一回事了。我持有7.2 万股美国钢铁。或许这样的头寸算不上庞大，但是你不可能总有机会既卖出这么多股票又避免损失账面利润。当初你在盘算账面利润的时候看起来挺不错，然而真正卖出时变现的损失实在令人心痛，因为当初的账面利润看起来似乎已经如同银行存款那样毫无悬念了。</p>
+        <p>我的账面利润总额大约有150 万美元，我乘着大好变现机会把它拿到了手。不过，这并不是我认为当时卖出所有持股是正确选择的最主要原因，而是市场本身向我证实了行动的正确性，这才是我真正满意之处。市场是这样演变的：我成功地卖出了所有的7.2 万股，平均成交价只比当天最高点、也是当前行情的最高点低1 个点。这证明至少到目前为止我是正确的。不过，就在同一天的同一个小时内，当我卖出5000 股犹他铜业股份的时候，其价格下挫了5 个点。请回忆，当初开始买进的时候两个股票是同时进行的，后来我把美国钢铁从2 万股增加到7.2 万股，这很明智，而在犹他铜业方面则维持最初购买的5000 股不变，这也同样明智。之所以之前没有卖出犹他铜业，是因为我对铜的交易看好，而且股市正处在牛市状态，我认为犹他铜业不可能对我构成太大损失，即使不能从中取得一大笔利润的话。然而，这里同所谓的第六感其实毫不相干。</p>
+        <p>训练一名股票交易者和训练一名医生差不多。学医者必须花费多年来学习解剖学、生理学、药物学以及其他附属的十几门科目。先学习理论，再把终身时间都奉献给实践。他必须认真观察并把各种病理现象条分缕析。他要学会诊断。如果他的诊断是正确的——而这取决于他的观察结果的准确性——那么，他的治疗措施就应有相当不错的效果，当然我们必须始终牢记，人类总是会犯错误的，那些完全不可预测的因素使他不可能百分之百命中靶心。日复一日，他积累经验增长智慧，不仅要学会采取正确的措施，而且必须当即实施，因此许多外行人会以为他是按直觉行事的。其实这些并不是无意识的行为。首先，他已经根据自己多年来对类似病例的观察经验对当前的病例进行了诊断；在他诊断之后，自然只能按照经验教</p>
+        <p>导他的恰当方式来实施治疗。你可以转移知识——也就是说，那些已经制作了卡片索引的具体事实——但是你转移不了自己的经验。某人或许知道该怎么做，但结果仍然会赔钱——假如他没有做得足够快的话。</p>
+        <p>观察、经验、记忆和数学——这些方面是成功的交易者必须仰仗的。他不仅必须精细地观察，还要在所有场合始终牢记观察到的内容。他不可以在非理性的或者不可预期的因素上赌博，无论他对人们非理性的程度持有多么强烈的个人信念，或者对不可预期的事情发生的频繁程度怀有多么肯定的感觉。他必须始终按照可能性来下注——也就是说，尽力预期事态发生的可能性。从事本行的多年经验、持续不懈的研究学习、始终牢记历史案例，使得交易者既能够在事先预料的事情如期经过时当即行动，也能够在一旦发生未曾预料的事情时当即行动。</p>
+        <p>某人可能同时拥有强大的数学能力和非凡的精细观察能力，但是仍然可能在投机事业中失败，除非他还拥有足够的经验和记忆力。再进一步地，正如医生随时跟随科学的进步一样，明智的交易者从不停止研究总体形势，以跟踪任何地方发生的可能牵连或影响各种市场轨迹的新动向。从事本行多年之后，这已成为日常惯例，可以让自己及时掌握最新动态。此时，他几乎下意识地采取行动。他已经养成了非常宝贵的职业态度，这使他有能力赢得这场比赛 ——间或地！职业交易者与业余交易者或偶尔为之的交易者之间的这种差别怎么强调都不过分。比如说，我已经发现，记忆力和数学功底对我的帮助非常大。华尔街凭的是数学功底来挣钱的。我的意思是，它是通过处理事实和数据来挣钱的。</p>
+        <p>当我说起交易者必须跟进每分钟的最新动态，还必须对所有市场和所有动态持有纯粹职业化态度的时候，意图仅在于再次强调，一时灵感和神秘的所谓盘感与交易成功之间并没有太大关系。当然，常常可能出现这样的情况：一位有经验的交易者行动如此迅捷，以至于来不及事先交代所有理由——但是，无论如何，这些理由都是确凿而充分的，因为它们都是建筑在事实的基础之上，这些事实是他在多年的工作和思考过程中积累起来的，是他以职业的角度来观察现实情况所得到的。对他来说，凡是送到他家磨坊的都是谷子。请允许我解释所谓职业态度的意思。</p>
+        <p>我始终跟踪商品市场的走势。这是多年的习惯。你知道，官方报告表明冬小麦的收成大致与去年持平，春小麦的收成比1921 年更好。形势好得很，可能比往常更早地迎来一场大丰收。在获得这些收成数据后，我看出小麦产量大致有多少——靠数学——也同时考虑到煤矿工人的罢工、铁路职工的罢工。我不由自主地思考这一切，因为我的头脑总是同时考虑可能对市场产生影响的所有事态。这让我立即意识到，罢工已经影响到全国各地的货物运输，必定对小麦价格产生不利影响。我是这样盘算的：冬小麦运抵市场的时间必定会被推迟相当长的一段，因为罢工导致运输设施瘫痪，等到罢工事件有了转机的时候，春小麦的收获想必也已经可以运送了。这意味着一旦铁路可以大量运送小麦，可能同时运送两季小麦收成—— 运输被推迟的冬小麦加上提前收获的春小麦——而这意味着将要一下子向市场倾倒巨量的小麦。假如事态果真如此发展——这显然属于大概率事件——那么，交易者们在一段时间之内就不会看好小麦，他们和我一样掌握情况并且会做出同样的推论。除非小麦价格下跌到一定水平使得买进小麦成为好的投资选择，否则他们是不愿意买进的。既然市场上不存在买进力量，价格就应该下跌。有了这样的想法之后，我就必须进一步核实自己的想法到底是正确的还是错误的。正如老帕特，赫恩过去常说的，“不下注不知道对错”。从看空到动手卖出，这之间没有必要浪费时间。</p>
+        <p>我的经验教会了我，市场的行为方式对一名作手来说是再好不过的指引。这就像测量一位患者的体温和脉搏，或者查看患者眼球的颜色和舌苔的颜色一样。</p>
+        <p>呃，平常你可以在¼美分的价格范围内完成买进或卖出100 万蒲式耳小麦的交易。这一天，当我卖出25 万蒲式耳小麦以测试市场是不是到了卖出时机的时候，价格下跌了¼美分。</p>
+        <p>既然这个市场反应不足以明确地向我揭示我所需要的信息，我便再卖出另一笔25 万蒲式耳的小麦。我注意到市场一点一点地吃进这笔单子，也就是说买入的单笔数量都在1 万、1.5 万蒲式耳，而不是像常规情形下两三笔交易便完全吃进了。除了零打碎敲的买进方式之外，在我卖出时价格同时下跌了1¼美分。现在，我已经不需浪费时间来解释市场是按照何种方式来承接我卖出的小麦了，当我卖出时市场不成比例的下跌已经告诉我市场上没有买进的力量。既然如此，唯一的行动选择是什么呢？当然是继续卖出大量小麦了。听凭经验的指示来行事可能会时不时让你遭到愚弄；然而，如果你不听从，那么无一例外，每次都会让你变成蠢驴。于是，我卖出了200 万蒲式耳，价格继续下跌了一些。过了几天，市场的表现实际上相当于强迫我再卖出200 万蒲式耳，价格进一步下跌。又过了几天，小麦开始急剧下挫，下跌了6 美分每蒲式耳。而且市场并没有就此停步。它一直处在下跌状态，偶尔间杂着为时不长的向上调整。</p>
+        <p>这一回，我并不是根据灵感行事的。没人给我什么内幕消息。完全由于我对待商品期货市场的专业习惯或者说职业化的态度给我带来了这笔利润，而这种态度来自多年从事本行业的积累。之所以研究，是因为交易就是我的事业。就在行情纸带告诉我我正走在正确轨道上的那一刻，我在生意上的专业责任便是继续增加我的头寸。我是这样做的。这就是其中的全部秘密。</p>
+        <p>我已经发现，在这个行当里可以把经验转化为稳定的收益源泉，并且对市场的观察带给你全世界最好的内幕消息。时不时地，特定个股的表现是你所需要的全部线索。你观察它。然后，你的经验向你揭示如何根据通常的情形，也就是说，从大概率的角度来获利。举例来说，我们知道所有的股票并不会整齐划一地按照同一个方向运动，但是在牛市行情下，同一个股票群体之内的股票都会上涨；而在熊市行情下，同一个股票群体之内的股票都会下跌。这在投机行业属于老生常谈。实际上，这是最常见的市场自我揭示的“内幕消息”，佣金经纪行对它再熟悉不过了，他们把这样的消息传递给每一位客户，要是客户自己没有想到的话。我指的是，他们总是建议客户交易同一个股票群体内那些落后于其他成员的股票。因此，如果美国钢铁上涨了，合乎逻辑的推论便是，只是时间问题，迟早熔炉冶炼公司（Crucible）、共和钢铁（Republic）或伯利恒钢铁会照着来的。对同一个群体内的所有股票而言，行情状态和未来前景应当如出一辙，经济繁荣所有成员应当雨露均沾。从理论上说，也有无数次的经验表明，在市场上每个股票都有出风头的时候，如果甲钢铁公司和乙钢铁公司都已经上涨，那么因为丙钢铁公司还没有上涨，公众便会买入丙公司。</p>
+        <p>如果某个股票的表现不符合当时行情状态下应有的表现，那么即使在牛市行情中，我也不会买入这个股票。有时候，市场已经毫无疑问处在牛市行情中，我买进了某个股票，后来发现同一个股票群体内的其他股票并没有表现出看涨的态势，于是我便卖出手中的股票。为什么？经验告诉我，与我称之为股票群体的抱团倾向对着干并不明智。我不能指望只在确有把握的条件下交易。我必须推敲大概率——并预期大概率的变化。有一位老经纪人曾经对我说：“如果我正沿着铁轨走路，看见一列火车正以60 英里的时速迎面疾驰而来，还会继续在铁轨上走吗？伙计，我闪到一边。再自然不过了，难道这还值得拍拍自己的后背夸夸自己多么明智多么审慎吗。”</p>
+        <p>去年，当广泛的牛市行情已经发展到如火如荼的程度时，我注意到在特定股票群体中有一只股票没有跟随整个群体，除了这个唯一的特例之外，整个群体正与市场上其他股票一道上涨（图17.1）。当时我做多了一笔相当大数额的布莱克伍德汽车（Blackwood Motors），每个人都知道该公司的生意做得很大。其股票价格每天上升1～3 个点，公众越来越多地涌入。这自然使得该股票群体成为关注的焦点，其他所有的汽车类股票都开始上涨。然而，其中唯有一家顽固地不为所动，那便是切斯特汽车（Chester）。它落在其他股票之后，过不了多久大家便开始对它议论纷纷。切斯特汽车的低价位和无动于衷的表现与布莱克伍德汽车以</p>
+        <p>及其他汽车类股票的坚挺和活跃程度形成了鲜明的对比，顺理成章，公众纷纷向消息灵通的掮客、贴士客和万事通们打听，以为它必定会马上追随整个板块上涨，因此开始买进切斯特汽车。</p>
+        <p>图17.1  牛市行情从1921 年10 月底开始，持续到1922 年10 月初，最大涨幅接近50%。利弗莫尔</p>
+        <p>大约在1922 年～1923 年接受埃德温·勒菲弗的采访。这两年他45、46 岁。</p>
+        <p>在一定程度的公众追捧之下，切斯特汽车非但没有上涨，实际上反而下跌了。在这样的牛市行情之下，要推高它的股价简直易如反掌，考虑到同一个股票群体内的布莱克伍德汽车已经成为市场普遍上涨的领头羊而备受瞩目，我们满耳听到的都是对所有种类汽车的需求都在明显改善、汽车产量创纪录等。</p>
+        <p>显而易见，切斯特汽车圈内的那伙人没有按照内部人在牛市中的通常行事方式来采取行动。他们之所以做不出通常应当做出的事情，可能有两个原因。或许内部人打算在推升行情之前搜集到更多的筹码。但是，如果分析一下切斯特汽车当前的成交量和行情特点，这一假定是站不住脚的。另一个原因可能是，如果推高行情，就必须接下股票，他们担心接下股票。</p>
+        <p>当这些人本该吃进股票的时候却不愿意承接它，为什么我要买进呢？我估摸，无论其他汽车公司可能享有多好的荣景，卖空切斯特汽车都是显而易见的。经验教导我，买入一个拒绝追随群体领头羊的股票，务必慎之又慎。</p>
+        <p>很容易就可确认如下事实，内部人士不仅未买进，实际上还在卖出。此外，还有其他征兆警告不要买进切斯特汽车，虽然其市场行为不能自圆其说，对我来说已经是足够的证据了。正是行情纸带再次给我发出信息，这便是我卖空切斯特汽车的原因。就在不久之后，有一天该股票大幅崩跌。后来我们得知——官方的正式消息——内部人士的确是在卖出，他们完全清楚该公司状况不容乐观。与通常的情况一样，这个原因也是在市场崩跌之后才披露的。然而，警告信号先于市场下挫便已经发出。我寻求的并不是行情崩跌，我寻求的是警告信号。我既不知道切斯特汽车有什么麻烦，也不是根据什么直觉或灵感行事的。我只知道肯定有什么不对的地方。</p>
+        <p>就在一天之前，我们从报纸上读到圭亚那黄金公司（Cuiana Gold）“轰动一时的”行情异动。该股曾经在街头市场按照50 美元1 股或者接近这个水平的价格交易，后来在股票交易所挂牌交易。在交易所上市后，起初交易价格在35 美元上下，不久便开始下跌，最终跌破了20 美元。</p>
+        <p>好，我从来不会把这段大幅下挫行情称为“轰动一时”，因为它完全是可以预期的。如果你咨询一下，便可能了解到该公司的历史。许多人都了解它。人们是这样告诉我的：六七位名声赫赫的大资本家以及一家著名的银行共同组成了一个辛迪加。其中一位是贝尔岛勘探公司（Belle Isle Exploration Company）的头头，他向圭亚那黄金公司先投入了超过1000 万美元，从该公司得到若干债券和25 万股股票。圭亚那黄金采矿公司总股本100 万股。该股票以分红为号召，广告做得很好。贝尔岛勘探公司的人觉得最好卖出变现，于是他们为卖出这25 万股的事拜访了那些银行家，银行家们计划在市场上发售这批股票，再加上他们自己持有的一些股票。起初，他们打算把发售股票的事务委托给一位职业作手，职业作手的收费是这25 万股从36 美元算起的卖出利润的⅓。据我理解，他们已经起草了协议，正准备签署，但在最后一刻，银行家们决定还是由自己来承担销售业务：省下那笔费用。于是，他们组成了一个内部人小集团。银行家们得到贝尔岛勘探公司25 万股的出价是36 美元。他们按照41 美元的价格为小集团吃进。也就是说，在刚开头的时候内部人小集团便要为他们自己的银行家同伴付出5 点的代价。我不知道这些内部人是不是清楚其中的机关。</p>
+        <p>在这些银行家看来简直一眼就可以看出，卖出股票的运作过程易如反掌。当时正巧碰上了牛市行情，而圭亚那黄金所属的股票群体恰恰正是领涨市场的板块之一。该公司正在获得巨额利润，并且正常派发红利。有了这些有利条件，再加上该公司的出资人都是一班头面人物，使公众几乎把圭亚那黄金当成投资型的股票了。有人告诉我，他们大约向公众卖出了 40 万股，与此同时，行情一路上涨到47 美元。</p>
+        <p>黄金类股票群体非常强劲。但是，圭亚那黄金开始显出疲态。它下跌了10 点。如果内部人小集团正在发售股票，这是可以理解的。然而，很快华尔街便开始传闻有些情况并不如意，该公司的资产质量其实不支持推销股票的高调收益预期。当然，这时该股票下跌的原因就很明显了。不过，在人们得知这一原因之前，我已经得到了市场的警告信号，并且着手测试圭亚那黄金的市场。该股票的表现与切斯特汽车的表现非常相像。于是，我卖空圭亚那黄金。其价格下降，我卖出更多。价格进一步走低。该股票正在重蹈切斯特汽车以及其他十来个股票的覆辙，我清楚地记得这些股票的临床病史。行情纸带明白地告诉我有什么地方不对，就是这些地方导致内部人不愿意买进，而内部人完全清楚即使在牛市行情下也不应该买进自己的股票的原因。另一方面，局外人对此懵然无知现在还在买进，因为该股票的成交价曾经达到过45 美元以上，当它回落到35 美元以下的时候看上去比较便宜。股票的红利还在继续派发。这股票真是超值。</p>
+        <p>这时新闻来了。我在公众之前先得到消息，噢，我经常抢先一步得到重要的市场新闻。不过，报告确认钻到的是贫瘠的岩石而不是富含黄金的矿石，这只不过给我提供了当初内部人卖出的原因。我自己并没有根据这个消息来卖出。早在很久之前，我就已经根据该股票的表现卖出了。我和它的关系一点也不复杂。我是一位交易者，因此只寻求一种迹象：内部人买进的情况。无迹可寻。我没有必要一定知道为什么内部人没有想到利用市场下跌的机会来买进他们自己的股票。显然，当初他们制定发售计划的时候并没有进一步策动行情上涨的打算，这一点就足够了。这一点使得卖空该股票成为必然的选择。公众已经买入了差不多50 万股，唯一可能发生的股票换手是，当初懵懂无知而买进的这群局外人现在希望卖出止损，而另一群懵懂无知的局外人则抱着挣钱的希望而打算买进。</p>
+        <p>之所以对你讲述这些，并不是就公众买入圭亚那黄金而蒙受损失的事情来说教一番，或者就我自己的卖空获利来炫耀一番，而是为了强调研究市场中的群体行为是何等重要，为了强调那些准备不足的交易者——无论资金多少——从来不肯记取教训。此外，不仅在股票市场行情纸带警告你，在商品市场它吹起哨子来差不多同样响亮。</p>
+        <p>我在棉花上曾经有过一段有趣的经历。当时我看空股票，已经建立了规模适中的空头头寸。与此同时，我也卖空了棉花，共5 万包。我的股票交易证明是赢利的，我把棉花抛到了</p>
+        <p>脑后。后来我知道的第一件事是，我的5 万包棉花亏损了25 万美元。正如前文所说，我的股票交易很有意思，自己也干得很不赖，以至于甚至不愿意把自己的心思从这上面转开。每当想起棉花的时候便自我安慰地说：“还是等等看，下回市场回落的时候就平仓。”棉花价格有时的确稍有回落，但是就在我下决心认赔平仓之前，价格又涨起来了，而且涨得比以前还要高。于是，我便再次决定等等看，然后回到股票交易中去，把自己的注意力完全局限在股票上。最终我了结了我的股票头寸，获得了非常不俗的利润，然后便前往温泉城休假。</p>
+        <p>这是我第一次真正有机会把心思解放出来全力以赴地处理棉花头寸亏损的问题。这笔交易对我不利。曾经有几次机会，事情看起来似乎有转机，有可能带着盈利平仓。我注意到，只要有人重仓卖出，市场便会形成明显回落。然而，随后价格几乎立即开始上涨，并再创当前行情的新高。</p>
+        <p>最终，大概在我到达温泉城的几天之后，我的账面亏损已经达到100 万美元，还未考虑市场继续上涨的倾向。我把自己已经做过的和没有做过的前后经过细想了一遍，对自己说： “我肯定做错了！”对我来说，意识到自己做错了和决定平仓出市实际上就是一回事。所以我买入平仓了，损失大约100 万美元。</p>
+        <p>次日早晨，我专心专意打高尔夫，心里什么也不想。我已经做了棉花交易，并且做错了。我已经为自己的错误付出了代价，付款收据就在我的口袋里。我在棉花市场已经再没牵挂了，就像此刻一样。当我回酒店吃午饭的时候，顺道在经纪商的营业部逗留了一下，看了一眼报价板。我看到棉花下跌了50 点。这不算什么。然而，我还注意到，这一次它没有在导致其价格下跌的抛售压力缓解之后随即上涨，不像它在过去数星期内的习惯性表现。这种习惯性表现曾经表明市场阻力最小路线的方向向上，因为我对这一点视而不见，它叫我付出了100 万美元的代价。</p>
+        <p>无论如何，一天前促使我接受巨额亏损平仓出市的理由现在不再是好理由了，因为市场没有照例出现立即并且力度强劲的上涨。于是，我卖出了1 万包，看看。很快，市场下跌了 50 点。我稍稍等候片刻，还是没有上涨。这时候我已经相当饥渴了，所以我走进餐厅，点好了午餐。服务员还没有来得及上菜，我便跳起来，直奔经纪商的营业部，我看到还是没有任何上涨的迹象，于是我再卖出1 万包。又等了一会，愉快地看到价格继续下跌了40 点。这向我表明，我的交易是正确的，因此我返回餐厅，享用我的午餐，之后再回到经纪商营业部。那天棉花市场没有任何上涨波动。就在当晚，我离开了温泉城。</p>
+        <p>打高尔夫当然是很好的享受，但是当初我曾经错误地卖出棉花，又错误地买入平仓。所以我不得不重新开始工作，回到最方便自己交易的所在。市场吃进我第一笔1 万包的情状促使我再卖出第二笔l 万包，而市场吃进第二笔1 万包的情状使我确信行情转折已经到来。这正在于市场行为方式的不同。</p>
+        <p>好，我抵达华盛顿，走进我的经纪商在那里的营业部，这里归我的老朋友塔克掌管。在我逗留期间，市场继续下跌了一些。“今是而昨非”，现在我是正确的，比当初做错的时候更有信心。于是，我再卖出4 万包，市场应声下跌了75 点。这表明市场上根本没有任何支撑力量。那天晚上，市场的收市价还要更低些。早先那股买进的力量显然已经荡然无存。我没法知道当市场到达什么价位的时候会再度积聚起那股买进的力量，不过，我觉得自己的头寸合情合理，很有信心。次日早晨，我离开华盛顿，开车回纽约。没必要匆匆忙忙的。</p>
+        <p>当我到达费城的时候，顺道开到一家经纪行的营业部，我看到棉花市场开始算总账了。价格急剧下挫，正在上演一出小规模的恐慌行情。我没有等回到纽约再说，而是马上给我的经纪商打了长途电话，轧平了空头头寸。一拿到成交回报，我发现，这次的盈利实际上已经扳回上次的亏损，于是我继续驾车回纽约，一路上再也没有弯路停车查看行情。</p>
+        <p>有些和我一道在温泉城度假的朋友到现在还在谈论当天我从午餐桌边跳起来赶到营业部卖出第二笔1 万包棉花的故事。不过，这一次同样清楚，也不是靠什么灵感。这次突如其</p>
+        <p>来的念头其实扎根于我确信卖出棉花的时机终于到来的判断，不管之前我所犯的错误有多么严重。我必须利用它。这是我的机会。我的潜意识或许始终在思索着，并为我得出了结论。在华盛顿卖出的决定则是我根据观察得出的结果。多年的交易经验告诉我，市场最小阻力路线已经从上升改变为下降了。</p>
+        <p>之前棉花市场从我手中夺走了100 万美元，我对此并不耿耿于怀。我当初不曾因为自己犯下这么大的错误而自怨自艾，后来也不因为自己在费城轧平所有头寸弥补了巨大的亏损而沾沾自喜。我的交易头脑专注于交易问题，之所以能够弥补起初的亏损，是因为我拥有相称的经验和记忆，我觉得这样自我评价并不为过。</p>
+        <div class="divider"></div></section>
+    </div>
+  </main>
+</div>
+<script>
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a[href^='#']")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-8% 0px -80% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

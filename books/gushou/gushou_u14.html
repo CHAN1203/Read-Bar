@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:accent" content="#d4a657">
+<title>股票大作手回忆录 · 十二 说客巧舌如簧蒙蔽主见，巨资数百万尽付东流</title>
+<link rel="stylesheet" href="../reader.css">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#d4a657; --accent-soft:#33301f; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1408;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0; counter-reset:c;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(212,166,87,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1408; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(212,166,87,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+<style>figure img{width:100%;height:auto;display:block;border-radius:6px;}figure{padding:14px;}ul{margin:14px 0 14px 4px;padding-left:22px;color:#dcd8cc;}li{margin:6px 0;}h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:30px 0 4px;color:var(--ink);}.col section{padding:40px 0 6px;}</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">股票大作手回忆录<b>十二 说客巧舌如簧蒙蔽主见，巨资数百万尽付东流</b></div>
+    <div class="shelf-nav"><a class="home" href="../../index.html">📚 书架</a> <a class="home" href="index.html">📖 本书</a> <a href="gushou_u13.html">← 上一篇</a> <a href="gushou_u15.html">下一篇 →</a></div>
+    <ol><a href="#u" class="active">十二 说客巧舌如簧蒙蔽主见，巨资数百万尽付东流</a></ol>
+  </nav>
+  <main>
+    <header class="cover"><div class="col">
+      <div class="eyebrow">股票大作手回忆录</div>
+      <h1>十二 说客巧舌如簧蒙蔽主见，巨资数百万尽付东流</h1>
+    </div></header>
+    <div class="col">
+      <section id="u"><div class="kicker">十二 说客巧舌如簧蒙蔽主见，巨资数百万尽付东流</div><h2>十二 说客巧舌如簧蒙蔽主见，巨资数百万尽付东流</h2>
+        <h3>十二 说客巧舌如簧蒙蔽主见，巨资数百万</h3>
+        <h3>尽付东流</h3>
+        <p>就在我喜出望外地了结7 月棉花交易之后不久，我收到了一封信，要求和我会面。来信是珀西·托马斯签署的。我当然立即回复，很乐意见到他，欢迎他在任何方便的时候到访我的办公室。第二天，他来了。</p>
+        <p>我对他仰慕已久。不论在哪里，但凡和种植棉花或者买卖棉花沾边的地方，他的名字都是家喻户晓。在欧洲，以及在本国各地，人们和我交谈时都引用托马斯的观点。我记得有一次在瑞士的一处度假胜地，我和一位开罗的银行家聊了聊，他和已故的欧内斯特·卡斯尔爵士（Sir Ernest Cassel）联手在埃及种植棉花。当他听说我来自纽约的时候，立即向我询问托马斯，后者的市场报告他一期不落地认真收读。</p>
+        <p>我总想着，托马斯以科学的态度做生意。他是一位真正的投机者，一位具有梦想家般的远见、斗士般的勇气的思想者，也是一位消息极其灵通的人士，在棉花方面既有深厚的理论造诣，又精通实际交易。他乐于倾听，也乐于贡献自己的观念、理论和心得，与此同时，他对棉花市场实务以及对棉花交易者的心理了如指掌，因为他拥有多年的交易经验，既挣到过也赔掉过巨额资金。</p>
+        <p>在先前的股票交易所经纪公司谢尔顿和托马斯公司倒闭之后，他便开始单干。在两年之内几乎奇迹般地东山再起。我记得曾经在《太阳报》上读到过，在他的财务状况重振旗鼓之后，他做的第一件事就是完全偿还老债主，第二件事是雇用一位专家为他研究判断如何为他的100 万美元选择最佳投资方式。这位专家查验了他的财产，分析了几家公司的财务报告，然后建议他买进特拉华—哈德逊铁路公司（Delaware ＆ Hudson）的股票。</p>
+        <p>嗨，托马斯曾经因为破产损失了数百万美元，又在棉花市场赢回来更多的百万美元，这次在3 月棉花交易上栽跟斗赔得精光。他到了我办公室之后，几乎是直奔主题。他提议和我联手操作。无论他得到什么信息都会在向公众发布之前立即通知我。我的分工是负责实际交易，他说我在这方面拥有特殊的天分，而他没有。</p>
+        <p>因为很多原因，这个提议对我没什么吸引力。我坦诚地告诉他，给我套上两套缰绳我就没法跑了，我也不想学这些新招式。但是他一再坚持，我们两人是理想组合，最后我只好干脆挑明我不愿意和影响他人交易的事儿有任何瓜葛。</p>
+        <p>“如果我愚弄了自己，”我对他说，“那就独个儿受罪，我立即认账。既没有久拖不决的债务，也没有意想不到的烦恼。我是自己选择的单枪匹马，同时也因为这是最明智、最低成本的交易方式。我靠自己的头脑和其他交易者的头脑公平比赛，其乐无穷。那些人我从来没有见过，从来没有和他们交谈过，从来没有建议他们买入或者卖出过，将来也不希望见到或者认识他们。如果我挣钱，是按照自己的观点交易挣钱的。我不会贩卖自己的观点，也不会利用自己的观点做资本。如果我采取其他方式挣到了钱，在我想象之中便不算挣钱。我对您的提议没有兴趣，因为我对这行当感兴趣的原因仅仅在于我按照自己的方式为自己操作。”</p>
+        <p>他说他很遗憾我是这样的想法，并力图说服我，说我拒绝他的计划就错了。但是我坚持自己的看法。接下来，我们聊得很开心。我告诉他，我知道他一定会卷土重来的，如果他允许我在财务上给他资助一二，那将是我的荣幸。不过，他说他不能从我这里接受任何贷款。后来，他问起我在7 月合约的交易，我毫不保留地如实相告，从怎么开头的，到总共买进了多少包，还有成交价以及其他细节。我们继续聊了一小会儿，他便告辞了。</p>
+        <p>在若干章节之前我曾经对你说过，投机者有很多敌人，其中许多潜藏在他的内部动摇并破坏他的事业。说到这里，我的脑子里立即涌现出许多自己曾经犯下的错误。我已经认识到，某人或许拥有别具一格的头脑，并且终生习惯于独立思考，但是当他面对一位拥有非凡说服力的人物的劝诱时，依然十分脆弱。我对投机者中比较常见的毛病已经具备了相当的免疫力，比如贪婪和恐惧、一厢情愿等。然而，我仍然只是一位普通人，我发现自己极容易犯错。</p>
+        <p>就在这段特别的时期，我本应该保持高度警惕的，因为就在不久之前我曾经亲身经历过一段遭遇，足以证明自己多么容易受到花言巧语的迷惑，竟至于违背自己的判断，甚至违背自己的意愿行事。这事发生在哈丁的营业厅。我在那儿有一间几乎算得上私人的办公室—— 可以独自占用的一个房间——并且在交易时间内除非我允许，不应该有人进来打扰我。我不愿意受到干扰，同时因为我的交易头寸非常大，我的账户给他们带来了相当多的利润，所以我也就受到了很好的关照。</p>
+        <p>一天，市场刚收市，我就听到有人说：“下午好，利文斯顿先生。” 我转过身，看到一位全然陌生的人——大约30、35 岁的家伙。我不明白他是怎么进来的，可人明明站在那儿。我断定他一定有什么事和我有关所以才被放进来。不过，我什么也没说。我只是看着他，马上他开了腔：“我来找您谈谈沃尔特·斯科特（Walter Scott）。”接着便滔滔不绝起来。</p>
+        <p>他是一位图书代理商。其实，他既没有特别令人愉快的风度，也没有巧妙的讲话技巧。他的外貌也谈不上有什么特别的吸引力，但是他肯定很有个性。他口若悬河，我以为自己在听他说。然而，他的话我一句也没听进去。我觉得自己从来没明白他说什么，甚至当时也没有。他总算说完了长篇大论，然后递给我一杆自来水笔，再递给我一张空白的表格，我就签了。这是一份花500 美元购买一套斯科特作品的合同。</p>
+        <p>签好字的那一刻我才回过神来。但是那张合同他已经稳稳当当地掖进口袋了。我不需要那些书，也没地方放那些书。它们对我没有任何用处。这些书我也没人可送。然而，我竟然同意花500 美元买下它们。</p>
+        <p>我对赔钱早就习以为常，以至于从来想不到错误本身的一面。我总是反思自己的做法，以及当初为什么这么做。首先，我希望了解自己的局限性，自己的思维定式。另一个原因是我不希望第二次重复同一个错误。我们只有从自己所犯的错误中汲取教训，将它转化为将来的获利，才能原谅自己的错误。</p>
+        <p>好，现在我已经犯了500 美元的错误，但是还没办法找出问题出在哪儿。作为第一步，我静静地打量着那家伙。如果他的脸上没有对我显露出微笑——一丝会心的微笑，我情愿被吊死！他似乎看穿了我的心思。不知怎么地，我已经明白用不着再对他解释什么了，不告诉他，他也知道。于是，我跳过了解释、开场白等部分，开门见山地问道：“这500 美元订单你能从中得到多少佣金？”</p>
+        <p>他立即摇着头，回答：“我不能那么干！抱歉！” “你能拿到多少？”我坚持。 “⅓。但是我不能那么干！”他说。 “500 美元的⅓是166 美元66 美分。我给你200 美元，要是你把那张签字的合同还给我。”为了证明我的诚意，我从兜里拿出200 元钱。</p>
+        <p>“我告诉过你我不能。”他说。 “你遇到的客户都会给你这样的提议吗？”我问。 “不是。”他回道。 “那么你为什么这么有把握我一定会守约呢？” “因为你们干的这一行就是这样的。你是第一流的输家，而正是这一点使你成为第一流的赢家。我非常非常感激你，但是我不能那么干。”</p>
+        <p>“那么你告诉我，为什么你不愿意挣到比佣金更多的钱呢？” “说得准确点，不是这样的，”他说，“我的工作不全是为了佣金。” “那你工作是为了什么呢？” “既为佣金，也为销售记录。”他答道。 “什么记录？” “我自己的。” “图啥呢？” “您工作的目的就只是为了钱吗？”他反问我。 “是的。”我说。 “不。”他摇着头，“不，您不是。如果只为钱，您不可能从中得到这么多乐趣。您肯定不是单纯为了给您的银行户头添更多数儿才工作的，您不会仅仅因为喜欢容易到手的钱才泡在华尔街的。您一定有得到趣味的其他方式。好，我也一样。”</p>
+        <p>我没有再和他争辩：“那么你是怎么得到你的乐趣的呢？” “噢，”他坦白道，“我们都有一个弱点。” “你的弱点是什么？” “虚荣心。”他说。 “好，”我告诉他，“你成功地说服我签署合同。现在我要取消签约，我打算付你200 美元，为你10 分钟的工作。这还不够满足你的自尊心吗？”</p>
+        <p>“不，”他回答，“您看，我们这伙人中其他所有人也都在华尔街推销好几个月了，饭钱都挣不够。他们抱怨商品不对路，还有地点不对头。于是总部打发我来证明错在他们的销售能力上，既不怪书，也不怪地点。他们挣的是25%的佣金。我原来在克利夫兰，我在那儿两周卖出了82 套。我到这里要卖出一定的套数，不仅要卖给那些拒绝从其他代理人手上购买的人，还要卖给那些他们甚至见不到的人。这就是为什么他们愿意付给我33.33%佣金的原因。”</p>
+        <p>“我到现在还不明白你是怎么卖给我那套书的。” “嗨，”他用安慰的口吻说，“我也卖给J·P·摩根一套。” “不，不会吧。”我说。他一点也不生气。他简单地说：“说实话，我卖了！” “把一套沃尔特·斯科特的著作卖给J·P·摩根，要知道他不仅收藏了一些善本，甚至还可能有一些小说最初的手稿？”</p>
+        <p>“好，这里有他的亲笔签名。”他马上掏出一张有J·P·摩根签名的合同在我眼前晃了晃。或许这并不真的是摩根先生的签名，不过当时我还没有想到这一层，因此没有起疑。他不是也把我的签名揣在口袋里了吗？我感到满心好奇。于是向他打听：“你是怎么通过图书馆管理员这一关的呢？”</p>
+        <p>“我没有看到图书馆管理员的影子。我看见的是老头儿本人。在他的办公室。” “这太夸张了！”我说。每个人都知道，即使要徒手走进摩根先生的私人办公室，也比带着一件滴答作响听起来像闹钟的包裹进入白宫还要难上百倍。</p>
+        <p>然而他坚称：“我做到了。” “但你是怎么进到他办公室的？” “我是怎么进到你办公室的呢？”他反问。 “我不知道，你告诉我。”我说。 “好，我进摩根办公室的方法和进你办公室的方法是一样的。把门的家伙本来是不让我进来的，我只是和他谈了谈。我让摩根签约的方法和让你签约的方法也是一样的。您不会为了一套书和我签合同，您只管拿起我递过去的钢笔按照我说的做了。没什么不同，和你一</p>
+        <p>样。”</p>
+        <p>“真是摩根的签名吗？”我问他，3 分钟之后总算找回了我的怀疑主义。 “当然！他从小就学会了写自己的名字。” “就这么简单？” “就这么简单，”他回答，“我清楚地知道我自己在做什么。这就是所有的秘密。我非常感激您。日安，利文斯顿先生。”说着，他开始向门外走。</p>
+        <p>“等一下，”我说，“我一定要让你从我这儿挣到200 美元整数。”我递给他35 美元。他摇摇头，然后说：“不，我不能那么做。但是我可以这么做！”说着，他从口袋里拿出那份合同，一撕两半，把两半递给我。</p>
+        <p>我数出200 美元，举到他面前，但是他再次摇摇头。 “你的意思不是这样的？”我说。 “对。” “那么，你为什么要撕掉合同呢？” “因为您没有哀怨，而是自己承担下来，要是我自己处在您的位置遇到这种情况也会自己承担下来的。”</p>
+        <p>“但是我是自愿付你200 美元的。”我说。 “我知道。然而，钱不代表一切。” 他的语音之中有些东西促使我说：“你说得对，钱不是一切。那么你现在真心希望我为你做的是什么呢？”</p>
+        <p>“您反应真快，不是吗？”他说，“您真的愿意帮忙吗？” “是的，”我告诉他，“我愿意。但是到底会不会做，还得看你想要我做的是什么。” “陪我一道去埃德·哈丁先生的办公室，要他让我和他谈3 分钟，然后您让我单独和他谈。”</p>
+        <p>我摇摇头，说：“他是我的好朋友。” “他已经50 岁了，而且是一位股票经纪人。”那位图书代理商说。这话确实，于是我带他走进埃德的办公室。我从这位图书代理商那里再也没有听到更多的话，也没有听说更多关于他的话。不过，几星期之后的一天傍晚，当我正从城里往城外赶的时候，在第六大道的火车站不期然碰到了他。他很有礼貌地举起帽子，我点点头回敬。他走过来，问我：“你好吗，利文斯顿先生？哈丁先生好吗？”</p>
+        <p>“他挺好。怎么问这话？”我感觉他话里有话。 “那天您带我去见他，我卖给他价值2000 美元的图书。” “他从来没对我提起过半个字。”我说。 “对，那种人从不谈这个。” “哪种人不谈？” “那种人从不犯错误，因为犯错误必定是桩坏生意。那种人总是知道他需要什么，没人能告诉他还有别的选择。那种人总是让我有机会教育我的孩子，也让我太太心情不错。您给了我很好的回报，利文斯顿先生。当我放弃您急切给我的200 美元的时候，我就估计会有好报。”</p>
+        <p>“不过，要是哈丁先生没有给你下单呢？” “噢，但我知道他会的。我已经发现他是哪种人了，搞定他小菜一碟。” “对。然而，万一他一本书都不买呢？”我追间。 “那我就会再回来找您，卖给您点什么。日安，利文斯顿先生。我要去见市长。”火车停靠公园站的时候他站起身。</p>
+        <p>①人物。 “我也是共和党人。”他说着向外走去，不慌不忙、好整以暇，确信火车会等着。火车果然等着。</p>
+        <p>“预祝你卖给他10 套。”我说。市长阁下属于坦慕尼派</p>
+        <p>我之所以对你详细讲述这个故事，是因为它关系到一位著名人物，而后者在我自己并无意愿买进的时候驱使我买进了。图书代理商是头一个对我发挥这种作用的人。照理说，绝不应该再有第二个了，然而，有。你决不可寄希望于世界上只有一位不同寻常的推销员，或者寄希望于自己对这等影响力超凡的人物具有完全的免疫力。</p>
+        <p>珀西·托马斯来访时，我委婉而坚定地拒绝了和他联手操作的提议，当时我断言我们两人的商业道路绝不会再会合。我甚至吃不准将来会不会再见到他。然而，紧接着第二天，他给我写信，谢谢我主动提出帮助，并邀请我过去看他。我回信表示我会拜访。他再次来信。于是我去了。</p>
+        <p>后来我多次拜访他。听他说话总能带给我很多乐趣，他知识渊博，表达起来又十分风趣。我认为他是我遇到过的最有吸引力的人物。</p>
+        <p>我们几乎无所不谈。他博览群书，对许多话题都有令人惊异的见解，并能以出色的才华趣味盎然地引申、概括。他的言谈包含的智慧给人留下了深刻的印象，他的话语说服力举世无双。我曾经听到许多人在许多事情上指责托马斯，其中包括不真诚。有时我也暗自猜想，他出色的雄辩并不是来自如下事实：首先他彻底说服了自己，然后他自己的心悦诚服反过来极大地增强了他说服别人的能力。</p>
+        <p>当然，我们对市场事务也谈得很多、很深。我对棉花不看好，但他看好。我看不出任何多头的迹象，但是他看得到。他拿出如此之多的事实，我觉得我应该已经被淹没了，但是我没有。我没法证明他说得不对，因为我不能否认它们的真实性，但是它们也动摇不了我根据自己的研判形成的信念。然而，他不停地说啊说，最后我对自己从交易报告以及其他日报中搜集的信息不再确信了。这就意味着我不再能够用我自己的双眼来观察市场了。人不会被人说服来反对自己原来的信念，但是他可能受花言巧语的迷惑而变得将信将疑、犹豫不决，这么一来甚至更糟糕，因为这就意味着他不可能怀着信心和安心交易了。</p>
+        <p>准确地说，我不能说自己已经完全糊涂了，但是我不再能够泰然自若，或者说在一定程度上放弃了自己的独立思考。我没本事详细说明究竟我是如何一步步走到这步田地的，这种心态导致我付出了高昂的代价。我感觉，这正是由于他对他的数据的准确性信誓旦旦，这些数据完全出自他本人；另一方面，我的判断的独立性并不完全出自我自己，而是来自公开数据。他喋喋不休地强调他的数据来自他的1 万名分布在南方的调查对象，过往事实一再证明百分之百可靠。最终，我变得按照他观察形势的方式来观察形势——因为我们看的是同一本书的同一页，而且他把书举在我眼前。他的思维很有逻辑性，只要接受了他的事实，剩下的就很容易了。我自己从他的事实推导的结论就会和他本人的结论一致。</p>
+        <p>在他开始对我展开关于棉花形势的长篇大论之前，我不仅看空，而且卖空了市场。渐渐地，随着我慢慢接受他的事实和数据，我开始担心当初的头寸可能建筑在错误信息的基础之上。我自然不能一方面带着这种感觉，另一方面不轧平原来的头寸。一旦因为托马斯驱使我认为自己做错了而轧平头寸，接下来就简单了，当然必须做多。我的头脑就是这样的思维方式。你知道，我这辈子除了交易股票和期货之外，其他什么都没做过。我自然认为，如果看空是错误的，那么看多就是正确的。既然看多是正确的，就必须赶紧买进。正如棕榈滩老友告诉我的，帕特·赫恩总是说：“不下注不知输赢！”我必须证明我对市场的看法到底是正确的还是错误的，而证据只能从我的经纪商月底提供的对账单上读出来。</p>
+        <p>①  19 世纪60 年代，坦慕尼派成为美国民主党在纽约的组织，并进而控制了纽约民主党，其后赢得对纽约市的彻底控制，开始</p>
+        <p>了一个极端腐败和堕落的时代。坦幕尼派时纽约的统治超过70 年，被认为是美国最重要的政治结构形式，而坦慕尼派对美国的</p>
+        <p>巨大影响力，直到20 世纪60 年代才式微。“坦幕尼派”常用以比喻政治腐败和滥权。</p>
+        <p>我开始动手买进棉花，转眼就达到了我通常的头寸额度，大约6 万包。这次的操作手法是我职业生涯中最愚蠢的一次。我没有根据自己的独立观察和判断来参与市场，而是仅仅充当了他人的傀儡。显然我活该得到惩罚，所以这次愚蠢的操作并没有到此为止。我不仅仅在自己无意看多的时候买进了。而且没有服从多年经验的提示步步为营地加码。我的交易方式不对。听他人的话交易，结果亏损了。</p>
+        <p>市场不是按照我的方向变化的。当我对自己的头寸有把握时，从来不会感到害怕或是不耐烦。然而，如果托马斯是对的，那市场就不该出现现在这样的表现。一步错，步步错。第一步采取错误行动，接下来就有第二步、第三步，结果当然是把自己完全搞乱了。我竟然允许自己被人说服不接受亏损、不采取止损措施，而是持仓对抗市场。这样的交易方式与我的天性完全格格不入，也和我的交易原则及理论南辕北辙。甚至当年在对赌行还在孩提时代的时候，我就已经做得比这更好了。然而，现在我已经不是我自己了，我变成了另一个人—— 托马斯的化身。</p>
+        <p>我不仅在棉花市场做多，而且还重仓持有小麦多头。后者表现得很漂亮，给我带来了不俗的账面利润。我愚蠢地力图挺起棉花市场，致使我的棉花头寸增加到大约15 万包。或许我可以告诉你，大约这个时候我感觉身体不太舒服。我说这个不是为自己愚不可及的行为找借口，而只是陈述一个相关的事实。我记得我前往贝肖尔（Bayshore）调理了一下。</p>
+        <p>我在贝肖尔期间进行了一番思索。在我看来，我的交易头寸已经过大了。一般说来，我并不胆怯，但是这样的巨额头寸已经令我紧张，这促使我决定减仓。为了达成这一目的，我就必须要么出清棉花，要么出清小麦。</p>
+        <p>似乎令人难以相信，以我对这个行当了解之透彻，以我在股票和商品市场投机的l2—l4 年的经验，我竟然作出了一个完全错误的抉择。棉花给我带来账面亏损，我留着它；小麦给我带来账面利润，我卖掉它。这真是愚蠢透顶的做法，但是我唯一能找到的借口是，这不是我的交易，而是托马斯的。在投机者铸成的所有大错中，几乎没有什么再比企图为已经亏损的交易摊低成本更要命的了。用了没多久，我的棉花交易便最大限度地证明了这一点。永远要卖掉账面亏损的头寸，保留账面赢利的头寸。显然这才是明智之举，而我对这一点再熟悉不过，直到现在我甚至还要问我自己当初为什么偏偏会背道而驰。</p>
+        <p>就这样，我卖出了小麦，在深思熟虑之后断送了这笔头寸的利润空间。就在我出市后，小麦价格一口气不停地继续上涨了20 美分每蒲式耳。如果当初保留它，那我就能从中获得大约800 万美元的利润。雪上加霜的是，因为决定继续持有亏损的头寸，我买进了更多的棉花！</p>
+        <p>我记得很清楚，我是如何日复一日地买进棉花、更多棉花的。那么你认为到底我为什么买它呢？为的是维持价格不下跌！如果这不是超级傻瓜的玩法，什么是呢？我就这么搭进去越来越多的资金——最终也会损失更多的资金。我的经纪人和我的密友们对我的行为难以理解，他们到今天也不理解。当然，如果这笔交易最终的结果换一个样子的话，我就会成为奇才了。不止一次有人警告我，不要过分信赖托马斯的精彩分析。我对这些好意的提醒一点儿也没听进去，而是继续买进棉花，以免市场下跌。我甚至还到利物浦买进。到我头脑终于清醒过来的时候为止，总共买进了44 万包棉花。然而，这时候已经悔之晚矣。因此，我把所有的头寸都卖掉了。</p>
+        <p>我几乎赔掉了我在股票和商品上其他所有交易挣到的利润。虽然没有一扫而光，但是仅剩下区区几十万美元。而在遇到才华横溢的朋友珀西·托马斯之前，我曾经拥有数百万美元。像我这样的人，竟然违背了自己在追求成功的过程中千锤百炼学到的全部法则，岂是一句愚蠢可以形容的。</p>
+        <p>这次经历让我学到，即使没有任何来由，人也可能自导自演愚蠢荒唐的一出。这是很有价值的一课。这一课花费了数百万美元，给我一个教训，交易者另一个危险的敌人是容易受</p>
+        <p>到一位吸引力难以抗拒的人物以非凡的才华表达出来的似是而非之论的感染。话虽然这么说，但我始终琢磨着，只花费100 万美元可能也已经足以学到这一课了。然而，命运女神并不总是让你自己决定交多少学费。为了教训你，她先狠狠地揍你板子，再把她的账单交给你，知道你不得不付，不管金额多少。现在我终于明白自己犯傻的潜力可以达到何种地步，于是断然给这自招的无妄之灾画上了句号。珀西·托马斯就此从我的生活中消失。</p>
+        <p>就这样，我超过十分之九的本金都完蛋了，正如吉姆·菲斯克（Jim Fisk）老挂在嘴边的，化为乌有。我当百万富翁的时间前后不到一年。我的数百万美元财富来自我的头脑，我的好运气替我锦上添花。而我损失这些财富的过程正好完全相反。我卖掉了我的两艘游艇，决定削减开支，生活方式不再那么奢侈。</p>
+        <p>然而，福无双至、祸不单行。我开始走背运。先是生病一场，然后是必须紧急支付20 万美元的现金。要放在几个月之前，这笔钱根本不算一回事，但是现在它几乎意味着我飞速消失的财富中剩余的全部家当。我必须拿出这笔钱，问题是，我到哪儿去把它弄来？我不想从保存在经纪商账户上的余额中支取，因为已经剩不下多少保证金可供自己交易了，并且如果我打算尽快赢回我的几百万，那么这时候比往常任何时候都更迫切需要交易本钱。我眼前看到的只有一条出路，从股票市场拿出这笔钱来！</p>
+        <p>好好想想看！如果你对经纪商营业厅里的普通客户有所了解，你就会同意我的下列看法：在华尔街，抱着让股票市场替你支付账单的念头去交易，正是最常见的亏损因由。如果你死抱着这样的念头不放，终将亏光所有本金。</p>
+        <p>嗨，有一年冬天在哈丁的营业厅，一小伙趾高气扬的家伙要花3 万～4 万美元买一件大衣——但是其中没有一个有福气穿上它。事情的经过是这样的：一位杰出的场内交易者—— 他后来成为世界闻名的一年领取1 美元象征薪俸的人物——穿着一件水獭毛皮做里子的皮大衣来到交易所。那个时候，裘皮价格还没有涨到天上，这样一件大衣的价值也不过1 万美元。好，哈丁营业厅里这伙人之一，鲍勃·基文（Bob Keown），下决心要买一件俄罗斯紫貂皮里子的皮大衣。他在上城打听了价格。价码大致差不多，也是1 万美元。</p>
+        <p>“去他的，太贵了。”其中一位反对道。 “噢，还行！还行！”鲍勃·基文温和地承认，“也就是一个星期的薪水罢了——除非你们大伙为了表扬我是营业厅里最好心的人，花钱买下来当礼物送给我，算是礼轻情意重吧。我听到颁奖发言了吗？没有？很好。那我还是让股票市场替我埋单吧！”</p>
+        <p>“你为什么需要貂皮大衣？”埃德·哈丁问道。 “穿在我这种身材的人身上特别合适。”鲍勃答道，边说边站起来。 “你刚才说你打算怎么来付这笔账的？”吉姆·默菲（Jim Murphy）问。问话的这位在营业厅里最擅长打探内幕消息。</p>
+        <p>“明智地投资一个短线品种，詹姆斯。就是这样。”鲍勃答道，他知道默菲只是想打听点消息。</p>
+        <p>果不其然，吉姆追问道：“你打算买哪只股票？” “你又错了，伙计。现在可不是买进的时候。我打算卖出5000 股美国钢铁。它应该至少下跌10 点。我只要拿到两点半的净利润。这很稳当，不是吗？”</p>
+        <p>“你听说美国钢铁有什么事？”默菲急切地问。他瘦高的个子、黑头发，一副面黄肌瘦的模样，因为担心错过纸带上什么信息，他从不外出吃午饭。</p>
+        <p>“别人告诉我，在我曾经动心要买的大衣中那一件最合身。”他转身对哈丁说：“埃德，卖出5000 股美国钢铁普通股，照市价。就今天，亲爱的。”</p>
+        <p>他是一个赌徒，我是说鲍勃，他喜欢没完没了地开玩笑逗乐。他的行事方式是，一定要张扬得满世界都知道他是意志刚强的人。他卖出了5000 股美国钢铁，而股票价格立即开始上涨。实际上鲍勃并不像他嘴上说的那样满不在乎，他在赔了一个半点之后认赔止损，于是</p>
+        <p>给营业厅里的大伙交底，纽约气候太暖和，不适合穿裘皮大衣云云。裘皮大衣既不利健康，又太过招摇。其他人乘势揶揄起哄。然而，没过多久，其中一位为了支付那件大衣买进了一些联合太平洋。他亏损了1800 美元，之后宣称妇女用貂皮做围巾挺好看的，但是不适合用来做男式大衣的里子，如果你是一位温文尔雅的绅士的话。</p>
+        <p>在这之后，这伙人前赴后继，想方设法要从股票市场上弄出买大衣的钱来。一天，我说我打算买下这件大衣，以免本营业厅亏损得破产。但是所有人都嚷嚷，这样不公平，如果我想得到那件大衣，那也该让市场出钱给我买才行。不过，埃德·哈丁强烈支持我的主张，当天下午我来到裘皮店买大衣，结果发现，一位来自芝加哥的人士上星期已经把它买走了。</p>
+        <p>这只是一个例子。在华尔街，但凡有人企图从市场挣出一笔钱来支付一辆汽车、一条项链、一艘快艇、一幅画作，没有不赔钱的。股票市场的手指缝紧得很，从不肯为我的生日礼物付账，不然的话，把这些钱攒起来足以建一家大医院了。事实上我认为，在华尔街所有的灾星当中，企图诱使股票市场充当仙女教母给自己送礼的幻想算得上是最忙碌、最挥之不去的一个。</p>
+        <p>正如其他那些被反复证明的灾星一样，这颗灾星也是其来有自的。当某人一心想着让股票市场替他偿付一笔突如其来的开支的时候，他会怎么做呢？唉，他只会期盼，他只会赌博。因此，在这种情况下他遭遇的风险远远大于明智地投机的时候。如果明智地投机，他会在冷静研究基本形势的基础上得出合乎逻辑的观点或意见，并据此交易。从出发点来看，他追求的是立竿见影的利润。他等不起。退一万步，即使市场对他特别关照，那也得立刻兑现，耽误不得。他自己哄自己，觉得自己要得不多，只不过输赢机会一半对一半地赌一把而已。他以为自己可以快进快出，比如说，亏2 点就止损，只要挣够2 点也一定罢手。实际上他已经跌入了陷阱——误以为这只是一半对一半的机会。嗨，我认识的一些人就是这样损失了千千万万美元，特别是在牛市中的高点买进、随后遇到中等规模回落行情的时候。这种交易方式肯定没有出路。</p>
+        <p>好，在我作为股票作手的职业生涯中，这次犯错的愚蠢程度登峰造极，也成了压断骆驼脊梁的最后一根稻草。它打败了我。棉花交易之后剩余的那点钱赔得精光。雪上加霜的是，我还在继续交易——并且继续亏损。我执意认为股票市场最终不得不让我挣钱。然而，眼睁睁地，唯一结果是我的资源终于耗竭。我负债累累，不仅对我的主要经纪商欠下债务，也对不要求缴纳足额保证金便允许我交易的其他经纪商欠下债务；不仅当时负债，而且从此以后一直处在负债的状态下。</p>
+        <div class="divider"></div></section>
+    </div>
+  </main>
+</div>
+<script>
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a[href^='#']")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-8% 0px -80% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

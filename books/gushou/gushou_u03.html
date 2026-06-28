@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:accent" content="#d4a657">
+<title>股票大作手回忆录 · 一 小后生抄价格悟出行情模式</title>
+<link rel="stylesheet" href="../reader.css">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#d4a657; --accent-soft:#33301f; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1408;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0; counter-reset:c;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(212,166,87,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1408; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(212,166,87,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+<style>figure img{width:100%;height:auto;display:block;border-radius:6px;}figure{padding:14px;}ul{margin:14px 0 14px 4px;padding-left:22px;color:#dcd8cc;}li{margin:6px 0;}h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:30px 0 4px;color:var(--ink);}.col section{padding:40px 0 6px;}</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">股票大作手回忆录<b>一 小后生抄价格悟出行情模式</b></div>
+    <div class="shelf-nav"><a class="home" href="../../index.html">📚 书架</a> <a class="home" href="index.html">📖 本书</a> <a href="gushou_u02.html">← 上一篇</a> <a href="gushou_u04.html">下一篇 →</a></div>
+    <ol><a href="#u" class="active">一 小后生抄价格悟出行情模式</a></ol>
+  </nav>
+  <main>
+    <header class="cover"><div class="col">
+      <div class="eyebrow">股票大作手回忆录</div>
+      <h1>一 小后生抄价格悟出行情模式</h1>
+    </div></header>
+    <div class="col">
+      <section id="u"><div class="kicker">一 小后生抄价格悟出行情模式</div><h2>一 小后生抄价格悟出行情模式</h2>
+        <h3>一 小后生抄价格悟出行情模式</h3>
+        <p>初中一毕业，我就出来打工了。我在一家股票经纪行的营业部找到活计，成了往黑板上抄写行情的“书童”。我向来长于数字。上学的时候，曾经用一年学完三年的数学课程。我的心算特别拿手。作为行情书童，每天在营业厅的大黑板上抄写行情数据。当时，通常有一位客户坐在报价机旁边，大声读出最新价格。不论他读得多快，我都不会落掉。我总能把数字记得牢牢的，从来不出问题。</p>
+        <p>营业部里雇了很多伙计。一来二去，我便和他们交上了朋友。不过，我的工作太忙，从上午十点到下午三点，只要开市，就得一刻不停，难得有机会和他们聊天。当然了，开市的时候忙，我倒不在意。</p>
+        <p>开市时虽然不能停下来聊天，但是我的脑子却可以仔细琢磨手上抄写的这些数字。在我眼中，这些数字并不代表股票的价钱，多少多少美元一股什么的。它们就是数字。当然，数字也有意思。它们永远变来变去。恰恰正是数字的变化，才是我感兴趣的。为什么数字会变化？我不知道，也不关心。那时，我并不深究就里。我只算旁观，看着它们变来变去。那便是我操心的一切了——周一到周五每天五小时，周六二小时，它们永远变来变去。</p>
+        <p>正是这段因缘，最初激起了我对价格行为的兴趣。我对数字记得很牢。要是它们今天上涨或下跌了，我能详细地记得前一天它的价格曾经是如何变化的。我的心算特长让我在处理这些数字的时候游刃有余。</p>
+        <p>我注意到，在行情上涨或下跌时，股票价格往往表现出特定的习惯——如果可以这样描述的话。我看到了无穷无尽地重复发生的相似现象，从中可以提取范例，作为未来的指引。虽然当对我只有14 岁，但是心中已经积累了成百上千的行情实例。有了这个底子，我渐渐开始有意地检验它们的准确性，把股票今天的走法和其他交易日进行比较。没过多久，我便开始预期下一步价格变动。我唯一的向导，正如前面交代的，就是它们的历史表现。我的脑子里有一份随时更新的“赛马早知道”。我指望股票价格按照一定的形态或顺序变化，我力图把握价格变化的时机。我想你明白我的意思。</p>
+        <p>举例来说，你可以看出，在什么地方买进要比卖出更有利一点。股票市场恰似战场，行情报价机纸带便是你的望远镜。十回中有七八回都能仰仗这一套。</p>
+        <p>我从早年的经历中还学到了另一课，华尔街没有新鲜事。投机乃人类天性，就像山丘那样古老，华尔街不可能有什么新鲜的。不论今天在股票市场上发生了何等匪夷所思的事情，都必定前有古人、后有来者。我从不忘记这一点。我寻思，自己的看家本领其实就是力图牢记股市行情变化：过去曾经在何时发生、以何种方式发生罢了。事实上，我牢记股市的变化方式，正是我从自己的市场经历中得益、转化为投资收益的方式。</p>
+        <p>我对自己这套把戏着了魔，对所有行情活跃的股票都忍不住要小试牛刀，急切地预期它们的上涨或下跌，因此总是随身带着一个小本。我在小本上记下自己的观察。本子上记录的并不是纸上模拟交易。许多人采用纸上模拟交易来训练投资技巧——获利巨万不会让你荷包满满（当然你也就不可能骄傲自满），亏损巨万也不会让你一文不名。我的本子不同。小本上记录的是我的预期正确的情况和错误的情况，紧接在我对最可能出现的价格变化事前所做的判断之后。我的主要用意是确认我的观察是否足够精准。换句话说，就是验证当初的预期是否正确。</p>
+        <p>假定我已经仔细研究了某个活跃股票当日变化的全部细节，得出的结论是：它现在的表</p>
+        <p>①之前的一贯表现，因此这是个前兆。假定这是周一，我就在小本上简要地记录股票名称及其周一的价位，同时，根据我对它的类似历史表现的记忆，再记下它在周二和周三应有的行为表现。周二、周三之后，我再查看行情纸带，核实它的真实交易过程。</p>
+        <p>现一如既往，符合它在即将向下突破8 到10 个点</p>
+        <p>这便是我对纸带上的信息产生兴趣的缘起。行情波动首先和我脑海里对上升或下降前兆的记忆联系在一起。当然，价格波动总会有原因，但是纸带从不关心原因，纸带也不作任何解释。我十四岁的时候便不从纸带上找原因，现在四十岁了，还是不从纸带上找原因。今天某股票行情如此这般的原因，也许在二、三天内都不清楚，或者在若干星期之内都不清楚，甚或在数月之内都不清楚。然而，究竟这原因与你何干？你用纸带做买卖，只在此刻——不是将来。原因可以放一放，以后再追查。但，你必须立刻行动——不然就被市场抛弃。一次又一次，我看到这一幕不断重演。你可能记得，有一天霍洛管道（Hollow Tube）下降了三个点，而当天大市是剧烈上涨的。这是事实。下星期一，你看到报道，董事会通过了分红方案。这是原因。他们知道自己下一步的举动，即使他们不卖出它，至少也不会买进。没有任何内部人买进；这股票没有什么理由不能向下突破。</p>
+        <p>言归正传，我用小记录本摘录行情大约有六个月。每天干完活后，我不是马上离开办公室回家，而是记下我需要的数字、研究当天行情变化，不停地搜寻重复出现的行为范例—— 我在学习阅读行情纸带，虽然当时并不清楚自己正在干这个。</p>
+        <p>有一天中午我正吃午饭的时候，公司里的一个小伙计——他比我年长一点——来找我，悄悄问我有没有带钱。</p>
+        <p>“问这干什么？”我说。 “嘿，”他答道，“我得到了一点柏林顿（Burlington）的好消息，呱呱叫的。要是能找到人和我一道，我打算玩它一把。”</p>
+        <p>“你说玩一把是什么意思？”我问。在我眼中，只有客户才玩股票、炒消息——都是一班腰缠万贯的阔佬，因为要花数百上千美元才能踏进门槛玩这个。这就像拥有自己的私人马车，还雇了一位穿戴光鲜的马车夫。</p>
+        <p>“我就这意思，玩它一把！”他说，“你带了多少钱？” “你要多少？” “嗯，我可以交易5 股，5 美元下注。” “那你打算怎么做呢？” “我打算用这些钱当保证金，到对赌行</p>
+        <p>②全部买进柏林顿，他们让买多少就买多少。” 他说，“这事儿笃定的，就像白捡钱一样。一会儿我们的本钱就能翻番。”</p>
+        <p>“且住！”我一边对他说，一边掏出我的小笔记本——“赛马早知道”。我对本钱翻番并不感兴趣，但是对他说的柏林顿即将上涨倒是很好奇。如果他说的是真的，我的笔记本就应该有记录显示出来。我查了查，果真！根据我的记录，柏林顿的表现恰恰符合以往它在上涨之前通常的表现。这辈子我还从来没有买过或卖过任何东西，之前也从来没有和哪个小伙计一起赌过。不过，我当时一门心思都是，这正是一个大好机会，可以实</p>
+        <p>① 1 点=1 美元。当时股票的面额一般为100 美元，虽然作者说的1 点是1 美元，而不是一个百分点的价格</p>
+        <p>变化，但是大致上相当于1%的价格变化（本书所有脚注都是译者添加的）。</p>
+        <p>② 对赌行的英文名称为bucketshop，愿意是“水桶摊子”。酒吧里的客人享用完啤酒后，杯子里可能剩下一</p>
+        <p>点。水桶摊子把零散的剩啤酒搜集到一个水桶里，城里的穷人们聚集在水桶摊子上喝这些啤酒。后来，人</p>
+        <p>们渐渐用这个词来形容和客户对赌股票和商品期货的地下经济商。他们只向客户收取微不足道的保证金，</p>
+        <p>但不把客户的单子真正下到交易所场内，而是和客户对赌，加上高昂的手续费，只需市场小小的波动就能</p>
+        <p>把客户保证金扫光。</p>
+        <p>际检验我下的苦功以及这种业余爱好的准确性。我立即想到，如果我的赛马预测表实际上不起作用，那么即使使表面上天花乱坠，也不会有任何人买账。于是，我倾囊而出。他带着我俩凑集的本钱赶到邻近的一家对赌行，买了一些柏林顿。两天后，我们卖出变现。我获利 3.12 美元。</p>
+        <p>开了这个头之后，我便独自在那家对赌行下注买卖了。我都在午饭时去下单，买进或卖出——对我来说，买进还是卖出从来没有不一样的感觉。我玩的是一套规则，而不是喜欢哪个股票，或是要落实什么看法。价格数字的算术，是我所知的一切。事实上，我这一套在对赌行里玩起来如鱼得水，因为在这里交易者所做的一切就是赌报价机纸带上打印出来的市场波动。</p>
+        <p>没用多久，我从对赌行拿出来的钱就比我在股票经纪公司营业部的差事挣到的报酬多得多了。于是，我不干行情书童了。我的亲友纷纷劝阻，但是当他们看到我赚的钱时，就没话说了。我只是个男孩，而且办公室小伙计的薪水不足挂齿。我的副业确实干得非常出色。</p>
+        <p>当我十五岁的时候，我赚足了有生以来第一个一千美元，在我母亲面前摊开这些钱—— 都是这几个月从对赌行里挣来的，平时带回家的不算。妈妈的脸色很难看，她叫我把钱存进银行，别放在手边，以免受诱惑学坏。她说，她这辈子从没听说哪个孩子白手起家，十五岁就有这么多钱的。她都不敢相信这些钱是真的。她忧心忡忡，常常觉得不踏实。不过，我倒没有多想什么，继续用行动证明我的数字推理是正确的。这正是乐趣的全部源泉——用头脑获得正确的成果。如果我用十股来检验我的判断，结果证明是正确的，那么用一百股来交易的话，结果便是十倍的正确。更多的钱意味着更多的保证金，对我来说这就是钱多的全部意义——重点是证明我更正确。也需要更多的勇气？不！用不着！假定我仅有十美元，但是统统拿出来冒险；再假定我有二百万美元，只拿一百万美元冒险，另一百万存起来保底，两相比较，拿出十美元可比拿出一百万美元勇敢得多了。</p>
+        <p>不管怎么说，十五岁的时候，我已经靠股票市场活得有滋有味了。我是在较小的对赌行里起家的，那里要是有人一次交易二十股的话，就会被人怀疑是不是约翰·W·盖茨（John W Cates）乔装改扮，或者是J·P·摩根（J．P．Morgan）微服私访。那时候，对赌行对客户一般是来者不拒的。他们用不着。他们有的是法子把客户洗劫一空，甚至即使客户压对了也难以幸免。这个行当的利润极端肥厚。如果对赌行守规矩——我的意思是如果对赌行直来直去、不做手脚的话——纸带上的价格波动便足以让他们空手套白狼。保证金仅需一个点的四分之三（即75 美分——译者），用不着多大的反向波动，就足以吞没客户的保证金了。而且，如果客户赖账，他就再没有机会重来了。他们不会让他再做的。</p>
+        <p>没人跟我的风。我对自己的买卖秘而不宣。无论如何，这是一桩单枪匹马的买卖。这是我自己的脑袋，对不对？价格要么按照我凭赛马预测表所做的判断继续演变，这时候用不着哪位朋友或合伙人来帮忙；要么走另一条路，这时候也没有哪位好心的朋友能够帮我挡住它。我看不出来有什么必要把我的买卖告诉任何人。当然，我也与人交朋友，但是我的生意从来如此——总是单枪匹马。这便是我始终在市场上独来独往的道理。</p>
+        <p>实际上，因为我总是赢他们，没过多久，对赌行便开始对我翻白眼了。我走进一家对赌行，到柜台排出保证金，但他们却视而不见，就是不收。他们告诉我，这儿没你什么事儿。从这时候起，他们开始叫我“豪赌小子”（Boy Plunger）。我只好打一枪换一个地方，从这家店换到那家店。后来竟然到了这种程度，我不得不隐姓埋名，每到一店还得从小笔交易开始，一笔15 股或20 股。有时候，当他们起疑心的时候，开头还得故意输钱，然后再连本带利捞一票。自然，用不了多久，他们就能察觉我让他们太破费了，于是把我连人带买卖一锅端，要我另谋高就，别耽误他们老板挣钱。</p>
+        <p>有一次，我在一家大对赌行交易了几个月后，他们要赶我走，这回我拿定主意，临走要多赢他们一点。这家对赌行在全城开了许多分店，宾馆大堂、邻近小镇都有。我走进一家开</p>
+        <p>在宾馆大堂的营业部，先问了经理几个问题，然后开始交易。但是就在我按照自己的独特方式在一个活跃股票上下注时，他接到了总部打来的电话，查问谁在下单。经理告诉我，上头正在打听我，我便告诉他我叫爱德华·鲁滨逊（Edward Robinson），从剑桥来。他给头头回电话，告诉这个好消息。然而，电话那一头还要知道我长什么样。当经理告诉我这话的时候，我对他说，告诉他我又矮又胖，黑头发，大络腮胡！这位经理却如实描述，他听着听着，脸变得通红，然后挂上电话，叫我快滚。</p>
+        <p>“他们对你说什么啦？”我礼貌地问他。 “他们说，‘你这该死的白痴，难道没告诉你别和拉里·利文斯顿（Larry Livingstone）做生意吗？你竟然故意放水，让他卷了我们700 美元！”’他没告诉我他们还对他说了啥。</p>
+        <p>我又一家接一家试了其他分店，但是现在他们都知道我了，随便哪一家分店都不敢认我的钱，甚至连我进去看一眼报价的时候，里头的伙计都会冷嘲热讽。我轮流到各家分店，希望每家分店隔好长时间才见到我一次，看看这样能不能混过去让我交易。这也没用。</p>
+        <p>最后，还剩一家对赌行我从没登过门，这是其中生意最大，也最肥的一家——大都会股票经纪公司。</p>
+        <p>大都会属于大哥大级别，生意做得极大。在新英格兰州每个靠制造业过活的城镇都开了分店。他们倒是愿意接我的单子。几个月来，我买进卖出，有赢有亏。但是最终看来，他们和其他对赌行也没什么两样。他们没有直来直去地拒绝我的单子，不像那些小对赌行的行径。噢，这倒不是因为他们更讲究公平游戏的精神，而是他们知道，要是因为哪个家伙碰巧有本事赚点小钱就不接他的单子，这事儿一传开，恐怕于他们的名声大有不便。但是，他们的阴招比小对赌行好不到哪儿去——他们强制我缴纳3 个点的保证金，这还不够，他们起初强迫我付半个点的交易费用，后来涨到1 个点，最后竟涨到一个半点。叫你跳舞，先把你五花大绑！他们怎么干的？小菜一碟。假设钢铁股份（Steel）当前卖出价90 美元，你买进。那么通常你的成交单上这样写着：“90⅛买进10 股钢铁</p>
+        <p>①。”如果你缴纳1 个点的保证金，那么一旦价格跌破89¼，你就自动赔光出局。对赌行不要求客户追加保证金，也不叫客户痛苦地选择认赔卖出（好歹会留下一点钱）。</p>
+        <p>然而，大都会向我征收的交易费就像在拳赛中阴损地打人小腹。也就是说，如果我买进的时候行情在90 美元，那么他们给我的成交单不是通常的“90⅛买进钢铁”，而是特制的，上面写着“91⅛买进钢铁”。机关在于，即使我买进后股票上涨了1¼点，如果这时候卖出平仓的话，还是赔钱的。另一方面，他们强制我在开仓时必须缴纳3 点的保证金，这么一来，同样多的钱，可交易的股数却减少了三分之二。尽管如此，这家对赌行却是唯一愿意接我单子的，我不得不接受他们的苛刻条件，否则就得洗手不干。</p>
+        <p>当然了，我既有赢的时候，也有输的时候，不过盈亏相抵总体是赢利的。无论如何，大都会绑在我身上的锁链足以压垮任何人了，然而，他们还嫌不够，不肯就此罢手。他们还设法使诈。他们没有骗到我。多亏我有直觉，才幸免中招。</p>
+        <p>前面曾经说过，大都会是我最后一条路。它是新英格兰最有实力的对赌行，很有钱，通常不限制交易数量。我觉得，我是他们成交量最大的个人客户——也就是说，我是最稳定的、每天都交易的客户。他们的营业场所装修精致，安装了我曾见过的最大的报价板，提供最完整的行情。它占满营业大厅一整面墙，你所能想象到的每个品种都有报价。我是说其中包括纽约股票交易所和波士顿股票交、易所上市的股票，还有棉花、小麦、粮食、金属——总之包括在纽约、芝加哥、波士顿和利物浦上市买卖的每个品种。</p>
+        <p>你知道对赌行怎么和客户交易的。你把钱付给一位柜员，告诉他你要买进或卖出什么品种。他查一查报价机纸带，或者看一看报价板，从那儿得到报价——当然是最新的报价。他</p>
+        <p>① 当时股票的最小报价单位是1 点的1/8，即0.125 美元，股价变动按照1/8 的倍数跳动，小于1 点的零</p>
+        <p>头部分用分数1/8、1/4、1/2、5/8、3/4、7/8 来表示。例如，“90¼”表示股票价格为“90 美元又1/4”。</p>
+        <p>还在成交单上注上交易时间，这么一来，看起来几乎像正规经纪商的成交报告——读起来大体上如以下字样：他们已经为你买进或卖出了多少股某某股票，成交价多少，成交时间某日某时某分，以及他们从你这里收取了多少金额。当你打算了结交易时，你走到柜台前——同一位柜员或是另一位柜员，按这家对赌行的规矩办——告诉他你要平仓。于是，他找到最新的报价，或者如果这个股票不活跃，他便等到纸带上出现该股票的下一个报价。他把这个价格和时间写在成交单上，签字表示批准，再把成交单交给你，然后你就可以凭成交单到出纳那里结算，拿到应付给你的款项。当然，如果市场变化对你不利，并且超过了你的保证金设定的限度，那么你的交易便自动了结，你的成交单变成废纸一张。</p>
+        <p>小型对赌行允许人们最少可以交易少到5 股的小笔单子，成交单是一张小条子——买进和卖出分为不同的颜色——有时候，比如在群情沸腾的牛市高潮，对赌行惨遭重创，因为所有客户都是多头，碰巧他们又都赌对了。到了这时候，在你开头寸的时候，对赌行可能既扣掉你开头寸的佣金，又提前扣掉你平头寸的佣金。举例来说，假定你在20 美元的价格买进某股票，成交单可能写着20¼。现在，你只有¾点的向下空间来赌市场上涨了。</p>
+        <p>大都会算是新英格兰头把交椅。它的顾客成千上万，我认为，在这成千上万的客户之中，只有我是他们唯一害怕的。不论是生吞活剥的高额手续费，还是蛮不讲理的3 点保证金，都不太能阻碍我的交易。只要他们接单，我便不停地买进、卖出，多多益善。有时候，我的头寸限额可达5000 股。</p>
+        <p>嗨，该来的迟早要来，这一天事情终于发生了，且听我道来。这一天，我卖空了3500 股糖业（Sugar）。我手上有7 张粉红色的成交单，每张单子500 股。大都会的成交单是一张大纸，预先留下空白，好添上额外追加的保证金。当然了，对赌行从来不会找你追加保证金。保证金越少，客户回旋余地越小，对他们越有利，因为他们的利润就来自你被洗掉的保证金。在较小的对赌行，如果你打算给自己的头寸多放一些保证金，他们会另写一张交易单给你，这么一来，他们就可以再收一次手续费，新增加1 点保证金只能给你增加¾点向下的余地，因为当你卖出时，他们还要把新增的保证金算作新交易，再收一次平仓的手续费。</p>
+        <p>回到正题，这一天我记得我的保证金已经上升到超过10000 美元了。当我第一次积攒到一万美元现金的时候，仅有二十岁。想必你已经听说过我妈妈了。你可能会觉得，带着一万美元现钞到处跑的，除了老约翰·D（old John D．）恐怕找不到第二个了。她老是叮嘱我要知足，罢手去干点正经营生。我费尽唇舌，总算让她相信我不是赌博，而是靠数字推理来挣钱的。但是，她心目中的一切是，1 万美元数目实在太大；而我心目中的一切是，用它赢得更多保证金。</p>
+        <p>我卖空3500 股糖业的成交价是105¼。同交易室还有另一位老兄，亨利·威廉斯（Henry Williams），他卖空了2500 股。我平常总坐在报价机旁边，替行情书童大声读报价。该股票的价格表现和我预期的一致。起先快速下跌了几个点，现在稍息一下，喘口气，酝酿下一波下跌。市场普遍走得相当疲软，看起来顺风顺水、大有希望。就在这时，突然之间我不喜欢糖业当时犹豫徘徊的样子了。我开始感觉不自在起来。我想，我该退出市场了。那时，它的卖出价是103——这是当天的最低价——然而，我非但没有感到更有信心，反而更有点六神无主的感觉。我知道，一定在什么地方有什么不对劲了，不过我并不确切了解到底哪里有毛病。如果即将有事临头，却不知道是什么来头，那就不可能做好防备了。既然如此，那最好还是“三十六计走为上”吧。</p>
+        <p>你知道，我并不盲目行事。我从不喜欢盲目行事。永远不。甚至当我还在孩提的时候，要做一件事，就必须先弄明白做这事的道理。但是这一回，我却找不出什么明确的理由，虽然找不出明确理由，偏偏就是心里不踏实，人都快受不了了。我大声招呼我认识的一位仁兄，戴夫·怀曼（Dave Wyman），对他说：“戴夫，你坐我这儿，我要你帮我做点事儿。你在喊糖业的下一个报价之前，稍等一会儿，行吗？”</p>
+        <p>他说好的。我起身，让他坐在我的位置上——报价机边上，由他来替行情书童读报价。我从口袋里拿出那7 张糖业成交单，走到柜台前。这个柜台的柜员负责平仓交易、填写成交信息。不过，我真的不知道为什么应该撤离市场，所以我就站在那儿，斜倚着柜台边，不让柜员看见我手上拿着的单子。不一会儿，我听到一台电报设备“咔嗒咔嗒”起来，看见汤姆·伯纳姆（Tom Burnham），那位柜员，很快转过头、听着。这时候，我感觉到有什么鬼把戏就要出笼了，断然决定不再等待了。就在这时，坐在报价机边的戴夫·怀曼开始喊：“糖——” 说时迟，那时快，我把单子闪电般拍在柜台上，拍在柜员面前，扯开嗓子：“轧平糖业！”— —抢在戴夫喊完糖业报价之前。就这样，按照行规，对赌行自然必须按照上一个最近的报价轧平我的糖业。结果，戴夫喊出来的，还是103。</p>
+        <p>根据我的“秘方”，糖业这时候应该已经跌破103 了。看来有什么地方不对头。我预感身旁可能有陷阱。电报机现在不管不顾，发了疯似的一个劲“咔咔”。我注意到汤姆·伯纳姆，那位柜员，没签我的单子，它们还在原来我拍下的地方，他不眨眼地听着咔嗒声，好像正等什么。于是，我朝他大喊：“嘿，汤姆，你究竟等啥？快把单子填上——103！麻利点儿！”</p>
+        <p>房间里所有人都听到了喊声，开始朝这边张望，相互打听出了什么事——你瞧，虽然大都会还没赖过账，可是谁敢打保票呢，挤兑对赌行就像挤兑银行，一点火星就着。只要有一位客户犯了疑心，很快就会传染其他客户。就这样，尽管汤姆脸拉得老长，但还是走近几步，在我的7 张单子上签下“于103 平仓”，冲我拽过来。没错儿，他脸色铁青。</p>
+        <p>喏，从汤姆的柜台到出纳员呆的笼子，距离不超过8 英尺。我正走向出纳那里取钱，但是我人还没到，戴夫·怀曼就在报价机旁激动地大嚷：“天哪！糖业，108！”然而，这一招来得太晚了；我只是笑笑，对汤姆喊着说，“刚才不是这样的，对吧，老兄？”</p>
+        <p>当然，这是人为操纵的。亨利·威廉斯和我加在一起，共计卖空了6000 股糖业。这家对赌行拿了我和亨利的保证金，营业厅里或许还有其他人也卖空了不少糖业，可能总共有 8000 到10000 股糖业的保证金。假设他们在糖业上总共拿到了20000 美元的保证金，那么这笔金额已经大得足以驱使店家在纽约股票交易所的市场上玩点手脚，好把我们洗掉。在那个年头，每当对赌行发现自己在某个股票上积累了太多的多头赌客时，他们惯用的伎俩就是找几家股票经纪行联手洗盘，打压这个股票的价格，使它下跌到足以清洗所有做多该股票的客户。对赌行付出的代价很少超过几百股的几个点的，而他们赚到的却是成千上万美元。</p>
+        <p>这就是大都会的行径。就为了捉住我和亨利·威廉斯，以及其他做空糖业的人，他们在纽约的股票经纪把糖业的价格打高到108。自然，它立即跌回起点，但是亨利和许多其他客户就这样被洗劫了。但凡出现了无法解释的急剧下跌、随后市场立即返回的情况，当时的报纸经常称之为“对赌行偷袭”。</p>
+        <p>最好笑的是，就在大都会的人企图坑骗我这事之后不到10 天，一位纽约的炒家从他们那里卷走了7 万多美元。这位先生在他得意的年头，曾在市场上相当有影响。他是纽约股票交易所的会员，在1896 年的布莱恩恐慌（Bryan panic）中做空，出了大名。不过，他总是和股票交易所的规则对着干，因为规则妨碍了他拿其他会员的利益作代价的某些计划。有一天，他终于想出一条妙计，要是从本地对赌行的不义之财中分一杯羹，那就既不得罪交易所，也不会引起警察机关的不满。在我上面提到的故事中，他派出35 个弟兄冒充对赌行客户。他们去了本地对赌行的主要营业厅和最大的分店。在约定的那一天的指定钟点，他的弟兄们全都敞开了买进约定的那只股票，店里让买多少就买多少。他指示他们当股价达到约定的赢利时便偷偷地卖出平仓。他的手法当然是先在他的圈子里散布关于这个股票利多的小道消息，然后他自己到交易所场内，不断抬高股价，场内交易员也跟着推波助澜，因为他们觉得他是一把好手。为这事，他精心挑选了合适的股票，因此费不了多大劲就把股价推高了3～ 4 个点。于是，他派到对赌行里的弟兄们按照预先的计划卖出变现。</p>
+        <p>有位老兄告诉我，这位幕后主使这一遭净赚了7 万美元，不算开支弟兄们的开销和报酬。</p>
+        <p>他把这套把戏耍遍了全国，挨个教训了纽约、波士顿、费城、芝加哥、辛辛那提和圣路易斯较大的对赌行。他最中意的股票之一是西部联盟，因为这样的股票半活跃不活跃，很容易推高几个点，或者打压几个点。他的人马在约定的价位买进，有两点的利润就抛掉，然后再反手做空，再获得3 个点或更多的利润。顺便提一句，前两天我在报纸上看到，这人已经死了，死的时候很穷，默默无闻。要是他早点死在1896 年，他的死讯会在纽约每一家报纸的头版上占上至少一栏，现在只在第五版有两行字。</p>
+        <div class="divider"></div></section>
+    </div>
+  </main>
+</div>
+<script>
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a[href^='#']")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-8% 0px -80% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

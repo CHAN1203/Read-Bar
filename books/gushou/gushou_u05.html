@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:accent" content="#d4a657">
+<title>股票大作手回忆录 · 三 再遭执行价偏差重挫，5 万美元得而复失</title>
+<link rel="stylesheet" href="../reader.css">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#d4a657; --accent-soft:#33301f; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1408;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0; counter-reset:c;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(212,166,87,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1408; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(212,166,87,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+<style>figure img{width:100%;height:auto;display:block;border-radius:6px;}figure{padding:14px;}ul{margin:14px 0 14px 4px;padding-left:22px;color:#dcd8cc;}li{margin:6px 0;}h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:30px 0 4px;color:var(--ink);}.col section{padding:40px 0 6px;}</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">股票大作手回忆录<b>三 再遭执行价偏差重挫，5 万美元得而复失</b></div>
+    <div class="shelf-nav"><a class="home" href="../../index.html">📚 书架</a> <a class="home" href="index.html">📖 本书</a> <a href="gushou_u04.html">← 上一篇</a> <a href="gushou_u06.html">下一篇 →</a></div>
+    <ol><a href="#u" class="active">三 再遭执行价偏差重挫，5 万美元得而复失</a></ol>
+  </nav>
+  <main>
+    <header class="cover"><div class="col">
+      <div class="eyebrow">股票大作手回忆录</div>
+      <h1>三 再遭执行价偏差重挫，5 万美元得而复失</h1>
+    </div></header>
+    <div class="col">
+      <section id="u"><div class="kicker">三 再遭执行价偏差重挫，5 万美元得而复失</div><h2>三 再遭执行价偏差重挫，5 万美元得而复失</h2>
+        <h3>三 再遭执行价偏差重挫，5 万美元得而复失</h3>
+        <p>人要花很长时间才能从自己的所有错误中学到全部应得的教训。人们说，凡事皆有两个方面。然而，股票市场只有一个方面，既不是多头的方面，也不是空头的方面，而是只有正确的方面。我花了很长时间才把这项基本原则牢牢地扎根在我的脑子里，比掌握股票投机生意其他绝大多数技术性内容花费的时间长多了。</p>
+        <p>我听说有的人为了自娱自乐，在股票市场从事模拟交易，用想象的美元来证明自己多么正确。有时候，这些虚拟的赌徒获利千百万。按照这种方式，很容易成为一名“豪赌客”。这让我想起了一则老故事，有人准备第二天和人决斗。</p>
+        <p>他的助手问他：“你的枪法好吗？” “噢，”决斗者答道，“我能在20 步开外射断葡萄酒杯的细柄。”看上去挺谦虚。 “不错，”助手不为所动。“但是，如果那个葡萄酒杯正举着一把上膛的手枪瞄着你的心脏，你还能射中杯柄吗？”</p>
+        <p>对我来说，必须用我的钱来支持我的观点。我的亏损已经教导我，除非已经确信在前进过程中不会被迫后退，否则干脆不能开始前进。但是，如果不能前进，我根本就不会动作。我这么说，意思并不是当你犯错的时候不去限制你的亏损。完全应当。然而，这一点并不应当致使你迟疑不决。我这一辈子都在犯错误，但是我的亏损对我来说从来都不仅仅意味着损失。如果那样的话，我今天也不会在这儿了。我始终清醒地认识到，我还有机会，我不会重犯同样的错误。我相信自己。</p>
+        <p>你必须相信自己，相信自己的判断，如果你打算在这一行谋生的话。这就是我从不听信内幕消息的缘故。如果买股票是出于史密斯的内幕消息，那么卖这些股票同样得出于史密斯的内幕消息。我就得依赖他。到了差不多该卖出的时候，假如史密斯外出度假了，怎么办呢？不，先生，没人能靠旁人告诉他怎么做来赚大钱。我从自己的亲身经历了解到，靠别人为我提供一条或一连串内幕消息挣到的钱，绝不可能超过靠自己独立判断挣到的钱。我花了5 年的时间，才学会足够高明地从事这个行当，在我正确的时候足以让我挣到大钱。</p>
+        <p>我没有太多精彩的经历，这或许会让你失望。我的意思是，现在回头来看，我学会投机生意的过程谈不上惊心动魄。我曾经几度破产，当然，破产的滋味绝不好受，不过我赔钱的情形同其他人在华尔街赔钱的情形没什么两样。投机，是一桩艰苦而充满磨难的行当，投机者必须始终全身心地投入他的工作，不然，很快便一败涂地、无工可务。</p>
+        <p>我的任务其实很简单，我本该从我在富勒顿公司最初的挫折和反复之中早就领悟出来：应该换一个角度看待投机生意。但是，当时除了在对赌行里可能学到的那些内容之外，我并不知道这项比赛还包括很多其他内容。当时，我以为自己已经有把握赢得这项比赛，事实上，我只不过赢得了对赌行。同时，我在对赌行里磨练出来的阅读纸带能力以及对数字序列的记忆能力对我具有极高的价值。对这两项，我得心应手。作为一名交易者，我之所以在出道初期便能取得成功，这两项至关紧要。至于有没有头脑和学问，并没什么干系，因为我的头脑未经训练，知识贫乏的程度也很惊人。我接受的是市场教育，从实战中学会实战。当市场教训我的时候，棒子打下来从不留情。</p>
+        <p>我还记得到达纽约的第一天的情形。我曾经告诉你，对赌行拒绝接我的单子，迫使我去找一家正规的经纪行。我在得到第一份工作的那间营业部里曾经认识一位小同事，他当时正在哈丁兄弟公司（Harding Brothers）工作，它是纽约股票交易所的会员。我是那天早晨到达纽约的，当天下午一点钟之前，我已经在这间公司开了户。准备开始交易了。</p>
+        <p>前面没有向你解释，我在经纪行里的交易方式和在对赌行里的交易方式完全一致，这对</p>
+        <p>我来说是自然的事，也就是力图对市场波动下注，捕捉幅度小但有把握的价格波动。没人帮我指出这两种地方的本质区别，或者纠正我的做法。倘若有人告诉我原来的方法在这里不起作用，至少我会先试一试，亲手验证一下；当我犯错的时候，唯一让我确信自己犯了错的，是赔钱。换句话说，只有当赚钱的时候，我才是正确的。这就是投机生意。</p>
+        <p>那些日子，他们曾经有过一段生气勃勃的时光，当时市场也十分活跃。这种环境总会使人更轻松。我马上如鱼得水。那里有我熟悉的老报价板，就在眼前；人们交谈的话语是我 15 岁之前就已经学会的。那里也有一个男孩忙着和我第一份工作一模一样的活计。那些客户——还是同样一群老脸色——有的盯着报价板，有的站在报价机旁大声读最新报价，有的相互交谈市场行情。设备还是我熟悉的那套设备，看上去完全一样。氛围还是我熟悉的氛围，自从当年在柏林顿挣到股票市场第一笔钱——3.12 美元以来便一直包围着我。同样的报价机，同样的交易者，想必还是同样的玩法。还记得吗，当时我只有22 岁。我料想，或者自以为对这场游戏已经无所不知了。我凭啥另作他想呢？</p>
+        <p>我观察着报价板，看到了在我看来有利可图的动向。股价表现对路。我在84 美元买进了100 股。半个小时之内，我在85 美元卖出平仓。然后，我又看到了我喜欢的情形，于是如法炮制；在极短的时间内，我获取了¾点的净收益。开局不错，不是吗？</p>
+        <p>请看仔细：我作为正规股票交易所经纪行的客户是第一天交易，而且当时仅剩下两个小时的交易时间，但我每次买卖1100 股、进进出出，忙得不亦乐乎。不仅如此，我当天操作的净业绩正好亏损1100 美元。也就是说，当我第一次试水后，近一半本钱已经灰飞烟灭了。请记住，其中一些交易还是获利的，然而，这一天我总共亏损1100 美元。</p>
+        <p>这并没有让我感到不安，因为我看不出交易方法有什么地方不对头。另外，我的动作也都足够合理，如果还是在大都会对赌行的老地方交易，当天的结果肯定是赢利的。报价机不正常，我损失掉的1100 美元清楚地告诉我。不过，只要报价机恢复正常运行，就没什么值得担忧的。唉，22 岁年轻人的无知岂不正是一个致命的缺陷。</p>
+        <p>过了些日子，我自己心里琢磨，“不能再这样交易下去了。报价机不像往常那样帮忙！” 然而，我就这样由它去，并没有真正追究到底。日复一日老一套，交易结果有时好点，有时孬点，就这样直到最后赔得精光。我去找老富勒顿，请他赊给我500 美元。后来，我从圣路易斯回来，前面对你说过，带着我从那儿的对赌行赢出来的钱——对赌行里的游戏我总是能赢。</p>
+        <p>回来后，我加倍小心，有一段时间业绩改善了一些。只要手头比较宽裕，我就开始过得比较讲究，结交新朋友，享受好时光。记得吗，那时我还不到23 岁，孤身在纽约，口袋里装着几元来得容易的钱，心里头怀着颇为自许的信念——我正开始弄明白这台新报价机。</p>
+        <p>我开始为交易指令在交易所场内的实际执行偏差预留空间，行动更加谨慎。但是，我还是死抱报价机不放——也就是说，我对投机生意的基本原则还是一无所知；而对这些基本原则一无所知，就不可能发现交易方法中的真正漏洞。</p>
+        <p>我们碰上了1901 年的大繁荣，我挣了很大一笔钱——我指的是相对于一个男孩而言（图 3.1）。你还记得那段时光吧？整个国家经历了一场史无前例的大繁荣。我们不仅碰上了一个工业大整合、资本大并购的年代，其规模也接连打破历史记录；而且公众一波接一波狂热地涌入股市。我听说，在之前的红火时期，华尔街曾经号称日成交量最高可达25 万股，按照平价计算，相当于一天之内2500 万美元的证券易手。但在1901 年，我们的最高日成交量达到了300 万股。每个人都在挣钱。钢铁帮进城了，这伙百万富翁大撒金钱，像醉酒的水手一样满不在乎。唯一能让他们满足的游戏是股票市场。我们在华尔街头一回见到了名头最响的一些大亨：如张口闭口“和你赌100 万”的约翰·W·盖茨（John W．Cates），还有他的朋友们，约翰·A·德雷克（John A．Drake）、劳耶尔·史密斯（Loyal Smith）等。里德-利兹 -穆尔帮（Reid-Leeds-Moore）刚卖掉钢铁行业的一部分持股，转而在公开市场买进庞大的罗</p>
+        <p>克岛集团（Rock Island system）的股票，并成为其实际控制人。还有施瓦布（Schwab）、弗里克（Frick）、菲普斯（Phipps）和匹兹堡帮（Pittsburgh coterie）。不用说，也有许多人在这一次大洗牌中亏掉了，但是他们也曾经风云一时，堪称大炒家。你可以买进、卖出市面上所有股票。基恩（Keene）炒买炒卖美国钢铁，把它忽悠成热门股。经纪行能够在几分钟内帮你卖出10 万股。多美妙的日子！还有一些交易者大举获利的传奇故事。另外，卖出股票无需缴税！是啊，好日子似乎看不到头。</p>
+        <p>图3.1  为了帮助读者了解那个时代的市场背景，译者增补了本书的所有图表。道琼斯工业指数日收市</p>
+        <p>价曲线（1900 年1 月3 日～1901 年12 月31 日）。1900 年大概是利弗莫尔22 岁时这一年，也是他第一</p>
+        <p>次在纽约的正规经纪行里赔光。从本图来看，道指当年大部分时间从接近70 逐渐下降到55 以下。10 月后</p>
+        <p>快速上升到70 附近。1901 年上半年承接1900 年最后一季度的快速上涨行情继续上升，整个行情最大涨</p>
+        <p>幅超过50%。1901 年下半年市场明显回落，初秋时他第二次赔光（24 岁），并重返老家。</p>
+        <p>自然，每过一阵子，总有很多大喊前途不妙的唱反调的声音，那些掌心里长毛的老经验认为，除了他们自己之外，世上每个人都发疯了。但是，除了他们以外，每个人都在挣钱。我当然知道，市场上涨终归有极限，随便哪只股票，见什么买什么的疯狂抢购迟早会到头，因此我转而看空。但是，每次做空，每次都赔钱，如果不是每次都跑得很快的话，恐怕我的亏损还要多得多。我希望捕获跳水行情，不过，手法还算小心翼翼——买进做多的时候获利，卖出做空的时候一点点亏掉——结果在这场大繁荣中我的总体赢利并不那么多，如果你根据我惯常的那么大成交量来推想的话（虽然当时我还是个孩子，但是已经惯于大手笔交易了）。</p>
+        <p>有一只股票我没有卖空，北太平洋铁路（Northern Pacific）。我的纸带阅读技巧得心应手。我认为绝大多数股票的推升过程已经陷入停顿状态，但是从“小北太”的表现来看，还在进一步走高。现在我们都知道了，当时不论普通股还是优先股，库恩-洛布-哈里曼集团（Kuhn-Loeb-Harriman combination）都在稳步吸纳。哦，我做多了1000 股北太平洋的普通股，不顾交易室里所有人的劝阻。当它上涨到110 左右的时候，我有30 点的赢利，于是我卖出拿回利润。就这一笔，使我在经纪行账户上的余额接近5 万美元。到那时为止，这是我有能力积累到的最高金额。对一个小伙子来说，干得还不赖，要知道几个月之前，就在同一</p>
+        <p>间交易室，我曾经亏光每一分钱。</p>
+        <p>如果你还记得，当时哈里曼集团通知摩根和希尔（Hill），他们有意加入柏林顿-大北方北太平洋铁路集团（Burlington-Great Northern-Northern Pacific combination）的董事会。于是，摩根的人起先指示基恩买进5 万股北太平洋，确保牢牢掌握控股权。我已经听说，基恩叫罗伯特·培根（Robert Bacon）把买入指令改为15 万股，银行家们照办了。不管怎样，反正基恩派出了他的一位经纪人，埃迪·诺顿（Eddie Norton），进入北太平洋集团，而且他买进了 10 万股。我感觉，这之后又有另一个买入指令，再买进了5 万股，于是，这场著名的庄家囤股大战开始了。在1901 年5 月8 日市场收市后，满世界都知道一场金融巨头之间的火拼正在上演。在这个国度，还从未出现过如此规模的两派金融巨人相互对决的先例。铁路大王哈里曼对金融巨子摩根，一股无坚不摧的力量，遇到了一座稳如泰山的磐石。</p>
+        <p>5 月9 日，第二天早晨，我手中有5 万美元现金，一张股票也没有（图3.2）。我先前曾告诉你，一段时间以来，我已经非常看空了，现在机会终于来了。我知道将会发生怎样的一幕——先是一场可怕的跳水，可以捡到一些不错的便宜货。然后市场很可能快速回升，当初买进便宜货的人，现在坐享大把利润。用不着福尔摩斯，也能盘算清楚。我们将迎来一次机会，捕获一个来回，不仅是大把利润，而且是手拿把掐的利润。</p>
+        <p>图3.2  请注意1901 年5 月发生的剧烈动荡，5 月9 日之前，利弗莫尔的资产已达5 万美元，他正确</p>
+        <p>地预期了市场震荡，却由于指令执行结果与他的预期背道而驰而在一日之间赔光。</p>
+        <p>之后发生的每件事都如我所料。我完全正确——然而，赔得一文不剩！我之所以被清扫出局，是因为某件不寻常之事。如果世界上从没有不寻常之事，那么人和人就不会有什么区别，生活也就没有任何乐趣可言了。这场游戏就会成为简单的加加减减，那将把我们的行当变成慢条斯理的记账员比赛。正是投机中的竞猜，促进了我们的思考能力。想一想，为了猜对，我们不得不做多少功课。</p>
+        <p>市场已经相当热火，正如我的预期。成交量极为巨大，行情振荡幅度创历史记录。我发出了很多市价卖出指令。当我看到开盘价的那一刻，几乎要疯了，市场大跳水的情形太可怕了。我的经纪人正在忙着交易。他们的专业能力和勤勉尽责的态度不亚于任何人，然而，在他们完成我的交易指令时，股票价格已经崩跌20 点以上了。纸带机远远落后于实际市场行情，最新报告来得很慢，因为数量惊人的交易业务蜂拥而来。我下单卖出的股票，纸带报告的价格比如为100，他们帮我卖出的成交价格是80，相比前一个晚上的收盘价总共下跌了</p>
+        <p>30 或40 点。当我发现这一点的时候，才看出，我卖出成交的地方似乎正是我本来计划捡便宜货的地方。市场下跌终有尽头，不会一直跌穿地球掉到中国去。于是，我立即决定平回空头头寸，转而做多。</p>
+        <p>我的经纪人买进了，但不是在我转身空翻多的水平买进的，而是按照他们的出市代表接到我的指令时交易所场内当时真正的市价来买进的。他们的成交价比我预估的平均高15 点。一天之内亏损35 点，绝非任何人所能承受的。</p>
+        <p>报价机落后实际市场如此之多，断送了我的交易。我已经习惯于把纸带机当成自己最好的亲密伙伴，因为我总是凭它告诉我的来下注。然而，这一次纸带机欺骗了我。纸带机打印出来的数字和实际价格天差地别，毁了我。我之前的失败根源这一次变本加厉，我遭遇的是完全相同的致败因素。看来再明显不过，仅仅阅读纸带、不顾经纪行执行指令的情况是不够的，到了这步田地我才寻思，为什么没有早一点看出自己的毛病并及时补救呢？</p>
+        <p>实际上，我的所作所为比看不到自己的毛病还糟糕；我不停地交易、进进出出，不管单子执行的情况。你看，我从来没有采用限价交易指令。我总是觉得必须赶紧抓住市场机会。我力图打败的是——市场，而不是尽量捕获适当的价格。当我觉得应当卖出时，就卖出；当我认为股票将要上涨时，就买进。我总算能够坚守投机的基本原则，这一点救了我。在一家正规的佣金证券经纪行，倘若简单地采取限价交易指令的方式交易，就能把我在对赌行里的老办法移植过来，效率虽低，但依然可行。那样的话，我就永远没有机会学到股票投机的真经，而是偏安于一隅，总是根据自己的有限经验所了解的稳赚方式来博取利润。在报价机落后于市场的情况下，每当我真的设法限定交易价格以减少市价交易方式带来的不利时，结果往往发现市场已经舍我远去。这种情况一再发生，于是我停止了挣扎。我没法告诉你，我是如何经过多少年的摸爬滚打才最终认识到，我的事业在于预期未来大行情的发生，而不在于猜中随后几个报价，赌快、赌小。</p>
+        <p>经过5 月9 日的不幸遭遇之后，我又不得不为生计打拼了（图3.2）。虽然我所采取的方法经过了适当调整，但依然有缺陷。如果不是有部分时间还能获利的话，也许我能够更快地获得市场智慧。然而，我挣的钱已经足以让我活得挺滋润。我喜欢结交朋友，享受快乐时光。那年夏天，我在新泽西海岸避暑，俨然跻身于其他数百位华尔街发达人士之中。我的赢利其实不太充足，不能既弥补我的交易亏损，同时又负担我的生活开支。</p>
+        <p>我没有继续按照过去固执己见时期的老一套交易。不过，我还是没本事把自己的问题对自己说明白，如此一来，自然毫无解决的希望。在这个话题上花费如此之多的口舌，目的是强调，我不得不经历什么样的坎坷，才能最终达到真正获利的境界。面对大阵势，我的老式鸟铳和气枪子弹不可能起到大火力连发步枪的作用。</p>
+        <p>这年初秋，我再次赔个精光，被扫地出门，不仅如此，我觉得自己再也不能赢得这个游戏，于是深感厌倦，竟至于打算洗手不干，离开纽约到其他什么地方另找饭碗。自14 岁起，我就开始交易。当我还是15 岁的孩子时，就已经挣到了有生以来第一个1 千美元，21 岁之前，就已经挣到了第一个1 万美元。我曾经不止一次挣到、又赔掉1 万美元的赌本。在纽约，我曾经获利数千美元，又赔掉这些钱。我曾经把赢利积累到5 万美元，然后2 天之内又都赔光。除了交易之外，我不谙其他生意，也别无长技。经过几年的闯荡，又重新回到起点。不，更糟糕，因为我已经染上了一些陋习，习惯于奢侈的生活方式，虽然这些方面倒不像我的交易套路总是出问题那般让我倍感困惑。</p>
+        <div class="divider"></div></section>
+    </div>
+  </main>
+</div>
+<script>
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a[href^='#']")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-8% 0px -80% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

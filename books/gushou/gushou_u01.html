@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:accent" content="#d4a657">
+<title>股票大作手回忆录 · 译者前言</title>
+<link rel="stylesheet" href="../reader.css">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#d4a657; --accent-soft:#33301f; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1408;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0; counter-reset:c;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(212,166,87,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1408; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(212,166,87,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+<style>figure img{width:100%;height:auto;display:block;border-radius:6px;}figure{padding:14px;}ul{margin:14px 0 14px 4px;padding-left:22px;color:#dcd8cc;}li{margin:6px 0;}h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:30px 0 4px;color:var(--ink);}.col section{padding:40px 0 6px;}</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">股票大作手回忆录<b>译者前言</b></div>
+    <div class="shelf-nav"><a class="home" href="../../index.html">📚 书架</a> <a class="home" href="index.html">📖 本书</a> <a href="gushou_u02.html">下一篇 →</a></div>
+    <ol><a href="#u" class="active">译者前言</a></ol>
+  </nav>
+  <main>
+    <header class="cover"><div class="col">
+      <div class="eyebrow">股票大作手回忆录</div>
+      <h1>译者前言</h1>
+    </div></header>
+    <div class="col">
+      <section id="u"><div class="kicker">译者前言</div><h2>译者前言</h2>
+        <h3>译者前言</h3>
+        <p>一</p>
+        <p>《股票大作手回忆录》是一本精彩的人物传记，记述了一位几百年一遇的金融市场交易与投资天才——杰西·利弗莫尔（Jesse Lauriston Livermore，1877—1940 年）的人生、梦想、事业和财富的故事，情节起伏跌宕、激动人心。</p>
+        <p>当事人回忆往事的年岁在45、46 岁（1922—1923）。他从14 岁开始从股票经纪行营业部的小伙计做起，很快便专门从事交易。他的一生既以交易为事业而追求事业成功，又以交易为依托而满足远超过温饱水平的生活需求，股票、商品的交易和投资是他人生的全部基础。 45、46 岁年华，正是事业兴旺、思想成熟、年富力强的好时候。</p>
+        <p>他的第一次上升阶段从对赌行开始，当时的赢利最多曾经达到他这一辈子的第一笔1 万美元，但是输输赢赢之后，在对赌行终于容身不得，21 岁的他只好带着剩下的1500 美元闯荡华尔街。</p>
+        <p>走进华尔街的一刻，便是他第一次下降阶段的开始，因为他惯熟短线炒作，但是在华尔街的真实经纪行里必须下单到交易所场内，执行价往往和意图的价格偏差较大，结果不到一年，他就统统亏光了。</p>
+        <p>于是，他（22 岁）只好向经纪行老板赊欠500 美元，到圣路易斯的对赌行找运气。他那一套恰恰是对赌行的克星，因此没过多久他就带着2500 美元第二次返回华尔街。</p>
+        <p>1901 年5 月9 日，23 岁，前一天他的财富达到了5 万美元，然而好景不长，到了当天晚上，他已经一文不名。</p>
+        <p>1901 年初秋，24 岁，他第二次黯然离开华尔街，回到故乡在对赌行和冒牌经纪行里找机会。一年之后，1902 年，他已经积攒了足够的资本，开着自己的小汽车，第三次重返华尔街了。</p>
+        <p>这一次他的好运持续得比较久，并且在1907 年10 月24 日（30 岁）成为股市之王，挣得了此生的第一笔100 万美元。</p>
+        <p>1908 年，30、31 岁，他违背了自己的交易规则，听信商品专家帕西·托马斯的建议，结果棉花交易变得不可收拾，最终使自己再度陷入困境。这一次，他经历了多年的苦苦挣扎，直至1914 年宣告破产，才算从100 多万的债务中脱身。</p>
+        <p>1915 年，37 岁，他的机会终于来了，从500 股的很小一笔信用额度开始，第四次崛起。经过多次破产的严厉市场惩戒之后，在最近的7—8 年（1915—1922 年接受采访的时候）中，他对市场的领悟、趋势研判、交易手段、资金管理体系终于日臻化境，人生、财富都上升到一个全新的高度。</p>
+        <p>二</p>
+        <p>《股票大作手回忆录》是一本很好的市场技术分析参考书。1896 年道琼斯指数问世，在利弗莫尔的时代，道氏理论还只是零散地分布在若干篇《华尔街日报》社论中的一些思路。道氏理论并不是从实验室里诞生的，而是道氏作为敏感尽责的报人对诸如当事人这样的案例观察总结出来的，是道氏和当事人这样的市场参与者交流互动的共同产物。</p>
+        <p>利弗莫尔本人具备杰出的数学天分，天生对数字敏感。他接触股市不久，就从纸带上行情数字跳动之中发现了某些典型的形态，并尝试按照这些数字序列的形态预期股票下一步行</p>
+        <p>情。他在对赌行的成功几乎完全建立在对行情数字序列形态的个人经验和认识上，这属于价格形态分析的范畴。后来，对赌行的浅池子已经藏不下这条龙，他到纽约正规经纪行交易，遭遇了执行价偏差的困扰。最终，他领悟到市场按照最小阻力路线演变，这就是趋势；总体市场的大趋势决定个股演变趋势，真正的利润来自总体市场趋势，而不是个别股票的短线波动。只有领悟出这一点之后，他才从豪赌客跃升为职业交易家。</p>
+        <p>利弗莫尔的个人领悟生动精彩地揭示了技术分析的本质——千千万万交易者的经验总结和升华。他摸索前行的过程，就是积累技术分析才干的过程，而其交易成功就是建筑在他对技术分析本质的领悟和严格服从的基础之上。在市场技术分析中，趋势是核心概念，行为要领是服从纪律。通过本书，技术分析从业者可以正本清源，认识技术分析的起源、发展，最重要的是切实体验到趋势的重要性，把趋势永远放在技术分析的核心地位。</p>
+        <p>三</p>
+        <p>《股票大作手回忆录》是一部价值无限的交易员心理训练大纲。要成为一名成功的交易员，学习技巧是一方面，认识自我、引导自我、控制自我是另一方面，后者甚至是主要的方面。</p>
+        <p>1901 年初秋，‚我再次赔个精光，被扫地出门。不仅如此，我觉得自己再也不能赢得这个游戏，于是深感厌倦，竟至于打算洗手不干，离开纽约到其他什么地方另找饭碗。‛这位不世出的交易天才在这次打击之下，对自己产生了深深的怀疑。这是什么样的心理冲击？</p>
+        <p>21 年后（1922—1923）,当事人已经经历了多次起落，终于达到了炉火纯青的造诣，于是他平静地总结：‚投机者的主要敌人总是潜藏在他的内部自挖墙脚的。不可能把‘希望’ 从人类的天性中割除，也不可能把‘恐惧’从人类的天性中割除。在从事投机时，如果市场运行对你不利，每一天你都希望这是最后一天——盲目听从希望的摆布，不接受最初的损失，到头来，亏损反而变本加厉。‛</p>
+        <p>每一次跌落都必然迫使利弗莫尔对市场再认识、对错误再认识、对自我再认识，并且他不得不找到行之有效的解决方案，否则就不可能超越自我，不可能东山再起。‚我不希望第二次重复同一个错误。我们只有从自己所犯的错误中汲取教训，将它转化为将来的获利，才能原谅自己的错误‛。</p>
+        <p>交易者的成长之路，是认清自我、超越自我的道路。诚实地面对市场、诚实地面对自我，是先决条件。本书如实交代了当事人在起伏跌宕的交易生涯中曲折前行的心路历程，对我们每一位市场参与者来说都是价值无穷的心埋训练大纲。</p>
+        <p>四</p>
+        <p>本书根据1924 年出版的原版翻译。那段历史风云变幻，距今已有百年。值得庆幸的是，原作者用一支生花妙笔绘声绘色地记述了当时的情景。因此，读者不必对那段历史有太多了解，就能够充分领略当事人当时所面临的社会环境、生活形态、市场演变、交易中的成功和失败，特别是当事人内心经历的尝试、挫折、困惑、领悟——再尝试、再挫折、再困惑、再领悟的曲折上升过程。时代不同了，但千古人性不变；具体事件不同了，但行情依阻力最小路线演变的趋势特征不变。由此不难理解，为什么这本经典著作跨越了时代、跨越了种族，一代又一代的全球市场参与者珍惜若至宝、求问若师友、奉持若镜鉴。</p>
+        <p>原书每章仅标数字序号，本书照旧。译者补充了本书全部脚注、历史行情图，附录了利弗莫尔的年表，还有利弗莫尔关于股票交易的若干要领。译者在简要地注解历史事件、交易惯例等事项时，特别注重时间要素。历史事件和当事人的回忆共同编织成一条时间经线，把</p>
+        <p>所有回忆贯穿起来。译者搜集了道琼斯工业平均指数从1900 年1 月2 日至1999 年12 月31 日每日收市价的行情资料，按照时间顺序每两年一张行情图插入文中。读者可以把文章中的时间、当事人的述说、行情演变过程加以对照，更具体、准确地理解当事人当时的处境、思想变化、交易行为抉择、赢亏后果以及当事人对后果的处置。不仅如此，当事人遭遇的几项重大历史事件特别值得研究。因此，译者为它们单独绘制了细节图表，在基本图表序列之外做了进一步的充实。</p>
+        <p>除了上述注明的图表、注解和书后的附录之外，完全保留原著风貌。</p>
+        <p>五</p>
+        <p>作者埃德温·勒菲弗（Edwin Lefevre，1871—1943）是美国的著名记者、作家和政治家，他的主要著作都是关于华尔街的。</p>
+        <p>勒菲弗曾经是华尔街的一位经纪商。他共有8 本著作，其中《股票大作手回忆录》被美国金融界绝大多数人视为必读的经典书。该书原本是作者于1922—1923 年发表在《星期六晚报》（Saturday Evening Post）上一个系列的12 篇文章。</p>
+        <p>该书于1924 年首次出版，此后几乎年年重印。第一版书的转手价格已经超过1000 美元。作者为我们作出了杰出的贡献，值得我们衷心感谢。</p>
+        <p>六</p>
+        <p>每天早晨洗脸后，我们都要照照镜子。脸上干净不干净关系到对人是不是礼貌，对自己是不是讲究卫生。</p>
+        <p>然而，更重要的是在正确的时候采用正确的方式做正确的事情。行为是否正确，那可不只是关系到礼貌不礼貌、卫生不卫生，而是关系到事业的成和败、利益的得和失，乃至生命的生和死的大事。</p>
+        <p>讽刺的是，脸有镜子照，而更重要的行为却难得找到镜子来照一照。我们的本意并不想搞砸，但是不知道多少悲剧的原因正在于我们找不到镜子来纠正失当的行为！人生没有排练，每一次都是第一次，每一次过后都不能重来。由此可见，为我们的行为找到一面好镜子，时常借鉴，差不多等于找到了事业成功的诀窍。</p>
+        <p>交易者行为的正确与否直接关系到财产的得失。本书中利弗莫尔一再强调，赢利是交易者行为正确的回报，亏损则是行为错误的必然结果。市场对行为错误者的惩罚来得极快、极狠。对交易者来说，追求交易行为的正确性无疑是头等大事。因此，借鉴交易者的经历、借鉴他人的成败具有举足轻重的重要意义。取他人之长、避他人之短，从他人身上发掘交易行为正确和错误的本质，而不必事事自己重来一遍。</p>
+        <p>利弗莫尔说，华尔街上没有新鲜事，人性不变，市场也不变。和其他任何行当一样，成功的交易者必须具备某些共同的基本特征，譬如挥洒自如的草书，所有书法家在挥洒自如之前，都必须建立横平竖直的楷书功底。对交易者来说，本质特征就在于有能力认清市场趋势，立即采取必要行动，力求始终站在市场正确的一边：如果未能站在正确的一边，则必须立即止损纠正。认清大势并立即据此行动的能力就是所有成功交易者的基本特征。利弗莫尔四起四落的经历，几乎涵盖了交易者各种成和败的主要特点，所有交易者都可以从利弗莫尔的经历中照出自己的影子。他的经历值得每一位交易者仔细体味、对照。</p>
+        <p>另一方面，交易者是幸运的，因为市场是交易者的一面绝不走形的好镜子。不论交易者采取任何行动，买、卖还是等待，市场都会立即给他一个交代，让他马上得知自己行为的后果，迫使其反观、反思自己的行为。</p>
+        <p>七</p>
+        <p>交易，首先是财富的得失；而财富，永远是生活悲喜剧的主题。财富本是生活的工具，不幸的是，在‚唯物主义‛的现实世界中，财富喧宾夺主，抢占了生活方式、生活内容的位置，于是财富成为生活方式，财富成为生活内容。更有甚者，我们有时迫不得已地、有时心甘情愿地把财富当成了生活的目的。于是，我们这群世俗的人，或被迫或自愿地对财富顶礼膜拜，顺理成章，那些拥有财富的人也沾染了仙气，成为我们的崇拜对象。</p>
+        <p>利弗莫尔曾经是华尔街的交易王者，特别是他的成就完全来自于其个人的探索。他从初中毕业之后白手起家，自始至终都在市场实践中摸爬滚打，跌倒了爬起来，长期不懈地对自己成功的经验和失败的教训反复地思考和积累，经过实践的摸索和检验，最终领悟到交易成功的真谛。因此，更加值得我们崇拜。</p>
+        <p>不用说利弗莫尔这样的大家，在现实生活中，每位交易者都会在身边偶尔碰到其他成功的交易者，他们或者成功于一个时期，或者长期保持成功记录。当我们看到这些成功交易者的时候，很容易被其财富的光环所吸引，我们分不清到底是他们拥有的财富让我们惊叹、敬畏，还是这些当事人获取财富的本领更加令我们惊叹、敬畏。</p>
+        <p>须知，他们的财富再多，也不会分给你一分钱，因此，他们的财富本身对你并无意义。崇拜财富就错过了重点：如果他们的财富来自交易，恰恰证明他们的交易行为是正确的，因此他们的交易行为从正面意义上构成了我们的借鉴。反过来，如果我们在身边碰到失败的交易者，也用不着赔他一分钱，因此他们的损失本身对你也无意义，何必对他有丝毫鄙夷。如果他们的损失来自交易，恰恰证明他们的交易行为是不正确的，因此他们的交易行为从反面意义上构成了我们的借鉴。</p>
+        <p>他的财富得失是他交易的结果，完全属于他，不属于你，崇拜和鄙视皆无意义。但是，他的交易行为往往出自他身上典型的人性，恰恰在人性上，你和他很可能只是五十步和一百步的区别。克服自身的人性弱点，追求正确的交易行为，是所有交易者的必备修养，因此，借鉴他的交易行为具有十足的意义。</p>
+        <p>当我们自己投身交易后，账面赢利时患得患失，害怕煮熟的鸭子飞了；账面亏损时单相思，一心希望市场回到对自己有利的方向。细细品味交易过程中的人生五味，其根本之处不正是我们对财富难以拿得起放得下的纠结心态吗？我们之所以对其他交易者产生崇拜或鄙夷的心理，根源不也正是这种纠结的心态吗？</p>
+        <p>八</p>
+        <p>1940 年11 月，利弗莫尔开枪自杀，其遗书中写道‚我的一生是个失败‛。此时距离他交易生涯的巅峰——1929 年股市大崩盘，他做空获利超过1 亿美元——不过10 年。</p>
+        <p>据一种演义的说法，‚1940 年11 月，一个大雪纷飞的日子，房东又来找利弗莫尔逼讨房租。他喝下仅剩的半瓶威士忌，从寓所溜了出来。他在大街上转悠着，望着大街上往来穿梭的豪华汽车，望着商店橱窗里琳琅满目的商品，望着街边伸手乞讨的乞丐，他长叹一口气说：‘他妈的！这世界是个弱肉强食的世界，它永远只属于富人。’‛这段记述很生动，很容易吸引读者，但其准确性却令人怀疑。</p>
+        <p>当我们普通人面对这样一位交易天才时，必须清醒地意识到：要准确认识他并不是一件容易的事情，我们对他的认识、对他的行为的理解更多还是我们自己的，而不是他的。交易者必须放下自我，从外部出发，真正认清由外部的他人组成的市场才能站在市场正确的一边。我们之所以在市场交易中遭遇挫折，正是因为我们往往从自我出发、从内部出发，从而难以</p>
+        <p>准确地认识他人。</p>
+        <p>利弗莫尔天性沉默，对他所从事的事业并不倾向于大鸣大放。他之所以愿意接受作者— —一位有过经济商经历的资深财经记者的深入访谈，实有不得已的苦衷。他交易的巨大成功，加上他独来独往，在人群中引起了很大的误解。一些经纪商和财经媒体为了取悦客户，更是不惜添油加醋、栽赃陷害，使他颇为流言飞语所苦。为了还自己一个清白，最好的策略便是如实介绍自己的成长历程和交易曲折，把真实的自己呈现给大家。于是，我们很幸运，拥有了这本不朽的传世经典。</p>
+        <p>如果要勉强分析利弗莫尔失败的原因，如下几点或许值得参考。但愿我们不是继续误会他。</p>
+        <p>首先，市场是不可战胜的。每个人相对于市场，如同每个人相对于太阳，任谁死了，太阳都将继续照耀。归根结底，每个市场参与者都只是市场的一分子，都必须依赖市场获取赢利。市场参与者对市场心存敬畏和感激，才是正确的、合适的情操。市场参与者梦想战胜市场，就像梦想自己揪着自己的头发上升一样。</p>
+        <p>其次，利弗莫尔毕竟是人，不管他有多高的境界、多大的才能，终究会犯错误，他所违背的甚至就是他自己从小摸索、领悟的根本原则。即便是交易天才，也不能违背市场交易基本原则。敬业、守纪是市场参与者的根本立足点。</p>
+        <p>最后，借中医对健康的观点，身体健康既不是健美比赛夺冠，也不是体育竞赛获胜，而是自然的平衡。人生必须是平衡的。交易是人生的一部分，与其他方面应当维持平衡。没有平衡的人生，就没有持久成功的交易事业。他对美女、美酒不加节制，最终丧失了早年严格自制的作息规律、生活态度。他的家庭悲剧是他的人生失衡的标志，也可能是导致他自杀的原因之一。</p>
+        <p>九</p>
+        <p>翻译《股票大作手回忆录》的时间总共花费了一年有余，在翻译的过程中时常感觉到浑身发热，这一方面是因为全身心投入，另一方面则是被一代交易巨擘四起四落的命运深深地牵引着。书译完了，利弗莫尔的身影渐渐远去，感叹之余，蓦然察觉自己的岁月也在一天一天流逝。</p>
+        <p>利弗莫尔当日交易生涯的风云变幻自不待言，即使每日发生在我们身边的交易者成败得失，也总是充满活生生的魅力。相比现实之丰富、鲜活，任何语言都免不了挂一漏万、黯然失色。虽然如此，现实其实太过于丰富，当我们身临其境时，反而容易迷失在繁杂的细节之中，可能抓不住重点、抓不住主题。</p>
+        <p>本书来自生活，高于生活，揭示本质，直达人心。</p>
+        <p>丁圣元</p>
+        <p>2010-7-18</p>
+        <div class="divider"></div></section>
+    </div>
+  </main>
+</div>
+<script>
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a[href^='#']")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-8% 0px -80% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

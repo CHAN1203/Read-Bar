@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:accent" content="#d4a657">
+<title>股票大作手回忆录 · 二十三 内部人明借“空头打压”等解释行情，暗度陈仓</title>
+<link rel="stylesheet" href="../reader.css">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#d4a657; --accent-soft:#33301f; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1408;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0; counter-reset:c;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(212,166,87,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1408; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(212,166,87,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+<style>figure img{width:100%;height:auto;display:block;border-radius:6px;}figure{padding:14px;}ul{margin:14px 0 14px 4px;padding-left:22px;color:#dcd8cc;}li{margin:6px 0;}h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:30px 0 4px;color:var(--ink);}.col section{padding:40px 0 6px;}</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">股票大作手回忆录<b>二十三 内部人明借“空头打压”等解释行情，暗度陈仓</b></div>
+    <div class="shelf-nav"><a class="home" href="../../index.html">📚 书架</a> <a class="home" href="index.html">📖 本书</a> <a href="gushou_u24.html">← 上一篇</a> <a href="gushou_u26.html">下一篇 →</a></div>
+    <ol><a href="#u" class="active">二十三 内部人明借“空头打压”等解释行情，暗度陈仓</a></ol>
+  </nav>
+  <main>
+    <header class="cover"><div class="col">
+      <div class="eyebrow">股票大作手回忆录</div>
+      <h1>二十三 内部人明借“空头打压”等解释行情，暗度陈仓</h1>
+    </div></header>
+    <div class="col">
+      <section id="u"><div class="kicker">二十三 内部人明借“空头打压”等解释行情，暗度陈仓</div><h2>二十三 内部人明借“空头打压”等解释行情，暗度陈仓</h2>
+        <h3>二十三 内部人明借“空头打压”等解释行</h3>
+        <h3>情，暗度陈仓</h3>
+        <p>股票投机的行当永远不会消亡。让它消亡并不符合大家的心意。无论怎样强调它的风险，也不可能阻止投机行为。同样无奈的是，你不可能让人们杜绝猜错的情况，无论当事人多么精明、多么富有经验。精心运筹的计划也可能中途出轨，因为会发生未曾预料的事件，甚至是根本不可预料的事件。不测或许来自大自然的一场灾变，或许来自天气变化，来自你自己的贪婪，来自其他人的自负，来自恐惧，来自不可理喻的一厢情愿。不仅如此，除了上述你也许可以称之为投机者的天敌之外，股票投机者还必须提防他人不地道的商业行为乃至坑蒙拐骗，无论从道德意义上来说还是从商业意义上来说，此类行为皆防不胜防。</p>
+        <p>回首往事，对比25 年前当我初次来到华尔街时的市场风气，我必须承认现在的市场已经发生了许多有益的改变。老式对赌行已经无影无踪，不过冒牌“经纪行”依然屡见不鲜，无论男女，但凡抱着快速发财的念头进入这一行的，都可能成为它们鱼肉的对象。纽约股票交易所的工作很出色，不仅严查那些不折不扣的骗子手，还监督其会员严格遵守交易所各项规则。许多有益市场健康发展的规章制度和限制条款已经得到了严格的实施，当然，还有进一步改进的余地。华尔街具有根深蒂固的保守主义倾向而不是道德伦理倾向，某些不正之风之所以成为缠绵痼疾，正是年深日久的积弊所致。</p>
+        <p>如果说从股票投机中赢利从来不是易事，那么现在正变得一天比一天难，难上加难。就在不久前，从事交易实务的人实际上对交易所名单上的每一只股票耳熟能详，能够有很好的实用程度的了解。1901 年，当J·P·摩根将美国钢铁公司发行上市的时候，只是将其他更小型的联合体再联合起来，它们之中大多数经营历史不超过两年。当时，纽约股票交易所总共有275 只股票正式挂牌，另外还有大约100 只股票在其“非挂牌部门”交易，后者之中很多股票并不是非得什么都清楚不可，因为它们都是小型企业或者交易不活跃，要么公开流通股票的比例过小，要么属于第三方担保付息的股票，因此缺乏投机吸引力。事实上，占压倒多数的股票可能一年都成交不了l 股。如今，在交易所正规上市名单上大约有900 种股票，并且在最近一段活跃行情里，大约有600 种不同的证券参与交易。不仅如此，过去的股票群体或股票门类比较容易跟踪。不仅它们的数目较少，而且总市值也较低，交易者必须留意的市场信息的面没有现在这样宽泛。但在今天，你必须交易各种对象，世界上几乎每一个行业都有代表性的股票。这就需要花费更多时间和精力才能及时了解相关的最新信息，如果你要明智地交易，股票投机就变得困难得多了。</p>
+        <p>世上成千上万的人投机性地买进、卖出股票，然而，投机结果赢利的人只占少数。因为公众在一定程度上是始终“在市”的，所以无论何时公众之中总是有人亏损的。投机者的致命敌人包括：无知、贪婪、恐惧和希望。人世间所有的成文法律和所有交易所的规章都不可能根除人类动物的上述本性。意外事故可以把最精心编制的计划打个粉碎，同样，它们也超出了或是由不动感情的经济学家们或是由热血心肠的人道主义者们制定的一切规章所能掌控的范围。此外，还有另一种导致亏损的渊薮，那便是故意误导的虚假信息，它们和直截了当的贴士大相径庭。它们往往包裹着各式各样的糖衣和伪装，令股票交易者防不胜防，因此更为隐蔽、更加危险。</p>
+        <p>当然，一般的圈外人要么凭贴士、要么凭流言作为交易依据，它们有的口耳相传，有的印成了铅字，有的直接明确，有的迂回暗示。常见的贴士你已经防不胜防了。举例来说，一</p>
+        <p>位终生好友诚心帮你发财，把他自己的投资行动倾囊相授，也就是告诉你他买了或卖了什么股票。他用意纯良。如果这样的贴士出了岔子，你能怎么办呢？另一方面，公众在遭遇职业贴士客或者心术不正的贴士客的时候所得到的保护，大概和他遭遇兜售假金砖和假酒的骗子的时候所受到的保护差不多。更有甚者，当参与投机的公众面对典型的华尔街传言的时候，根本得不到任何保护，也根本得不到任何赔偿。证券分销商、市场操纵者、集合资产池和超级大户采用各种手段尽可能以最好的价格派发他们多余的持仓。报纸和新闻收报器上传播的种种的利好名堂则是最具杀伤力的。</p>
+        <p>随便哪一天打开财经新闻报刊，你都会惊奇地发现，上面竟然印有如此之多的暗示自己带有半官方性质的说法。其中的权威角色往往都是“某位首要的内部人士”、 “一位著名董事”、 “一位高级官员”或者“官方人士”，总之读者当然会认定该人一定清楚自己在说什么。这是今天的报刊，我从中随机挑出一条消息。听听这一条：“一位地位显赫的银行家表示，现在预期市场下跌为时过早。”</p>
+        <p>一位地位显赫的银行家真说过这话吗？如果他真说了，那么到底为什么说这话呢？为什么他不允许引用他的名字呢？难道他担心如果人们知道是他便会相信他的话吗？</p>
+        <p>这里还有另一则关于一家公司的，其股票本周以来一直很活跃。据报道这次说话的是一位“著名董事”。那么，在这家公司的十几位董事中，如果真的有人说话了，到底是哪一位呢？显然，只要不透露姓名，即使这一说法引起了任何有害的影响，也不会有任何人承担责任。</p>
+        <p>股票交易者除了必须透彻研究所有地方的投机行为之外，还必须着重考虑华尔街上这个行当的特殊性。除了必须尽量弄清楚怎样赚钱之外，还必须尽量避免亏钱。知道不该做什么和掌握该做什么几乎同样重要。因此，最好牢记，实际上在所有股票的所有上涨行情中都在一定程度上存在操纵的情形，这类上涨行情往往都是内部人精心策划的，其目的，并且是唯一的目的，便是尽可能以最好的价格卖出股票。然而，经纪行里的一般客户自信地认为，只要我对某个股票上涨的缘由打破沙锅问到底，你就骗不了我。自然，市场操纵者会为上涨给出一个经过精心算计的“解释”，以便有利于派发股票。我坚定不移地认为，如果不允许刊登任何利好性质的匿名说法，那么公众蒙受的损失将会极大地减轻。我指的是那些算计公众促使其买进或持有股票的种种说法。</p>
+        <p>在以不具名的董事或内部人的权威名义发表的利好文章中，占压倒性多数向大众传递的都是不可靠的和误导性的信息。公众因为接受这类半官方意味因而貌似可信的说法，年复一年地损失了巨万美元。</p>
+        <p>举例来说，某公司的某方面业务线正在经历一段不景气的时期。该公司股票不活跃，其报价代表了市场对其真实价值的普遍性的并且很可能是准确的认识。如果该股票在这个水平上价格过于低廉，那么必定有人心中有数并借机买入，股价就会上升。如果股价过高，同样有人心中有数并借机卖出，股价就会下降。如果该股票各方面波澜不兴，就没人谈它或碰它。</p>
+        <p>现在该公司那条业务线的处境终于否极泰来。到底谁先知道这一点呢，是内部人员还是公众？当然不是公众。下一步会发生什么情况呢？嗨，如果商业环境持续改善，则公司盈利将增长，公司便有能力恢复派发红利；如果该公司之前没有终止发放红利，则有能力增发红利。换句话说，该股票的价值将上升。</p>
+        <p>假定环境的改善继续保持势头，管理层会把这个好消息公布于众吗？公司董事长会告诉持股人吗？有没有哪位博爱的董事站出来，为了阅读报纸金融版面和新闻社新闻快报的那部分公众的利益，拿出一份签署大名的声明？有没有哪位谦虚的内部人士按照他惯常的匿名风格站出来发表一份不具名的声明，说明该公司前景一片光明？这回就欠奉了。没有任何人会吐露半个字，报纸上不会印出任何说法，新闻收报器也不动声色。</p>
+        <p>有价值的信息被人滴水不漏地从公众面前掩藏起来，与此同时，那些守口如瓶的“首要</p>
+        <p>的内部人士”正忙着入市，凡是他们能够捞着的便宜股票概不放过。随着他们自己知根知底却从不在人前夸耀的买入行动不断展开，股票价格上涨了。金融报刊的记者明白那些内部人应当知道行情上涨的缘由，开始向他们打听。不约而同地，匿名的内部人士们声称他们没有任何消息可说。他们不知道当前上涨行情有任何可靠的根据。有时候，他们甚至声称他们对股票市场朝三暮四的波动或者股票投机者不可理喻的行为并不特别在意。</p>
+        <p>股价上涨行情继续，令人开心的一天终于来了，知情者已经把所有意图买进的股票或者他们所能最大限度地持有的股票都弄到手了。于是，华尔街上立即开始四处流传各种利好传言。新闻收报器以“权威的姿态”告诉交易者们，该公司的经营状况已经明确无误地度过了拐点。还是那位不愿意透露姓名的董事，他当初曾经表示他不知道当前上涨行情有任何可靠的根据，现在据报道他说——当然还是不透露姓名——该公司的股票持有人拥有充分理由对其前景感到极大鼓舞。</p>
+        <p>利好消息铺天盖地，公众受到强烈诱惑，开始买进该股票。这些买进有助于进一步推升股价。到了一定时候，不约而同地匿名的董事们当初的预言变成了现实，该公司恢复发放红利，或者也有可能进一步提高了红利率。随着这一进展的出现，利好因素进一步增多。利好因素不仅变得更多了，而且变得更加炙手可热了。某位“显赫的董事”在应答一个要求直截了当说明公司状况的问题时，告诉全世界，公司状况的改善不仅保持了原来的势头，还在锦上添花。某位“首要的内部人士”在记者软磨硬泡之后，终于被套出实话，承认公司盈利之佳已经达到惊人的程度。某位与该公司保持密切商务往来的“著名的银行家”被人央求不过，透露该公司销售额的扩张速度在这个行业是史无前例的。从现在开始，即使一张订单没有，该公司也得没日没夜地开工满足现有订单，天知道还得赶工多少个月才能完成。一位“财务委员会”的委员在一份用双边线框圈起来的声明中表示，公众对该股票的上涨行情感到惊讶，他对大家的惊讶感到惊讶，因为唯一令人感到惊讶的是该股票爬升的轨迹实在太克制了。只要分析一下该公司即将公布的年报，谁都能轻易看出该股票的账面净值已经远远超过市场价格。然而，在上述多言健谈的博爱者之中没有一位透露自己的尊姓大名。</p>
+        <p>只要赢利继续维持在不错的水平，而那帮内部人也没有觉察到公司荣景有任何减弱的苗头，他们便会一直持有当初在低价买进的股票不动。既然没有什么因素可能压低股价，为什么要卖出呢？然而，就在公司业务转坏的那一刻，将会发生什么呢？他们会站出来发表声明、提出警告或者哪怕只是最模糊的一点暗示吗？不大可能。趋势现在已经转而向下。当初公司业务好转的时候，他们买进绝不大肆声张，现在如出一辙，他们闷声卖出。由于这帮内部人的卖出，股价自然下跌。于是，公众开始得到很熟悉的“解释”了。一位“首要的内部人士” 坚定地断言一切正常，行情下跌仅仅是空头卖空的结果，空头们企图影响总体市场。在股票价格开始下降了一段时间之后，有一个好日子，股票价格急剧下挫，公众喧喧嚷嚷强烈要求了解其中“情由”或得到“解释”。除非有人出来说点什么，否则公众将会担心出现最坏的情况。于是，新闻收报器印出以下字样：“我们要求该公司一位显赫的董事解释该股票的疲软行情，他的答复是，他能够得出的唯一结论是今日的下跌是由于空头打压引起的。公司经营情况没有改变。公司业务从来没有像现在这样好过，除非今后一段时间发生根本未曾预见的意外情形，否则公司将在下次分红决策会议上提高分红率。市场上空头阵营变得很激进，该股的疲软显然由于他们发动的袭击，他们意在逐出意志不坚定的持股人。”新闻收报器说不定还打算给读者添点料，很可能添油加醋，报告说他们根据“可靠的消息渠道”得知，当日下跌过程中绝大多数股票买盘都来自内部人，空头们将会发现自己把自己卖入了一个陷阱。接下来一天，市场暂时休整。</p>
+        <p>公众不仅因为相信利好的说法买进股票而蒙受损失，而且因为受到劝阻不卖出股票而再次遭受损失。对于那些“首要的内部人士”来说，当他们不再愿意支撑股价或搜集筹码的时候，除了劝诱公众买进他们打算卖出的股票之外，次优的选择便是防止公众卖出同一个股票。</p>
+        <p>当公众读到“显赫的董事”说的话之后，他们相信什么呢？普通的国外人能想些什么呢？当然是这个股票本不该下跌的；当然是空头们做空强迫该股价格下跌，只要空头一住手，内部人就会策动报复性的上涨行情，迫使那些空头在高价买入平仓。如果股价下跌果真是空头打压引起的，那么公众相信这样的解释也还说得过去，因为的确事态会如此演变。</p>
+        <p>然而，尽管上述说法信誓旦旦地威胁或承诺将对过度下探的空头阵营实施强有力的挤兑行动，但是话题中的股票并没有上涨。它继续保持下跌。它没法不跌。内部人倾囊而出的股票实在太多了，市场消受不起。</p>
+        <p>这个已经被“显赫的董事”们、“首要的内部人”们卖出的内部人股票现在成了职业交易者们脚下的皮球。它继续保持下跌。似乎看不到底在哪里。内部人清楚行业形势将对公司未来盈利产生不利影响，他们不敢出手支撑股价，一直要等到公司业务好转的下一个拐点出现。届时，内部人将会买进并且保持沉默。</p>
+        <p>许多年来，我充分经历了股票市场交易的洗礼，对股票市场也有相当的了解，我敢说在我记忆中没有哪一例空头袭击事件曾经导致某个股票持续下跌的。他们口中所称的“空头打压”，往往正是根据对实际市场环境的准确把握而实施的卖出。当然，并不能把股票下跌完全归结于内部人卖出或者内部人不愿意买进。每个人都会争前恐后地卖出，而当每个人都卖出、没有人买进的时候，就会付出惨重的代价。</p>
+        <p>公众应当牢牢掌握这一点：导致行情长期持续下跌的真实原因从来不是空头打压。当某个股票保持下跌的时候，你可以肯定该股票一定有什么地方不对，要么是它的市场，要么是它的公司。如果该股票行情下跌是不合理的，那么很快它的成交价就会低于其实际价值，这将激发买进行为，从而阻止市场继续下跌，事实上，空头有可能挣大钱的唯一机会是在某个股票价格过高的时候卖出它。在这种情况下内部人绝不会把真相告白天下，这一点确定无疑，你可以把你最后一分钱都压上。</p>
+        <p>当然，最经典的案例是纽黑文铁路公司（New Haven）。今天人人都知道，可当时仅有为数极少的几个人知情。该股票1902 年的卖出价为255，是新英格兰最主要的铁路投资。在当地，人们凭着自己持有该股票的多少来衡量自己在本地社区应得的尊重和地位。如果某人说这家公司正在走向破产，不会为这句话被投入监狱，而是会被送进疯人院，和其他疯子关在一起。然而，当摩根先生委派的一位胆大妄为的新总裁到任后，该公司兵败如山倒的厄运便开始了。起初，人们并不清楚该公司的新政策将把公司引上这条路。但是，随着该公司左一笔、右一笔以虚高价格添置资产，让联合铁路公司驼上越来越重的负担，少数眼光敏锐的观察者开始怀疑梅兰（Mellen）的政策是不明智的。一个货车系统他人的买入价为200 万美元，转手卖给纽黑文铁路得到的价码是1000 万美元。于是，有一两位口风不严的仁兄点评管理层作风鲁莽粗疏，这真是大不敬。暗示即便财大气粗如纽黑文铁路也承受不起如此的挥霍，简直像怀疑直布罗陀山不稳固一般荒谬。</p>
+        <p>当然，最初看出前方有暗礁的还是内部人。他们对公司的真实状况越来越警醒，因此他们减持自己手上的股票。由于他们的卖出，同时也由于他们不支撑市场，新英格兰这个镶金边的铁路股票开始屈服。一如惯例，人们开始提出疑问，要求得到解释；于是，一如惯例的解释很快出笼了。“首要的内部人士”宣称，在他们所知范围内没有任何地方不正常，行情下跌是鲁莽的空头卖出行为所引起的。因此，新英格兰的“投资者”继续持有纽约、纽黑文与哈特福德铁路公司（New York，New Haven &amp; Hartford）股票。为什么不呢？难道内部人士没有表示一切如常，并大声指责空头打压吗？难道没有公布派发红利的消息并按期发放吗？</p>
+        <p>与此同时，当初承诺的挤压空头的行动并没有兑现，反而是股价出现了创纪录的新低。内部人卖出动作更急切，更顾不上掩人耳目了。波士顿一班颇具公德心的人士要求该公司如实解释股价惨跌的真正缘由，却被扣上了股票掮客和蛊惑民心的帽子，而如此惨跌对原本期</p>
+        <p>望投资有保障并能获得稳定红利的每一位新英格兰投资者都意味着触目惊心的惨重损失。</p>
+        <p>该股这场历史性的大崩跌从每股255 美元而至于每股12 美元，这绝不是空头袭击的结果，空头袭击也绝不可能造成这等大崩跌。它既不是由空头操作开的头，也不是由空头操作推动的过程。是内部人一直不间断地卖出，并且他们卖出的价格总是高于如果他们说出实话或者哪怕是允许真相公布于众的情形。到底股价位于250、200、150、100、50 或者25，其实无关紧要，对于该股票来说这些价格都太高了，那帮内部人清楚这一点，公众却蒙在鼓里。如果公众在忙活着买进卖出该股票力图从中赚钱的时候清醒意识到自己的不利处境，或许还有几分获利的希望。当然，只有极少数与该公司运作密切相关的内部人才能了解全部内情。</p>
+        <p>该股票上演了一出过去20 年里最惨烈的大崩溃，它的下跌不是因为空头打压。然而，正因为公众容易为这种形式的解释所麻痹，损失才进一步加重，雪上加霜，损失巨万美元之后，再损失巨万美元。正是这一点阻止了人们卖出，他们本已对该股票的表现方式感到不满，如果不是期待在空头打压停止之后股价收复失地，很可能已经出清了他们的股票。在过去的岁月里，我曾经常常听人责怪基恩。而在他之前，他们习惯于指责查理·沃瑞肖弗（Charley Woerishoffer）或者阿迪森·坎麦克（Addison Cammack），以后，我成了股票市场的替罪羊。</p>
+        <p>我记得英特韦尔石油公司（Intervale Oil）的例子。该股票背后有一个集合资产池，它推高了股价，并且在股价上涨过程中招揽了一些买家。操纵者把股价拉抬到50。在这个价位该集合资产池卖出，股价形成了快速下挫。接下来一如往常，人们要求得到解释。为什么英特韦尔石油这么疲软？质疑的人太多了，以至于这个问题的答案成了重要新闻。一家为新闻收报器提供消息的新闻社打电话采访了最了解英特韦尔石油上涨行情的几家经纪商，他们应该对行情下跌的内情心知肚明。当该新闻社为了把股价下跌的缘由刊发出来告之全国读者的时候，这些经纪商，这些推动上涨行情的集合资产池成员，是怎么回答的呢？呵唷，拉里·利文斯顿正在打压市场！这还不够。他们还要再加上一句，他们正要动手“擒住”他呐。不过自然了，英特韦尔石油的集合资产池照卖不误。当时该股价格站在每股12 美元附近，他们可以一直卖到10 美元或更低，而他们的平均卖出价格依然会超过成本价。</p>
+        <p>内部人在市场下跌过程中卖出是明智的、恰当的。然而，对于那些付出35 或40 的代价买入股票的圈外人来说，就完全是另一回事了。圈外人读到了新闻收报器上印出的消息，于是持股不动，等待拉里·利文斯顿落入义愤填膺的内部人组成的集合资产池之手，遭到应得的报应。</p>
+        <p>在牛市行情下，特别是在景气阶段，公众起初挣钱但后来又输回去，问题出在在牛市行情里逗留得太久。这类“空头打压”的托辞进一步诱导他们逗留下去。那些匿名的内部人有意让公众相信的所谓解释，恰恰正是公众应当保持高度警觉的陷阱。</p>
+        <div class="divider"></div></section>
+    </div>
+  </main>
+</div>
+<script>
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a[href^='#']")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-8% 0px -80% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

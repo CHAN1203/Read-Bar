@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:accent" content="#d4a657">
+<title>股票大作手回忆录 · 六 神奇直觉来自交易灵感</title>
+<link rel="stylesheet" href="../reader.css">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#d4a657; --accent-soft:#33301f; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1408;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0; counter-reset:c;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(212,166,87,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1408; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(212,166,87,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+<style>figure img{width:100%;height:auto;display:block;border-radius:6px;}figure{padding:14px;}ul{margin:14px 0 14px 4px;padding-left:22px;color:#dcd8cc;}li{margin:6px 0;}h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:30px 0 4px;color:var(--ink);}.col section{padding:40px 0 6px;}</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">股票大作手回忆录<b>六 神奇直觉来自交易灵感</b></div>
+    <div class="shelf-nav"><a class="home" href="../../index.html">📚 书架</a> <a class="home" href="index.html">📖 本书</a> <a href="gushou_u07.html">← 上一篇</a> <a href="gushou_u09.html">下一篇 →</a></div>
+    <ol><a href="#u" class="active">六 神奇直觉来自交易灵感</a></ol>
+  </nav>
+  <main>
+    <header class="cover"><div class="col">
+      <div class="eyebrow">股票大作手回忆录</div>
+      <h1>六 神奇直觉来自交易灵感</h1>
+    </div></header>
+    <div class="col">
+      <section id="u"><div class="kicker">六 神奇直觉来自交易灵感</div><h2>六 神奇直觉来自交易灵感</h2>
+        <h3>六 神奇直觉来自交易灵感</h3>
+        <p>1906 年春天，我在亚特兰大市短期休假（图6.1）。当时我手上没有股票，满脑子想的都是换一个环境，好好休息一下。顺便说一句，当时我已经回到我在纽约的第一个经纪行，哈丁兄弟公司，我的账户一直相当活跃。我的盘子大约3000～4000 股。这并没有当初我在大都会对赌行的盘子大，那时我才20 岁出头。但是其中有区别，对赌行收1 点保证金便完，而经纪行在收取保证金后，会真实地在纽约股票交易所为我的账户买进或卖出股票。</p>
+        <p>图6.1  1906 年1 月延续了前两年的牛市行情，市场再创新高，但从1 月底开始逐波走低，下半年回</p>
+        <p>升后进入漫长的窄幅横向整理过程。市场从1907 年1 月开始大幅下降。这段时间利弗莫尔27、28 岁。</p>
+        <p>也许你还记得我告诉你的那个故事，当时我在大都会对赌行卖空3500 股糖业，我的直觉告诉我什么地方不对劲儿，最好了结交易。好，我经常有那种奇妙的感觉。一般说来，有这种感觉时我都会照办。但是有时候，我也会对这种感觉不屑一顾，告诉自己，要是照一时的盲目冲动来逆转我的头寸的话简直荒唐。我曾经把这种感觉归结为某种神经紧张状态，抽了太多雪茄，或者睡眠不足，或者精神不振，诸如此类。但凡我说服自己放弃这种突如其来的念头，宁可静观其变，结果总是要吃后悔药。大约有十来次，我没有按照这种感觉卖出，第二天我来到城里，市场强势，甚至还有所上涨，于是我暗暗庆幸，要是当初听凭盲目冲动卖出的话那该多蠢啊。然而，接下来一天市场急跌，相当难看。一定是什么地方或有什么东西出岔子了，如果当初我不那么执着于理智和逻辑，那早就已经全身而退了。看来，产生这种感觉的原因显然不是生理的，而是心理的。</p>
+        <p>我只想给你说说其中一个例子，这件事令人难忘。事情发生的时候，我正在亚特兰大市休短假，那是1906 年春季。我和一位朋友一道，他也是哈丁兄弟公司的客户。当时我对市场怎么都提不起兴致，干脆丢手好好轻松一下。我总能丢开交易尽情娱乐，当然，除开市场格外活跃我已经投入相当重的仓位之外。我还记得，当时是牛市。总体商业前景看好，股票市场走势变得较平稳但是基调强劲，所有迹象都表明市场将进一步走高。</p>
+        <p>这天早晨，我们用过早餐后，把纽约所有早晨的报纸都翻了个遍，在海边卖呆也卖腻了 ——看海鸥啄起蛤蜊，飞到20 英尺高的地方丢下来，在坚硬的湿沙地上摔开壳，用来当它们的早点——于是我朋友和我起身到海边小道上散步。在白天，这算是我们最刺激的活动了。</p>
+        <p>时辰还没到中午，我们慢慢走着打发时间，呼吸带咸味的空气。哈丁兄弟公司在海边小道旁开了一个营业部，我们习惯于每天早晨顺道去看一看，看看开市的情况。主要是习惯使然，并没有其他考虑，因为当时我手上什么都没有。</p>
+        <p>我们发现，市场坚挺、交易活跃。我的朋友相当看多，已经持有中等水平的头寸，他的买入价比现价低几个点。他开始对我发表高论，应该持有股票，还有很大的上涨余地，这多么显而易见、多么明智，云云。我有一搭没一搭地听着，懒得劳神琢磨对还是不对。我浏览着报价板，注意到某些变化——绝大多数股票都上涨——但是到了联合太平洋（Union Pacific）铁路却是例外。我当时便觉得应该卖空它。我说不出更多道道，就是感觉应该卖空它。我自问为什么会有这种感觉，但找不到任何做空联合太平洋的理由。</p>
+        <p>我死盯着报价板上那个最新报价，直到眼前一片空白，再也没有任何数字、任何报价板，也没有其他任何东西了。脑子里只剩下一个念头，我要卖空联合太平洋，但就是找不出这么做的缘由。</p>
+        <p>我看起来肯定显得很古怪，我那位朋友正站在我身旁，突然他用胳膊肘捅捅我，并问我： “嗨，你怎么啦？”</p>
+        <p>“不知道。”我回道。 “要去睡会儿吗？”他说。 “不，”我说，“我不想睡。我想做的是卖空那个股票。”我清楚，照直觉办总能赚钱。我走到一张桌边，桌子上有一些空白指令单。我朋友跟着我。我填好按市价卖出1000 股联合太平洋的单子，递给经理。当我填写单子并交给他的时候，他满脸笑容。但是，当他看到单子时，笑容一下子消失了，他看着我。</p>
+        <p>“写得对吗？”他问我。不过，我只是看着他，于是他赶紧过去把单子交给操作员。 “你干什么？”我朋友问。 “我卖空它。”我回答。 “卖什么？”他对我喊。他是多头，我怎么可能是空头呢？哪儿不对榫了。 “1000 股联太。”我说。 “为啥？”他追问，十分激动。我摇摇头，意思是没啥原因。不过，他一定猜测我得到了什么内幕消息，因为他拽着我的胳膊，把我拉出门外，进到门厅里。远离其他客户和东张西望的闲人的耳目。</p>
+        <p>“你听到什么风声啦？”他问我。他满脸兴奋。联合太平洋是他最偏爱的股票之一，他看好它，因为它的赢利和前景都不错。但是，他愿意接受看空的二手内幕消息。</p>
+        <p>“没有！”我说。 “你没听说？”他很怀疑，满脸不相信。 “我真没听说什么。” “那你为什么火上房似的卖空呢？” “我不晓得。”我告诉他。我说的是大实话。 “噢，得了吧，拉里。”他说。他知道，我的习惯是盘算清楚才交易。我现在卖空1000 股联合太平洋，肯定是有很好的理由才会卖空这么多股，特别是当下行情很坚挺。</p>
+        <p>“我真不知道，”我重复道，“我只是感觉要出什么事。” “出什么事？” “我不知道，我也说不出什么理由。我知道的就是我感觉一定要卖出这股票。我还得让他们再卖1000 股。”</p>
+        <p>我走回营业部，给他们发出卖空第二笔1000 股的指令。如果我第一笔放空1000 股正确</p>
+        <p>的话，那就该再追加一点儿。</p>
+        <p>“到底可能出什么事？”我朋友坚持道，他拿不定主意要不要跟风。要是我告诉他我听说联合太平洋要跌，他大概问都不问我从哪听说、或者什么道理，就已经跟着卖出了。“到底可能出什么事？”他又问。</p>
+        <p>“可能发生的千千万万；但是，我说不准到底要出什么事。我没法给你交代任何理由，我又不会算命打卦。”我告诉他。</p>
+        <p>“那你发疯了，”他说，“简直疯了，一点儿头绪都没有，一点儿理由都没有就卖空。你不清楚自己为什么要卖出它？”</p>
+        <p>“我不清楚为什么自己要卖出它。我只知道我的确想要卖出，” 我说，“我就是想要，同渴望其他东西的时候一样。”这渴望如此强烈，于是我又卖了1000 股。</p>
+        <p>我的朋友实在受不了了。他抓住我的胳膊，说：“嘿！快走，离开这儿，免得你有多少卖多少。”</p>
+        <p>我已经如愿以偿，卖足了自己的数字，所以随他拉着，也没等第二笔和第三笔1000 股交易的回报单。即使有最好的卖出理由，卖了这么多股票，这阵胸臆宣泄也算得上酣畅淋漓了。没有任何看空的理由，特别是整个市场如此看多，视野所及，没有任何东西可以让任何人产生一丁点儿看空的念头，看来，卖空这么多实在太过分了。然而我记得，以往当我产生了同样强烈的卖空渴望时，如果没有照办，后来总是追悔莫及。</p>
+        <p>这些故事之中有些我曾经讲给我的朋友听，有些朋友告诉我，这不是凭空猜测，而是潜意识，是创造性思维的杰作。这种意识正是艺术家创作灵感的源泉，他们自己并没有意识到灵感是怎么来的。在我身上，或许是二种积累的效果，很多微不足道的零散事物积累在一起却很有力量。可能正是我朋友不明智的看多心态激起了我的逆向心理，我之所以选中联合太平洋，是因为它太受追捧了。我没法说清楚，到底是什么原因或动机引发了我的直觉。我唯一清楚的是，当我走出哈丁兄弟公司亚特兰大市分部的时候，我在上涨行市下卖空了3000 股联合太平洋，心中却没什么不安。</p>
+        <p>我想知道最后两笔1000 股的卖单他们给我做的成交价是多少。于是午饭后，我们信步走到营业部。我欣慰地看到总体市场坚挺，联合太平洋也走高了些。</p>
+        <p>“我看你完了。”我朋友说。不难看出，他很庆幸自己一点儿都没跟着卖。下一天，总体市场继续上涨了一些，除了我朋友愉快的话语之外，没有听到任何动静。不过，我还是信心十足地感觉自己卖空是正确的，而当我感觉自己正确的时候，从不会失去耐心。凭什么不耐心呢？那天下午，联合太平洋停止爬升，当天接近收市的时候开始下跌。很快，它便跌到了比我卖空3000 股的平均成交价低1 点的水平。我觉得自己站在正确的一方，比之前更有把握，既然感觉如此，自然要再卖出更多股票。于是，到收市的时候，我追加卖出了另外2000 股。</p>
+        <p>就这样，我凭着直觉，放空了5000 股联合太平洋。这个数字是我在哈丁兄弟公司的保证金允许卖空的最大限额。人还在度假期间，这笔股票空头数目实在太大了，于是我放弃休假，当夜赶回纽约。究竟要发生什么，找不到蛛丝马迹，我想最好还是亲临现场随时待命吧。如果不得不行动，在现场更便捷。</p>
+        <p>再下一天，我们听到旧金山大地震的新闻（图6.2）。这是一场可怕的灾难。不过，市场开盘时仅仅下跌了几个点而已。多头的力量还在起作用，大众从来不会自己独立地对新闻作出反应。你看，从来如此。举例来说，如果牛市基础扎实，不管报纸怎么报道当时是不是存在人为操纵，某些新闻事项总是难以产生它们在华尔街处于熊市时发挥的那种效果。一切取决于市场当时所处的心理状态。在这个例子里，华尔街没有评估灾难的破坏程度，因为它还不想。就在这天收市之前，价格又涨回来了。</p>
+        <p>图6.2  1906 年4 月16 日利弗莫尔对联合太平洋铁路产生了强烈的看空的感觉，卖空3000 股; 17 日</p>
+        <p>再卖空2000 股，总共卖空5000 股；4 月18 甘凌晨，旧金山发生大地震，地震引发的大火使旧金山濒临</p>
+        <p>彻底毁灭的边缘。从图6.1 事后看，当年1 月已经是前两年大牛市的向下转折点，只是4 月市场表面上似</p>
+        <p>乎依然停留在之前大牛市的看多氛围之中。</p>
+        <p>我正做空5000 股。大棒已经打下来了，但我的股票却没受影响。我的直觉顶呱呱，但是我的银行户头却没有进账，甚至纸面利润也没有。和我一道去亚特兰大、看着我卖空联合太平洋的那位朋友为自己高兴、为我忧心。</p>
+        <p>他告诉我：“那真是个了不起的直觉，小伙子。但是你说说，当所有的头脑和金钱都站在多头一边的时候，对着干有什么用呢？他们肯定胜出。”</p>
+        <p>“给它们点儿时间。”我说。我意指行情。我不想平仓，因为我知道地震引起的损失极为惨重，联合太平洋将是首当其冲的受损者之一。不过，看到华尔街对此视而不见，简直气死人。</p>
+        <p>“哼，给它们时间，你的皮将和其他熊的皮一起，撑起来放在太阳下晒干。”他言之凿凿。</p>
+        <p>“你说该怎么做？”我问他，“联合太平洋铁路和其他铁路正蒙受千百万美元的损失，这是买进的时候吗？等他们开支了所有损失之后，哪儿来的钱分红呢？你能指望的最好结果也就是，或许麻烦没有报纸渲染的那么严重。但是，这是买进主要受灾铁路的理由吗？你倒说说看。”</p>
+        <p>我朋友只来了这么一句：“是啊，听起来挺对。但是我告诉你，市场不同意你的看法。行情纸带不撒谎，对吧？”</p>
+        <p>“它也不总是马上就能讲清事实。”我说。 “听着。就在黑色星期五之前不久，有人曾经和吉姆·菲斯克（Jim Fisk）交谈，列举了10 条理由，说明为什么黄金应当遥遥无期地下跌。他的话把自己弄得神魂颠倒，最后他告诉菲斯克，打算卖它几百万。菲斯克只是盯着他，对他说，‘只管卖！干吧！卖空，别忘了请我参加你的葬礼。’”</p>
+        <p>“是，”我说，“如果那伙计果真卖空，你看他能通吃多少利润！卖一点联太吧，你自己。”</p>
+        <p>“不，我不！我只会见风使舵，才能把生意做好。” 接下来那天，更翔实的灾情报告见报了，市场开始滑落，但是即使到这时候，下跌过程仍然没有理当出现的那么猛烈。我看出，太阳底下已经没有任何东西能够挡开一场重大下挫，因此我双倍加仓，再卖出5000 股。哦，到了这个时候，在大多数人眼中事态已经清楚了，所以我的经纪商乐得让我加仓。并不是他们轻率，或者是我轻率，我对市场的估量也并非莽撞。再往后一天，市场的确开始动作。报应来了，有账照算。我自然当仁不让，把自己的运气发挥到了相称的地步。后来我又一次加仓，再卖出10000 股。舍此之外，别无选择。</p>
+        <p>我当时没有其他任何念头，一心想着我是正确的——100%正确——这正是天赐良机。就看我如何施展，才能充分利用这次机会了。我越卖越多。做这么大盘子的空头，用不着多大幅度的行情回升，便足以清除所有账面利润，甚至连本金都可能不保，我有没有想过这些呢？我不清楚当时到底想过还是没想过，不过，即使想了，也没有给我造成多大思想负担。我并非随意孤注一掷。其实我的做法很保守。地震已经发生了，难道还能有人把它收回去吗？他们不可能把坍塌的建筑一夜之间重建如初，不可能免费不花钱，不可能无中生有，对吧？在地震后头几个小时，即使拿来世上所有的钱也帮不了多少忙，对吧？</p>
+        <p>我不是盲目赌博。我不是一头疯狂的熊。我没有因为一时顺手而忘乎所以，旧金山几乎从地图上被抹去了，但是我并没有荒谬地以为整个国家都会变成一片废墟。不，我很清醒！我并不预期会出现恐慌。好，次日，我轧平所有头寸。我挣了25 万美元。截止到这个时候，这是我的最大赢利。挣这么多钱，不过数日之间。华尔街在最初一两天没理会地震。也许他们会告诉你，这是因为关于地震的第一批报道不太令人担心，但是我认为，这是因为必须花费如此长的时间才能改变公众对证券市场的看法。甚至绝大部分职业交易者都是反应迟钝、目光短浅的。</p>
+        <p>我没法给你解释清楚，不论从科学的角度，还是从儿戏的角度。我正告诉你的是，我做了什么，为什么这么做，以及结果是什么。我对自己直觉的神秘色彩并不怎么在意，倒是很在意从中获得了25 万美元。这意味着，一旦时机成熟，我便可以动用比以往任何时候都要大得多的头寸。</p>
+        <p>当年夏天，我来到萨拉托加泉区（Saratoga Springs）。我本意是度假，不过同时也留意市场。首先，我并不至于累到懒得琢磨市场的程度。其次，我认识的每一位到那儿度假的人，要么正对市场兴趣浓厚，要么曾经对市场兴趣浓厚。自然，我们的话题离不开它。我已经注意到，在人们的言论和他们的交易行为之间，存在相当大的差别。有些家伙和你谈到市场的样子，让你想起那些竟敢像呵斥野狗似的训斥坏脾气老板的鲁莽打工仔。</p>
+        <p>哈丁兄弟公司在萨拉托加开了一间营业部。他们的许多客户都来这儿了。不过，我猜测，他们开这间分店真正图的是广告效应。在度假胜地开分店，简直就是黄金地段的一块广告牌。我习惯于顺道逗留一会儿，间杂着坐在一群客户中间。经理人很好，是从纽约总部来的，他到这里就是为新朋旧友热情地提供一点儿便利，要是可能，也兜揽一些生意。这里可是打探贴士的好地方——各种秘密消息门类齐全，赛马的、股市的，也是服务员们捞贴士</p>
+        <p>①的好地方。营业部知道我没有头寸，因此，经理也就免了过来咬我耳朵，嘀咕什么他刚从纽约总部听到的秘密。他一般径直递过电报，说“这是他们刚发的”。诸如此类。</p>
+        <p>当然，我对市场密切关注。对我来说，观察报价板和判读市场信号是一回事。我注意到，我的好朋友，联合太平洋，看起来要上涨。这股票的价格已经比较高了，不过，从它的表现来看，似乎有人正在搜集筹码。我对它观察了好几天，都没有动手。我越观察便越确信，这只股票背后有人在总体上是净买入的，而且这人来头不小，不仅在银行账户上有大把钞票，而且里里外外很清头绪。非常聪明的吸筹手法，我捉摸。</p>
+        <p>① 英文单词“tips”既有秘密消息的意思，也有小费的意思，音译为“贴士”。这里一语双关。</p>
+        <p>一旦看准了，我自然便开始买进，买进价格大约是160。它保持横向波动，于是我也不断买进，每次500 股。我买得越多，它就变得越强，但没有急涨的情况，感觉非常舒服。根据我从报价纸带读到的信息，看不出任何问题为什么这股票不能再涨上一大截。</p>
+        <p>突然，那位经理找到我，说他们从纽约收到一封电报——他们和纽约之间当然安装了电报专线——询问我此刻在不在营业部，当他们回复“是”时，对方立即发来第二封电报，“让他别走。告诉他哈丁先生要和他通话。”</p>
+        <p>我告诉他我等着，然后又买进了500 股联合太平洋。我想象不出哈丁有什么话要对我说。我觉得肯定和生意没什么关系。就我买的数量，我的保证金远远够了。很快，那位经理便来找我，告诉我埃德·哈丁（Ed Harding）先生打长途电话找我。</p>
+        <p>“哈罗，埃德。”我说。他却回道：“你到底怎么回事？你疯了吗？” “是你疯了吧？”我说。 “你在干什么？”他问。 “你这什么意思？” “买那么些股票。” “怎么啦，我的保证金有问题吗？” “这不是保证金的事，买它简直就是当肥羊。” “我不明白你的意思。” “为什么你要买进那么多联合太平洋？” “它正在涨啊。”我说。 “涨，涨个鬼！你知不知道那些局内人都把股票倒给你啦？你是那儿最容易被人盯上的靶子了。把钱输在赌马上，都比输这儿强。别让他们拿你当冤大头。”</p>
+        <p>“没人拿我当冤大头，”我告诉他，“我没对任何人说过—个字。” 但是他反驳道：“你一头扎进这只股票，可别指望每一次都那么好运气发生奇迹把你救出来。趁现在还有机会，赶紧罢手吧。”接着他又说：“在这个水平做多这只股票，简直是罪孽——那些恶棍正成吨成吨往外抛呐。”</p>
+        <p>“可是纸带显示他们还在买进哪。”我坚持道。 “拉里，看到你的单子进来的时候，我心脏病都要犯了。看在老天的分上，别当肥羊了。赶紧出！立刻。它随时可能崩盘。言尽于此，尽到我的责任了。再见！”随即，他挂了电话。</p>
+        <p>埃德·哈丁是个很精明的家伙，不同寻常地消息灵通，是一位靠得住的朋友，和客户交易没有利害关系，诚心诚意帮忙。更重要的是，我知道以他的身份正适合耳听八方、眼观六路。我之所以买进联合太平洋，全部依据都来自我自己多年研究股票行为的积累，来自我对其特定征兆的认识，多年经验告诉我，这些征兆通常伴随着可观的上涨过程。我不知道自己到底是怎么回事，但是我觉得我一定得出了如下结论，虽然我阅读纸带的技能告诉我，该股票正在被吸纳，但那正是局内人精心操纵的结果，他们故意让纸带讲述着虚假的故事。可能我被埃德·哈丁的一片好心打动了，他煞费苦心保护我，以免我铸成他确信无疑的巨大错误。无论是他的智慧，还是他的用心，都无可置疑。到底是什么原因驱使我决定听从他的忠告，找没法告诉你，但确实我听从了，确实。</p>
+        <p>我卖出了所有的联合太平洋。既然做多是不明智的，如果不做空的话，当然同样是不明智的。于是，当我出清所有的股票多头之后，又做空了4000 股。我卖出的绝大部分股票在 162 附近成交。</p>
+        <p>第二天，联合太平洋的董事会宣布派发10%的红利。起先，华尔街没人相信。红利过于丰厚，很像被逼人绝境的市场操纵者最后一招脱身之计。所有的报纸都尖锐而激烈地批评</p>
+        <p>那些董事。然而，虽然华尔街的精英们迟疑不决，市场却已经开了锅。联合太平洋成了领头羊，以巨大的成交量创出了历史新高。有些场内交易者一个小时之内就能发一笔大财，我记得后来曾经听说，有一位相当迟钝的场内专家当时出了个错，竟然稀里糊涂挣了35 万美元。第二个星期，他卖掉了交易所席位，下个月，成了一位绅士农场主。</p>
+        <p>当然，在听到宣布派发史无前例的10%红利的那一刻，我当即意识到，这是我应得的报应；因为我背弃了亲身经验的指引，听从了小道消息。我把自己的清醒判断丢到一旁，选择了一位朋友的怀疑，就因为他没有利害关系，并且通常是个明白人。</p>
+        <p>我一看到联合太平洋创出破历史记录的新高，就对自己说“这股票卖空不得”。我在世上所有的一切都作为保证金存放在哈丁兄弟公司的营业厅。我清楚这一事实，不过，我既没有因此感觉轻松一些，也没有因此执迷不悟。明摆着的，我曾经准确解读报价纸带，然而我竟愚不可及，让埃德·哈丁动摇了自己的决心。责怪他人没有意义，因为我浪费不起一丁点儿时间，何况木已成舟、覆水难收。于是，我下指令轧平空头头寸。当我发出单子按市价买进4000 股联太的时候，它的价格正在165 上下。在这个水平，我亏损3 点。好，我的经纪人替我买进的部分股票执行价格达到了172～174。拿到对账单后，我发现，埃德·哈丁用心良苦的干预让我付出了4 万美元的代价。对没有勇气坚持自己信念的人来说，这笔代价不高！这一课学费低廉。</p>
+        <p>报价纸带显示价格将进一步走高，我没有因此而患得患失。这是一轮非比寻常的行情，行情的导演者找不到任何先例来比照，当然，这一回，我做了我认为应该做的。一发出买入 4000 股了结空头头寸的第一个指令，我马上决定按照行情纸带的指引来追逐利润，于是我立即开立多头。我买进了4000 股，持有股票过夜，第二天早晨平仓了结。我不仅弥补了原先损失的4 万美元，而且另外赢利了1.5 万美元。要是埃德·哈丁不曾拼命挽救我，这一次我已经大杀四方了。不过，他也给我做了一件大好事，这段插曲是个教训。我坚信，正是这一课，完成了我学做交易的教育。</p>
+        <p>我的意思并不是说，通过这一课，我学到了不应该听从他人的贴士，而应该坚持自己的主见。我指的是，通过这一课，我获得了自信，并且终于有能力摆脱老一套交易方法。这次萨拉托加的经历，是我最后一次随手交易，最后一次即兴发挥式地交易。从此以后，我开始着眼于基本市场状况，不再汲汲于单个股票。在硬碰硬的投机学校里，我把自己升高了一级。这一级耗费时日、艰难曲折。</p>
+        <div class="divider"></div></section>
+    </div>
+  </main>
+</div>
+<script>
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a[href^='#']")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-8% 0px -80% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

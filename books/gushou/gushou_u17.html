@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:accent" content="#d4a657">
+<title>股票大作手回忆录 · 十五 政府干预拉偏架——投资总可能遭逢意外</title>
+<link rel="stylesheet" href="../reader.css">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#d4a657; --accent-soft:#33301f; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1408;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0; counter-reset:c;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(212,166,87,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1408; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(212,166,87,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+<style>figure img{width:100%;height:auto;display:block;border-radius:6px;}figure{padding:14px;}ul{margin:14px 0 14px 4px;padding-left:22px;color:#dcd8cc;}li{margin:6px 0;}h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:30px 0 4px;color:var(--ink);}.col section{padding:40px 0 6px;}</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">股票大作手回忆录<b>十五 政府干预拉偏架——投资总可能遭逢意外</b></div>
+    <div class="shelf-nav"><a class="home" href="../../index.html">📚 书架</a> <a class="home" href="index.html">📖 本书</a> <a href="gushou_u16.html">← 上一篇</a> <a href="gushou_u18.html">下一篇 →</a></div>
+    <ol><a href="#u" class="active">十五 政府干预拉偏架——投资总可能遭逢意外</a></ol>
+  </nav>
+  <main>
+    <header class="cover"><div class="col">
+      <div class="eyebrow">股票大作手回忆录</div>
+      <h1>十五 政府干预拉偏架——投资总可能遭逢意外</h1>
+    </div></header>
+    <div class="col">
+      <section id="u"><div class="kicker">十五 政府干预拉偏架——投资总可能遭逢意外</div><h2>十五 政府干预拉偏架——投资总可能遭逢意外</h2>
+        <h3>十五 政府干预拉偏架——投资总可能遭逢</h3>
+        <h3>意外</h3>
+        <p>在投机事业遭遇的各种绊脚石中，未曾预料的——甚至可以说根本就不可预料的——事件，要排在靠前的位置上。虽然如此，对于某些特定的风险，即使最审慎的人也有充分理由去主动承担——如果他对自己的期待超过当一名商业软体动物的话，就必须承担这样的风险。一般的商业风险并不比普通人出门上街或者坐火车旅行遇到的风险更大。当我因为没人能够事先预料到的原因而发生亏损的时候，从不耿耿于怀，就像对不期而遇的风暴带来的种种不便不太在意那样。从摇篮到坟墓，生活本身就是一场赌博。对由于上苍没有赐给我通天法眼而遭遇的一切，我可以默默承受，淡然处之。然而，在我作为投机者的职业生涯中曾有过几次遭遇，当时我既选择了市场正确的一边，操作方法也诚实公平，但是由于一些不光明正大的卑鄙对手采取不正当的手段骗去了我的利润。</p>
+        <p>思维敏捷的或有远见的生意人随时提防骗子、懦夫、群氓的卑劣行径，因此能够自我保护。除了在对赌行的时候偶尔有一两次之外，我从来没有遇到过赤裸裸的欺诈行为，因为即使在对赌行，诚实也是最佳的经营策略。挣大钱的机会来自公平诚实，靠骗挣不了大钱。如果哪个地方你必须时刻警惕生意对手，一不留神他就很可能使诈，我从来认为这样的地方绝不是做生意的好地方，不论什么生意。然而，对付用可怜哀怨包装起来的骗子，体面人士就无能为力了。公平交易就是公平交易。我可以告诉你一箩筐亲身经历，其中我不幸沦为自己把承诺视为神圣或者“君子一言驷马难追”信条的牺牲品。我本不该这么做，因为这么做并不产生什么实际作用。</p>
+        <p>小说家、教士和妇女们喜欢把股票交易所场内暗示成江湖骗子相互斗法的所在，把华尔街日常的生意看成丛林战。这样说来具有相当的戏剧色彩，但纯属误导。我不认为我的生意是无休止的冲突或竞赛。我从没有和哪个人起过冲突，或者和某个投资者群体有过争执。我只是和他们在观念上有所不同——也就是说，我对基本形势的看法与人相异。剧作家笔下的生意场之战并不是人和人之间的争斗，它们纯粹属于不同人商业前瞻性之间的相互检验。我力图紧跟事实，而且只跟随事实，相应地让事实统领我的行动。这正是伯纳德·M·巴鲁奇（Bernard M．Baruch）赢得财富的成功秘诀。有时候，我没有把事实——全部的事实—— 都看得足够清楚，或者足够及早地看清楚，或者从另一方面来说，我没有按照逻辑来推论。不论什么时候，只要出现了这种情况，就赔钱。我错了。错了，总要破费钱财。</p>
+        <p>没有哪个通情达理的人会反对为自己的错误付账。在犯错误的问题上，不存在对你额外开恩的债主，不存在例外，也没有讨价还价的余地。然而，当我正确的时候，我拒绝赔钱。我并不是指由于某些交易所朝令夕改突然改变交易规则而导致我发生损失的那些交易。我的心中始终警惕对投机事业带来危害的若干特定因素，它们时常提醒你，除非已经把利润存入银行账户了，否则不算数。</p>
+        <p>自从欧洲爆发第一次世界大战以来，商品价格开始逐步抬升，这是意料之中的事。这一点很容易预见，如同往常预见战争引起的通货膨胀一样。自然，随着战争拖延日久，商品市场的普遍上涨也持续着。你可能还记得，1915 年我正忙于“东山再起”的过程中，股票市场的繁荣摆在面前，我有责任加以充分利用。当时最保险、最容易而且最快速的用武之地在股票市场，而且我运气不错，你知道的。</p>
+        <p>到了1917 年7 月，我已经不仅有能力清偿所有的欠债，而且颇有一点儿小积蓄了。这</p>
+        <p>意味着我现在有时间、有资金，也有意愿同时兼顾商品交易和股票交易。我已经养成了多年的习惯，同时跟踪研究所有的市场。商品价格的上涨已经超越了战前的水平，涨幅达到了 100%～400%。其中只有一个例外，那便是咖啡。当然，这种现象背后自有原因。战争爆发意味着欧洲市场关闭，巨量的船货源源不绝地运往美国，这里是唯一的咖啡大市场。这导致咖啡原料的极大过剩，这么一来必然压低市场价格。嗨，当我第一次捉摸咖啡投机行情的可能性的时候，它的价格实际上低于战前的水平。如果导致这一反常现象的原因显而易见的话，那么德国和奥国的潜艇越来越活跃、效率越来越高的事实恐怕同样显而易见，这必然意味着可供商用的货船数量很严重地减少了。最终，这必然导致咖啡进口的数量萎缩。消费数量不变，随着进口数量减少，原先的超额库存必然被逐步消化，到了这个时候，咖啡价格必然追随其他所有商品，那便是大幅上涨。</p>
+        <p>这一点用不着夏洛克·福尔摩斯的水平也能够估量出来。为什么大家都不买咖啡，我说不上来。当我决定买进时，我并不认为这是投机，这在更大程度上属于一次投资。我知道需要时间才能真正兑现收益，然而，我更清楚它必定能够带来丰厚的利润。这使得它成为一桩保守的投资操作——更像银行家的操作，而不是赌徒的投注。</p>
+        <p>我在1917 年冬天开始实施买进行动。不过，当时市场乏善可陈。它维持平淡状态，而行情也不像我预期的那样有所上涨。结果是，我毫无成效地一直持有自己的头寸，时间达9 个月之久（图15.1）。这时我的合约到期了，我卖出了所有的期权。这笔交易让我蒙受了巨大的损失，然而我仍然确信自己的观点是正确的。从择时方面来说，我显然是错误的，但是我有信心，咖啡必定会与其他所有商品市场一样上涨，于是当我卖出所有头寸之后立即重新开始买进。这次买进的数量是我在那令人失望的9 个月里徒劳无功持有数量的3 倍。当然，这次我买进的是延期期权——能够拿到的最长期限。</p>
+        <p>图15.1  利弗莫尔1917 年冬季开始在咖啡期权市场做多，从道琼斯工业指数走势可以看到，从1917</p>
+        <p>年11 月至1919 年1 月，在长达14 个月的时间里，前半段大致在70～80 之内，后半段大致上在80～90</p>
+        <p>以内，市场波澜不兴，根本没有机会。这两年他41、42 岁。</p>
+        <p>这次我错得不那么离谱了。我刚刚吃进3 倍的头寸，市场便开始上涨。突然之间，所有地方的人似乎都意识到咖啡市场注定要发生什么了。从苗头来看，好像我的投资将会给我回报非常好的利润率。</p>
+        <p>我持有的合约卖方是那些烘烤咖啡者，大多是德裔字号和他们的附属企业，他们在巴西</p>
+        <p>买进了咖啡，并且很有信心地预计把它们运抵美国。然而，找不到货船来运送货物，现在他们发现自己的境地非常尴尬，那边咖啡源源不断地流入他们的仓库，这边对我大量地做空。</p>
+        <p>请记住，当我刚刚开始对咖啡看多的时候，其行情实际上仍处于战前水平，不要忘记当我买进之后一直持有了大半年的时间，最终还蒙受了巨大损失。对犯错误的惩罚就是赔钱。而对行动正确的奖赏就是挣钱。显然我是正确的，又持有一笔大头寸，于情于理我都有理由指望挣得一大笔利润。用不着上涨太多，就能够让我挣得令自己满意的利润，因为我持有数十万包咖啡。我不太愿意谈论我在操作中的具体数额，因为有时候这些数字听起来相当惊人，人们或许以为我在吹牛。事实上，我在交易中量力而为，总是留有余地，额外保留巨大的储备保证金。在这个例子中，我是足够保守的。之所以我如此放手购买期权，是因为我看不出有什么道理会发生亏损。形势对我有利。我曾经被迫苦等一年，但是现在将会得到补偿，既为我的耐心等待，也为我的行动正确。我可以预见利润的到来，而且很快。这用不着任何技巧。一切都是明明白白的，只要眼睛不瞎。</p>
+        <p>利润看来既有把握又来得快，几百万美元利润！然而，我就是无缘拿到这笔利润。不，不是因为形势突然变化而出了岔子。市场没有突然反转。也没有咖啡倾泻到美国市场。究竟出什么事呢？闻所未闻！这样的事任何人都没有经历过，因此当时我没有任何理由对这种情况有所提防。从此以后，我在投机事业绊脚石那长长的名单上添上了这个新名目，这份名单必须始终放在眼前。事情很简单，那些卖给我咖啡的家伙，空头们，清楚等着他们的是什么样的命运，为了尽力摆脱当初他们自己卖空的那些头寸，他们谋划出一种新的欺诈手段。他们跑到华盛顿乞怜求援，并如愿以偿。</p>
+        <p>或许你还记得，当时政府制订了各种方案防止生活必需品市场出现囤积居奇牟取暴利的现象。你知道此类计划大多数是如何运作的。好，那些仁慈博爱的咖啡空头们出现在战时工业委员会的价格管制小组面前——我想这是官方指定的——发表了一通爱国请愿，请求保护美国人享用早餐的利益。他们坚称，职业投机客——劳伦斯·利文斯顿便是其中之一，已经垄断了或者即将要垄断咖啡市场。如果他的投机计划得逞的话，他将充分利用战争带来的有利条件，美国民众将被迫为他们每天饮用的咖啡支付天价。这群爱国人士当初向我卖空了他们找不到货船装运的成千上万包的货物，现在他们声称，让1 亿左右的美国人为不讲良心的投机客进贡简直不可思议。他们代表咖啡贸易，而不是咖啡赌徒，他们愿意帮助政府来打击任何或明或暗的牟取暴利行为。</p>
+        <p>现在我陷入了一群哀怨诉苦者造成的泥潭之中，我无意暗示价格管制小组没有最大限度地忠诚于限制牟取暴利行为和制止浪费的职守。然而，这并不妨碍我如实表达自己的观点，该小组并没有非常深入地了解咖啡市场的具体情况。他们为咖啡豆设定了一个最高价格，同时为所有现存的合约设定了最后的了结期限。当然，这一决定意味着咖啡交易所将无生意可做。对我来说，只有一个选择——照办，那便是卖出所有的合约。同以往那些赢利的交易一样正常预计必将到手的数百万美元利润就此化为泡影。我和其他任何人一样真心诚意地反对在生活必需品市场牟取暴利，然而，就在价格管制小组发布他们的咖啡命令时，所有其他商品的成交价格都比战前水平上涨了250%～400%不等，而咖啡豆的价格实际上低于战前几年的平均成交价格。我看不出由谁来持有咖啡会造成任何实质性的区别。其价格注定要上涨，原因并不在于不讲良心的投机客，而是在于供给的缩减，进口数量大为减少是主要原因。再进一步地，后者的原因又完全在于德国潜艇攻击导致世界上货船数量的极大减少。价格管制小组甚至没有等到咖啡市场开始上涨，就一脚猛踩刹车。</p>
+        <p>作为一项政策和权宜之计，刚好在那种时候强迫咖啡交易所关张是一个错误。如果当初价格管制小组不理会咖啡，其价格毫无疑问会因为我在前面讲述的理由而上涨，这和任何被指控的垄断者都没有干系。但是，上涨之后的高价格——不一定就是天价——将成为促发动机把供给吸引到这个市场。我曾经听到伯纳德·M·巴鲁奇先生说起，战时工业委员会在管</p>
+        <p>制价格的时候曾经对这项因素有所考虑，即如何确保供给，正是由于这一原因，对某些商品限价太高的怨言并无道理。后来，当咖啡交易所再度开业的时候，咖啡成交价为23 美分。因为供给跟不上，美国民众不得不支付这样的高价，而供给少的原因正是当初政府偏听那一小撮仁慈心肠的空头的建议对咖啡限价过低，现在只有这样的高价才可能支付高昂的海运费用，以此保证咖啡持续进口。</p>
+        <p>我始终认为自己的咖啡交易是我在商品上所有交易中最合理的一笔。我觉得与其说这是一次投机，还不如说在更大程度上是投资。这次交易持续的过程超过了一年。如果说这里面有任何赌博的成分的话，那么赌博的恰恰正是那些德裔字号的自称爱国的咖啡烘烤者。他们在巴西有咖啡，于是在纽约把它们卖给我。价格管制小组给这个唯一没有上涨的商品限定了价格。他们在所谓牟取暴利的行为开始之前便已经采取了行动，唯独没有防备后来无可避免的高价。不仅如此，当时一方面绿色咖啡豆始终在9 美分每磅的水平徘徊，而另一方面烘烤后的咖啡则毫不客气地和其他所有商品一道上涨。恰恰只有咖啡烘烤者从中得益。如果绿色咖啡豆的价格上涨2～3 美分每磅，则对我意味着好几百万美元的利润。果真如此，公众后来也不至于为咖啡这样大的涨幅花费这么多的金钱。</p>
+        <p>在投机事业上吃后悔药纯属浪费时间，什么意义都没有。然而，这桩交易却具备独特意义。交易本身和我以前做成的一样漂亮。我对行情上涨如此有把握，如此符合逻辑，以至于我简直没法不挣回几百万美元。但是，我没有。</p>
+        <p>我也曾经遇到过两次事先没有任何警告交易所理事会突然宣布更改交易规则的情况，两次均遭受损失。但是在那两例中，虽然我的头寸在技术上是正确的，但是在商业意义上却不如我的咖啡交易这般完备。在投机操作中，对任何事你都不能绝对肯定。正是刚刚对你说的这次经历促使我把“不可预料的无妄之灾”添加到了我的绊脚石清单上。</p>
+        <p>在这次咖啡插曲告终后，我在其他商品上的交易非常成功，同时在股票市场从做空的一边操作（图15.2），渐而至于遭到荒诞不经的流言的困扰。华尔街的职业人员与报纸写手养成了遇事归咎于我的习惯，当价格无可避免地快速下跌的时候总是指责我打压市场。有时候，只要卖出就被说成不爱国——不管我是不是真的在卖空。我寻思，他们之所以对我的操作规模和后果夸大其词，是因为他们需要满足公众对每一次价格波动都要追问原因的渴求，而这种渴求永远不可能满足。</p>
+        <p>图15.2  咖啡插曲结束后，时间大致已经到了1919 年底，道琼斯工业指数经过1919 年上半年的小</p>
+        <p>幅上涨后在1919 年11 月初见顶，1920 年初至1921 年中，进入熊市，最大跌幅接近50%，因此利弗莫</p>
+        <p>尔说他在股市做空，并且渐渐受到流言中伤的困扰。这两年他大致43、44 岁。</p>
+        <p>我已经说过一千遍了，没有任何操纵能够把股票打下去并把它们总摁在那儿。这里毫无神秘之处。原因很简单，如果愿意动脑子的话，每个人只需半分钟就能想明白。假设某位股票作手袭击某个股票——也就是说把股票价格压低到低于其真实价值的水平——那么必定发生什么事情呢？嗨，袭击者立即会遭到内部人购买的狙击，这是最好的一种内部人买进行为。当某个股票卖出价偏低而有便宜可赚的时候，了解该股票真正价值的人总会买进的。如果内部人无力买进，那是因为总体形势对他们构成了压力，导致他们不能随意支配他们的资源，而这样的总体形势显然不属于看涨的性质。当人们谈论有人打压市场的时候，隐含的意思是打压市场是没有道理的，那几乎是犯罪。但是，把一个股票卖到价格远远低于它的真实价值，可是一桩极度危险的买卖。最好牢记一点，如果某个受打压的股票未能上涨，就说明没有多少内部入的买进行为；另一方面，倘若果真存在所谓人为打压——也就是说，不合理的卖空行为——通常为内部人买进创造了机会，如此一来，其价格就不可能停留在低位。我可以说，所谓人为打压的情形100 例中有99 例实际上都属于合理的下跌行情，只不过是市场在下跌过程中不时加速而已，主要并不是由职业交易者的操作引起的，不论他能够动用多么大的头寸。</p>
+        <p>把大多数突然下跌特别是剧烈的下挫说成是某个赌徒操作的结果，可能是一个很好的托辞，这样的借口可以信手拈来，很容易用来满足投机客们对行情缘由的需要。这些投机客才是一群盲目的赌徒，他们宁愿相信别人告诉他们的任何东西，也懒得稍稍动脑子思考一下。倒霉的投机者发生亏损后，常常从经纪商那里或者从金融媒体的闲言碎语中得到“人为打压” 的心理安慰，实质上这属于某种奇怪的反间计式的“贴士”。正常的贴士和反间计贴士的区别是这样的：看空的贴士具体、明确地建议你卖空；而这种反间计贴士则试图对下跌行情做解释，虽然其解释本身并不成立，却足以麻醉你，让你不去选择明智地卖空。当某股票突然明显下挫时，我们自然的倾向应该是卖出它。行情变化必有缘由——虽然暂且不知道是什么缘由，但是理由一定足够充分，因此你卖出它。然而从道理上说，如果该股票的突然下挫只不过是某位作手打压的结果，卖出就不明智了，因为一旦他停手不再卖空，股价必然向上反弹！反间计贴士！</p>
+        <div class="divider"></div></section>
+    </div>
+  </main>
+</div>
+<script>
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a[href^='#']")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-8% 0px -80% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

@@ -25,12 +25,12 @@
       "href": "books/tpa-original/index.html"
     },
     {
-      "id": "book",
+      "id": "gushou",
       "title": "股票大作手回忆录",
-      "subtitle": "原版导入 · 174 页",
+      "subtitle": "杰西·利弗莫尔 · 24 章 + 附录 · 自动导入",
       "category": "交易",
       "accent": "#d4a657",
-      "href": "books/book/index.html"
+      "href": "books/gushou/index.html"
     }
   ]
 }

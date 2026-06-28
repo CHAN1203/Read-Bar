@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:accent" content="#d4a657">
+<title>股票大作手回忆录 · 二 首战纽约遭挫败，对赌行里找本钱</title>
+<link rel="stylesheet" href="../reader.css">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#d4a657; --accent-soft:#33301f; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1408;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0; counter-reset:c;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(212,166,87,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1408; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(212,166,87,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+<style>figure img{width:100%;height:auto;display:block;border-radius:6px;}figure{padding:14px;}ul{margin:14px 0 14px 4px;padding-left:22px;color:#dcd8cc;}li{margin:6px 0;}h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:30px 0 4px;color:var(--ink);}.col section{padding:40px 0 6px;}</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">股票大作手回忆录<b>二 首战纽约遭挫败，对赌行里找本钱</b></div>
+    <div class="shelf-nav"><a class="home" href="../../index.html">📚 书架</a> <a class="home" href="index.html">📖 本书</a> <a href="gushou_u03.html">← 上一篇</a> <a href="gushou_u05.html">下一篇 →</a></div>
+    <ol><a href="#u" class="active">二 首战纽约遭挫败，对赌行里找本钱</a></ol>
+  </nav>
+  <main>
+    <header class="cover"><div class="col">
+      <div class="eyebrow">股票大作手回忆录</div>
+      <h1>二 首战纽约遭挫败，对赌行里找本钱</h1>
+    </div></header>
+    <div class="col">
+      <section id="u"><div class="kicker">二 首战纽约遭挫败，对赌行里找本钱</div><h2>二 首战纽约遭挫败，对赌行里找本钱</h2>
+        <h3>二 首战纽约遭挫败，对赌行里找本钱</h3>
+        <p>我发觉，大都会股票经纪公司起先打算用软刀子杀人——强制我缴纳3 点保证金和1 个半点的交易手续费。这一套没成功，他们连下三滥的手段都使出来了。后来，他们多方暗示，天塌下来，也不想做我的生意了。就在这期间，我很快拿定主意，到纽约去，在纽约股票交易所某家会员的总部做交易。我不想到任何一家波士顿分公司去，因为报价必须通过电报传递到这里。我希望尽可能接近行情来源。我在21 岁那年来到纽约，随身带着全部家当， 2500 美元。</p>
+        <p>我曾告诉你，当我20 岁的时候已经有10000 美元，当我做糖业那笔交易时保证金超过 1 万美元。然而，我并不总赢利。我的交易计划足够可靠，而且赢利的时候多过赔钱的时候。要是我始终遵守它，那么我的交易结果正确的时候十次中可能达到七次。事实上，如果我在开仓之前确信自己是对的，就总能最终获利。真正打败我的，是自己的定力不够，不能始终贯彻自己的技术要领——也就是说，仅当我看到市场前兆确实对交易有利时，才入市交易。天下万物皆有定时，我却不知道这一点。恰恰也正是这一点，令华尔街如此之多的英雄好汉折戟，尽管他们已经远远超越了绝大多数平庸之辈。一般的傻瓜犯起傻来，不分时间和场合，而华尔街的傻瓜呢，则是不分时间，总觉得非做交易不可。没人能够天天都找到足够的理由，天天买进或者卖出股票——或者说，没人能够有足够的知识天天交易，天天都能采取明智的交易方式。</p>
+        <p>本人是一个明证。每次如果本着市场经验的指引来阅读行情纸带，就能挣钱；但是一旦平白犯傻，就注定赔钱。我也不例外，不是吗？一走进交易厅，巨大的行情板一眨不眨地瞪着我的脸，报价机在耳畔催促般的吱吱不停，身边人来人往买来卖去，眼睁睁看着手上的单子变成钞票或化作废纸。这么一来，我自然就让追求刺激的渴望取代了理性的判断。在对赌行里，保证金少少，你不可能有长线打算。你太容易被洗掉、太快被洗掉了。不顾实际市场状况，只顾不停地买卖，是导致华尔街许多交易亏损的罪魁祸首，甚至专业交易者也逃不过这个陷阱，他们觉得自己每天都得带一点儿钱回家，就像拿工资的寻常上班族那样。请记住，当时我还是个毛头小伙，我并不知道自己后来会得到什么样的大教训。15 年后，尽管我对某个股票已经十分看好，但是正是这份大教训使我继续耐心等待了两个星期之久，眼看着它上涨了30 个点之后，才认为是保险的买进时机。当时我已经破产了，正力图东山再起，承受不起丝毫的鲁莽和草率。背水一战，只能赢不能输，于是我只有耐心等待。那是1915 年。说来话长，后面合适的地方再谈吧。言归正传，多年来我在对赌行里给他们迎头痛击，但是最终还是叫他们夺走了我的大部分赢利。</p>
+        <p>不仅如此，当这一切发生的时候，我明明瞪着眼睛看着！而且，在我的交易生涯中，这种经历也不是唯一的一次。股票交易者自身便藏着许多敌人，他不得不战胜所有这些敌人，要是做不到，就得付出高昂的代价。不管怎么说，我带着2500 美元来到了纽约。这里找不到一家靠得住的对赌行。股票交易所和警察局携手管得很严，开一家关一家。此外，我打算找到一个不限制我的头寸的地方，有多少本金就可以做多少交易。我那时还没有多少本金，不过我预期自己的本金不会总这么微薄的。初来乍到，最主要的考虑是找一个好地方，再也不必担心交易不公平。于是，我来到一家纽约股票交易所的经纪行，它在我老家开了分店，我认识那店里的几位职员。现在说起来，这家经纪行早已关张了。我在这家经纪行呆的时间不长，我不喜欢其中一位合伙人，后来便转到A·R·富勒顿公司（A．R．Fullerton ＆ Co．）。肯定有人对他们说过我的早期经历，因为我过去不久，他们就统统叫我“交易神童”。我的样子看上去总显得比实际年龄更年轻些。这一点在一定程度上对我不利，不过反过来，也迫</p>
+        <p>使我更努力地独立奋斗，因为那么多人试图利用我的年轻来占我的便宜。对赌行那些家伙看到我只是乳臭未干的少年，总觉得我不过是傻人有傻福，这就是我经常赢他们的唯一原因。</p>
+        <p>唉，不到六个月，我就破产了。我的交易相当活跃，小有“赢家”的名气。我猜测，我的交易佣金累积起来的总额恐怕不小。我的账户上曾经有一定数额的累积，但是，最终还是输了。虽然在交易时我很小心，但注定最终是亏损的。让我来告诉你原因：正是由于我在对赌行里的非凡成功！</p>
+        <p>以我的方式交易，只能在对赌行里赢得这场游戏，因为我赌的是市场波动。我的纸带阅读术只适用于我在对赌行的交易方式。当我买进的时候，价格就在那儿，写在行情板上，摆在我眼前。甚至在下单之前，我就已经确切地知道我要为股票付出多少价钱。与此同时，我也总能在一瞬间卖出。我能成功地抢帽子，因为我可以像闪电一样完成交易。幸运的时候，我可以继续跟进；不利的时候，可以在1 秒钟内止损。举例来说，有时候，我有把握某只股票肯定要上涨或下跌至少1 个点。好，我用不着从鱼头吃到鱼尾，可以支付1 个点的保证金，本金飞快翻番；或者，也可以只挣半个点，见好就收。每天交易一二百股，到了月底，进账不错，对吧？</p>
+        <p>当然，这一套实际上是行不通的，即使对赌行有足够资源来承受一系列大额稳定的亏损，他们也不会愿意这么做的。他们不愿意哪个客户总是赢他们的钱，那滋味实在太糟糕。</p>
+        <p>无论如何，在对赌行里行之有效的交易套路，在富勒顿的营业厅里却不起作用。这里，我真正在买进或卖出股票。纸带上糖业的价格或许是105，我能看出它即将出现3 点的下跌。实际上，就在报价机在纸带上打印出105 的那一刻，在交易所场内真实的成交价可能已经是 104 或103 了。等到我卖出1000 股的交易指令传递到富勒顿公司场内出市代表手中真正执行的时候，成交价可能还更低。我一直无法得知我卖出1000 股的成交价到底在什么水平，必须等到那位出市代表的成交回报传回来。同样一笔交易，在对赌行肯定已经挣到3000 美元的赢利了，而在交易所的经纪行或许一分钱也挣不到。当然，这是比较极端的例子，不过事情的本质并无二致，就我的交易套路来说，在A·R·富勒顿的营业厅，纸带告诉我的总是过时的历史，而我当时并没有认识到这一点。</p>
+        <p>雪上加霜的是，如果我的指令大到一定程度，我自己的卖出可能进一步压低价格。在对赌行，我用不着考虑我自己的指令引起的冲击效应。我之所以在纽约吃败仗，是因为这里上演的完全是另一种游戏。导致我亏损的原因并不在于现在我做的是合法交易，而在于我在操作过程中一知半解。人们夸我擅长阅读行情纸带。然而，即使我阅读纸带像高手一样，也不能幸免于亏损。要是我自己亲自到场内交易，当一名场内交易员，也许交易结果会好得多。如果置身于特定的交易者群体中，现实状况就在眼前，我也许就能让自己的交易体系适应它了。当然，这个系统也不是无懈可击。举例来说，如果按照我现在的交易规模来操作，这样的系统同样还是会让我失败的，原因在于我自己的交易对市场价格带来的冲击效应。</p>
+        <p>长话短说，我当时并不懂得股票投机交易的真谛。我只了解其中一个部分，虽然这是一个相当重要的部分，对我来说任何时候这部分都是极有价值的。然而，如果凭我所知道的一切尚且不能盈利，那么，场外那些更缺乏经验的市场参与者能有多大机会取胜，或者更准确地说，实现赢利呢？</p>
+        <p>用了没多久，我就意识到，我的交易方法有什么地方不对劲，但我就是不明白到底问题出在哪里。有的时候，我的系统运行得很漂亮，突然之间，一记耳光接着一记耳光劈头打过来。记得吧，我当时只有22 岁，并不是因为我固执己见，不愿意反省究竟自己错在何处，而是因为那个年纪的人对任何事都只是懵懵懂懂。</p>
+        <p>营业厅里的人们对我很友善。因为他们关于保证金的规定，我不能尽情下单，但是老 A·R·富勒顿和公司里其他人待我太好了。经过6 个月的活跃交易，我不仅损失了当初带来的所有本钱，还有在那儿挣到的所有利润，甚至还欠了公司几百美元。</p>
+        <p>看看我，一个毛头小子，以前从来没出过远门，现在彻底破产了。但是我知道，我自己并没有什么地方应当受责备，问题完全出在我的交易套路上。不知道我的意思是不是说清楚了，的确，我从来不对股票市场发脾气。我从不与行情纸带争辩，埋怨市场无济于事。</p>
+        <p>我太渴望恢复交易了，一分钟也没耽误，就跑去找老富勒顿，对他说：“嗨，A．R，借我500 美元，好不好？”</p>
+        <p>“要钱干什么？”他问。 “我得弄些钱。” “要钱干什么？”他再次问道。 “当然是做保证金了。”我说。 “500 美元？”他说着，皱起眉头。“你知道，他们要你维持10%的保证金，这意味着做100 股要交1000 美元。我给你一个信用额度，岂不好多了„„”</p>
+        <p>“不，”我回道，“我不想要这里的信用额度。我已经欠公司一笔了。我的打算是，请你借我500 元钱，那我就可以拿到外面去挣一笔，再回来。”</p>
+        <p>“那你打算怎么干呢？”老A·R 问。 “我要找一家对赌行，到那儿交易。”我告诉他。 “在这儿交易吧！”他说。 “不！”我回道，“在这间营业部里我还没有取胜的把握，但是，我有把握从对赌行里赢出钱来。我懂那儿的玩法。我有些心得，我已经知道在这里我有什么地方做得不对了。”</p>
+        <p>他给了我钱，我离开了营业部——就是这儿，这位昔日人称对赌行克星的男孩赔得底儿掉。我不能回家乡，因为那里的对赌行不接我的生意。纽约也不用考虑，当时纽约一家对赌行也没有。他们告诉我，1890 年代的布罗德街（Broad Street）和新街（New Street）曾经到处都是这路货色。但是现在我的生意用得着的时候，偏偏一家都没有了。于是，我想了想，决定去圣路易斯。我听说那儿有两家对赌行的生意做得很大，遍及整个中西部。他们的利润一定很丰厚。他们在几十个城镇都有分号。实际上人家告诉我，东部地区没有哪一家对赌行在生意规模上能够和他们相提并论。他们在光天化日之下营业，最体面的人们都在他们那里交易，不带丝毫疑虑。有个家伙甚至告诉我，其中一家对赌行的老板是某地商贸促进会的副主席，不过不可能是圣路易斯的。不管怎么说，这就是我要去的地方，指望带去500 美元，带回更大的一笔，好放到A·R·富勒顿公司——纽约股票交易所的会员——的营业厅充当保证金。</p>
+        <p>到达圣路易斯后，我先到旅馆洗了把脸，然后便上街寻找对赌行。一家是J·G·多兰公司（J．G．Dolan Company），另一家是H·S·泰勒公司（H．S．Teller &amp; Co．）。我知道能赢他们。我打算采用绝对保险的玩法——小心又保守。我唯一担心的是，怕有人认出我，出卖我的行藏，因为全国各地的对赌行都听说过“交易神童”。他们像赌场，时刻留意有关赌博高手的流言飞语。</p>
+        <p>多兰公司比泰勒公司的距离更近，我先去多兰公司。我但愿他们让我做几天交易，再叫我走人另谋高就。我走进去，里面空间巨大，至少有好几百人在那儿盯着报价板。我很开心，因为在这么拥挤的人群中，比较不容易引起注意。我站在那儿，观察报价板，从头到尾审视一遍，直到挑出合适的股票做头一把。</p>
+        <p>我环视四周，看到了窗口边的接单员，就是在这儿你压下本钱，拿到成交单。他正看着我，于是我走过去，问道：“你们这儿可以交易棉花和小麦吗？”</p>
+        <p>“是的，小朋友。”他答道。 “那我也可以买股票吗？” “要是你有钱，就可以买。”他回道。 “噢，我有钱，没问题。”我说着，像是吹牛充阔的少年。</p>
+        <p>“你有钱，是吗？”他说着，面带微笑。 “100 美元能买多少股票？”我问道，故做不快状。 “100 股，要是你拿得出100 美元。” “我有100 美元。对，有200 美元呢！”我回他。 “哦，好家伙！”他说。 “你给我买200 股。”我不客气地说。 “200 股什么？”他问道，严肃起来了。生意归生意。我再次看了看行情板，好像要好好猜猜，然后告诉他，“200 股奥马哈（Omaha）。” “好的！”他说。他收下钱，点好数，签好成交单。 “你叫什么名字？”他问我，我回道，“霍勒斯·肯特。” 他把成交单递给我，我走到一边，坐在顾客群中，等着这卷钱变多。我快进快出，这一天交易了好几次。第二天故伎重演。两天，我赚了2800 美元，当时我还指望他们让我把这一星期做完。以我当时赚钱的速度，一星期下来大概成绩不坏。然后，我再到另一家店去，要是在那里也能同样走运的话，那么就能带一大沓子钞票回纽约，施展一番作为。</p>
+        <p>第三天早晨，我扮着一副羞涩模样，走到窗口前，要买进500 股B．R．T．。那位柜员对我说，“嗨，肯特先生，我们老板想见你。”</p>
+        <p>我知道把戏被戳穿了，但还是问道：“他为什么要见我？” “我不清楚。” “到哪儿找他？” “在他的老板间，朝那边走。”他指着一扇门。我走进去。多兰正坐在他的办公桌前。他转过身来，对我说，“请坐，利文斯顿。” 他指着一张椅子。我的最后一线希望破灭了。我不知道他是怎么看破我的，或许从旅馆登记簿上。</p>
+        <p>“找我有何贵干？”我问他。 “听着，年轻人。我对你冒（没）有任何恶意，明白？一点儿都冒（没）有。明白吧？” “是，我也没看出来。”我说。他从转椅上站起身来。这家伙身材魁梧。他对我说：“来，过这边来，利文斯顿，好吗？” 他走向门边。他打开门，然后手指着大厅里的顾客们。</p>
+        <p>“看见这些人了吗？”他问道。 “看见什么？” “这帮子人。好好看看他们，年轻人。这里有300 号这样的家伙！300 号肥羊！他们养活我和我一家人。明白吗？300 号肥羊！然后你来了，你两天时间弄到的，比我从这300 号肥羊身上两个星期挣到的都多。这不是生意经，年轻人——不是我的生意经！我对你冒（没）有任何恶意。你就拿着你已经弄到手的好了。但是你别再弄了。这里一个子儿也不再给你！”</p>
+        <p>“为啥，我——” “到此为止。前天我看着你走进来，第一眼就不喜欢你的样子。老实说，一点儿也不喜欢。我一眼就看出你是装呆卖傻的老千。我把那儿那头蠢驴叫进来”——他指着那位闯祸的店员——“问他你做什么了，他告诉我之后，我跟他说：‘我不喜欢那家伙的样子，他是装呆卖傻的老千！’那头蠢驴对我说：‘我才不信他是老千呢，老板！他叫霍勒斯·肯特，毛头小子故意充大人而已。他冒（没）问题！’唉，我就随他去了。这该死的让我破了2800 美元的财。我不怨你，我的孩子。但是这钱箱子对你是锁上了。”</p>
+        <p>“听我——”我刚开了个头。 “你听着，利文斯顿，”他抢道。“我四处打听，对你门儿清。我包揽肥羊们的赌博来挣钱，你不属于这里。我这人讲义气，已经从这里刮走的你拿走好了。但是，现在我已经知</p>
+        <p>道你的底细，不能再让你挖墙脚，那样我就成肥羊了。你走你的阳关道吧，年轻人！”</p>
+        <p>我带着2800 美元的利润离开了多兰的场子。泰勒公司的地方就在同一个街区。我已经弄清楚，泰勒非常富有，他还开办了许多台球房。我打定主意到他的对赌行去。我琢磨着，到底是小小地开始，慢慢炒到1000 股呢，还是一开始就来大的好，说不定我只能在那儿做一天交易。当他们输钱的时候，很快就能学乖。我确实想买进1000 股B．R．T．。我有把握从这只股票上拿到4～5 点的利润。但是如果他们起了疑心，或者如果太多客户做多这只股票，或许他们碰都不让我碰。我觉得或许起初还是化整为零，从小笔开始为妙。</p>
+        <p>这里的交易厅没有多兰公司的大，但装修更讲究，显然，这里的客户群体来自更富有的阶层。这对我再合适不过了。我决定买进1000 股B．R．T．。于是，我走到对应的窗口前，对店员说：“我打算买进一些B．R．T．，最多可以买多少？”</p>
+        <p>“上不封顶，”那位柜员说，“想买多少就买多少——只要你有钱。” “买进1500 股，”我说着，从口袋里掏出一卷钞票，那位柜员开始填单子。就在这时，我看到一位红头发的男人从柜台边一把推开那位店员。他向前倾身，对我说： “嗨，利文斯顿，你还是回多兰那儿去吧。我们不想和你做生意。”</p>
+        <p>“等我拿走我的成交单，”我说，“我刚刚买进了一点儿B．R．T．。” “什么单子你也别想拿，”他说。这时，其他店员都围在他后面，看着我。“再也别来这儿交易。我们不做你的生意，懂了吗？”</p>
+        <p>无论是发火，还是企图讲理，都没什么意义，于是我返回旅馆，结了账，登上第一趟列车回到纽约。世道艰难。我本想挣回一点现金再重新开始，但是泰勒竟然一次都不让我交易。</p>
+        <p>回到纽约后，我还了老富勒顿500 美元，凭在圣路易斯挣的钱又开始交易。我的手气时好时坏，不过，总起来比盈亏打平更好一点。毕竟，我用不着改弦更张，唯一需要领会的关键点是，要做好股票投机的行当，除了来富勒顿营业厅交易之前已经学会的之外，还要掌握其他东西。就像那些字谜游戏爱好者，他们喜欢在报纸周末副刊上填写纵横填字谜，不填出来绝不罢休。我呢，当然渴望为我的市场拼图游戏找到解答。我本以为我在对赌行已经找到了解答，但是我错了。</p>
+        <p>大约是我回纽约后的几个月，老富勒顿的办公室来了一位老古怪，他和A·R 相熟。有人说，他们俩曾经共同拥有一群赛马。很容易看出来，他曾经有过光彩的日子。我被介绍给老麦克戴维特（McDevitt）。他正向大伙说起一伙西部赛马场骗子，他们刚刚在圣路易斯得手了一把。他说，这群骗子团伙的头头是一家台球室的老板，名叫泰勒。</p>
+        <p>“哪个泰勒？”我问他。 “那个泰勒，H·S·泰勒。” “我认识这家伙。”我说。 “他不是好东西！”麦克戴维特说。 “岂止，简直坏透了，”我说，“我还有一笔小账要和他算一算。” “怎么算法？” “教训这伙恶棍的唯一办法是从他们的荷包入手。在圣路易斯我现在还没办法碰他，但是总有一天会的。”我把自己的委屈也告诉了麦克戴维特。</p>
+        <p>“嗯，”麦克戴维特说， “他想尽法子在纽约设点，但是做不到，只好在霍博肯（Hoboken）开张了一家。我听人说，那里不限交易数额，生意火爆到极点，直布罗陀山和那儿比起来，不过是矮腿鸡身上的跳蚤。”</p>
+        <p>“这是个什么所在？”我以为他说的是台球室。 “对赌行！”麦克戴维特说。 “你确信已经开张了吗？” “是。我已经听到好几个人对我说起这家店了。”</p>
+        <p>“这些都只是听说而已，”我说，“能不能麻烦你亲眼确认一下它还在营业，还要查明他们最大让客户交易多少？”</p>
+        <p>“好吧，小家伙，”麦克戴维特说，“明天我亲自跑一趟，再回来跟你说。” 他跑了一趟。看来泰勒的买卖已经做得很大了，而且只要有单子就吃。这天是星期五。这一周市场一直在上涨——这话说的是20 年前，请记住——可以肯定，星期六公布的银行报告必定显示银行超额准备金大幅下降。通常这是很好的借口，交易商大户必定利用这样的机会突然袭击，通过震仓力图把那些脆弱的保证金交易账户震出去。当天最后半小时的交易，市场将一如既往明显回落，特别是那些公众参与最积极的活跃股票。那些股票，当然也正是泰勒的客户们做多最重仓的股票，他的对赌行自然乐于见到有人在这些股票上做空的单子。再没有比这种情况更理想的了，可以同时从正反两个方向捉弄这些肥羊，而且没什么比这更容易——只需1 个点的保证金。</p>
+        <p>那个星期六的早晨，我赶到霍博肯，来到泰勒的地方。他们装修了一间巨大的客户大厅，豪华的报价板、一大群店员，还有一位穿着灰色制服的保安，里面大约有25 名客户。</p>
+        <p>我找到经理，和他聊起来。他问我有什么可以为我效劳的，我告诉他没什么事。他说，用不着在股票上挣这点鸡零狗碎的钱，而且或许还得一天接一天等待；在赛马场上挣钱多得多，那儿凭运气，而且可以随便把所有钞票都赌上，几分钟，立马可赢几千美元。接下来，他开始介绍股票市场的赌法如何更安全，他们这里某些客户如何挣了大钱——听他说的话，你一定敢打保票，这是一间正规的经纪行，真正替你在交易所买进和卖出股票——并且，下手一定要狠、要大，这样才能赚个盆满钵满。他一定以为我可能正打算去哪个台球室赌一把，他要先下手为强，在其他人盘剥我之前，先从我的钞票卷里切下一大块，所以他劝我赶紧入市，星期六股票市场12 点就收盘了。他说，这么一来我还有一整个下午好去干其他勾当。或许我确实能揣着更大一卷钞票到跑马场去——如果我选的股票对路的话。</p>
+        <p>我显出不怎么相信的样子，他呢，便不停地唠叨。我看着钟。11 点15 分，我说：“好吧。”开始给他一些卖出各种股票的指令。我拿出2000 美元的钞票，他很高兴地收下。他告诉我，他感觉我一定会挣一大笔，希望我经常光顾。</p>
+        <p>后来的情况果然如我所料。交易大户猛砸那些他们认为有可能触发最多卖出止损指令的股票，果不其然，股票价格跳水。最后5 分钟，通常交易商们要买入平仓，引起上涨行情，在这之前我平回了我的头寸。</p>
+        <p>我总共赚到了5100 美元。我走过去兑现。 “我真高兴自己入市了。”我对那位经理说，一边递给他我的成交单。 “嗨，”他对我说，“我付不了你那么多。没想到会有这么大的行情。星期一早晨我给你把钱准备好，绝不食言。”</p>
+        <p>“好吧。不过，你先把你现有的钱付给我。”我说。 “你得让我先兑付那些散户，”他说，“我先把你的保证金还给你，然后剩下多少给你多少。先等我兑付完其他成交单。”于是，我在一旁等着，让他先兑付其他赢家。哦，我知道我的钱是安全的。此地这么好的生意，泰勒不可能在这儿爽约的。而且，即使他食言，除了拿走当时所有他剩下的钱以外，还有什么更好的办法呢？我拿回了我自己的2000 美元，另外还有800 美元，这是营业厅里剩下的所有钱了。我对他说，星期一早晨一定到场，他发誓，到时候一定备好钱等着我。</p>
+        <p>星期一我到达霍博肯的时候比十二点稍早一点儿。我看到一个家伙正在和经理说话，那天当泰勒叫我滚回多兰那边去的时候，我曾在圣路易斯的营业厅见过他。我立即明白，经理已经打电报给他的总部，于是他们派人来调查这件事。骗子信不过任何人。</p>
+        <p>“我来结算我的余款。”我对那位经理说。 “就是这人？”圣路易斯来的老兄问道。</p>
+        <p>“是的。”经理回道，从衣袋里掏出一沓黄色钞票。 “且慢！”圣路易斯来的家伙对他说，然后转过身对着我，“嗨，利文斯顿，难道我们没告诉你我们不做你的生意吗？”</p>
+        <p>“先把钱还我。”我对经理说。他递过两张千元的，4 张500 元的，再3 张百元的。 “你说什么？”我对圣路易斯的家伙说。 “我们告诉过你，不让你在我们的地方交易。” “对了，”我说，“这就是我来的原因。” “嗨，再别来了，滚得远远的！”他气急败坏地吼道。灰色制服的保安走过来，貌似漫不经心。圣路易斯的家伙对经理晃着拳头，喊着：“你应该更晓事一点儿，你这个可怜的白痴，不应当让这个家伙钻你的空子。他是利文斯顿。我们对你有招呼在先。”</p>
+        <p>“听着，你，”我对圣路易斯老兄说，“这里不是圣路易斯。你不能随便取消任何成交单，就像你的主子对付贝尔法斯特男孩那样。”</p>
+        <p>“你离这营业厅远远的！你不能在这里交易！”他咆哮。 “要是我不可以交易，那其他人也不行，”我回道，“你这一套在这里吃不开。” 这下子，圣路易斯的家伙立即软了腔调。 “听我说，老弟，”他说，满脸烦恼的可怜相，“帮帮忙，讲点道理！你知道，天天发生这样的事，我们承担不起。要是那老东西听说是你的话，肯定一蹦三个高。发发慈悲吧，利文斯顿。”</p>
+        <p>“我适可而止。”我保证道。 “讲讲道理，好不好？看在老天的分上，离得远远的！给我们一点儿机会，让我们开门顺利点儿吧。我们刚到这里，好不好？”</p>
+        <p>“下次我来，再也不想见到这副盛气凌人的架势。”我说完走开，留下他连珠炮似的训斥那位经理。我已经从他们手中赢了一些钱，报了在圣路易斯他们公然毁约的一箭之仇。再卷入什么争执，或者让他们关门，也没有什么道理。我回到老富勒顿的办公室，告诉麦克戴维特事情的经过。接着，我跟他说，如果他愿意的话，我想请他替我去泰勒的地方，2、30 股一笔开始交易，让他们慢慢熟悉他。等到哪一刻我看准好机会可以赚一票，就打电话给他，一把扑进去。</p>
+        <p>我交给麦克戴维特1000 美元，他动身去了霍博肯，开始依计而行，逐渐成了他们的常客。后来一天，我觉得很有把握，看出市场马上就要向下突破，于是悄悄给麦克递了话，尽他们允许的最大额度卖出。那一天，我净赚了2800 美元，不算付给麦克的提成和其他开销。我疑心麦克另外给他自己做了一点儿老鼠仓。这事之后不到一个月，泰勒关闭了他的霍博肯分部。于是，警方开始忙活起来。无论如何，虽然我只在那儿交易了两次，但是这家店并没挣到钱。我们正好碰上疯狂的牛市，股票价格很少回落，甚至不足以把1 个点的保证金洗出去，当然，所有的客户都是多头，一边持续赢利，一边金字塔式地加仓。全国数不清的对赌行一家接一家倒闭。</p>
+        <p>他们的游戏规则从此改变了。在老式对赌行里交易，相比在一家正规经纪行里交易，交易者拥有某些具有决定意义的优势。举例来说，当保证金到达耗竭点的时候，你的交易自动终结，这是最佳的止损形式。你的损失不会超出你已经支付的数额，也不会出现低劣的交易指令执行结果，等等。纽约的对赌行对他们的顾客从来不像我听说的西部对赌行那样慷慨大方。在这里，他们惯于限制客户潜在的盈利空间，对特定的热门股票只允许2 点赢利。糖业、田纳西煤铁（Tennessee Coal and Iron）都属于受限之列。哪怕这些股票在10 分钟之内移动了10 点，你每张成交单也只能获利2 点。他们认为，如果不这样设限，客户的赢面就太大了，因为他损失的时候只有1 美元，获利的时候则有10 美元。不仅如此，在某些情况下，所有的对赌行，包括其中最大的，都会拒绝接受某些股票的交易指令。1900 年，大选日的</p>
+        <p>前一天，麦金利（McKinley）胜出已经是板上钉钉的事，此地没有一家对赌行容许客户买进股票。麦金利的选举胜算率为3 比1。如果星期一买进股票，你就准备好了，可以获利3 到6 点甚至更多。你也可以赌布莱恩（Bryan）获胜，买进股票也有把握盈利。但是那天对赌行拒绝接单。</p>
+        <p>如果不是对赌行拒绝我的生意，我可能永远都不会停止在他们那里交易。要是那样，我就永远没有机会了解股票投机生意还包括其他很多内容，远不止于仅仅在几个点的波动上弄潮。</p>
+        <div class="divider"></div></section>
+    </div>
+  </main>
+</div>
+<script>
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a[href^='#']")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-8% 0px -80% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>
