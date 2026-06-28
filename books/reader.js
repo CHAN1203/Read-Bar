@@ -54,20 +54,20 @@
     var vol=0.40, audio=new Audio(); audio.loop=true; audio.preload="none"; audio.volume=vol; audio.crossOrigin="anonymous";
     var row=$("rlNoiseRow"), hint=$("rlSndHint");
     function play(f){ if(!f){ audio.pause(); sBtn.classList.remove("playing"); return; }
-      audio.src="audio/"+f; audio.volume=vol; audio.play().then(function(){ sBtn.classList.add("playing"); }).catch(function(){}); }
+      audio.src="../../audio/"+f; audio.volume=vol; audio.play().then(function(){ sBtn.classList.add("playing"); }).catch(function(){}); }
     audio.addEventListener("error",function(){ sBtn.classList.remove("playing"); hint.style.display="block";
-      hint.innerHTML='找不到 <code>audio/'+esc((audio.currentSrc||audio.src).split("/").pop())+'</code> —— 把音频文件放进 <code>audio/</code> 即可。'; });
+      hint.innerHTML='找不到 <code>audio/'+esc((audio.currentSrc||audio.src).split("/").pop())+'</code> —— 把音频文件放进根目录的 <code>audio/</code> 即可。'; });
     function build(sounds){
       var html='<button data-f="" class="on">关</button>';
       sounds.forEach(function(s){ html+='<button data-f="'+esc(s.file)+'">'+esc(s.label||s.file)+'</button>'; });
       row.innerHTML=html;
-      if(!sounds.length){ hint.style.display="block"; hint.innerHTML='还没有音频。把文件放进 <code>audio/</code> 文件夹,在 <code>audio/sounds.json</code> 里列出,这里就会出现。'; }
+      if(!sounds.length){ hint.style.display="block"; hint.innerHTML='还没有音频。把文件放进根目录的 <code>audio/</code> 文件夹,在 <code>audio/sounds.json</code> 里列出,这里就会出现。'; }
       [].forEach.call(row.querySelectorAll("button"),function(b){ b.addEventListener("click",function(){
         if(b.getAttribute("data-f")) hint.style.display="none";
         [].forEach.call(row.querySelectorAll("button"),function(x){ x.classList.toggle("on",x===b); });
         play(b.getAttribute("data-f")); }); });
     }
-    fetch("audio/sounds.json").then(function(r){ return r.ok?r.json():null; }).then(function(d){ build((d&&d.sounds)||[]); }).catch(function(){ build([]); });
+    fetch("../../audio/sounds.json").then(function(r){ return r.ok?r.json():null; }).then(function(d){ build((d&&d.sounds)||[]); }).catch(function(){ build([]); });
     $("rlVol").addEventListener("input",function(){ vol=(+this.value)/100; audio.volume=vol; });
   })();
 

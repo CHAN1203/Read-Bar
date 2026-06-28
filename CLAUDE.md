@@ -36,12 +36,13 @@ Futures / MGC,5 分钟执行、15 分钟做高周期背景)。这些书就是把
 │       ├── price_action_book_vol5.html # 第五卷 · 实战(accent 铜 #d98a4f,含交易生命周期动画)
 │       ├── knowledge-map.html          # 知识导图:折叠大纲 / 放射导图 / 知识图谱 三模式
 │       ├── reader.css                  # 【共享阅读层 · 样式】主题滚动条 + 划线/批注/抽屉
-│       ├── reader.js                   # 【共享阅读层 · 逻辑】高亮/批注/检索/进度 + 背景音 + 阅读计时 + 编辑模式
-│       └── audio/                      # 背景音:sounds.json 登记清单 + 用户自备的音频文件(mp3 等)
+│       └── reader.js                   # 【共享阅读层 · 逻辑】高亮/批注/检索/进度 + 背景音 + 阅读计时 + 编辑模式
+├── audio/                              # 【全局共享背景音】sounds.json 清单 + calm-piano.mp3;每个阅读页引用 ../../audio/(原在 du-bang 内,已上移到根目录全局共享)
 ├── _inbox/                             # PDF 投放区:把文字版 PDF 拖进来,GitHub Action 自动转换并开 PR
 ├── tools/pdf2readbar/                  # PDF→readbar 转换器(五模块:probe/extract/figures/build/cli)
 ├── .github/workflows/import-pdf.yml   # 导入流水线:监听 _inbox/ push → 跑 pdf2readbar → 开 PR
 ├── books/tpa-original/                 # Al Brooks《Trading Price Action: Trends》原版导入(前言+4部26章+120图)
+├── books/gushou/                       # 《股票大作手回忆录》自动导入(无内嵌目录 → 按标题字号分 28 章)
 └── .claude/skills/teaching-ebook/      # (可选)项目级 skill:产出新书用,见下
 ```
 
@@ -60,8 +61,9 @@ Futures / MGC,5 分钟执行、15 分钟做高周期背景)。这些书就是把
 2. **阅读层** = `reader.css` + `reader.js`,通过在每个 HTML 里注入
    `<link rel="stylesheet" href="reader.css">` 和 `<script src="reader.js"></script>` 挂上去。
    它提供:主题滚动条、选中划线(4 色)、批注、可搜索/筛选/导出的批注抽屉、阅读进度记忆,
-   外加**右下角 dock 三件套**——🎧 背景音(播放 `audio/` 里用户自备的音频,循环;按钮由
-   `audio/sounds.json` 清单动态生成;**不是合成噪音**)+ 阅读计时器(开页自动计、切走暂停、记起止)、
+   外加**右下角 dock 三件套**——🎧 背景音(播放**根目录全局共享** `audio/` 里用户自备的音频,循环;
+   各阅读页都在 `books/<id>/*.html`(两层深),reader.js 用 `../../audio/` 指向根 audio;按钮由
+   `audio/sounds.json` 清单动态生成;**不是合成噪音**;全站所有书共用同一份音乐)+ 阅读计时器(开页自动计、切走暂停、记起止)、
    ✏️ 编辑模式(删/改正文块,存 localStorage,可「导出 HTML」写回源文件)、🔖 批注。
    阅读光按钮已升级为「**阅读设置**」(Aa):含字号/行距/版心宽度/衬线⇄无衬线切换 + 调暗,设置存
    `readbar:settings`,全站通用,各阅读页 `<head>` 内联脚本在开页前应用(无闪烁)。另新增
