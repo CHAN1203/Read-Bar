@@ -31,6 +31,14 @@
       "category": "交易",
       "accent": "#d4a657",
       "href": "books/gushou/index.html"
+    },
+    {
+      "id": "book",
+      "title": "巴菲特之道（原书）",
+      "subtitle": "原版导入 · 392 页",
+      "category": "交易",
+      "accent": "#d4a657",
+      "href": "books/book/index.html"
     }
   ]
 }
