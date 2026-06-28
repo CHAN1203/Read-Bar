@@ -47,7 +47,13 @@ def convert(pdf_path, books_dir, library_path, overrides: dict) -> dict:
     meta["id"] = unique_id(meta["id"], library_path)
     doc = fitz.open(pdf_path)
     warnings = []
-    if report.toc:
+    hsize = overrides.get("heading_size")
+    if hsize:
+        # manual override: ignore the (often broken) TOC, split at this exact heading font size
+        headings = detect_headings(doc, force_size=int(hsize))
+        units_spec = units_from_headings(headings, report.page_count)
+        warnings.append("forced heading split at size %s (%d sections)" % (hsize, len(headings)))
+    elif report.toc:
         units_spec = units_from_toc(report.toc, report.page_count)
     else:
         headings = detect_headings(doc)
@@ -85,8 +91,11 @@ def main(argv=None):
     ap.add_argument("--accent"); ap.add_argument("--category")
     ap.add_argument("--books-dir", default="books")
     ap.add_argument("--library", default="books/library.json")
+    ap.add_argument("--heading-size", type=int, help="force章节切分用的标题字号(round px),绕过坏目录/纠正误判")
     a = ap.parse_args(argv)
     overrides = {k: v for k, v in vars(a).items() if k in ("id", "title", "subtitle", "accent", "category") and v}
+    if a.heading_size:
+        overrides["heading_size"] = a.heading_size
     res = convert(a.pdf, a.books_dir, a.library, overrides)
     print(json.dumps(res, ensure_ascii=False))
 

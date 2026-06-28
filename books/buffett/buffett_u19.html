@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:accent" content="#d4a657">
+<title>巴菲特之道(原书第3版) · 第6章 投资心理学</title>
+<link rel="stylesheet" href="../reader.css">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#d4a657; --accent-soft:#33301f; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1408;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0; counter-reset:c;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(212,166,87,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1408; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(212,166,87,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+<style>figure img{width:100%;height:auto;display:block;border-radius:6px;}figure{padding:14px;}ul{margin:14px 0 14px 4px;padding-left:22px;color:#dcd8cc;}li{margin:6px 0;}h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:30px 0 4px;color:var(--ink);}.col section{padding:40px 0 6px;}</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">巴菲特之道(原书第3版)<b>第6章 投资心理学</b></div>
+    <div class="shelf-nav"><a class="home" href="../../index.html">📚 书架</a> <a class="home" href="index.html">📖 本书</a> <a href="buffett_u18.html">← 上一篇</a> <a href="buffett_u20.html">下一篇 →</a></div>
+    <ol><a href="#u" class="active">第6章 投资心理学</a></ol>
+  </nav>
+  <main>
+    <header class="cover"><div class="col">
+      <div class="eyebrow">巴菲特之道(原书第3版)</div>
+      <h1>第6章 投资心理学</h1>
+    </div></header>
+    <div class="col">
+      <section id="u"><div class="kicker">第6章 投资心理学</div><h2>第6章 投资心理学</h2>
+        <h3>第6章 投资心理学</h3>
+        <p>你或许还记得第1章里提到，巴菲特和姐姐多丽丝一起用攒下的</p>
+        <p>钱，以38.25美元/股，买了6股城市服务优先股。数月后，该股跌到26.95美</p>
+        <p>元，下跌30%。无论从金融角度还是从情感角度，巴菲特第一次买股票的</p>
+        <p>经历都是令人失望的。我想人们能够理解，因为他当时年仅11岁。</p>
+        <p>即便是在如此小小年纪，巴菲特还是做了功课的，包括分析股价走</p>
+        <p>势图，以及分析他父亲的一些爱股。然而，姐姐想着投资上的亏损，没</p>
+        <p>有一天不跑过来唠叨弟弟。后来，等城市服务优先股回升至成本价，他们</p>
+        <p>的投资终于安全了，巴菲特将其卖出，赚了点小钱。随即，看着它难以置</p>
+        <p>信地飙升超过200美元/股。</p>
+        <p>尽管这是一次痛苦的经历，但却并不全是浪费时间。巴菲特从中</p>
+        <p>学到了两个重要的教训：第一，耐心的价值；第二，尽管股价的短期波动</p>
+        <p>对公司价值没什么影响，却会引起投资人巨大的情绪不适。在下一章</p>
+        <p>里，我们将考察长期投资中耐心的价值。现在，我们将研究股价的短期</p>
+        <p>波动，对于投资者行为的破坏性影响。这将引领我们进入迷人的心理</p>
+        <p>学世界。</p>
+        <p>在所有的人类行为里，与金钱的关系恐怕是最为特别的一个，尤其</p>
+        <p>是谈到股市。根据定义，整个股票市场是所有股市交易者的集体行为的</p>
+        <p>综合，可以毫不夸张地说，整个市场就是被心理的力量推来推去的。</p>
+        <p>心理学与经济学的交汇</p>
+        <p>是什么让我们大家都沉迷于猜对错的游戏，我觉得这非常有意思，</p>
+        <p>它在投资中扮演了如此重要的角色，而投资世界是一个由冰冷的数字和</p>
+        <p>数据主导的世界。当要做出投资决策时，我们的行为有时会变得飘忽不</p>
+        <p>定，经常是相互矛盾，偶尔甚至是愚蠢。</p>
+        <p>特别值得注意的是，投资者经常忽视自己错误的决定。为了完全懂</p>
+        <p>得市场和投资，我们必须认识到我们自身的非理性。误判心理学的研究</p>
+        <p>对于每一位投资者都具有价值，就像分析资产负债表和损益表一样重</p>
+        <p>要。</p>
+        <p>近些年来，研究人员通过人们行为的框架，生发出分析金融问题的</p>
+        <p>新方法，我们看到的无异于一场革命。这种将经济学和心理学结合在一</p>
+        <p>起的方法，被称为行为金融学，它从大学校园的象牙塔里渐渐走出来，成</p>
+        <p>为投资界业内人士的谈资。如果这些谈论行为金融学的人们回顾一下</p>
+        <p>历史，一定会发现本杰明·格雷厄姆的影子。</p>
+        <p>遇见市场先生</p>
+        <p>格雷厄姆被公认为金融分析之父，他教会了三代人如何使用数学地</p>
+        <p>图在股海中航行。但是他教授的投资心理学却常被忽视。在《证券分</p>
+        <p>析》和《聪明的投资人》这两本著作中，格雷厄姆花了大量篇幅，解释了</p>
+        <p>投资者情绪触发的股市波动。</p>
+        <p>格雷厄姆指出，一个投资者最大的敌人不是股市，而是自己。他们或</p>
+        <p>许在数学、金融、会计等方面能力超群，但是如果不能掌控情绪，他们将</p>
+        <p>无法从投资中获利。</p>
+        <p>作为他的最优秀的学生，巴菲特解释到：“格雷厄姆的方法有三个重</p>
+        <p>要原则。”首先是将股票视为企业一样，“这将给你一个完全不同于股</p>
+        <p>市中大多数人的视角”。其次是安全边际概念，“这将赋予你竞争优势”。再</p>
+        <p>次是对待股市具有一个真正投资者的态度。巴菲特说：“如果你具有这</p>
+        <p>种态度，你就能战胜股市中99%的人，它可赋予你巨大的优势。” [1]</p>
+        <p>格雷厄姆认为，股市的上下波动是难以避免的，投资者应该从财务</p>
+        <p>和心理两个方面，具备应对这种情况的心态。不仅仅从认知上知道会下</p>
+        <p>跌，而且应该具备情绪上的镇流器，在面对下跌时做出适当的应对，就</p>
+        <p>像一个企业主遇到一个出价毫无吸引力的买家一样：别搭理它！格雷厄</p>
+        <p>姆说：“真正的投资者几乎从不被迫出售其股份，也不会天天关心股票</p>
+        <p>行情。” [2]</p>
+        <p>为了阐明他的观点，格雷厄姆创造了一个寓言角色——市场先生。</p>
+        <p>关于市场先生的故事尽人皆知，它很好地解释了为什么股价会周期性地</p>
+        <p>偏离理性的轨道。</p>
+        <p>假设你和市场先生是一对私营企业的搭档，每天，市场先生都从不</p>
+        <p>落空地跑过来给你报个价，按照这个价，他买你的股份，或卖给你股份。</p>
+        <p>你们拥有的这个企业业务很稳定，但是市场先生的情绪却不是很稳</p>
+        <p>定。有时候，他会很兴奋，对未来充满乐观，于是会给企业股份标出很</p>
+        <p>高的价格。有时候，他会信心不足，认为前路蹉跎，于是会标出一个很低</p>
+        <p>的价格。</p>
+        <p>格雷厄姆说，市场先生有个可爱的性格，他不在乎受冷落。如果你</p>
+        <p>不理会他的出价，他明天照样会带着一个新的标价再回来找你。格雷厄</p>
+        <p>姆提醒说，不是市场先生有智慧，而是他的钱袋子作怪。如果市场先生</p>
+        <p>表现出愚蠢的情绪，你可以选择不理会或利用这样的机会。但是如果反</p>
+        <p>过来，你受到他的影响，后果将是灾难性的。</p>
+        <p>格雷厄姆创造出市场先生已经超过60年了，但他警示人们应该避免</p>
+        <p>的错误依然盛行，市场依然存在非理性，恐惧和贪婪依然充斥股市，愚蠢</p>
+        <p>的错误一天又一天地重复。投资者需要知道如何保护自己，避开市场先</p>
+        <p>生释放出来的情绪旋风。为了做到这一点，我们必须熟悉行为金融学。</p>
+        <p>行为金融学</p>
+        <p>行为金融学寻求的是通过心理学理论的使用，解释市场低效的一种</p>
+        <p>调查研究。学者们观察到很多人在处理自己的财务问题时，经常犯愚蠢</p>
+        <p>的错误，做不符合逻辑的假设，于是他们更深层次地挖掘心理学观点，</p>
+        <p>来解释人们思维中的非理性因素。这是个相对比较新的研究领域，但很</p>
+        <p>吸引人，对于聪明的投资者也非常有用。</p>
+        <p>过分自信</p>
+        <p>几项心理学研究表明，判断失误通常发生在人们过度自信时。当问</p>
+        <p>及很多被调查人群，请他们描述一下自己的驾车水平，绝大多数人会说</p>
+        <p>自己的水平超越平均。在另一个例子中，90%的医生自信能准确地诊断出</p>
+        <p>肺炎，而实际上这个比率只有50%。普林斯顿大学伍德罗·威尔逊公共国</p>
+        <p>际事务学院教授、诺贝尔经济学奖获得者丹尼尔·卡尼曼说：“最难以想</p>
+        <p>象的事情之一是你不会超越平均。” [3] 这令人难以接受，但现实中正是如</p>
+        <p>此。</p>
+        <p>自信本身并非坏事，但是过度自信却是另一回事，在我们处理自己</p>
+        <p>的财务事务时尤其有害。过度自信的投资人不仅自己做出错误的决定，</p>
+        <p>而且其合力对于市场也有巨大影响。</p>
+        <p>投资人对于自己强于他人具有高度的自信，他们具有高估自己能力</p>
+        <p>和知识的倾向。典型的表现是，对于那些肯定他们认为是正确的信息，他</p>
+        <p>们就信赖，同时忽略相反的信息。此外，他们只是评估容易得到的信息，</p>
+        <p>而不去努力寻求了解自己知之甚少的东西。投资人和基金经理经常拥有</p>
+        <p>一种优越感，相信自己具有更好的信息来源，因此也就可以更聪明地战</p>
+        <p>胜他人。</p>
+        <p>过度自信解释了为什么这么多基金经理表现不佳，他们从自己掌握</p>
+        <p>的信息中得到过度的信心，认为自己更加正确，事实却并非如此。如果所</p>
+        <p>有的参与者都认为自己的信息准确，并且自己知道别人不知道的事情，</p>
+        <p>结果就是导致大量的炒作行为。</p>
+        <p>过度反应偏差</p>
+        <p>理查德·泰勒是行为科学和经济学的教授，是行为金融学界最为重要</p>
+        <p>的人物之一。他从康奈尔大学转到芝加哥大学，其研究的课题就是对于</p>
+        <p>投资者理性行为的质疑。他指出最近的几项研究表明，人们对于一些偶</p>
+        <p>然事件赋予了太多的关注，并认为自己捕捉到了一个新趋势。尤其是投</p>
+        <p>资者往往关注最新发生的信息，并从中进行推断。最新的盈利报告往往</p>
+        <p>在他们心中是未来盈利的一个信号。然后，由于他们相信别人不知道这</p>
+        <p>些信息，于是基于这些肤浅的推理迅速做出决策。</p>
+        <p>过度自信在这里发挥出作用，使人们相信自己比别人更懂得这些信</p>
+        <p>息或数据。更有甚者，过度自信还会受到过度反应的推波助澜。行为学</p>
+        <p>家的研究结果指出，人们对于坏消息反映过度，对于好消息反应迟钝。</p>
+        <p>心理学家将这种现象称为过度反应偏差。因此，如果短期的报表不佳，人</p>
+        <p>们就会想都不想，快速做出过度的反应，由此，股价不可避免的受到影</p>
+        <p>响。泰勒把这种过分强调短期的行为叫做“短视”，他相信大多数投资者</p>
+        <p>如果不看每月的投资结单会更好。</p>
+        <p>为了证明他的这个观点，泰勒做了一个简单的分析。他将纽约证券</p>
+        <p>交易所所有的股票按照过去五年的表现进行排列，挑出35个表现最优的</p>
+        <p>和35个表现最差的，组成一个70只股票的模拟组合。然后，他跟踪该组合</p>
+        <p>五年，发现那个“最差”组合在40%的时间里领先于“最佳”组合。在现实世</p>
+        <p>界中，泰勒相信当看到股价大跌时，很少有人能抑制住过度反应的情</p>
+        <p>绪，也就会错失输家向赢家转换的获利机会。 [4]</p>
+        <p>过度反应偏差，作为一个概念已经广为人知有些时日了。但在过去</p>
+        <p>几年中，现代科技的进步却加剧了这种行为。在有互联网和有线财经新</p>
+        <p>闻之前，人们并不经常查看股价。他们或许每个月看看券商寄来的月结</p>
+        <p>单，每三个月看看季度结果，然后看看年度表现。</p>
+        <p>今天，随着通信技术的发达，投资者能24小时无间断地与股市联系</p>
+        <p>在一起，移动终端更是让人在汽车上或火车上，能随时随地查阅股市行</p>
+        <p>情，他们可以在走路、开会、购物的同时查阅基金的表现。网上账户可以</p>
+        <p>告诉你开盘以来的账户表现，这些账户甚至为你提供一天、五天、十天、</p>
+        <p>一个月、季度、年度的数据。简而言之，投资者每天都能随时随地查阅他</p>
+        <p>们的股票表现。</p>
+        <p>不理会股价的随时波动对于投资者有益么？泰勒有着干脆的回答。</p>
+        <p>他在国家经济研究局召开的行为学大会上，以及哈佛大学约翰·肯尼迪政</p>
+        <p>府学院，经常宣讲他的观点：“投资股票，然后不要打开信封。” [5] 我们可</p>
+        <p>以加上一点，“不要查看股票行情，无论用电脑、手机，还是其他设备。”</p>
+        <p>损失厌恶</p>
+        <p>在城市优先股产生账面损失时，姐姐多丽丝不断抱怨她年轻的弟</p>
+        <p>弟，很明显，股价的下跌带给她心理极度的不悦。我们不用过于苛责多</p>
+        <p>丽丝，她所感受到的情绪方面的痛苦，直到今天仍然每天折磨着数以百</p>
+        <p>万计的投资者，它被称为“损失厌恶”。依我的观点，这是阻碍投资者运用</p>
+        <p>巴菲特的方法取得投资成功的最大难关。</p>
+        <p>“损失厌恶”在35年前由心理学领域的两位巨人首次提出，一位是我</p>
+        <p>们这章前面提到的诺贝尔奖获得者丹尼尔·卡尼曼，一位是斯坦福大学心</p>
+        <p>理学教授阿莫斯·特沃斯基，两人是长期的合作者，对于决策制定理论非</p>
+        <p>常有兴趣。</p>
+        <p>1979年，他们合作写了篇论文，题为“前景理论：风险之下的决策分</p>
+        <p>析”。这篇文章之后成为著名的经济学术刊物《计量经济学》最常引用的</p>
+        <p>论文。在那之前，由《游戏理论和经济行为》（1944年普林斯顿大学出版）</p>
+        <p>的作者——约翰·冯诺伊曼和奥斯卡·摩根斯顿大力推广的“决策效用理</p>
+        <p>论”是经济学中普遍被接受的学说。决策效用理论认为每个人会根据自</p>
+        <p>身的最佳利益，作为选择、制定决策的依据。例如，如果有个游戏具有</p>
+        <p>65%的赢面，35%的输面，一个人根据决策效用理论就会选择参与，因为</p>
+        <p>整体结果为正数。</p>
+        <p>决策效用理论是质朴的，在一个理想的世界里，这是个完美的决策</p>
+        <p>制定途径。但是，他们两位不能肯定，因为他们多年从事的是心理学研</p>
+        <p>究，而不是经济学。他们花了很多职业生涯，研究人类决策的特别错误，</p>
+        <p>发现人们在衡量盈利和损失时是不同的。决策效用理论中，价值是分配</p>
+        <p>到的最终资产。根据卡尼曼和特沃斯基的前景理论，价值是分配给个</p>
+        <p>人的获利或损失。根据效用理论，他们证明人们并不看重最终财富的数</p>
+        <p>量，看重的是财富的增量部分是盈利还是损失。前景理论的最重要的发</p>
+        <p>现，是意识到人们的损失厌恶心理。实际上，他们用数学方法证明了，人</p>
+        <p>们对于同样数量的损失和盈利的感受是不一样的，损失所带来的痛苦是</p>
+        <p>盈利带来的喜悦的两倍到两倍半。</p>
+        <p>换而言之，损失带来的痛苦远远大于盈利带来的喜悦，很多实验证</p>
+        <p>明人们需要两倍的正面盈利去覆盖负面的损失。在一个50对50的游戏</p>
+        <p>中，即便赔率一样，大多数人也不会冒险，除非潜在的获利是潜在损失</p>
+        <p>的两倍。</p>
+        <p>这被称为非对称损失厌恶，下跌较之上升更具影响，这是人类心</p>
+        <p>理学的基础之一。运用在股市上，这意味着投资者在损失之时，其感受</p>
+        <p>两倍于其在获利之时。损失厌恶对于投资者的影响很明显，而且还很</p>
+        <p>深刻。我们都想做出正确的决定，保留好的主意，我们持有错误的决定太</p>
+        <p>久，只是模糊地希望有朝一日能等到翻身之日。通过不卖出持有的套牢</p>
+        <p>股票，我们逃避面对已有的失败。</p>
+        <p>这种对于损失的厌恶使投资者过度保守，即便是401K（美国退休社</p>
+        <p>保计划）里那些数以十年计的长期资金也只投资于债券市场。为什么？</p>
+        <p>就是因为对于损失的厌恶，使得管理者如此保守。损失厌恶还能以另一</p>
+        <p>种方式影响你，它让你非理性地持有那些股票输家，没人愿意承认资金</p>
+        <p>犯了错。但是这样做实际上造成了另外的潜在损失，如果你不卖出错误</p>
+        <p>的投资，就等于放弃了另一个本来可以重新安排投资而获利的机会。</p>
+        <p>心理账户</p>
+        <p>多年以来，理查德·泰勒在与卡尼曼、特沃斯基，以及其他一些行为金</p>
+        <p>融学领域的学者一起合作时，有了新发现。他写了几篇关于决策制定</p>
+        <p>的文章，很多可以在他的著作《赢家诅咒：经济生活中的矛盾与异常》</p>
+        <p>（1992年出版）中找到，特别是他在1995年所写的一篇文章尤为著名，该</p>
+        <p>文题为“风险厌恶之短视和权益风险溢价”，这是他与UCLA安德森管理</p>
+        <p>学院教授什洛莫·贝纳茨的合著，贝纳茨教授也是该院行为决策制定研究</p>
+        <p>组的联合主席。在这篇文章里，他们使用了卡尼曼和特沃斯基的前景理</p>
+        <p>论，并且将其直接与股市相联系。</p>
+        <p>泰勒和贝纳茨始终为一个核心问题感到困惑：为什么那些打算长期</p>
+        <p>持有债券的人，即便知道长期而言，股票的回报会优于债券，却仍然不改</p>
+        <p>初衷？他们相信，答案来自卡尼曼和特沃斯基的前景理论的两个中心概</p>
+        <p>念。首先是损失厌恶，我们已经探讨过了。其次是个行为学概念，或称</p>
+        <p>为“心理账户”。它描述人们解码财务结果时使用的方法，探讨的是在环</p>
+        <p>境变化时，我们对于金钱前景看法的变化。我们趋向于在心里将钱放在</p>
+        <p>不同的“账户”里，这将决定我们看待它们的心理态度。</p>
+        <p>举个简单的例子，让我们假想一天晚上你和爱人外出回家，你拿出</p>
+        <p>钱包要付钱给看家的保姆，你本以为钱包里还有20美元，但打开后没找</p>
+        <p>到。于是在你开车送保姆回家的路上，顺便在ATM机上取了20美元现金</p>
+        <p>付给保姆。第二天一早，你忽然在口袋里发现了前天晚上要找的那20美</p>
+        <p>元。</p>
+        <p>像大多数人一样，你会非常高兴，因为这失而复得的20美元是意</p>
+        <p>外之财。尽管第一个20美元和第二个20美元都来源于你的银行账户，</p>
+        <p>都是你努力工作所得，但是现在拿在手里的这20美元是你原本以为已经</p>
+        <p>没有的，所以你会毫无压力地将它任意处置。</p>
+        <p>泰勒提供了一个有趣的教学实验，再一次证明了这个概念。在他的</p>
+        <p>研究中，他将参与者分为两组，给第一组每个人30美元，并告诉他们有</p>
+        <p>两个选择：①将30美元装在口袋里离开；②参与一个抛硬币游戏，如果</p>
+        <p>赢了将得到额外的9美元，如果输了将被扣掉9美元。多数人（90%）选择</p>
+        <p>参与游戏，因为他们认为即便输了，至少还会有21美元的意外之财。对</p>
+        <p>于第二组，他们可以选择：①参与一个抛硬币游戏，如果赢了，能得到</p>
+        <p>39美元；如果输了，能得到21美元；②不参与抛硬币游戏，直接拿到30美</p>
+        <p>元。超过一半的人（57%）决定直接拿钱。两组人都面临同样的赔率、同</p>
+        <p>样数量的钱，但感知的情况却不相同。 [6]</p>
+        <p>言外之意很清楚了，我们如何决定投资、如何选择管理这些投资，</p>
+        <p>与我们看待本金的心态有很大关系。例如，心理账户的概念可以解释为</p>
+        <p>何人们不愿意卖出自己持有的烂股票，因为在他们心里，只要没有卖出，</p>
+        <p>账面损失就仅仅是账面上的，并不是实际损失。这帮助我们了解了风险</p>
+        <p>承受问题，人们更愿意用意外之财去冒风险。</p>
+        <p>短视损失厌恶</p>
+        <p>泰勒引用了一个金融悖论，这个悖论是诺贝尔奖获得者保罗·萨缪</p>
+        <p>尔森在1963年第一次提出的，他问一个同事是否愿意接受这样一个赌</p>
+        <p>注：50%的机会去赢200美元，或50%的机会输掉100美元。根据萨缪尔森</p>
+        <p>的记忆，同事开始是拒绝，然后表示可以重新考虑，如果满足两个条</p>
+        <p>件，他将乐于参加，首先，必须能玩够100次；其次，不以每一次的结果为</p>
+        <p>决断，而以100次的整体结果作为决断。这个愿意在新规则下参与游戏的</p>
+        <p>意愿，启发了泰勒和贝纳茨。</p>
+        <p>萨缪尔森的同事愿意参与上述游戏有两个前提：增加游戏的时间长</p>
+        <p>度，以及减少被迫看结果的频率。将这种观点推之于投资上，泰勒和贝纳</p>
+        <p>茨推理投资者持股时间越长，投资资产就变得越加吸引人，但前提是不</p>
+        <p>要频繁地对投资进行评估，也就是不要总是关注价格。</p>
+        <p>当分析历史上的投资回报时，我们发现长期投资主要回报发生的</p>
+        <p>月份只占所有月份的7%，也就是说，在余下93%的月份并无回报。7 那</p>
+        <p>么，这就很清楚了，看投资结果的时间频率越频繁，你看到亏损的次数就</p>
+        <p>越多。如果你每天看一次，有一半的机会看到亏损，但如果你一个月看</p>
+        <p>一次，这种亏损带来的心灵损伤将小很多。</p>
+        <p>如果你每天不看净值，就不必遭受看每日价格起落的焦虑之苦。持</p>
+        <p>有期间越长，面对的波动就越小，你的投资选择就越有吸引力。换言之，</p>
+        <p>影响投资者情绪风暴的因素有两个：损失厌恶，以及估值频率。引用医</p>
+        <p>学界的一个术语，泰勒和贝纳茨称之为近视或短视，以反映这种损失</p>
+        <p>厌恶和频率的综合。</p>
+        <p>接下来，泰勒和贝纳茨寻求理想的时间期限。我们知道时间越短，股</p>
+        <p>票的波动越是可能大于债券的波动。我们也知道，如果将考察股价的时</p>
+        <p>间延长，那么股票回报的标准方差（用于衡量风险）就会减小。泰勒和</p>
+        <p>贝纳茨想知道的是，如果让投资者持股不看净值表现，却能像持有债券</p>
+        <p>一样淡泊于心，那么多长时间看一次投资结果最佳呢？答案是一年。</p>
+        <p>泰勒和贝纳茨测试了不同时间段的回报、标准方差、股票正回报的</p>
+        <p>可能性，一小时、一天、一周、一个月、一年、十年、一百年。接下来，他们</p>
+        <p>参考卡尼曼和特沃斯基损失厌恶的两倍效应（效用=股价上升的可能性-</p>
+        <p>下跌可能性×2）理论进行计算，通过对不同时间段的计算，直到观察期间</p>
+        <p>为一年时，投资者的情感效用因子才会变为正数。我以前经常好奇，为</p>
+        <p>何巴菲特曾经说，最好股市一年只开放一天交易，看来这与心理学短视</p>
+        <p>损失厌恶的发现有关。</p>
+        <p>泰勒和贝纳茨说，我们每次讨论损失厌恶时，都要考虑到查看投</p>
+        <p>资回报的频率问题。投资者查看投资组合净值的频繁越短，他们越容易</p>
+        <p>受到心理打击，而上下波动的股票就越没有吸引力。泰勒和贝纳茨解释</p>
+        <p>说：“损失厌恶是人类的本性，无法改变。但与此相反，查看投资净值的</p>
+        <p>频率却是一个方式的选择，至少在原则的设定上是可以改变的。” [7]</p>
+        <p>旅鼠效应</p>
+        <p>另外一个心理学的陷阱是投资者从众行为，无论有没有意义，我</p>
+        <p>们称之为旅鼠悖论。</p>
+        <p>旅鼠是一种小型的啮齿动物，分布于苔原地区，以它们的集体出走</p>
+        <p>直至一同蹈海而闻名。平时，旅鼠在春季进行迁徙活动，以寻找食物和</p>
+        <p>新栖息地。然而，每隔三、五年，奇怪的事就会发生。因为高繁殖率和低死</p>
+        <p>亡率，旅鼠的数量大增。一旦它们的队伍膨胀到一定程度，旅鼠们就会在</p>
+        <p>黑夜里开始莫名其妙地大行军，渐渐地，这支大胆的队伍白天也开始行</p>
+        <p>进。遇到障碍，它们就堆叠在一起，直至越过障碍物。它们的行动变得越</p>
+        <p>来越大胆，开始挑战一些之前避之不及的其他动物。尽管很多旅鼠一路</p>
+        <p>上死于饥饿、捕食、意外，但大多数都能到达海边，在那里，它们跳入海</p>
+        <p>中，在海水里游泳直至精疲力竭而死。</p>
+        <p>旅鼠的行为至今无法解释，动物学家解释旅鼠的大迁徙，是由于食</p>
+        <p>物供给或环境压力的变化造成的。旅鼠间的拥挤和竞争可能激发内在激</p>
+        <p>素的变异，导致行为的异化。</p>
+        <p>为什么很多人在投资上的行为像旅鼠一样盲目？为了帮助我们搞清</p>
+        <p>楚，巴菲特在伯克希尔1985年年报中分享了一个格雷厄姆最喜欢的小故</p>
+        <p>事。</p>
+        <p>一个石油商人在天堂门口见到了圣彼得。圣彼得告诉他一个坏消</p>
+        <p>息：“你已经获得了进入天堂的资格，但是，你看天堂已经没有石油商人</p>
+        <p>的位置可以把你塞进来了。”石油商人想了一会，问他能否对里面喊几句</p>
+        <p>话。圣彼得同意了，石油商人挥舞双手高喊：“在地狱发现了石油。”天堂</p>
+        <p>的门立刻洞开，所有的石油商人都蜂拥而出涌向地狱。圣彼得很是佩</p>
+        <p>服，于是邀请商人进入天堂。但石油商人想了想拒绝了：“不，我还是和他</p>
+        <p>们一起去吧，有时谣言也有可能是真的。”</p>
+        <p>为了帮助投资者避开这个陷阱，巴菲特以职业基金经理为例，指出</p>
+        <p>他们在一个机制体系中工作，这个机制就像一个平庸的安全系数，按照</p>
+        <p>固有标准评估工作成果。这样的体制不是鼓励独立思考，而是鼓励从</p>
+        <p>众、随大流。他说：“大多数基金经理几乎没有动力，去做一些大智若</p>
+        <p>愚、特立独行的决策。他们个人的得失也很明显，如果做出非常规的决</p>
+        <p>策，即便干得不错，得到的也仅仅是拍拍肩膀以示奖励；如果非常规干</p>
+        <p>砸了，他们的命运就是丢了饭碗。但循规蹈矩终将失败，特立独行才是</p>
+        <p>成功的必行之路。随大流的旅鼠们肯定很糟糕，做一只孤独的旅鼠可能</p>
+        <p>不是坏事情。” [8]</p>
+        <p>情绪陷阱管理</p>
+        <p>与金钱打交道的每一个方法都不会那么顺利，但我认为“短视损失</p>
+        <p>厌恶”这个问题最为严重，我相信这是绝大多数投资者运用巴菲特方法</p>
+        <p>取得投资成功的最大障碍。在我过去三十多年的职业经历中，我见过太</p>
+        <p>多投资人、基金经理、投资顾问、大型基金由此带来的内在损失，很少有</p>
+        <p>人能克服这个痛苦的心理负担。</p>
+        <p>或许，毫不意外，沃伦·巴菲特是一个克服了短视损失厌恶的人，所</p>
+        <p>以他是世界上最伟大的投资家。我一直认为，巴菲特长期的成功与其公</p>
+        <p>司独一无二的结构有关。伯克希尔公司既拥有全资的子公司，也拥有部</p>
+        <p>分持有的股票投资。所以巴菲特能体察到这些企业的价值成长，与持</p>
+        <p>有股票的价格之间，存在着千丝万缕的联系。他不需每天看股价，因为</p>
+        <p>他不需要用股价来印证他的投资正确与否。正如他经常说的：“我不需要</p>
+        <p>股价告诉我价值如何，我已经知道。”</p>
+        <p>从侧面观察1988年巴菲特的伯克希尔投资10亿美元在可口可乐上</p>
+        <p>的例子。当时，这是伯克希尔有史以来最大的一项投资。接下来的十</p>
+        <p>年，可口可乐的股价增长了十倍，同期标普500指数增长了三倍。回顾一</p>
+        <p>下，我们或许会认为可口可乐是一项最容易的投资。20世纪90年代末，</p>
+        <p>我应邀参加了很多投资研讨会，我总是问听众：“你们当中有多少人在</p>
+        <p>过去十年中，持有过可口可乐股票？”几乎所有人都立刻举起了手。我又</p>
+        <p>问：“你们中有多少人获得了像巴菲特一样的收益？”举起的手都慢慢放</p>
+        <p>了下来。</p>
+        <p>随后，我问了一个很实际的问题：“为什么？”如果这么多投资者都</p>
+        <p>持有了可口可乐的股票（他们实际上做的和巴菲特一样），为什么没有</p>
+        <p>人取得同样的回报？我认为答案就在“短视损失厌恶”中。在1989~1998</p>
+        <p>年的十年中，可口可乐股票的表现超越大盘，但是以每年的年度计，其</p>
+        <p>超越大盘的次数十年中只有六次。通过损失厌恶的数学分析，投资可口</p>
+        <p>可乐的情绪效应为负数（六个上升的正数情绪单位-四个下降的负数情</p>
+        <p>绪单位×2）。可以想象，持有可口可乐股票的人，在其表现低于大盘的时</p>
+        <p>候，会卖出可口可乐。但巴菲特是怎么干的？他首先分析可口可乐公司</p>
+        <p>的基本情况是否依然优秀，然后继续持有。</p>
+        <p>格雷厄姆提醒我们：“在大多数时间，股票是非理性的，它会向两</p>
+        <p>极波动，原因在于很多人根深蒂固的投机或赌博心理，例如希望、恐惧、</p>
+        <p>和贪婪。 [9] ”他警告，人们必须为股市的上涨或下跌做好准备。他的意思</p>
+        <p>是不仅仅是做好知识上的准备，还要做好心理上和财务上的准备，以</p>
+        <p>备下跌发生时，采取相应的正确行动。</p>
+        <p>格雷厄姆说：“投资人如果过度担心自己的持股由于不合理的市况</p>
+        <p>而大跌，他们就会将自己的优势转化为劣势。这种人最好远离市场行</p>
+        <p>情，否则他会由于别人的错误而导致自己的精神痛苦。” [10]</p>
+        <p>与众不同的另一面：沃伦·巴菲特</p>
+        <p>巴菲特的“将股票视为企业”、“集中投资”的方法，与学生们在大学里</p>
+        <p>学的金融理论完全不一样。他们所学的金融框架，被称为现代金融理</p>
+        <p>论。正如我们将会看到的，这种投资理论并不是由企业家总结出来的，</p>
+        <p>而是由一群象牙塔里的学者们总结出来的，它是一个巴菲特拒绝入住的</p>
+        <p>纸房子。那些使用巴菲特原则的投资者，很快就会发现自己从情绪上和</p>
+        <p>心理上，已经与大多数市场上的参与者不同。</p>
+        <p>哈里·马科维茨的协方差</p>
+        <p>1952年3月，芝加哥大学的研究生哈里·马科维茨在《金融学期刊》发</p>
+        <p>表了一篇14页的文章，题为“投资组合选择” [11] 。在这篇文章里，马科维</p>
+        <p>茨解释了一个他认为相当简单的概念，那就是投资回报与风险有着千丝</p>
+        <p>万缕的联系，并做了大量的验算，以支持这个结论。投资人如果想取得</p>
+        <p>超越平均的回报，一定要冒超越平均水平的风险。在今天看来，这个结</p>
+        <p>论是明显可笑的，但在20世纪50年代，这却是个革命性的概念，因为那是</p>
+        <p>个投资组合随意构建的年代。今天，这篇不长的文章被认为是现代金融</p>
+        <p>的发端。</p>
+        <p>七年之后，马科维茨出版了他的第一本著作——《投资组合选择：</p>
+        <p>有效多元化》（1959年）。人们认为这是他最大的贡献，他将视线转移到整</p>
+        <p>个组合的风险衡量方面。他将测量一组股票走向的方法称为“协方差”。</p>
+        <p>在一个投资组合里，如果包含了不同走向的个股，即便个股具有风险，</p>
+        <p>实际上整体却是个保守的选择。无论如何，他说多元化是关键。他的结</p>
+        <p>论是，聪明的投资者首先选择风险度合适的个股，然后构建具有低协方</p>
+        <p>差效应的多元化的投资组合。</p>
+        <p>尤金·法玛：有效市场假说</p>
+        <p>1965年，尤金·法玛在芝加哥大学《商务期刊》上发表了他的博士论</p>
+        <p>文——“股价行为”，提出了股市行为的综合理论。他的观点非常清晰：</p>
+        <p>对于未来股市的预测毫无意义，因为市场是有效的。在一个有效市场</p>
+        <p>中，当信息公布后，大量理性的投资者会即刻做出反应，令股价瞬间进</p>
+        <p>行相应的调整，股价反应是如此之快，以至于没有人可以从中额外获利。</p>
+        <p>在任何一个特定的时点，股价都反映了所有信息，因此市场是有效的。</p>
+        <p>威廉·夏普：资本资产定价模型</p>
+        <p>在马科维茨的论文首次发表之后大约十年，一个年轻的博士生威廉·</p>
+        <p>夏普找到他长谈了自己关于投资组合理论的工作，以及无数的协方差。</p>
+        <p>次年，1963年，夏普出版了他的论文——“关于投资组合分析的简化模</p>
+        <p>型”。在完全承认自己受马科维茨启发的同时，他提出了一个更为简单</p>
+        <p>的方式。夏普认为所有证券，都与其内在的某些基本因素存在相应关系，</p>
+        <p>因此分析单个证券的波动很简单，他用“贝塔因子”来衡量波动性。</p>
+        <p>一年之后，夏普提出了一个影响深远的名词——资本资产定价模型</p>
+        <p>（CAPM），作为他的单因素模型高效投资组合的直接延伸。第一类风险</p>
+        <p>是整体的市场风险，被他称为“系统风险”。系统风险是贝塔，无法通过</p>
+        <p>多元化的方式化解。第二类风险是非系统性风险，特别是个股风险。不</p>
+        <p>像系统性风险，这类非系统性风险可以通过增加不同风格的股票的多</p>
+        <p>元化方式，进行化解。</p>
+        <p>大约在十年的时间里，上述三位学者的研究，后来被称为现代投资</p>
+        <p>组合理论的重要因素。马科维茨提出了合适的风险-回报平衡的多元化方</p>
+        <p>案；法玛提出了有效市场理论；夏普提出风险定义。于是历史上首次出</p>
+        <p>现，金融的命运不再掌握在华尔街、华盛顿，甚至不在企业家手里。放</p>
+        <p>眼望去，金融世界已被一群大学教授所定义，金融从业者最终将叩响他</p>
+        <p>们的大门，在象牙塔里，他们已成为现代金融的新的大祭司。</p>
+        <p>巴菲特对于风险和多元化的看法</p>
+        <p>现在，让我们回到巴菲特，他以区区数千美元起家，通过投资累积了</p>
+        <p>250亿美元的财富。他用投资合伙企业赚来的钱，控股伯克希尔公司，迅</p>
+        <p>速积累财富数以十亿计。在这25年的时间里，他从来没有听说过，也从</p>
+        <p>来没有考虑过股票的协方差、减少组合变动的策略，或市场有效定价之</p>
+        <p>类的理论。巴菲特的确深刻地思考过风险，但他关于风险的看法与学</p>
+        <p>者们迥异。</p>
+        <p>回想一下现代投资组合理论，风险被定义为股价的波动。但巴菲</p>
+        <p>特将股价的下跌视为机会，认为股价下跌实际上减少了风险。他</p>
+        <p>说：“投资者应该像企业家一样才对，学者们关于风险的学术定义脱离</p>
+        <p>市场，极为荒谬。” [12]</p>
+        <p>巴菲特对于风险有着不同的定义：投资损失或伤害的可能性。真正</p>
+        <p>关键的是企业的“内在价值风险”，而不是股票价格的走势。他说，真正</p>
+        <p>的风险是一项投资的税后回报“是否为投资人至少保持其投资之初的购</p>
+        <p>买力，加上合适的利率因素”。 [13]</p>
+        <p>在巴菲特看来，风险与投资者的投资期限有着千丝万缕的联系，这</p>
+        <p>一点是巴菲特和现代投资理论关于风险定义的最大不同之处。巴菲特</p>
+        <p>解释，如果你今天买了股票打算明天卖出，这就等于参与了风险交易。</p>
+        <p>这其中的赔率不会好于抛硬币游戏，有一半机会失败。然而，如果你将</p>
+        <p>期限延伸至数年（投资时间拉长），风险的可能性就会大大下降，当然</p>
+        <p>前提是你做了有意义的投资。巴菲特说：“如果你问我，今天买可口可</p>
+        <p>乐明天卖出，这样的风险如何？我只能说风险太大了。” [14] 但是巴菲特所</p>
+        <p>考虑的是今天买进可口可乐，然后持有十年，那就没有什么风险。（为</p>
+        <p>何同样是今天，买了同样的可口可乐股票，一个是风险太大，一个是没有</p>
+        <p>风险呢？）</p>
+        <p>巴菲特关于风险的独特视角，给了他的投资组合不同的多元化策</p>
+        <p>略，他认为自己是现代投资组合理论的对立面。记住，根据理论，广泛多</p>
+        <p>元化的主要益处在于减少个股波动。但是如果你不在意股价的短期波</p>
+        <p>动，就像巴菲特一样，你就会从不同的角度重新审视组合多元化的问</p>
+        <p>题。</p>
+        <p>巴菲特说：“多元化是无知的保护伞。如果你不想发生什么特别的</p>
+        <p>不测，你最好拥有市场上的全部股票，这没有什么错。这对于那些不知</p>
+        <p>道如何分析企业的人而言，是个好方法。”在很多方面，现代投资组合理</p>
+        <p>论对于那些没有知识、不懂得如何评估企业的人而言，能为他们提供保</p>
+        <p>护。根据巴菲特的观点，现代投资组合理论“能让你知道如何达到平均，</p>
+        <p>但我认为任何人都应该有50%的把握达到平均水平。” [15]</p>
+        <p>最后，如果有效市场理论是正确的，就不可能有人或机构跑赢大</p>
+        <p>盘，更不可能有同一组人或机构持续跑赢，除非随机意外。然而，巴菲</p>
+        <p>特过去48年的经历是个初步的证明，这是可能的。尤其当人们看到，其他</p>
+        <p>杰出的投资者使用巴菲特的方式同样击败了市场。这说明了什么？</p>
+        <p>巴菲特对于有效市场理论的质疑，集中在一个核心点：没有证据表</p>
+        <p>明，所有投资者都会分析所有可能得到的信息，并由此获得竞争优</p>
+        <p>势。“从观察来看，市场经常是有效的，但它并非总是有效的。这其间的</p>
+        <p>区别就像白天不懂夜的黑。” [16]</p>
+        <p>不过，有效市场理论依然如宗教教条般，在商学院里被教授给学生</p>
+        <p>们，这其实给巴菲特们提供了机会。巴菲特挖苦地说：“实际上，这些帮</p>
+        <p>倒忙的学生和轻信的投资学教授们，给我们以及其他格雷厄姆的追随</p>
+        <p>者，提供了非凡的服务。在任何一种竞赛中，无论金融、心理还是真实竞</p>
+        <p>赛，如果你的对手被告知尝试都是无用的，这对你而言将是个巨大的优</p>
+        <p>势。从自私的立场出发，我们应该给他们提供椅子，让他们一直将有效</p>
+        <p>市场理论传播下去。” [17]</p>
+        <p>如今，投资者都深陷在智力与情绪的十字路口上，左边通往现代投</p>
+        <p>资组合理论，它具有五十年的历史，充满了学术论文、完美的公式、诺贝</p>
+        <p>尔奖获得者。它似乎给了投资者从A点到B点的平坦之路，没有股价的颠</p>
+        <p>簸，可以将情绪创伤最小化。相信市场是有效的，因此价格和价值是一样</p>
+        <p>的，是同一件事情，所以现代投资组合理论的追随者首先关注的是股价，</p>
+        <p>其次才关心价值，或者根本不关心。</p>
+        <p>在这十字路口的右边，是通往巴菲特和其他成功投资者的路径。在</p>
+        <p>过去五十年里，充满了实践的经历、简单的算术、长期坚持的企业家。</p>
+        <p>它试图给投资者带来的，不是从A点到B点没有短期波动的旅程，而是一</p>
+        <p>种风险调节之后，内在价值成长最大化的投资路径。巴菲特道路的支持</p>
+        <p>者不相信市场总是有效的，取而代之的，他们首先关注资产价值，然后</p>
+        <p>才关心价格，或者根本不关心。</p>
+        <p>现在，你已经了解了现代投资组合理论的大致框架，尽管短暂，你</p>
+        <p>可以看到其支持者与巴菲特方法的冲突。你会发现无论在教室里，还是</p>
+        <p>职场上，你都属于小众。从巴菲特方法中学到的东西令你具有叛逆色</p>
+        <p>彩，在投资大军中令你与众不同。你将体会到，与众不同如何遭遇自己的</p>
+        <p>心理挑战。</p>
+        <p>我写巴菲特已经有20年了，在此期间，我没有遇到任何一个人对于</p>
+        <p>书中列出的方法表现出强烈的反对。然而，我遇到无数的人，尽管他们</p>
+        <p>完全同意巴菲特的观点，却从来没有真正运用过他的方法。我认为懂得</p>
+        <p>他的投资成功是最重要的关键，这也是一个并未完全破解的谜。一句</p>
+        <p>话，巴菲特是理性的，非情绪化的。</p>
+        <p>为何心理学会起作用</p>
+        <p>2002年，心理学家丹尼尔·卡尼曼获得了诺贝尔经济学奖，因为</p>
+        <p>他“从心理学到经济科学的综合洞察力，特别是对于在确定性条件下，人</p>
+        <p>类判断和决策的研究”贡献。这标志着行为金融学正式进入资本市场领</p>
+        <p>域，尽管电脑程序和黑盒子仍然被广泛使用，掌控股市的仍然是人。</p>
+        <p>因为情绪比之理性更有力，恐惧和贪婪会推动股价或高于或低于内</p>
+        <p>在价值。巴菲特说，当人们贪婪或畏惧时，他们经常以愚蠢的价格买</p>
+        <p>卖股票。短期而言，人们的情绪对于股价更具影响，而不是公司的基本</p>
+        <p>面。</p>
+        <p>早在行为金融学这个名词出现之前，它就已经被一些具有叛逆精神</p>
+        <p>的人所懂得和接受，像巴菲特、芒格。芒格曾经说，从学校毕业后，他</p>
+        <p>们“发现现实的世界中，存在大量非理性的现象”。 [18] 他不是说预测时</p>
+        <p>机，而是当非理性行为确实发生后，导致的随之发生行为的可预测模式。</p>
+        <p>在巴菲特和芒格之外，直到最近，主流投资界才开始认真对待金融</p>
+        <p>和心理学的交互问题。当涉及投资，情绪变得非常真实，它能影响人</p>
+        <p>们的行为，最终影响股价。我肯定，你已经知道，两个原因告诉你为何懂</p>
+        <p>得人们的冲动是如此有价值：①你能从中学会如何避免多数人的错</p>
+        <p>误。②你可以识别是他人的错误，并从中捕捉到机会。</p>
+        <p>我们所有人都是脆弱的，会有个人的判断失误，这些都会影响成</p>
+        <p>功。当数以百万计的人的错误汇集在一起，会将市场推向毁灭性的方向。</p>
+        <p>从众心理越强，错误的积累就越多。在非理性的怒海狂涛之中，只有少</p>
+        <p>数理性者才能生存。</p>
+        <p>实际上，对于情绪驱动的误判，解药只有理性，特别当征途漫漫之</p>
+        <p>时，更需要耐心和毅力。这正是我们下一章的主题。</p>
+        <p>[1] Outstanding Investor Digest,August 10,1995,11.</p>
+        <p>[2] Benjamin Graham,The Intelligent Investor （ New</p>
+        <p>York:Harper&amp;Row,1973）,106.</p>
+        <p>[3] Jonathan Fuerbringer,"Why Both Bulls and Bears Can Act So Bird-</p>
+        <p>Brained,New York Times,March 30,1997,section 3,p.6.</p>
+        <p>[4] Jonathan Burton,"It Just Ain't Rational,"Fee</p>
+        <p>Advisor,September/October1996,26.</p>
+        <p>[5] Brian O'Reilly,"Why Can'tJohnny Invest?."Fortune.November</p>
+        <p>9.1998,73.</p>
+        <p>[6] Fuerbringer,"Why Both Bulls and Bears Can Act So Bird-Brained."</p>
+        <p>[7] Shlomo Benartzi and Richard Thaler,"Myopic Loss Aversion and the</p>
+        <p>EquityRisk Premium,"QuarlerlyJournal of Economics 110,no.I （February</p>
+        <p>1995）:73-92.</p>
+        <p>[8] Berkshire Hathaway Annual Report,1984,14.</p>
+        <p>[9] Graham,Intelligent Investor.</p>
+        <p>[10] Ibid.</p>
+        <p>[11] For a comprehensive and well-written historical summary of the development of modern finance,see Peter Bernstein,Capital Ideas:The</p>
+        <p>Improbable Origins of Modern Wall Street（New York:Free Press,1992）.</p>
+        <p>[12] Berkshire Hathaway Annual Report,1993,13.</p>
+        <p>[13] Ibid.</p>
+        <p>[14] Outstanding Investor Digest,June 23,1994,19.</p>
+        <p>[15] Outstanding Investor Digest,August 8,1996,29.</p>
+        <p>[16] Berkshire Hathaway Aimual Report,1988,18.</p>
+        <p>[17] Ibid.</p>
+        <p>[18] Andrew Kilpatrick,Of Permanent Value:The Story of Warren</p>
+        <p>Buffett（Birmingham AL:AKPE.1988）,683.</p>
+        <div class="divider"></div></section>
+    </div>
+  </main>
+</div>
+<script>
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a[href^='#']")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-8% 0px -80% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

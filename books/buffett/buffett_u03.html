@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:accent" content="#d4a657">
+<title>巴菲特之道(原书第3版) · 译者序 将巴菲特思想引进中国的第一本书</title>
+<link rel="stylesheet" href="../reader.css">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#d4a657; --accent-soft:#33301f; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1408;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0; counter-reset:c;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(212,166,87,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1408; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(212,166,87,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+<style>figure img{width:100%;height:auto;display:block;border-radius:6px;}figure{padding:14px;}ul{margin:14px 0 14px 4px;padding-left:22px;color:#dcd8cc;}li{margin:6px 0;}h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:30px 0 4px;color:var(--ink);}.col section{padding:40px 0 6px;}</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">巴菲特之道(原书第3版)<b>译者序 将巴菲特思想引进中国的第一本书</b></div>
+    <div class="shelf-nav"><a class="home" href="../../index.html">📚 书架</a> <a class="home" href="index.html">📖 本书</a> <a href="buffett_u02.html">← 上一篇</a> <a href="buffett_u04.html">下一篇 →</a></div>
+    <ol><a href="#u" class="active">译者序 将巴菲特思想引进中国的第一本书</a></ol>
+  </nav>
+  <main>
+    <header class="cover"><div class="col">
+      <div class="eyebrow">巴菲特之道(原书第3版)</div>
+      <h1>译者序 将巴菲特思想引进中国的第一本书</h1>
+    </div></header>
+    <div class="col">
+      <section id="u"><div class="kicker">译者序 将巴菲特思想引进中国的第一本书</div><h2>译者序 将巴菲特思想引进中国的第一本书</h2>
+        <h3>译者序 将巴菲特思想引进中国的第一本书</h3>
+        <p>北京金石致远资产管理有限公司CEO 杨天南</p>
+        <p>2015年1月18日</p>
+        <p>今次有幸翻译最新版本的《巴菲特之道》一书，真是因缘际会，因</p>
+        <p>为大约在整整20年前，我的命运正是被这本书的初版改变的。它让巴菲</p>
+        <p>特成为我心中的英雄，使我从此走上投资的大道，并获得了财务自由。</p>
+        <p>《巴菲特之道》是第一本将巴菲特思想引进中国的书，而我可能是</p>
+        <p>第一个中国读者，因为其中文版的面世是1996年，而我在1995年就读到</p>
+        <p>了当时还是活页的书稿。我也可能是中国大陆第一个与巴菲特通信的</p>
+        <p>人、第一个亲见巴菲特的人，早在1997年将一份在同一版面刊登我照片</p>
+        <p>和巴菲特照片的中文报纸寄给他，并收到其回复。由此激发了2001年我</p>
+        <p>前往巴菲特的家乡奥马哈，再后来被媒体报道为“第一位与股神握手的</p>
+        <p>中国人”。</p>
+        <p>早在1993年，我因为参与公司的股份制改造而接触股市，当时整个</p>
+        <p>社会都在摸索中前进，实际上大家都不明白股票到底为何涨跌，于是今</p>
+        <p>天看来甚至莫名其妙的各种理论，活跃于媒体及坊间，有兴趣翻阅昔</p>
+        <p>日的证券类报刊，会发现当年的振振有词，今日看来多是妄言与臆断。</p>
+        <p>这种股市中浑浑噩噩的摸索直到1995年，一本有关巴菲特投资思想</p>
+        <p>的书首次出现在我的生命中，如同黑屋中忽然射进一道灿烂日光，又如</p>
+        <p>茫茫暗夜中的航船发现了指路明灯，令我懂得了投资的真正意义。这本</p>
+        <p>书就是今天这本《巴菲特之道》的第1版，后来又译为《股王之道》、《胜</p>
+        <p>券在握》、《沃伦·巴菲特之路》等。</p>
+        <p>书中阐述的诸如“买股票就是买企业”、“好企业好价格”等投资理念</p>
+        <p>现在听来尽人皆知，但当年简直是天外来音，闻所未闻。对于巴菲特的</p>
+        <p>景仰之情，在多年之后融入我写的《巴菲特，生日快乐！》一文中。</p>
+        <p>巴菲特如今已85岁高龄，依然天天“跳着踢踏舞”上班，带领着伯克</p>
+        <p>希尔每年为股东盈利数百亿。</p>
+        <p>对于所有能活到这个年龄的人，我们表示尊敬；</p>
+        <p>对于所有如此年龄还身手自如、思维敏捷的人，我们表示惊羡；</p>
+        <p>对于能如此年龄、身心康健，还年复一年为投资人创造数以百亿计</p>
+        <p>价值的人，我们的心情只能用景仰来形容。</p>
+        <p>巴菲特是有史以来最伟大的投资家！没有之一！</p>
+        <p>在星光灿烂的投资长河中，有无数个名字闪耀其间，彼得·林奇、乔</p>
+        <p>治·索罗斯、吉姆·罗杰斯、戴维斯、西蒙斯、比尔·米勒等，他们如同浩瀚银</p>
+        <p>河中划破夜空的明星，为现代人类社会谱写了一个又一个投资传奇。但</p>
+        <p>就财富积累本身而言，这些成功投资家加在一起也抵不上一个巴菲特。</p>
+        <p>如若这些著名投资家有机会与巴菲特一起出现，这样的场面只能用一</p>
+        <p>个词来形容——月朗星稀！</p>
+        <p>我要感谢罗伯特·哈格斯特朗，当年一个年轻人对于自己热爱的记</p>
+        <p>录，无意间激起万里之外另一些素不相识的年轻人的热爱，所谓的薪</p>
+        <p>火相传就这样像蝴蝶效应一般荡漾开来。时光荏苒、相隔千里，那些曾经</p>
+        <p>受益于这本书、达到财务自由境界的曾经的年轻人，今日聚首，以自己</p>
+        <p>的青春与实践向世人推荐这本《巴菲特之道》，也是在以这种方式向巴</p>
+        <p>菲特致敬。</p>
+        <p>时至今日，有关巴菲特的书籍在我书架上达百余本之多，中英文皆</p>
+        <p>有，水平参差，这本《巴菲特之道》始终是最为经典的一本。这本书中总</p>
+        <p>结的四大类12条投资准则，系统勾勒出巴菲特投资方法的框架。新版更</p>
+        <p>是增添了相当的新内容、新投资案例，对于那些想了解投资、了解巴菲</p>
+        <p>特、想取得投资成功的人，无疑是最佳学习路径之一。</p>
+        <p>虽然这本书涉及历史、人物传记、企业管理等，但终究是本以投资</p>
+        <p>为主的书。对于投资这个话题，我倒是对年轻的读者有两点额外的提</p>
+        <p>示：</p>
+        <p>（1）对于“青春资本”多于“现金资本”的年轻人而言，不必将精力过</p>
+        <p>多耗费在股市上。</p>
+        <p>今天巴菲特受人仰慕的原因多源于其财务上的巨大成功，众人的目</p>
+        <p>光多被其高昂的股价吸引，2015年初，伯克希尔的股价为22万美元，而以</p>
+        <p>半个世纪前每股8美元计，年复合回报率达22%。</p>
+        <p>以中国股市“90%的股民入市资金在10万以下”的情况而言，即便取</p>
+        <p>得了与巴菲特媲美的投资成绩又如何？绝大多数人利益最大化的选择</p>
+        <p>是专注于主业。至少在踏上社会的早期阶段，大多数人随着本职工作技</p>
+        <p>能的提高，其收入多会超过投资收益。看看身边那些曾经20、现在40岁的</p>
+        <p>人们过去10年、20年的“炒股”经历，最大的损失并非股票亏损，而是由</p>
+        <p>此耗去的时间与精力本可以成就另一番事业。如果你是个更有进取心</p>
+        <p>的人，那么创富的最佳路径，是潜心做自己喜欢的事，最终将自己的企业</p>
+        <p>上市。</p>
+        <p>（2）巴菲特理念的“局限”。</p>
+        <p>作者总结的巴菲特投资12条准则，并非适合于所有的对象，例如要</p>
+        <p>求“具有持续的运营历史”、“高利润率”等，这些几乎无法运用于新兴高</p>
+        <p>科技类企业的投资，如果你想用巴菲特理念去炒买创业板，一定会大失</p>
+        <p>所望。</p>
+        <p>但这到底是巴菲特理念的“局限”，还是其历时60年，在资本市场的</p>
+        <p>惊涛骇浪中屹立不倒的秘密所在？时光会说明一切。</p>
+        <p>尽信书不如无书，就像当初年轻巴菲特若是尽信了他的伟大导师</p>
+        <p>格雷厄姆的理论，绝不会有今天的成就一样，读书，多读、兼听、多思</p>
+        <p>考，信也不要迷信，并与实践相结合，这才是人生阅读的真意义。</p>
+        <div class="divider"></div></section>
+    </div>
+  </main>
+</div>
+<script>
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a[href^='#']")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-8% 0px -80% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

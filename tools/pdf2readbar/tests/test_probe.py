@@ -27,6 +27,19 @@ def test_detect_headings_by_font_size():
     doc.close()
 
 
+def test_detect_headings_force_size_override():
+    doc = fitz.open()
+    for i in range(6):
+        pg = doc.new_page()
+        if i in (0, 2, 4):
+            pg.insert_text((72, 60), "Chapter %d" % (i // 2 + 1), fontsize=22)
+        pg.insert_text((72, 90), "a small repeated note", fontsize=14)
+        pg.insert_textbox(fitz.Rect(72, 120, 500, 700), "body text " * 40, fontsize=10)
+    forced = detect_headings(doc, force_size=22)
+    assert [t for t, p in forced] == ["Chapter 1", "Chapter 2", "Chapter 3"]
+    doc.close()
+
+
 def test_detect_headings_none_when_uniform_font():
     doc = fitz.open()
     for _ in range(3):

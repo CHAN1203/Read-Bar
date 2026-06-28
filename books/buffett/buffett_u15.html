@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:accent" content="#d4a657">
+<title>巴菲特之道(原书第3版) · 第2章 沃伦·巴菲特的教育</title>
+<link rel="stylesheet" href="../reader.css">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#d4a657; --accent-soft:#33301f; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1408;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0; counter-reset:c;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(212,166,87,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1408; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(212,166,87,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+<style>figure img{width:100%;height:auto;display:block;border-radius:6px;}figure{padding:14px;}ul{margin:14px 0 14px 4px;padding-left:22px;color:#dcd8cc;}li{margin:6px 0;}h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:30px 0 4px;color:var(--ink);}.col section{padding:40px 0 6px;}</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">巴菲特之道(原书第3版)<b>第2章 沃伦·巴菲特的教育</b></div>
+    <div class="shelf-nav"><a class="home" href="../../index.html">📚 书架</a> <a class="home" href="index.html">📖 本书</a> <a href="buffett_u14.html">← 上一篇</a> <a href="buffett_u16.html">下一篇 →</a></div>
+    <ol><a href="#u" class="active">第2章 沃伦·巴菲特的教育</a></ol>
+  </nav>
+  <main>
+    <header class="cover"><div class="col">
+      <div class="eyebrow">巴菲特之道(原书第3版)</div>
+      <h1>第2章 沃伦·巴菲特的教育</h1>
+    </div></header>
+    <div class="col">
+      <section id="u"><div class="kicker">第2章 沃伦·巴菲特的教育</div><h2>第2章 沃伦·巴菲特的教育</h2>
+        <h3>第2章 沃伦·巴菲特的教育</h3>
+        <p>即便是拥有产生五西格玛现象的惊人智力，也不可能越过受教育的</p>
+        <p>学习阶段。正如我们将要看到的，沃伦·巴菲特在投资哲学上的教育源自</p>
+        <p>三个非凡人物的心智结合：本杰明·格雷厄姆、菲利普·费雪、查理·芒格。</p>
+        <p>格雷厄姆对于巴菲特的影响众所周知，一些人认为巴菲特全部承袭</p>
+        <p>自格雷厄姆。考虑到两人之间长期的交往历史，这种观点并不意外。巴菲</p>
+        <p>特首先是格雷厄姆的读者，然后是学生、员工、合作者，最后是同行，格雷</p>
+        <p>厄姆塑造了巴菲特未经训练的心智。然而，那些认为巴菲特仅仅受教于</p>
+        <p>格雷厄姆的人，忽视了其他两位非凡的金融思想家的影响：菲利普·费雪</p>
+        <p>和查理·芒格。在这一章中，我们将研究上述人物。</p>
+        <p>本杰明·格雷厄姆</p>
+        <p>格雷厄姆被认为是金融分析的开山鼻祖。正如亚当·史密斯所言：“在</p>
+        <p>他之前没有（金融分析）专业，在他之后才有了这个名称。” [1] 今天，他以</p>
+        <p>两部名著而载入史册：《证券分析》（最早出版于1934年，与大卫·多德合</p>
+        <p>著）；《聪明的投资人》（最早出版于1949年）。</p>
+        <p>《证券分析》一书经久不衰的意义部分由于其时机，这本书在1929</p>
+        <p>年大危机之后的几年问世，1929年大危机是个改变世界的事件，它对作</p>
+        <p>者的生活以及思想产生了深刻影响。当其他学者试图寻求这种经济现</p>
+        <p>象的解释时，格雷厄姆帮助人们恢复财富，朝着有利的方向前行。</p>
+        <p>本杰明·格雷厄姆能说流利的希腊语和拉丁语，并在数学和哲学方</p>
+        <p>面有着学术兴趣，1914年他从哥伦比亚大学获得理学学士学位，当年他</p>
+        <p>20岁。尽管他没有受到财经方面的教育，他的职业生涯却是从华尔街开</p>
+        <p>始的。他的第一份工作是在Newburger，Henderson&amp;Loeb经纪公司做信息</p>
+        <p>员，周薪12美元，负责将债券和股票的行情写在黑板上。很快他被提升</p>
+        <p>为研究员，撰写研究报告，不久被升为公司的合伙人。1919年，他25岁</p>
+        <p>时，年薪已达到60万美元，相当于2012年的800万美元（这是个惊人的</p>
+        <p>数字）。</p>
+        <p>1926年，他和杰尔姆·纽曼成立了投资合伙企业，正是这家公司大约</p>
+        <p>30年后雇佣了巴菲特。格雷厄姆·纽曼公司在1929年的大危机中挺了过</p>
+        <p>来，还经历了第二次世界大战、朝鲜战争，直至1956年解散。</p>
+        <p>很少有人知道1929年大危机给格雷厄姆造成的重大财务打击，这</p>
+        <p>是他生命中的第二次（第一次是他父亲过世时，整个家庭无依无靠），格</p>
+        <p>雷厄姆需要从头开始建立财富。他在母校发现了灵感，在那里他开始在</p>
+        <p>夜间班教授金融课程。在象牙塔里，格雷厄姆有机会反思和重新评估投</p>
+        <p>资问题。在哥伦比亚大学教授大卫·多德的建议下，格雷厄姆写下了经典</p>
+        <p>的有关谨慎投资的论文。</p>
+        <p>格雷厄姆和多德都有超过15年的投资经验，他们花了四年时间一</p>
+        <p>起完成了《证券分析》一书。当这本书于1934年初次面世时，路易斯·</p>
+        <p>里奇在《纽约时报》上写道：“这是全面的、成熟的、精致的、完全值得称</p>
+        <p>赞的学术探讨和实践的产物，如果它的影响得以发挥，那么投资者的心</p>
+        <p>思将会放在证券上，而不是市场上。”</p>
+        <p>在第1版中，格雷厄姆和多德花了大量篇幅分析有关上市公司的信</p>
+        <p>息混乱。在1933年《证券法》和1934年《证券交易法》出台之前，公司的</p>
+        <p>信息披露是不足的，甚至经常是误导的。很多公司拒绝披露销售信息，而</p>
+        <p>且资产的评估值也不可信。有关公司的假消息被用于操纵股价，无论在</p>
+        <p>IPO还是在上市之后。在《证券法》之后，公司的改革也很缓慢，而且是故</p>
+        <p>意的。1951年此书的第3版面世时，他们指出公司的混乱情况已经得到</p>
+        <p>遏制，格雷厄姆和多德从他们的角度谈到股东与管理层关系的问题，主</p>
+        <p>要是管理层权限和分红政策。</p>
+        <p>《证券分析》一书的本质是阐明，一个建立在合理价格基础之上的、</p>
+        <p>精挑细选的、多元化的普通股投资组合，可以是一个健康的投资。一步</p>
+        <p>一步地，格雷厄姆帮助投资者了解其方法的逻辑性。</p>
+        <p>格雷厄姆面对的第一个问题是，对于“投资”一词没有一个明晰定</p>
+        <p>义。引用路易斯·布兰代斯法官的说法，格雷厄姆指出：“投资一词有多个</p>
+        <p>意思。”他注意到当时有的说法，将股票定义为投机，将债券定义为投</p>
+        <p>资。但一个质量糟糕的债券不应该仅仅因其为债券而被认为是投资；一</p>
+        <p>只股票不应该仅仅因其是股票而被视为投机，尽管它的价格可能低于其</p>
+        <p>净流动资产。这得看怎么说，格雷厄姆认为，如果借钱去买证券以期</p>
+        <p>赚快钱，那么无论买的是股票还是债券，这都是投机。考虑到问题的复</p>
+        <p>杂性，格雷厄姆提出了自己关于投资的定义：“投资是经过分析，可以承</p>
+        <p>诺本金安全并提供满意回报的行为。不能满足这些要求的就是投机。”</p>
+        <p>[2] 这个简单的定义集中了值得我们关注的地方。</p>
+        <p>首先，什么是“经过分析”？他以一个简洁的定义开始：“基于已有的</p>
+        <p>原则和正常的逻辑，仔细研究可以获得的事实，得出结论。” [3] 他进一</p>
+        <p>步将分析分为三步：①描述；②批判；③选择。第一步，搜集多方信息并</p>
+        <p>以合理的方式呈现。第二步，检验这些搜集来的信息：这些信息可以代</p>
+        <p>表事实么？最后一步要求分析人员作出判断，判断这些证券是否具有吸</p>
+        <p>引力。</p>
+        <p>其次，格雷厄姆坚持一个证券被认定为投资必须满足两个条件：一</p>
+        <p>定程度上的本金安全和满意的回报率。</p>
+        <p>第一个条件是本金安全。但他提醒到安全不是绝对的，一个非常的</p>
+        <p>不可预见的事件可能导致甚至债券也违约。人们要考虑的是在合理的</p>
+        <p>情况下，投资应该是安全的。</p>
+        <p>第二个必要条件是满意的回报。“满意”具有主观性。他说回报可以</p>
+        <p>是任何数字，无论多低，只要投资者行为明智且满足了投资的定义。</p>
+        <p>根据格雷厄姆的定义，一个人如果基于正确逻辑进行了财务分析，</p>
+        <p>遵循本金安全原则和选择合理的回报率，他就是投资者，不是投机者。</p>
+        <p>终其职业生涯，格雷厄姆始终面对投资与投机的纷扰。在他去世前</p>
+        <p>不久，他十分沮丧地看到机构投资者越来越多的投机行为。在</p>
+        <p>1973~1974年大熊市后不久，格雷厄姆应邀出席了由投资银行帝杰公司</p>
+        <p>主持的基金经理人会议，他为所听到的发言感到震惊，“我无法理解，</p>
+        <p>为什么机构的基金经理们从原本正确的投资基础上堕落到了你死我活</p>
+        <p>的竞争中，试图在最短的时间里获取最高的回报。” [4]</p>
+        <p>在明确了投资与投机的定义之外，格雷厄姆第二个贡献是提出了投</p>
+        <p>资普通股的方法论。他的方法论称为“安全边际”，其思想来自1929年的</p>
+        <p>大崩溃。</p>
+        <p>1929年崩盘前，所谓投资的投机活动蔚然成风，乐观主义已经猖狂</p>
+        <p>到了危险的地步，整个市场就是一场由投机伪装成投资的假面舞会。被</p>
+        <p>已有的成功所鼓舞，人们想象未来是个持续成长和繁荣的时代，开始放</p>
+        <p>松警惕，追逐不断推高的股价。格雷厄姆说，人们愿意为股票付出任何</p>
+        <p>价格，根本不考虑进行数量分析，市场乐观标出的任何价格好像都是物</p>
+        <p>有所值的。在这疯狂之巅，投资与投机的界限模糊了。</p>
+        <p>针对这种高风险行为，格雷厄姆建议以“安全边际”去挑选股票。在</p>
+        <p>这种方法中，对于公司未来成长充满信心的投资者如果将股票纳入组</p>
+        <p>合，可以考虑两种情况：①在整个大势低迷期间买入股票（通常这种情况</p>
+        <p>发生在熊市，或类似的市场调整期）；或②即便在大势并不便宜的情况</p>
+        <p>下，购买那些低于其内在价值的股票。无论哪种情况，安全边际都在考虑</p>
+        <p>之中。</p>
+        <p>第一种情况——在大势低迷时买入——其难点在于时间点不可能</p>
+        <p>人为控制。它需要投资人使用一套公式去判断市场何时昂贵、何时便</p>
+        <p>宜。这样，投资人就成了预测市场拐点的人质，而这过程有多长却是不</p>
+        <p>确定的。当市场标价公平时，投资者买入也是无利可图。等待市场调整</p>
+        <p>而有买入的机会，可能令投资者空耗时间精力，最终一无所获。</p>
+        <p>由此，格雷厄姆建议投资者将精力放在第二种情况上，寻找那些低</p>
+        <p>估的股票，不用理会大势的高低。这种策略可以持续运行，投资者需要有</p>
+        <p>方法分辨出哪些股票的价格比其内在价值低。运用数量分析勾勒出低估</p>
+        <p>股票的方法，在《证券分析》这本书之前，从来没有出现过。</p>
+        <p>格雷厄姆简化了正确投资的概念为“安全边际”概念。无论股票还是</p>
+        <p>债券，他都用这种方法去投资。</p>
+        <p>建立债券的安全边际概念不难，例如，分析人员看一家公司过去五</p>
+        <p>年的运营历史，发现它的年度利润5倍于债券的利息，那么该公司的债券</p>
+        <p>就具有可靠的安全边际。格雷厄姆并不指望投资者能正确地预测公司</p>
+        <p>未来的收入情况；相反，他认为如果公司利润与固定利息之间的差距足</p>
+        <p>够大，即便公司未来收入遭到不可预见的事件打击，投资者利益也能受</p>
+        <p>到保护。</p>
+        <p>真正的考验在于格雷厄姆如何定义股票的安全边际，他推论如果</p>
+        <p>股价低于内在价值，普通股的安全边际就存在。显而易见，接下来的问</p>
+        <p>题是：如何确定内在价值？格雷厄姆再一次给出了简洁的定义：内在价</p>
+        <p>值是“取决于事实的价值”。这些事实包括公司资产、利润和分红、未来</p>
+        <p>的明确前景。</p>
+        <p>当然，格雷厄姆认为最为重要的因素是未来的盈利能力。这让他推</p>
+        <p>导出一个简单的公式：一个公司的内在价值取决于未来预期利润，乘以</p>
+        <p>合适的资本化系数。这个资本化系数，或乘数，受到公司利润的稳定性、</p>
+        <p>资产、分红政策和财务健康状况的影响。</p>
+        <p>格雷厄姆认为这种方法成功与否，受制于我们计算公司未来前景的</p>
+        <p>能力，这个计算无可避免的不精确。未来的因素，诸如销售额、价格、成</p>
+        <p>本都难以预测，这一切使得这个乘数更为复杂。</p>
+        <p>尽管如此，格雷厄姆相信在三种情况下，安全边际理论仍然能够成</p>
+        <p>功运用：</p>
+        <p>（1）稳定的证券类型，例如债券和优先股；</p>
+        <p>（2）在进行比较的分析中；</p>
+        <p>（3）那些价格与内在价值差距巨大的股票。</p>
+        <p>格雷厄姆让我们接受的内在价值是个难以捉摸的概念，它不同于市</p>
+        <p>场的报价。最初，内在价值被认为就是公司的账面值，或者是资产减去</p>
+        <p>负债之后的净值。这使得早期的内在价值概念是明确的。然而，分析人</p>
+        <p>员发现公司的价值不仅仅是它的净资产，还有这些资产所产生的利润</p>
+        <p>的价值。格雷厄姆提出，确定一个公司的精确的内在价值并不重要,甚</p>
+        <p>至，一个大致的估值，相对于市场价格，已经足够测量安全边际。</p>
+        <p>格雷厄姆提醒我们，金融分析并非一项精确的科学。一些财务的数</p>
+        <p>量指标，例如资产负债表、损益表、资产和负债、利润、分红等的确有</p>
+        <p>助于分析。然而，我们不能忽略一些不易计算，却对决定公司内在价值非</p>
+        <p>常重要的因素，其中两个是管理层的能力和公司的性质。格雷厄姆的问</p>
+        <p>题是：在它们身上应该花多少精力？</p>
+        <p>他对于强调质量因素有所顾虑，管理层的意见和公司的性质是难</p>
+        <p>以测量的，而难以测量是一种糟糕的测量。对于质量因素的乐观因素往</p>
+        <p>往导致较高的乘数。从经验中，格雷厄姆知道当投资者的关注从有形资</p>
+        <p>产转移到无形资产时，他们将有可能冒更大的风险。而反过来，如果投</p>
+        <p>资者基于公司的可测量的数量因素推算内在价值，那些向下的风险是</p>
+        <p>有限的。固定资产、分红、当前和历史曾经的利润都是可测的，这些因</p>
+        <p>素都是可用数字证明的，并且作为真实的经历作为逻辑的参考。</p>
+        <p>格雷厄姆强调，投资者应该清楚自己立足于踏实的基础之上，如果</p>
+        <p>你买的是资产，即便到清算资产价值时，你的下降空间仍是有限的。但</p>
+        <p>没有人能保证你看好的投资对象能达成成长的目标。如果一家公司拥</p>
+        <p>有诱人的前景和高超的管理层，毫无疑问会吸引越来越多的买家，“由</p>
+        <p>于大量买入，会使公司股价上升，从而导致较高的市盈率。越来越多的人</p>
+        <p>沉迷于高回报的期许，股价攀升超越其应有价值，造成泡沫，泡沫越来</p>
+        <p>越大以至于最终破裂。”</p>
+        <p>格雷厄姆承认，拥有良好的记忆力是他的一个负担。曾经在一生中</p>
+        <p>毁掉他两次的财务打击，让他更强调股市下跌时的保障，多于上升时的</p>
+        <p>上涨潜力。</p>
+        <p>他经常提到两项投资原则：一是不要亏损；二是不要忘记第一条。</p>
+        <p>他将“不要亏损”的理念分为与安全边际有关的两个部分：①以低于公司</p>
+        <p>净资产2/3的价格买入公司；②专注于低市盈率的股票。</p>
+        <p>第一个方法——以低于公司净资产2/3的价格买入公司——符合格</p>
+        <p>雷厄姆的现实感觉并满足了他的数学期望。他略去公司厂房、建筑、设备</p>
+        <p>的数值，减去所有长短期负债，剩下的只有流动资产。格雷厄姆认</p>
+        <p>为，如果股价低于这个数字，就是个好的投资对象，这种投资方法简单</p>
+        <p>明了。但他清楚地指出，这种方法的运用是基于一揽子股票组合，而不是</p>
+        <p>基于单只股票。</p>
+        <p>这个方法有个问题：满足这些条件的股票很难找到，特别是在牛市</p>
+        <p>的时候。傻等着市场调整可能并非明智之举，针对这种情况，格雷厄姆</p>
+        <p>提出了第二个方法：买低市盈率的股票。他仍然强调，公司必须有净资</p>
+        <p>产，换言之，公司必须资产多于负债。</p>
+        <p>在职业生涯中，格雷厄姆数次改变他的投资方法，在他1976年过世</p>
+        <p>前不久，他与西德尼·科特尔重新修订《证券分析》第5版时，格雷厄姆</p>
+        <p>提出买股票的标准：一个十年的市盈率乘数，股价是前期高点的一半，以</p>
+        <p>及当然是净资产价值。格雷厄姆用这些标准推算了自1961年以来的股</p>
+        <p>市历史，结果很令人满意。</p>
+        <p>年复一年，大量投资者研究搜寻类似的确定公司内在价值的捷径。</p>
+        <p>当格雷厄姆提出的低市盈率法仍然有效的时候，我们发现仅仅基于会计</p>
+        <p>比率的这种投资决策方法，并不足以产生满意的回报。今天，大多数投</p>
+        <p>资者使用约翰·伯尔·威廉斯在《投资价值理论》（哈佛大学1938年出版）</p>
+        <p>一书中对于价值的定义：任何投资的价值都是公司未来现金流的折</p>
+        <p>现。我们将在第3章中讨论更多关于分红折现模式的内容。</p>
+        <p>现在，我们发现格雷厄姆的两个方法——以低于公司净资产2/3的价</p>
+        <p>格买入公司；买入低市盈率的股票——有着共同的特征。他所选中的股</p>
+        <p>票可能因为某种原因，在股市上并不受欢迎，所以价格低于价值。格雷</p>
+        <p>厄姆强烈地认为这“低得不公平”，所以是买入的好标的。</p>
+        <p>格雷厄姆的信念建立在一些特定的假设上，首先，他认为由于人们</p>
+        <p>的贪婪和恐惧的情绪变化，使股票经常被错误标价。在贪婪之巅时，股</p>
+        <p>价被推升至远超其内在价值，造成过高的市场。反之，恐惧压低股价，</p>
+        <p>造成股价低于价值的局面。他的第二个假设是基于统计学上的“均值回</p>
+        <p>归”理论，尽管他没有使用这个名词。无论是统计学还是诗歌，格雷厄</p>
+        <p>姆相信投资者能从低效市场的修正力量中获利。他引用了诗人贺拉斯的</p>
+        <p>雄辩的诗句作为佐证：</p>
+        <p>今天那些已然坍塌的，将来可能会浴火重生；</p>
+        <p>今天那些备受尊荣的，将来可能会匿迹销声。</p>
+        <p>菲利普·费雪</p>
+        <p>在格雷厄姆写作《证券分析》时，菲利普·费雪正开始他的投资顾</p>
+        <p>问工作。从斯坦福大学工商管理研究生院毕业后，费雪在盎格鲁·伦敦·巴</p>
+        <p>黎国民银行（Anglo London&amp;Paris National Bank）做分析师工作，地点在</p>
+        <p>旧金山。不到两年，他就成为统计部门的头儿。在这个位置上，他见证了</p>
+        <p>1929年大危机中的股市崩溃。之后，在一家当地的经纪公司无所事事地</p>
+        <p>短暂工作一段时间后，他决定自行创业，1931年3月31日，他的费雪顾问</p>
+        <p>公司开始招揽客户。</p>
+        <p>30年代初期开办投资顾问公司看起来有些蛮干，因为股市上哀鸿遍</p>
+        <p>野，经济上千疮百孔。但费雪认为他有两个优势：首先，大崩盘之后，尚</p>
+        <p>有余钱在手上的投资者肯定对于自己之前的经纪人很不满意。其次，在</p>
+        <p>大萧条期间，人们有充足的时间坐下来与费雪交谈。</p>
+        <p>在斯坦福的时候，有一门课程要求费雪和教授一起定期访问旧金山</p>
+        <p>周围的企业，教授会与企业家们讨论公司的运作，并且帮助他们解决遇</p>
+        <p>到的问题。在驾车回斯坦福的路上，他和教授会重新总结所观察的企业</p>
+        <p>和管理层。费雪后来回忆道：“每周的这次活动，是我受到的最有用的</p>
+        <p>训练。”</p>
+        <p>这些经历使费雪开始相信超级利润有可能从如下方式获得：（1）投</p>
+        <p>资于那些拥有超出平均水平潜力的公司；（2）与能干的管理层合作。为了</p>
+        <p>搜寻卓越的公司，费雪发明了一套“点系统”，它可以根据企业和管理层</p>
+        <p>的特征区分出合格的公司。</p>
+        <p>费雪印象最深刻的公司特征，是多年销售和利润的成长率高于同行</p>
+        <p>业 [5] 。为了满足这个条件，费雪相信一家公司所在的行业必须“具有足够</p>
+        <p>市场空间潜力，才能具备多年大规模增长的可能。”费雪并不很在意连续</p>
+        <p>的年度增长，但他以数年为周期的表现去判断公司成功与否。他注意到</p>
+        <p>企业生命周期的变化会给销售和利润造成实质影响，然而多年的观察</p>
+        <p>使他相信，有两类企业会显示超出平均的成长：①“幸运且能干”的企</p>
+        <p>业；②“幸运因为能干”的企业。</p>
+        <p>他说美国铝业公司（Alcoa）是第一类公司的例子，这个公司“能干”，</p>
+        <p>是因为它的创始者们很能干，他们早早预见到了其产品的市场前景，并</p>
+        <p>积极做了准备，推动铝业市场提升销售。这个公司也很“幸运”，因为在</p>
+        <p>他们能掌控的范围之外，外界因素对于公司和产品市场非常有利。航空</p>
+        <p>运输市场的迅速发展，大大促进了铝制品的销售。由于航空业的大发展，</p>
+        <p>美国铝业公司从中的收益，大大超出了公司最初的设想。</p>
+        <p>杜邦公司是一个“幸运因为能干”的好例子。如果杜邦还坚持于最初</p>
+        <p>的产品——喷砂粉，公司就会像很多典型的矿业公司一样。但是公司管</p>
+        <p>理层利用他们获得的关于武器火药的知识，开始发明新的产品——包</p>
+        <p>括尼龙、玻璃纸、璐彩特（透明合成树脂），创造出新的市场需求，最终</p>
+        <p>为杜邦创造了数十亿计的销售额。</p>
+        <p>费雪注意到，一个公司的研发可以为企业超出平均的成长提供持续</p>
+        <p>的贡献。很明显，如果这两家公司没有在研发方面的重大投入，就不可</p>
+        <p>能取得长期的成功。即便是非高科技企业也需要致力于研发，以便为客</p>
+        <p>户提供更卓越的产品和更有效率的服务。</p>
+        <p>除了研发之外，费雪还审视了企业的销售机构。根据观察，一家公</p>
+        <p>司即便有了好的产品和服务，但如果无法“成功地商品化”，研发的努力</p>
+        <p>也不会带来销售额。帮助客户认识公司产品和服务的优势是销售部门</p>
+        <p>的责任。他解释说，销售部门应该监测客户的购买习惯，并能捕捉到客</p>
+        <p>户需求的变化。费雪认为销售在链接市场和研发部门之间具有巨大的价</p>
+        <p>值。</p>
+        <p>不过，仅仅拥有市场潜力本身还不够，费雪相信即便是一个具有</p>
+        <p>超越平均水平销售成长的公司，如果它不能为股东赚钱，也未必是一个</p>
+        <p>合适的投资对象。他说：“并非所有销售成长良好的公司都是好的投资</p>
+        <p>对象，如果年复一年，其利润没有同步增长的话。”因此，费雪不仅寻找</p>
+        <p>那些低成本的产品或服务的公司，而且希望它们能致力于保持这个优</p>
+        <p>势。一个具有低利润平衡点、高利润率的公司更能经得起低迷经济环境</p>
+        <p>的考验。最终，它能击败对手，牢牢站稳自己的市场地位。</p>
+        <p>费雪指出，如果一家公司不懂得分解成本，同时明白制造过程中的</p>
+        <p>每个环节，就不可能维持它的利润率。为了这样做，公司必须进行足够</p>
+        <p>的会计监督和成本分析。成本分析应该能让公司管理层发挥出生产产品</p>
+        <p>和服务资源的最大潜能。此外，会计监督有助于发现公司运营中的问题</p>
+        <p>所在，而这些问题或低效，可能就是影响公司整体盈利能力的早期预警。</p>
+        <p>费雪对于公司盈利能力还有一个考虑，即公司未来的成长是否依</p>
+        <p>赖新增投资。他说：如果一家公司的成长是由大量新增投资所致，那么</p>
+        <p>股本的增大将摊薄现有股东的利益，使其无法分享成长的好处。一家高</p>
+        <p>利润率的公司应具有内生性产生的现金流，这些资金能维持公司的成</p>
+        <p>长，而无需稀释股东的权益。另外，一家在固定资产和运营资本需求方</p>
+        <p>面控制有方的公司，能管理好它的现金需求，避免通过股票进行融资。</p>
+        <p>费雪注意到，优秀的公司不但拥有超越平均水平的企业特征，而且，</p>
+        <p>同样重要的是，它们的管理者的能力也超越平均水平。在现有产品和服</p>
+        <p>务的市场潜力发展到尽头时，管理者们会开发出新的产品和服务继续</p>
+        <p>驱动销售的增长。很多公司会有很多不同的产品线维持数年，少数公司</p>
+        <p>会有策略维持10~20年的增长。“管理层必须有适时可行的方针，以期</p>
+        <p>短期利益服从长期利益。” [6] 他解释说，服从长期利益并非牺牲短期利</p>
+        <p>益，一个超出平均水平的管理层应该具有实施长期计划同时兼顾日常公</p>
+        <p>司运营的能力。</p>
+        <p>费雪认为还有一个特征也很重要：公司是否有忠诚可靠的管理层？</p>
+        <p>管理层能否担得起股东的信托责任，或他们是否仅仅关心自己的利益？</p>
+        <p>有个方法可以帮助投资者得出结论，费雪建议，看管理层与股东</p>
+        <p>们的沟通方式。无论是好公司还是坏公司，都会经历困难时期。通常，当</p>
+        <p>情况好的时候，管理层会畅所欲言；但当经历艰难时，有些公司会三缄</p>
+        <p>其口，而不是开诚布公地说明遇到的困境。费雪认为，从管理层面对困</p>
+        <p>难的态度，可以得出很多公司未来的表现。</p>
+        <p>费雪认为对于一家成功的企业，管理者应该创造良好的劳资关系。</p>
+        <p>员工们应该发自内心地感觉公司是个工作的好地方，蓝领工人应该有受</p>
+        <p>人尊重的感觉，公司干部应该明白职位的提升是基于能力，而不是上层</p>
+        <p>的偏好。</p>
+        <p>费雪也考虑管理层的深度，CEO是否有一个有能力的团队？他是否</p>
+        <p>能授权下属运营部分业务？</p>
+        <p>最后，费雪会考量公司的独特之处：与同行比较，公司有何不同。</p>
+        <p>他试图发现线索以帮助理解一家企业相对于同业的优势。仅仅阅读财</p>
+        <p>务报表是不足以做出投资判断的，谨慎投资的重要一步是，从熟悉公司</p>
+        <p>的人那里尽可能多地发现信息。费雪承认这种无所不包的调查方式就是</p>
+        <p>所谓的“闲聊”方式。今天，我们可能称之为小道消息。如果能处理得当，</p>
+        <p>闲聊亦能获得大量有用的信息，帮助投资者发现极佳的投资对象。</p>
+        <p>费雪的闲聊调查方式令他尽可能与更多的人沟通，他跟顾客聊、跟</p>
+        <p>供应商聊，他去找那些前雇员、顾问、大学里的研究员、政府里的上班</p>
+        <p>族、交易协会的执行者，以及竞争对手。他惊奇地发现，尽管人们不愿披</p>
+        <p>露当下服务的公司内幕，但对于竞争对手的情况倒是毫不吝啬。“这太</p>
+        <p>令人兴奋了，”他说，“在一个行业里，从不同的角度交叉观察一家企</p>
+        <p>业，能得出一幅多么准确的公司优缺点的全景图。” [7]</p>
+        <p>很多投资者不愿意花时间和精力，去进行费雪认为必要的工作以了</p>
+        <p>解企业情况。约见不同的人“闲聊”也很费时间，而针对不同的公司进行</p>
+        <p>这项活动工作量实在太大了。针对这个问题，费雪找到了另一个方法来</p>
+        <p>应对——减少研究公司的数量。他总是说，宁愿持有少数优质公司的股</p>
+        <p>票，也不会持有大把平庸公司的股票。总之，他的投资组合少于10家公</p>
+        <p>司，其中三四家公司的股票会占到总仓位75%的比例。</p>
+        <p>费雪相信，投资成功只需做好几件事即可。一是在能力圈内投资。</p>
+        <p>他总结自己早期的错误，是由于“超出了我的经验范围，开始投资于自</p>
+        <p>认为很了解的领域，但实际上完全不是，那是一个我没有相应知识背景</p>
+        <p>的领域”。 [8]</p>
+        <p>查理·芒格</p>
+        <p>当沃伦·巴菲特1956年开始投资合伙事业时，仅有10万美元多一点</p>
+        <p>的资金，他早期的工作之一就是说服新投资人加入，当巴菲特向邻居埃</p>
+        <p>德温·戴维斯医生夫妇推销投资理念时，医生突然打断他，说要投资10万</p>
+        <p>美元，巴菲特问为什么，他说：“因为你让我想起了查理·芒格。” [9]</p>
+        <p>尽管两人都成长在奥马哈，而且有很多共同的熟人，但巴菲特和芒</p>
+        <p>格在1959年之前从未见过。那时，芒格已经移居加州南部，在他父亲过</p>
+        <p>世时，他回家乡来，戴维斯医生安排了两个年轻人见面并在当地的一家</p>
+        <p>餐馆晚餐。这是一个非同寻常的合作的开端。</p>
+        <p>查理的父亲是一位律师，爷爷是联邦法官。当时，他在洛杉矶已经</p>
+        <p>有一家成功的律师事务所，但他对于股市投资有很强烈的兴趣。在初次</p>
+        <p>的晚餐聚会中，两个年轻人发现彼此有很多共同的话题，包括股票。从</p>
+        <p>那时起，他们经常沟通，巴菲特鼓励芒格离开律师行业，专注于投资。</p>
+        <p>有一段时间，芒格两个行业都干。1962年，他像巴菲特一样组建了一个</p>
+        <p>投资合伙企业，同时继续着律师事务所的工作。经历成功的三年之后，</p>
+        <p>他完全离开律师行业，尽管直到今天，挂着他名字的律师事务所仍为他</p>
+        <p>保留着办公室。</p>
+        <p>在稍后的第5章里，我们会看到芒格投资合伙公司的历史表现。芒</p>
+        <p>格在洛杉矶的合伙企业与巴菲特在奥马哈的公司有很多相同之处：都</p>
+        <p>寻求购买物有所值的对象，都有杰出的投资表现。毫不奇怪，他们甚至</p>
+        <p>相中一些共同的股票。像巴菲特一样，60年代末芒格开始买入蓝筹印花</p>
+        <p>公司，并最终成为其董事长。1978年当伯克希尔公司与蓝筹印花公司合</p>
+        <p>并之后，芒格成为伯克希尔的副董事长，一直到今天。</p>
+        <p>芒格与巴菲特的工作关系不是那种合同关系，而是一种与时俱进的</p>
+        <p>更紧密的共生关系，在芒格加入伯克希尔之前，他们也经常共同商议投</p>
+        <p>资决策，甚至每天都商量，渐渐地他们的投资有了更多的相通性。</p>
+        <p>今天，芒格继续作为伯克希尔的副董事长，从各方面都是巴菲特的</p>
+        <p>合作者，并不断地自我改善。你想知道他们的联系有多紧密，就看看年报</p>
+        <p>中巴菲特提到了多少次“查理和我”，无论是“共同决策”，或“看法相同”，</p>
+        <p>或“同样考虑等待”，都很多次使用到这四个字，以至于“查理和我”看起来</p>
+        <p>像一个人的名字。</p>
+        <p>在工作方面，查理不但带来了金融智慧，还有企业法律的基础，他</p>
+        <p>也带来了与巴菲特相当不同的知识的视角。查理在很多知识领域均有热</p>
+        <p>衷，包括科学、历史、哲学、心理学、数学。他认为有思想的人能够也应该</p>
+        <p>运用这些知识到投资决策之中。为了获得“普世智慧，”查理说，“你必须</p>
+        <p>构建一个心智模式的格栅。” [10] 想欣赏查理知识深度和广度的读者，可</p>
+        <p>以阅读《穷查理年鉴：查理·芒格的机智与智慧》这本书（2005年出版）。</p>
+        <p>金融知识、律师背景、来自其他学科的经验，所有这些综合在一</p>
+        <p>起，查理带来了不同于巴菲特的投资理念。当巴菲特继续毫不动摇地执</p>
+        <p>行格雷厄姆的理念、继续寻找“烟头型”股票时，查理渐渐倾向费雪的理</p>
+        <p>念。在他心里，为一家伟大的公司支付公平的价格，胜过为一家平庸的公</p>
+        <p>司支付便宜的价格。</p>
+        <p>查理帮助巴菲特跨越深度价值投资理论，进而考虑购买高质量企</p>
+        <p>业的鸿沟，这种思想的深刻转变，在伯克希尔收购喜诗糖果的故事中</p>
+        <p>得以充分体现。</p>
+        <p>1921年，71岁的老太太玛丽在洛杉矶开了一家街头糖果店，出售自</p>
+        <p>己亲手调制的巧克力。在她的儿子和合伙人的协力下，生意慢慢在加州</p>
+        <p>南部和北部有了一些连锁店。历经1929年大危机、第二次世界大战时的</p>
+        <p>食糖配给短缺、激烈的竞争，所有这些都没有改变公司的一个策略：绝不</p>
+        <p>降低质量！</p>
+        <p>经过50年的发展，喜诗糖果成为西海岸最重要的糖果连锁店，玛丽</p>
+        <p>的继承者希望开始别样人生的新阶段，不打算继续经营。在喜诗糖果工</p>
+        <p>作了30多年的查克·哈金斯被授权寻找最佳买家，协助出售企业。他谈了</p>
+        <p>几家，但还是没有定下来。</p>
+        <p>1971年末，一个蓝筹印花公司（那时伯克希尔已经是最大股东）的</p>
+        <p>投资顾问建议买下喜诗糖果，出价是4000万美元，当时喜诗公司拥有</p>
+        <p>1000万美元现金资产，所以净价为3000万美元。巴菲特仍然犹豫着，因</p>
+        <p>为这个价格是净资产的三倍，根据格雷厄姆的理论，这个价格太高了。</p>
+        <p>查理说服巴菲特买下来，认为这看似高价实际上是个好交易。巴菲</p>
+        <p>特出价2500万美元，成交！对于巴菲特来说，这是第一次对于格雷厄姆</p>
+        <p>理论的重大突破，格雷厄姆的理论认为只能以低于账面价值的价格买</p>
+        <p>入。这是巴菲特思想转变的开始，他感谢查理将他引领到了新的方向。查</p>
+        <p>理后来评价说：“这是我们第一次为品质买单。” [11] 十年之后，有人出</p>
+        <p>价1.25亿美元想买喜诗糖果——5倍于1972年的买入价。巴菲特拒绝了。</p>
+        <p>巴菲特和芒格的合作如此长久的原因之一，是他们对于商业的通用</p>
+        <p>原则都持有坚定的信念，都展示出必要的管理高品质企业的才能。伯克</p>
+        <p>希尔-哈撒韦的股东们真有福气，有这样的合作伙伴守护他们的利益，并</p>
+        <p>帮助他们在各种经济环境中赚钱。因为没有强制的退休政策，伯克希尔</p>
+        <p>的股东们不是从一位伟大的投资家，而是两位投资家那里获益，超过35</p>
+        <p>年。</p>
+        <p>多种知识的融合</p>
+        <p>1976年在格雷厄姆去世后不久，巴菲特成为格雷厄姆价值投资方法</p>
+        <p>的代言人，的确，巴菲特的名字已经成为价值投资的代名词 [12] 。因为他</p>
+        <p>是格雷厄姆最为著名的学生，巴菲特也在每一个场合感谢从格雷厄姆那</p>
+        <p>里学到的知识。即便今天，巴菲特还是认为格雷厄姆对于他的投资生活</p>
+        <p>的影响，仅次于他的父亲。 [13] 他甚至给长子取名为：霍华德·格雷厄</p>
+        <p>姆·巴菲特。</p>
+        <p>然而，巴菲特对于华盛顿邮报（1973）、大都会/ABC（1986）、可口可</p>
+        <p>乐（1988）、IBM（2011）的投资，其中所蕴含的内在逻辑如何用格雷厄姆</p>
+        <p>的理论解释呢？这些公司没有一个能通过格雷厄姆严苛的财务考验，但</p>
+        <p>巴菲特却大笔投资。</p>
+        <p>早在1965年，巴菲特就注意到格雷厄姆买低价股的策略的局限性。</p>
+        <p>[14] 他说，格雷厄姆愿意买的股票出价如此之低，以至于公司“打个</p>
+        <p>嗝”就会让投资者抛出。巴菲特管这叫做“捡烟头”投资法，走在大街上，投</p>
+        <p>资者看到地上有个烟头，就捡起来吸上最后一口，尽管味道不怎么样，</p>
+        <p>但代价很低，所以看起来似乎物有所值。巴菲特说，要想让格雷厄姆的</p>
+        <p>策略行之有效，必须有人愿意充当清算者。</p>
+        <p>巴菲特解释：比如一家资产1000万美元的公司，你付了800万买下，</p>
+        <p>假如你能以资产价卖出，将是利润可观的。但是现实中，这可能需要十年</p>
+        <p>时间去完成，导致你的回报甚至低于平均水平。“时间是好企业的朋</p>
+        <p>友，”他说，“是平庸企业的敌人。” [15] 除非能促成平庸企业的清盘，并</p>
+        <p>且买入价和市场清算价之间有利可图，否则，随着时间的推移，投资的</p>
+        <p>回报将与平庸企业的表现一样。</p>
+        <p>从早期的投资失误中，巴菲特渐渐偏离格雷厄姆的理论，他曾经坦</p>
+        <p>诚：“我在进化，并不是简单的从猿到人或从人退化到猿。” [16] 相对于关</p>
+        <p>注企业的价格，他开始注重企业的质量因素，但他仍然寻找廉价品。他</p>
+        <p>说：“我的教训来自登普斯特轧机制造公司、三流的百货店（霍克希尔德·</p>
+        <p>科恩），以及新英格兰纺织公司（伯克希尔-哈撒韦）。” [17] 他引用凯恩</p>
+        <p>斯的话，试图解释这个两难困境：“困难并不在于接受新观念，而在于摆</p>
+        <p>脱旧观念。”巴菲特承认他的进化有些迟，因为格雷厄姆教给他的太有</p>
+        <p>价值了。</p>
+        <p>1984年，在哥伦比亚大学庆祝《证券分析》一书问世50周年的庆祝</p>
+        <p>会上，在大学生们面前，巴菲特说有一群成功投资家都感谢格雷厄姆，大</p>
+        <p>家公认他是投资智慧来源的大家长。 [18] 格雷厄姆提出了安全边际理</p>
+        <p>论，但每个学生都在此基础上发展出自己的方法，去确定企业的价值。</p>
+        <p>然而无论有何变化，他们都有共同的主题：都是寻求企业价值与交易价</p>
+        <p>格之差。那些对巴菲特购买可口可乐和IBM迷惑不解的人们，混淆了理</p>
+        <p>论与方法论的区别。巴菲特的确运用了格雷厄姆的安全边际理论，却</p>
+        <p>摒弃了格雷厄姆的方法论。根据巴菲特的说法，使用格雷厄姆方法论能</p>
+        <p>获利的最后一次机会只出现在1973~1974年的熊市底部。</p>
+        <p>记住，即便是评估股票，格雷厄姆也不考虑企业的类型和管理层的</p>
+        <p>能力，他的研究仅仅限于公司文件和年报。只要存在股价低于公司资产</p>
+        <p>值而投资获利的数学可能，他就会买入。为了提高成功的可能性，他会尽</p>
+        <p>可能多买。</p>
+        <p>如果格雷厄姆的教学仅限于这些，巴菲特今天不会如此看重他。但</p>
+        <p>安全边际理论对于巴菲特如此深刻、如此重要，以至于其他的不足方面</p>
+        <p>可以忽视。直至今天，巴菲特依然坚持格雷厄姆的主要思想：安全边</p>
+        <p>际。自他第一次读到格雷厄姆的书已经整整65年了，然而，巴菲特总是</p>
+        <p>毫不迟疑地提醒每个人：“我依然认为这几个字非常正确。” [19] 巴菲特从</p>
+        <p>格雷厄姆那里学到的最为重要的一课就是：成功的投资来源于，购买那</p>
+        <p>些价格大大低于价值的股票。</p>
+        <p>除了安全边际（这是巴菲特的思考框架），格雷厄姆还帮助巴菲特</p>
+        <p>认识了在股市中随波逐流的愚蠢。格雷厄姆认为，股票具有投资特性，</p>
+        <p>也有投机特性，而投机特性是人们恐惧和贪婪的结果。这些存在于大多</p>
+        <p>数投资者中的情绪使得股价不停变动，有时高于公司内在价值，更重</p>
+        <p>要的是，有时低于公司内在价值。他教巴菲特如果能够避开这些股市中</p>
+        <p>的情绪旋风，就有机会从其他投资者的非理性行为中受益，因为其他投</p>
+        <p>资者是基于情绪买卖股票，而不是逻辑。</p>
+        <p>从格雷厄姆那里，巴菲特学会了独立思考。如果你是在脚踏实地的</p>
+        <p>基础上得出合乎逻辑的结论，就不要因为别人的反对而耽于行动。格</p>
+        <p>雷厄姆写道：“你的对与错不会因为别人的赞成或反对而改变，你正确</p>
+        <p>是因为你的数据和推理均正确。” [20]</p>
+        <p>在很多方面，菲利普·费雪恰恰站在格雷厄姆的反面。费雪认为，为</p>
+        <p>了做出正确的决策，投资者应该得到有关企业的充分信息，也就是调查</p>
+        <p>企业的方方面面，不仅仅是看财务数字，还要看企业本身、企业的类型、</p>
+        <p>重大的影响因素、管理层的特性，因为管理层素质将影响企业的价值。</p>
+        <p>同样，还需了解企业所处的整个行业情况，以及竞争对手的情况。每一</p>
+        <p>个信息来源都值得深深挖掘。从费雪那里，巴菲特学到了沟通的价值，</p>
+        <p>经过多年努力，巴菲特发展出广泛的人脉网络，有助于评估不同类型的</p>
+        <p>企业。</p>
+        <p>最终，费雪教会了巴菲特对于投资多元化不必过于紧张。他认</p>
+        <p>为“把鸡蛋放在不同的篮子里能降低风险”的观点是错误的。买了太多股</p>
+        <p>票的风险源于，不可能看好每个篮子里的鸡蛋，投资者的风险来自于在</p>
+        <p>不了解的企业上投入太多资金。以他的观点，在没有时间深入了解公司</p>
+        <p>的情况下买入股票，所带来的风险更大。</p>
+        <p>格雷厄姆和费雪的不同是非常明显的。格雷厄姆作为一位数量分析</p>
+        <p>师，强调可测量的数值：固定资产、当前盈利，以及分红。他的调查研</p>
+        <p>究限于公司文件和年度报告，他不会花时间调查客户、竞争对手或管理</p>
+        <p>层的情况。</p>
+        <p>费雪的方法与此不同，作为一位质量分析师，他强调那些他认为能</p>
+        <p>提高公司价值的因素：公司前景、管理层的能力。</p>
+        <p>因此，格雷厄姆的兴趣仅仅在于购买便宜股票，费雪的兴趣在于购</p>
+        <p>买那些长期而言，有潜力提高内在价值的公司。他愿意竭尽全力，进行广</p>
+        <p>泛的沟通，了解更多信息以改进挑选流程。</p>
+        <p>在巴菲特读了费雪的《普通股和不普通的利润》之后，他找到了作</p>
+        <p>者。巴菲特说：“当我见到他的时候，他的人如同他的思想一样让人印象</p>
+        <p>深刻，就像格雷厄姆一样，费雪为人谦逊，有丰富的精神世界，是一位</p>
+        <p>非凡的老师。”格雷厄姆和费雪的投资路径虽然不同，但他们在“投资的</p>
+        <p>世界里平行。” [21] 换一种说法，如果不用平行这个词，我认为在巴菲特</p>
+        <p>身上，他们的影响是交互的：他的投资方法是双方智慧的合成，既有对于</p>
+        <p>管理层和企业的质量型理解（来自费雪），也有对于价格和价值的数量型</p>
+        <p>理解（来自格雷厄姆）。</p>
+        <p>巴菲特曾经说：“我的方法15%来自费雪，85%来自格雷厄姆。” [22]</p>
+        <p>这句话被广泛引用，但是请注意这是1969年说的话。时隔多年以后，巴</p>
+        <p>菲特渐渐但明显地转到费雪的理念上，选择购买数量有限的企业，并持</p>
+        <p>有多年。我的直觉判断，如果今天有机会再做一次表述，巴菲特可能会承</p>
+        <p>认他的方法50%来自格雷厄姆，50%来自费雪，二者平分秋色。</p>
+        <p>在现实的意义上，芒格是费雪质量理论的执行者。从一开始，芒格就</p>
+        <p>拥有对于优质企业价值的直觉欣赏，以及应该支付合理价格的智慧。然</p>
+        <p>而，在一个很重要的方面，芒格也是格雷厄姆今天的回音。早年，格雷厄</p>
+        <p>姆对巴菲特说过情绪在投资中的双重性：对于非理性决策的人是错误，</p>
+        <p>对于避免落入陷阱的人是机遇。通过阅读这段话，芒格接着推演，他称</p>
+        <p>之为“误判心理学”，这个概念我们将在第6章深入分析。通过持续的强</p>
+        <p>调，这成为伯克希尔决策中的组成部分，也是芒格最为重要的贡献之</p>
+        <p>一。</p>
+        <p>综上，格雷厄姆给予了巴菲特投资的知识基础——安全边际，以及</p>
+        <p>帮助他掌控情绪以利用市场的波动。费雪教会巴菲特更新的、可执行的</p>
+        <p>方法论，让他发现长期的优秀投资对象，以及集中的投资组合。芒格帮</p>
+        <p>助巴菲特认识到购买并持有好企业带来的回报。当我们了解了巴菲特</p>
+        <p>思想是这三个人的智慧的结合之后，对于他很多投资上看似令人迷惑的</p>
+        <p>做法自然就有了答案。</p>
+        <p>笛卡尔说：“拥有好的心智并不足够，更重要的是如何好好运</p>
+        <p>用。”运用之妙将巴菲特与他的同行区分开来，一些同辈人非常聪明、自</p>
+        <p>律、专注，巴菲特之所以高于他们，是因为他具有整合三位智者的智慧，</p>
+        <p>凝聚提炼成自己方法的能力。</p>
+        <p>[1] Adam Smith,Supermoney（New York:Random House,1972）,172.</p>
+        <p>[2] Benjamin Graham and David Dodd,Security Analysis,3rd ed. （New</p>
+        <p>York:McGraw-Hill,1951）,38.</p>
+        <p>[3] Ibid..13.</p>
+        <p>[4] "Ben Graham:The Grandfather of Investment Value Is Still</p>
+        <p>Concerned,"Institutional Investor,AprilI 974.62.</p>
+        <p>[5] Philip Fisher.Common Stocks and Uncommon Profits （New</p>
+        <p>York:Harper&amp;Brothers,1958）,11.</p>
+        <p>[6] Philip Fisher,Developing an Investment Philosophy,Financial Analysts</p>
+        <p>Research Foundation,Monograph Number 10,p.l.</p>
+        <p>[7] Fisher,Common Stocks,13.</p>
+        <p>[8] Fisher,Developing an Investment Philosophy,29.</p>
+        <p>[9] Andrew Kilpatrick,Of Permanent Value:The Story of Warren Buffett rev.ed.（Birmingham,AL:AKPE,2000）,89.</p>
+        <p>[10] Robert Hagstrom,Investing:The Last Liberal Art（New York:Columbia</p>
+        <p>University Press,2013）.</p>
+        <p>[11] Remarks made at the 1997 Berkshire Hathaway annual meeting;quotedin Janet Lowe's biography of Charlie Munger,Damn Right:</p>
+        <p>（New York:JohnWiley&amp;Sons,2000）.</p>
+        <p>[12] Andrew Kilpatrick,Warren Buffett The Good Guy of Wall.Street（New</p>
+        <p>York:Donald I.Fine,1992）,38.</p>
+        <p>[13] Robert Lenzner,"Warren Buffett's Idea of Heaven:'I Don't Have to</p>
+        <p>Work withPeople I Don't Like,"'Forbes,October 18,1993,43.</p>
+        <p>[14] Berkshire Hathaway Annual Report,1989,21.</p>
+        <p>[15] Ibid.</p>
+        <p>[16] L.J.Davis,"Buffett Takes Stock,"New York TimesMazine,April l,1990,61.</p>
+        <p>[17] Berkshire Hathaway Annual Report,1987,15.</p>
+        <p>[18] Warren Buffett,"The Superinvestors of Graham-and-</p>
+        <p>Doddsville,"Hermes,Fall 1984.</p>
+        <p>[19] Berkshire Hathaway Annual Report,1990,17.</p>
+        <p>[20] Benjamin Graham,The Intelligent Investor,4th ed. （ New</p>
+        <p>York:Harper&amp;Row,1973）,287.</p>
+        <p>[21] Warren Buffett,"What We Can Learn from Philip</p>
+        <p>Fisher,"Forbes,October 19,1987,40.</p>
+        <p>[22] "The Money Men-How Omaha Beats Wall Street,"Forbes,November l,1969.82.</p>
+        <div class="divider"></div></section>
+    </div>
+  </main>
+</div>
+<script>
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a[href^='#']")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-8% 0px -80% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

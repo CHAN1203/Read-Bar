@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:accent" content="#d4a657">
+<title>巴菲特之道(原书第3版) · 第1章 五西格玛事件：世界上最伟大的投资家</title>
+<link rel="stylesheet" href="../reader.css">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#d4a657; --accent-soft:#33301f; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1408;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0; counter-reset:c;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(212,166,87,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1408; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(212,166,87,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+<style>figure img{width:100%;height:auto;display:block;border-radius:6px;}figure{padding:14px;}ul{margin:14px 0 14px 4px;padding-left:22px;color:#dcd8cc;}li{margin:6px 0;}h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:30px 0 4px;color:var(--ink);}.col section{padding:40px 0 6px;}</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">巴菲特之道(原书第3版)<b>第1章 五西格玛事件：世界上最伟大的投资家</b></div>
+    <div class="shelf-nav"><a class="home" href="../../index.html">📚 书架</a> <a class="home" href="index.html">📖 本书</a> <a href="buffett_u13.html">← 上一篇</a> <a href="buffett_u15.html">下一篇 →</a></div>
+    <ol><a href="#u" class="active">第1章 五西格玛事件：世界上最伟大的投资家</a></ol>
+  </nav>
+  <main>
+    <header class="cover"><div class="col">
+      <div class="eyebrow">巴菲特之道(原书第3版)</div>
+      <h1>第1章 五西格玛事件：世界上最伟大的投资家</h1>
+    </div></header>
+    <div class="col">
+      <section id="u"><div class="kicker">第1章 五西格玛事件：世界上最伟大的投资家</div><h2>第1章 五西格玛事件：世界上最伟大的投资家</h2>
+        <h3>第1章 五西格玛事件：世界上最伟大的投资家</h3>
+        <p>有史以来最大的慈善捐助</p>
+        <p>春日的早晨，巴菲特坐在纽约曼哈顿的公寓里。旁边坐着的是他多</p>
+        <p>年的老朋友卡罗尔·卢米斯女士，她是《纽约时报》的畅销书作家、《财</p>
+        <p>富》杂志的资深编辑、记者。她从1954年起就在杂志工作，长期追踪报道</p>
+        <p>巴菲特。更为人津津乐道的是她自1977年起开始协助巴菲特编辑伯克希</p>
+        <p>尔公司的年报。</p>
+        <p>在2006年春天，巴菲特告诉卡罗尔，他已经想好了如何处理他在伯</p>
+        <p>克希尔-哈撒韦公司拥有的巨大财富。像大多数人一样，卡罗尔知道巴菲</p>
+        <p>特在分给三个孩子一点钱后，会将自己99%的财富捐给社会用于慈善，但</p>
+        <p>人们想到的是这笔财富会捐给巴菲特基金会，该基金会由巴菲特和已故</p>
+        <p>妻子苏珊成立。现在巴菲特告诉卡罗尔他改变了主意，“我知道我想做什</p>
+        <p>么，知道如何做更有意义”。 [1]</p>
+        <p>2006年6月26日的纽约公共图书馆，午饭开始之前，数以百计的纽</p>
+        <p>约最成功人士起立鼓掌，伴着掌声，世界第二富豪沃伦·巴菲特走到麦克</p>
+        <p>风前。在客气寒暄几句之后，他从口袋里拿出五个信封，每一个信封里装</p>
+        <p>着一份他财富的分配安排，只等着他的签名即可生效。前三个信封内容</p>
+        <p>很简单，他签名“爸爸”，然后分别给了三个子女：女儿苏茜、长子霍华</p>
+        <p>德、次子彼得。第四封信交给了已故妻子所捐助的慈善基金会的代表。这</p>
+        <p>四封信给出的总计金额为60亿美元。 [2]</p>
+        <p>第五封信引起的人们的惊叹！巴菲特签名后，递给了梅琳达女士，</p>
+        <p>她是这个星球上唯一一个比巴菲特富有的人——比尔·盖茨的妻子。在这</p>
+        <p>封信中，巴菲特承诺将其拥有的伯克希尔公司股票，共计超过300亿美元</p>
+        <p>的财富捐给世界上最大的慈善机构——比尔&amp;梅琳达·盖茨基金。这是迄</p>
+        <p>今为止最大一笔单笔慈善捐助。历史上著名的捐赠有安德鲁·卡内基（按</p>
+        <p>照今天货币折算为72亿美元）、约翰·洛克菲勒（71亿美元）、小约翰·洛克</p>
+        <p>菲勒（55亿美元）。</p>
+        <p>在随后的日子里，人们有无数的疑问。巴菲特有病吗？或病入膏</p>
+        <p>肓？他妻子的过世对于他的这个决定有什么影响？巴菲特说：“我很好，</p>
+        <p>我的感觉棒极了。”众所周知，他妻子苏珊原本将继承他在巴菲特基金的</p>
+        <p>主导地位：“她很享受这个过程，她对于规模的扩大有些恐惧，但她喜</p>
+        <p>欢，并会干得很好。” [3]</p>
+        <p>但是对于这个原有的安排在妻子过世之后，巴菲特有了新的考虑，</p>
+        <p>他发现比尔&amp;梅琳达·盖茨基金是个完美的机构，正做着他本人想做的</p>
+        <p>事情。“他们可以更有效率地使用金钱，就像巴菲特基金会一样。找到</p>
+        <p>那个按照你的想法做事，而且做得更好的人，将事情委托给他们难道不</p>
+        <p>更符合逻辑吗？” [4]</p>
+        <p>这就是典型的巴菲特，总是充满理性。巴菲特提醒我们，在企业管</p>
+        <p>理中有一个核心内容，就是他们管的比他好。同样，比尔&amp;梅琳达·盖茨</p>
+        <p>基金做慈善比他更好，何乐而不为。</p>
+        <p>比尔·盖茨评价他的老朋友说：“巴菲特将被人记住的不仅仅是最伟</p>
+        <p>大的投资家，而且是世界上最伟大的美德投资家。” [5] 说得一语中的。但</p>
+        <p>是更为重要的是，巴菲特慷慨慈善的美德可能被放在第一位，而他那无</p>
+        <p>与伦比的投资技能却可能屈居第二了。当巴菲特将300亿美元的信件递</p>
+        <p>交给梅琳达·盖茨的时候，我脑海中迅速闪回到50年前，他以100美元起步</p>
+        <p>成立巴菲特投资合伙企业的情景。</p>
+        <p>巴菲特总是声称自己非常幸运，1930年出生于美国，这个出生时空</p>
+        <p>组合的概率是30∶1，而他降生的那一刻就好比中了彩票；他承认自己跑不</p>
+        <p>快，没法成为优秀的橄榄球运动员；尽管他有弹四弦琴的勇气，但不可能</p>
+        <p>成为音乐会上的小提琴演奏家。但运气之外，他独具的一些特点却令他</p>
+        <p>能在资本经济海洋中有所作为。 [6]</p>
+        <p>“生活在美国，一些幸运的基因，复利，这些综合在一起造就了我的</p>
+        <p>财富。”巴菲特说，“生活在这样一个经济体系中，更是促成了这些结果</p>
+        <p>的形成，美国这个经济体系虽然有时会产生扭曲的结果，但最终整体而</p>
+        <p>言，它能很好地服务于我们的国家。”巴菲特悄悄告诉我们，他很高兴在</p>
+        <p>这样一个经济体中工作，“它奖励那些在战场上救死扶伤的人以勋章，它</p>
+        <p>奖励那些优秀的老师以父母的感谢，它奖励那些能发现被错杀的股票</p>
+        <p>的人以亿万财富。”他将之称为命运的不确定性分布。 [7]</p>
+        <p>这或许有一定道理，但我心中所渴望了解的，是巴菲特如何在其成</p>
+        <p>长环境中，刻画出属于自己的命运线条。这里，我们要探究的就是巴菲特</p>
+        <p>如何成就自我的故事。</p>
+        <p>个人经历和投资缘起</p>
+        <p>沃伦·爱德华·巴菲特，1930年8月30日出生于内布拉斯加州奥马哈</p>
+        <p>市，是奥马哈巴菲特家族的第七代。家族第一代在1869年开了一家杂货</p>
+        <p>店，巴菲特的爷爷经营着这家杂货店，后来伯克希尔的副董事长查理·芒</p>
+        <p>格，竟然曾经在巴菲特爷爷的杂货铺里打过工。巴菲特的爸爸——霍华</p>
+        <p>德，曾是当地的一名股票经纪人、银行家，后来还做过共和党的众议员。</p>
+        <p>据说巴菲特一出生就着迷于数字，这也许是有些夸张了，但有记录</p>
+        <p>表明，他在进入幼儿园之前就已经是台“小计算机”了。小时候，他和最好</p>
+        <p>的朋友鲍勃·罗素坐在罗素家的门廊上，背经过的小汽车的车牌号。天黑</p>
+        <p>之后，他们俩进屋，把《奥马哈世界先锋报》铺在地上，计算每个数字出</p>
+        <p>现的次数。然后，在他们的剪贴簿上整理计算的结果，好像在做什么顶级</p>
+        <p>秘密的事情。</p>
+        <p>巴菲特最为珍贵的礼物来自他的姑姑——爱丽丝，她非常喜欢这</p>
+        <p>个可爱的侄子，并且向他提出一个无法拒绝的提议：如果他同意吃芦</p>
+        <p>笋，她就送他一块秒表。巴菲特完全被这个精密的计数器迷住了，他在各</p>
+        <p>种男孩子喜欢的游戏中都使用他，例如弹珠游戏。他叫来两个姐妹，在</p>
+        <p>浴缸里放满水，让她们将弹珠放进去，利用浴缸内壁的弧度，看哪一个弹</p>
+        <p>珠能先到达漏水口，他在一旁按着秒表计数时间。</p>
+        <p>而来自爱丽丝姑姑的第二件礼物，将六岁的巴菲特引领上了新的人</p>
+        <p>生方向——不是数字的魅力，而是金钱的魔力。圣诞节时，巴菲特拆开</p>
+        <p>礼物，发现是个镀镍的钱包，这成为他最珍贵的财产，他将它立刻别在</p>
+        <p>腰上。他发现钱包有很多用处，他在门口放了张桌子，向每一个路过的</p>
+        <p>人兜售巧克力。他挨家挨户地敲门，卖口香糖和汽水。他从爷爷的杂货</p>
+        <p>店以25美分的价格批发来6罐一包的可口可乐，然后拆散了，以每罐5美</p>
+        <p>分出售——这样就有了20%的投资回报。他还上门叫卖《星期六晚邮</p>
+        <p>报》和《自由》杂志。每个周末，他在当地的橄榄球场卖爆米花和花生。所</p>
+        <p>有这些生意，他都要用上他宝贵的钱包——收钱、找零。 [8]</p>
+        <p>然而，这种田园牧歌式的好日子突然被打断了，大萧条终于也席卷</p>
+        <p>到了奥马哈。一天晚上，巴菲特的父亲回到家，告诉大家他工作的那家银</p>
+        <p>行关门了，他丢了工作，他们的存款也损失了。巴菲特开杂货店的爷爷，</p>
+        <p>给了他父亲一些钱支持他们家渡过难关。</p>
+        <p>幸运的是，这样绝望的感觉没有延续太久。霍华德很快振作起来，宣</p>
+        <p>布成立自己的公司——巴菲特·斯坎兰尼卡公司，开始了他的投资合伙企</p>
+        <p>业，公司设在法纳姆大街上，多年以后巴菲特在同一条大街上买了房。</p>
+        <p>大萧条的影响尽管短暂，但给巴菲特的家带来了艰难，这给年轻</p>
+        <p>的巴菲特留下了深刻的印象。《巴菲特：一个资本家的成长》一书的作者</p>
+        <p>罗杰·洛温斯坦说：“这种人生早期的艰难生活成为绝对的驱动力，他要</p>
+        <p>变得非常、非常、非常富有。在他五岁之前就这么想，自那时起，他从未停</p>
+        <p>止过这个念头。” [9]</p>
+        <p>巴菲特10岁的时候，父亲带他去了纽约，这是霍华德给每个孩子的</p>
+        <p>礼物。巴菲特说：“我告诉父亲，我想去三个地方：我想去斯科特邮票钱</p>
+        <p>币公司，我想去莱昂内尔火车公司，我想去纽约证券交易所。” [10] 在坐了</p>
+        <p>一夜火车后，他们到达了华尔街，在那里他们见到了交易所的成员艾特·</p>
+        <p>莫尔。巴菲特说：“午饭之后，有人拿过托盘，上面摆放着不同的烟叶，</p>
+        <p>莫尔先生挑出自己喜欢的，然后有人将它们现场做成雪茄。我想这就是</p>
+        <p>所谓的定制雪茄吧，太棒了。” [11]</p>
+        <p>之后，霍华德领着儿子还见了高盛公司的合伙人西德尼·温伯格——</p>
+        <p>当时华尔街的名人。在温伯格的办公室里，巴菲特被墙上的各种照片和</p>
+        <p>证书深深吸引，很多镜框中都是名人作品的原件。当霍华德和温伯格谈</p>
+        <p>论金融事务时，巴菲特在办公室里四处走动，看着那些艺术品。当他们</p>
+        <p>父子离开时，温伯格拥抱着巴菲特问他喜欢什么股票。巴菲特后来回忆</p>
+        <p>道：“他一定在第二天就忘了，我却永远地记住了这一天。” [12]</p>
+        <p>甚至在去纽约之前，巴菲特就已经对股票和股市充满了好奇，他经</p>
+        <p>常去他父亲经纪公司的办公室，看着墙上挂着的各种股票和债券证书，</p>
+        <p>就像温伯格的办公室里一样。很多人渐渐喜欢上这个总是不停问问题</p>
+        <p>的小家伙，并允许他用粉笔在黑板上抄写股票的价格行情。</p>
+        <p>周六上午，证券交易所开盘两个小时，巴菲特和他叔叔弗兰克·巴菲</p>
+        <p>特、舅舅约翰·巴伯一起待在证券公司的办公室里。根据巴菲特的回忆，</p>
+        <p>弗兰克叔叔总是看空，而约翰舅舅却总是乐观派。他们俩总是谈论自己</p>
+        <p>对于世界的看法，这些故事都吸引着小巴菲特。在所有的时间里，巴菲特</p>
+        <p>都直直地盯着股票行情机，看着不停跳动的股票价格，他想知道这背后</p>
+        <p>到底蕴藏着什么。每个周末，他都认真阅读《巴伦》杂志的“交易”专栏。</p>
+        <p>当他将父亲书架上的所有书籍读完之后，又读完了当地图书馆里所有关</p>
+        <p>于投资的书籍。不久之后，他开始亲自画股价的图表，试图搞清楚眼前这</p>
+        <p>些不断变动的数字到底有何规律可循。</p>
+        <p>当11岁的巴菲特宣布他已经准备好投资他的第一只股票时，没有</p>
+        <p>人感到意外。然而，当他宣布他的投资金额为120美元时，大家还是震惊</p>
+        <p>了。这些钱来自于他卖汽水、花生、和杂志。他决定买入城市服务优先股，</p>
+        <p>这是他父亲的爱股之一，他还说服了姐姐多丽丝加入。他们各自支付了</p>
+        <p>114.75美元各买了三股。巴菲特已经下功夫研究了图表，对这项投资信心</p>
+        <p>满满。</p>
+        <p>那年夏天，股市在下跌，在6月触及年度低点。这两个年轻的小投资</p>
+        <p>者眼睁睁地看着他们的股票下跌了30%，多丽丝天天来问巴菲特股票的</p>
+        <p>损失情况，这让人有些崩溃。最后，当这只股票回升到40美元/股时，巴</p>
+        <p>菲特将其卖出，终于赚了5美元。</p>
+        <p>随后发生的情况是，城市服务优先股不久飙升至202美元/股，这令巴</p>
+        <p>菲特懊恼不已。他计算了一下，除去佣金，他整整少赚了492美元。而此</p>
+        <p>前，他用了5年时间去积攒那120美元，这样算下来，此次错失令他损失了</p>
+        <p>20年的工作所得。这是痛苦的一课，但最终非常有价值。</p>
+        <p>巴菲特发誓，首先，他再也不会被支付的成本所牵制。其次，他不会</p>
+        <p>再仅仅满足于蝇头小利。以他11岁的智慧头脑，巴菲特已经学会投资中</p>
+        <p>最为重要的一课——耐心。（这个重要的品质我们将在第7章中展开讨</p>
+        <p>论。）</p>
+        <p>1942年，巴菲特12岁，他父亲当选为国会议员，全家搬到首都华盛</p>
+        <p>顿。环境的变化令年轻的巴菲特难以适应，他非常思念家乡的氛围，</p>
+        <p>于是他返回奥马哈，与爷爷和爱丽丝姑姑一起生活。但第二年，1943年，</p>
+        <p>巴菲特与首都华盛顿之间有了另一种缘分。</p>
+        <p>证券公司里没有了熟人，渐渐地巴菲特的兴趣从股市转向了小生</p>
+        <p>意。13岁时，他跑两条送报路线，分别投送《华盛顿邮报》和《华盛顿</p>
+        <p>时代先驱报》。在伍德罗·威尔逊高中，他结识了小伙伴唐·丹利，这个小</p>
+        <p>伙伴迅速点燃了巴菲特赚钱的热情。两人一起凑了25美元，买了一台二</p>
+        <p>手翻新的弹球机，巴菲特说服了当地一位理发师，将机器放在他的理发</p>
+        <p>店里，赚了钱分一半给对方。第一天的运营结束后，他们发现这台机器里</p>
+        <p>竟然有4美元硬币的收入。他们很快将业务扩大到七台的规模，不久巴菲</p>
+        <p>特每周可以拿50美元回家了。</p>
+        <p>到巴菲特高中毕业时，通过各种努力，他已经积累了9000美元的财</p>
+        <p>富。他立即宣布，他不想上大学，因为这将干扰他的商业计划。父亲否定</p>
+        <p>了他的想法，秋天到来的时候，巴菲特上了宾夕法尼亚大学的沃顿商学</p>
+        <p>院。尽管沃顿商学院以商务和金融闻名，但巴菲特似乎没有留下什么印</p>
+        <p>象，他回忆道：“我好像在那里没有学到太多东西。” [13] 沃顿强调比较多</p>
+        <p>的是商务理论，而巴菲特感兴趣的是实操层面——如何赚钱！两年之</p>
+        <p>后（1947~1949），他转学到了内布拉斯加大学，一年修完了14门功课。</p>
+        <p>1950年毕业，那时他还不满20岁。</p>
+        <p>回到奥马哈，巴菲特又有了与股市的联系。他开始从经纪人那里搜</p>
+        <p>集信息、订阅刊物、重新开始画股价图表，并学习股市技术分析的书籍。</p>
+        <p>他使用麦吉点数分析系统和其他能找到的系统，试图发现哪一个技术</p>
+        <p>手段真的有用。一天，他在当地图书馆看书，发现了刚出版的本杰明·格</p>
+        <p>雷厄姆的新书《聪明的投资者》，他描述当年的情景：“就像看到了一道</p>
+        <p>光！” [14]</p>
+        <p>格雷厄姆与大卫·多德合著的《证券分析》（1934年出版）对于求知</p>
+        <p>若渴的巴菲特而言，如逢甘霖，他离开奥马哈前往纽约，加入了格雷厄</p>
+        <p>姆在哥伦比亚大学商学院的课程。格雷厄姆教会了他懂得公司内在价值</p>
+        <p>的重要性。他相信，那些准确计算价值，并以较低价格买入的投资者终</p>
+        <p>将在市场上获利。这个数学的方式令巴菲特热衷于数字。</p>
+        <p>格雷厄姆的班上有20名学生，很多人年龄比巴菲特大，有几个在华</p>
+        <p>尔街工作。晚上，这些华尔街工作的学生在格老的班上讨论哪只股票大</p>
+        <p>大低估，第二天，他们在班上就买入前一天晚上讨论的股票，然后获利。</p>
+        <p>很快，巴菲特就成为班上最聪明的学生，每当格雷厄姆发问，甚至</p>
+        <p>问题还没有说完，巴菲特就已经举起了手。和里克·卡尼夫一起创建红杉</p>
+        <p>基金的比尔·鲁安也在同一个班级，他说在巴菲特和格雷厄姆之间有着</p>
+        <p>瞬间的化学反应般的默契，而其他的同学们基本上是观众 [15] 。巴菲特的</p>
+        <p>最终成绩是A+，这是格雷厄姆执教22年以来给出的第一个A+。</p>
+        <p>在哥伦比亚大学毕业之后，巴菲特向格雷厄姆的公司申请一个工作</p>
+        <p>职位，但没有得到。刚开始巴菲特稍感意外，但随后被告知，公司将优先</p>
+        <p>考虑那些在华尔街受到不公正待遇的犹太裔分析师。于是，巴菲特返回</p>
+        <p>故乡奥马哈，加入了父亲的证券经纪公司，他旗开得胜，热心地推荐那</p>
+        <p>些符合格雷厄姆价值标准的股票。同时，他继续保持着与格雷厄姆的联</p>
+        <p>系，将一个个股票心得发给老师。1954年，格雷厄姆打来电话说，宗教</p>
+        <p>的障碍被取消了，现在格雷厄姆-纽曼公司有个位置，如果巴菲特感兴趣</p>
+        <p>可以考虑一下是否愿意来上班。巴菲特二话没说，登上第二天的飞机，</p>
+        <p>直飞纽约。</p>
+        <p>在格雷厄姆-纽曼公司工作期间，巴菲特完全沉浸在导师的投资理</p>
+        <p>论中。除了巴菲特之外，公司还雇佣了沃尔特·施洛斯 [16] 、汤姆·纳普 [17]</p>
+        <p>和比尔·鲁安，都是日后大名鼎鼎的人物。施洛斯在WJS有限公司管理投</p>
+        <p>资28年之久，普林斯顿大学化学专业毕业的纳普创立了特威迪·布朗合伙</p>
+        <p>公司，鲁安合作创立了著名的红杉基金。</p>
+        <p>对于巴菲特而言，格雷厄姆不仅仅是导师。作家罗杰·洛温斯坦写</p>
+        <p>道：“格雷厄姆是第一个证明挑选股票可以是可靠的理论方式的人，而在</p>
+        <p>此之前，它是像赌博一样的伪科学。股票市场就像一个奇幻的、令人禁足</p>
+        <p>的城市，而格雷厄姆是提供这个城市地图的第一人。” [18] 自从11岁第一</p>
+        <p>次买了城市服务优先股，巴菲特花了生命中一半的时间研究股市的未解</p>
+        <p>之谜，现在他终于得到了答案。</p>
+        <p>《滚雪球》的作者爱丽丝·施罗德写道：“巴菲特的反应就像一个一生</p>
+        <p>都待在山洞里的原始人，忽然有朝一日走出山洞，在阳光下眨着眼，第一</p>
+        <p>次看清这世界。”巴菲特最初认为“股票就是一张张可供交易的纸片，现</p>
+        <p>在，他知道股票是其背后真实企业价值的代表符号。” [19]</p>
+        <p>1956年，在巴菲特来到纽约两年之后，格雷厄姆-纽曼公司解散了，61</p>
+        <p>岁的格雷厄姆决定退休。巴菲特再一次回到奥马哈，怀揣着从老师那里</p>
+        <p>学来的投资知识，以及家庭的金融背景、朋友们的支持，他成立了投资</p>
+        <p>合伙企业，这一年他25岁。</p>
+        <p>巴菲特合伙公司</p>
+        <p>巴菲特合伙企业起步时，有七个有限合伙人，共投资了10.5万美元，</p>
+        <p>巴菲特自己作为一般合伙人，出资100美元。每年如果投资回报率在6%及</p>
+        <p>以下，收益将全部归有限合伙人所有，超过6%的部分，他们获得其中的</p>
+        <p>75%，巴菲特获得25%。但合伙企业的回报目标是非承诺的，不是绝对的。</p>
+        <p>巴菲特告诉他的合伙人，他希望每年战胜道琼斯指数10个百分点。</p>
+        <p>巴菲特对合伙人承诺：“我们的投资将基于价值，而不是市场的热</p>
+        <p>点”，并且合伙企业“将避免本金永久性损失（不是短期的行情账面损失）</p>
+        <p>的风险降至最小。” [20] 最初，他严格遵循格雷厄姆的标准，选择被低估的</p>
+        <p>股票。此外，他还参与一些并购套利——就是当两家公司收购合并时，</p>
+        <p>买进一家公司的股票，同时卖出另一家公司的股票的策略，其目的是为</p>
+        <p>了取得无风险利润。</p>
+        <p>巴菲特合伙企业起航之后，创造了令人瞩目的成绩。在第一个五年</p>
+        <p>（1957~1961）中，道琼斯指数上升75%，合伙企业成绩是251%（有限合伙</p>
+        <p>人得到181%的回报）。巴菲特不但实现了他打败道琼斯10个百分点的</p>
+        <p>诺言，而且大大超出，他实际的成绩是35个百分点。</p>
+        <p>随着巴菲特的名声渐渐广为人知，越来越多的人找他管理自己的资</p>
+        <p>金。由于每个合伙企业只有50个名额的限制，随着找来的人越来越多，就</p>
+        <p>成立了一个又一个的新合伙企业。直到1962年，巴菲特决定将它们重新</p>
+        <p>整合为一个合伙企业。这一年，巴菲特将自己的办公室从家里搬到奥马</p>
+        <p>哈的基威特大厦，他在那里办公一直到今天。第二年，巴菲特做出了他一</p>
+        <p>生中最为重要的著名投资之一，这使得他已经冉冉升起的名望更加如日</p>
+        <p>中天。</p>
+        <p>20世纪60年代最著名的公司丑闻之一，发生在提诺·迪安杰利斯领导</p>
+        <p>的联合原材料植物油公司，他发现可以用公司色拉油的库存套取银行贷</p>
+        <p>款。在这个过程中，由于油可以轻浮在水面之上，他于是操纵了游戏，使</p>
+        <p>用了一些小伎俩。他在新泽西州建了一个炼油厂，放了139个五层的储</p>
+        <p>油罐，用于储存大豆油。当银行人员来检验的时候，公司人员就爬上油罐</p>
+        <p>的顶端，用测量棒蘸一下罐内的液体，然后大声将测量棒上的虚假数字</p>
+        <p>报给外面的检验人员。当丑闻被揭穿后，据悉牵涉到了美洲银行、国民</p>
+        <p>银行、美国运通和其他一些国家贸易公司，欺诈贷款的金额共计1.5亿美</p>
+        <p>元。</p>
+        <p>美国运通是这起色拉油丑闻最大的受害者之一，损失了5800万美</p>
+        <p>元，受此消息打击，运通股价下跌超过了50%。如果说巴菲特从格雷厄姆</p>
+        <p>那里学到了什么的话，一定是：当一只优质公司股票的价格低于其内在</p>
+        <p>价值时，果断出击！</p>
+        <p>巴菲特注意到了公司5800万美元的损失，但他不知道客户如何看待</p>
+        <p>公司丑闻。于是他在奥马哈市有收银机的餐馆来回逛，发现人们依然</p>
+        <p>在使用美国运通发行的绿色运通卡，使用频率并未下降。他又访问了几</p>
+        <p>家银行，获知这起财务丑闻对于美国运通旅行支票的发售也没有什么影</p>
+        <p>响。</p>
+        <p>回到办公室，巴菲特立即投资1300万美元在美国运通的股票上，这</p>
+        <p>笔资金相当于整个合伙企业25%的总资产，比例相当巨大。在随后两年，</p>
+        <p>美国运通的股票涨到了原来的3倍，巴菲特漂亮地净赚2000万美元。这是</p>
+        <p>纯粹的格雷厄姆，纯粹的巴菲特。</p>
+        <p>成立之初，巴菲特的合伙企业只是投资于低估的股票和一些并购带</p>
+        <p>来的套利机会。但在第五年，他第一次购买了一家公司的控股权——登</p>
+        <p>普斯特制造厂，一家农场设备制造商。下一步，他开始买进有点气数不佳</p>
+        <p>的新英格兰的纺织厂——伯克希尔-哈撒韦公司，直到1965年他控制了这</p>
+        <p>家公司。</p>
+        <p>在微积分学中，拐点是曲线在一个点曲率发生改变，从正到负，或</p>
+        <p>从负到正。拐点之说也发生在企业、行业、经济、地缘政治以及个人身</p>
+        <p>上。我相信20世纪60年代是巴菲特的拐点年代——他从投资家巴菲特进</p>
+        <p>化为企业家巴菲特。</p>
+        <p>与此同时，市场也到了一个拐点。自1956年开始，格雷厄姆提出、巴</p>
+        <p>菲特执行的估值策略成为股市的主流。但是在60年代后期，新时代开始</p>
+        <p>了，它被称为成长股时代。这个时代里，贪婪的情绪推动着市场，快钱追</p>
+        <p>逐那些高高飞扬的股票，人们迅速赚钱，或迅速亏钱。 [21]</p>
+        <p>尽管股市的根本心理在发生改变，但巴菲特合伙企业继续了杰出</p>
+        <p>的表现。到1966年末，合伙企业累计回报1156%（有限合伙人取得</p>
+        <p>704%），道琼斯指数同期表现为上升123%。尽管业绩优异，巴菲特却越来</p>
+        <p>越不安，因为股市的脚步越来越超出了格雷厄姆的原则范围。新的舞曲</p>
+        <p>响起，但巴菲特找不到感觉。</p>
+        <p>1969年，巴菲特决定解散合伙投资企业，他发现市场已经高度投</p>
+        <p>机，值得投资的机会极度稀缺。60年代后期，股市被高高在上的成长股所</p>
+        <p>主导。“漂亮50”天天被人挂在嘴边，雅芳、宝丽来、施乐的股票都处于</p>
+        <p>50~100倍的市盈率。巴菲特给合伙人写了一封信，坦诚自己已经不适应</p>
+        <p>当前的股市环境，“但有一点，我很清楚，”他说，“我不会将之前自己明白</p>
+        <p>其逻辑的投资方法全部抛弃，尽管它们在目前的市场中难以运用，尽管</p>
+        <p>这意味着放弃大量的、明显的唾手可得的盈利。使用那些我自己完全不</p>
+        <p>理解的、未经实践的方法可能会导致本金的永久性损失。” [22]</p>
+        <p>在巴菲特合伙企业起步之初，他为公司设定了每年跑赢道琼斯指数</p>
+        <p>10个百分点的目标，从1957年起步到1969年解散，他的确击败了道指，</p>
+        <p>不仅仅是10个百分点，而是22个百分点！当合伙企业解散时，每个投资</p>
+        <p>人收到相应的部分。一些人转向市政教育债券，一些人被推荐给了一位</p>
+        <p>基金经理。巴菲特推荐的这个人是比尔·鲁安，他也是格雷厄姆的学生，巴</p>
+        <p>菲特在哥伦比亚大学的同学。鲁安同意管理一部分合伙人的资金，这促</p>
+        <p>成了著名的红杉基金的诞生。另一些合伙人，包括巴菲特本人，将自己的</p>
+        <p>部分资金转换为伯克希尔公司的股票。巴菲特自己在合伙企业中的财富</p>
+        <p>已经增长到2500万美元，这足以让他控制伯克希尔-哈撒韦公司。</p>
+        <p>当巴菲特解散合伙企业时，很多人以为巴菲特要“金盆洗手”了，但</p>
+        <p>实际上，好戏才刚刚开始。</p>
+        <p>伯克希尔-哈撒韦</p>
+        <p>公司最初的前身是成立于1889年的伯克希尔棉花制造厂。40年后，</p>
+        <p>工厂合并了一些其他的纺织企业，成为新英格兰地区最大的工业企业</p>
+        <p>之一。在此期间，伯克希尔公司产生了大约25%的全国棉花需求，和1%</p>
+        <p>新英格兰地区的用电需求。1955年，伯克希尔与哈撒韦制造公司合并，公</p>
+        <p>司名称随之变更为伯克希尔-哈撒韦，并沿用至今。</p>
+        <p>不幸的是，合并之后的公司命运多舛，不到十年的时间，股东权益</p>
+        <p>下降了一半，亏损超过1000万美元。之后的20年，巴菲特和主管纺织业务</p>
+        <p>的肯·查斯一直努力，试图扭转这个新英格兰的纺织厂。结果令人失望，净</p>
+        <p>资产收益率勉强维持在两位数。</p>
+        <p>到了20世纪70年代，股东们开始质疑维持一个效益不佳的纺织厂运</p>
+        <p>营是否值得？巴菲特没有掩饰面临的难题，在数个场合，他解释了自己</p>
+        <p>的考虑：纺织厂是当地就业人数最多的企业，这些工人年龄偏大，相对</p>
+        <p>不具备转业的技能，管理层表现出高度的工作热情，工会要求合理，最重</p>
+        <p>要的是，巴菲特相信纺织厂仍然多少还能实现一些利润。</p>
+        <p>然而，他也表述得很清楚，希望纺织部门能在适当的资本成本上产</p>
+        <p>生利润，他解释道：“我不会仅仅为了增加公司的回报，而关闭一些低</p>
+        <p>利润率的业务部门。我也不会认为有利润的公司就应该去为一些前景</p>
+        <p>不明的业务继续花钱。亚当·斯密不会同意我的前一个观点，卡尔·马克</p>
+        <p>思不会同意我的后一个观点，我选择站在中间让我感到舒适的位置。”</p>
+        <p>[23]</p>
+        <p>当伯克希尔进入80年代，巴菲特面临一些更现实的问题。首先，纺</p>
+        <p>织业的性质决定了高回报是不可能的了。纺织品是普通类商品，这类商</p>
+        <p>品很难将自己与竞争对手区分开来。来自国外的竞争者使用更便宜的劳</p>
+        <p>动力，一点一点挤压利润。其次，为了维持纺织企业的竞争优势，需要</p>
+        <p>不断投入新的资本金，在通货膨胀的情况下前景更为骇人，企业迟早会</p>
+        <p>发生资本贫血的灾难。</p>
+        <p>巴菲特面临艰难的选择，如果他投入大量的资金以维持纺织部门</p>
+        <p>的竞争力，伯克希尔的资产回报率将被拖低；如果不增加再投资，伯克</p>
+        <p>希尔的纺织厂对于其他国内同行而言，将丧失竞争力。无论巴菲特是否</p>
+        <p>增加投资，国外的同业竞争者都具有强大的低成本的劳动力优势。</p>
+        <p>1980年的年报终于透露了关于纺织部门的坏消息，那一年，它们失</p>
+        <p>去了董事长致辞中的首要位置，第二年的致辞也没有谈到纺织部门的情</p>
+        <p>况。到了1985年6月，必然的事情发生了，巴菲特关闭了纺织厂，结束了这</p>
+        <p>项具有百年历史的业务。</p>
+        <p>尽管纺织厂最终不幸结业了，但是这次经验却不是完全的失败。首</p>
+        <p>先，巴菲特学到了宝贵的一课——企业拐点，当企业的环境发生根本性</p>
+        <p>变化时，它们很少能转型成功。其次，纺织厂早期产生的现金流足以供</p>
+        <p>巴菲特去购买保险公司，这造就了更为精彩的故事。</p>
+        <p>保险业务运营</p>
+        <p>1967年3月，伯克希尔公司出资860万美元，收购了奥马哈市当地的</p>
+        <p>两家保险公司：国民赔偿公司和国民火灾海上保险公司。这是伯克希尔</p>
+        <p>惊人成功故事的开端。</p>
+        <p>为了能好好欣赏这出重头戏，先要弄清楚拥有保险公司的真正价</p>
+        <p>值所在，这一点很重要。保险公司有时是个好投资，有时不是，然而，它</p>
+        <p>们通常总是很好的投资工具。保单持有人（保险公司客户）支付保费，</p>
+        <p>提供了持续的现金流；保险公司用这些现金进行投资，直至有客户出险</p>
+        <p>提出索赔。由于索赔发生的时间不确定，所以保险公司的投资对象是具</p>
+        <p>有流动性的证券——主要是短期固定收益证券、长期债券和股票。这</p>
+        <p>样，巴菲特购买的不仅仅是两家健康的公司，而且是管理投资的工具。</p>
+        <p>1967年，这两家保险公司拥有的投资组合中，包括债券2470万美元、</p>
+        <p>股票720万美元。两年之后，这个投资组合增值为4200万美元，干得相当</p>
+        <p>漂亮。巴菲特接管伯克希尔之后，也有了管理这家纺织企业证券组合的</p>
+        <p>经验。1965年巴菲特接管公司时，公司拥有一个290万美元的证券投资</p>
+        <p>组合，一年之后，巴菲特将其扩大到了540万美元。1967年，证券投资带来</p>
+        <p>的回报是纺织部门盈利的3倍，而证券部门的净资产只有纺织部门净资</p>
+        <p>产的1/10。</p>
+        <p>对于巴菲特进入保险领域、退出纺织领域这种行为，是有争议的。</p>
+        <p>有人认为，保险业也像纺织业一样，是个普通商品类型的行业，它们</p>
+        <p>销售的产品（保单）并无特质。保险业的保单可以标准化、可以被其他</p>
+        <p>保险公司复制，没有商标、专利、地域优势等能让一家保险公司有别于</p>
+        <p>其他同行。获得保险执照也不难，保险费率也都是公开的。</p>
+        <p>最能区分一家保险公司的是它的工作人员。公司管理层的努力对</p>
+        <p>于一家保险公司的运营表现有着巨大的影响。多年以来，巴菲特在伯克</p>
+        <p>希尔的组合中增加了一系列的保险公司，其中最为著名的是盖可保险公</p>
+        <p>司。1991年，伯克希尔买入盖可保险50%股份。之后的三年，盖可的表现令</p>
+        <p>人印象深刻并持续攀升，更让巴菲特增添了兴趣。1994年，伯克希尔宣布</p>
+        <p>已经持有盖可保险51%的股份，并很认真地讨论盖可加入伯克希尔大家</p>
+        <p>庭的问题。两年之后，巴菲特写了一张23亿美元的支票，盖可保险成为</p>
+        <p>伯克希尔的全资公司。</p>
+        <p>巴菲特并未止步于此，1998年他斥资160亿美元收购了一家再保险</p>
+        <p>公司——通用再保险。这是截止当时最大的一笔投资。</p>
+        <p>年复一年，巴菲特继续在收购保险公司，但毫无疑问，他最聪明的</p>
+        <p>是对于人才的收购。巴菲特请阿吉特管理伯克希尔的再保险集团，阿</p>
+        <p>吉特出生于1951年，毕业于久负盛名的印度技术学院，取得工程师学位。</p>
+        <p>他在IBM工作了三年之后，前往哈佛获得了商业学位。</p>
+        <p>尽管阿吉特没有保险行业背景，但巴菲特很快发现了他惊人的才</p>
+        <p>干。自1985年起，阿吉特用20年时间建立的再保险集团的浮存金（保费收</p>
+        <p>入尚未赔付）达到340亿美元。按照巴菲特的说法，阿吉特“对于风险的掌</p>
+        <p>控无人能及，他的运作综合了能力、速度和决断，但最重要的是，他在保</p>
+        <p>险方面的独一无二的头脑。 [24] ”他们每一天都在相互交流。阿吉特到底</p>
+        <p>有多重要呢？给你提供一个线索，巴菲特在2009年伯克希尔的年报中写</p>
+        <p>道：“如果芒格、我和阿吉特同在一条沉船上，你只能救一个人，请游向阿</p>
+        <p>吉特。”</p>
+        <p>导师及其公司</p>
+        <p>要形容巴菲特是不容易的，仅从外表上看，他并不起眼，像是个老爷</p>
+        <p>爷，而不是一个公司的大老板。智力上而言，他被认为是天才，但他与人</p>
+        <p>相处时非常简单、平易近人。他简单、直率、豪爽、诚实，融干练机智和</p>
+        <p>亲切幽默为一体，他喜欢逻辑分明，厌恶混乱无序，他喜欢单纯，厌恶繁</p>
+        <p>琐。</p>
+        <p>在年报中，巴菲特常常引用《圣经》，或约翰·梅纳德·凯恩斯、梅·韦</p>
+        <p>斯特等人的著作或名言，凡是阅读的人都会备感亲切，被深深打动。每</p>
+        <p>份年报都信息量极大，长达60~70页，没有照片、没有彩图、没有表格。</p>
+        <p>从年报的第一页开始，就充满着积极向上的正能量，它们将金融触觉、</p>
+        <p>平易近人的幽默，以及诚实的精神综合为一体。巴菲特在报告中非常坦</p>
+        <p>率地直面公司的优势与不足，他认为股东就是公司的主人，并设身处地</p>
+        <p>替他们着想。</p>
+        <p>巴菲特主导的公司综合体现了他的个性、企业哲学（与其投资哲学</p>
+        <p>如出一辙），及其独一无二的风格。伯克希尔公司是个构建精密的大</p>
+        <p>厦，但不复杂。它只有两个部分：企业运营和投资组合。投资组合的资本</p>
+        <p>来自保险业务的浮存金，以及非保险业务的盈利。巴菲特管理证券投资</p>
+        <p>组合，就像他考察购买一个企业一样，看它们是否物有所值，看其管理</p>
+        <p>层是否忠诚。</p>
+        <p>今天，伯克希尔-哈撒韦公司由三个部门组成：保险业务、资本密集</p>
+        <p>型业务（包括中美能源、伯灵顿北方铁路等）、制造服务零售业务（业务</p>
+        <p>从棒棒糖到喷气飞机）。2012年，这些业务合计为伯克希尔公司提供了</p>
+        <p>108亿美元的盈利，而相对于1988年，公司盈利为3.99亿美元。2012年公司</p>
+        <p>证券投资组合的市值为876亿美元，成本为498亿美元；而25年前的1988</p>
+        <p>年，投资组合的市值为30亿美元，成本为13亿美元。</p>
+        <p>在过去的48年里，自1965年巴菲特接管伯克希尔-哈撒韦公司以来，</p>
+        <p>公司的账面价值从每股19美元增长到114214美元，年复合增长率19.7%，</p>
+        <p>同期标普500指数的增长率为9.4%（包括分红在内）。这意味着在长达半</p>
+        <p>个世纪的时间里，巴菲特胜出10.3个百分点。正如我前面提到的，当“钱匣</p>
+        <p>子”关闭他的合伙企业时，他的辉煌之旅才刚刚开始。</p>
+        <p>五西格玛事件</p>
+        <p>多年以来，学术界和投资专家们关于有效性的争论，渐渐形成了有</p>
+        <p>效市场理论。这个具有争议的理论认为，股票分析是徒劳无益的浪费</p>
+        <p>时间，因为所有可以获得的信息都已经被反映在股价上。持有这种观点</p>
+        <p>的人坚信，那些在股票行情版上随意丢出飞镖的投资人，他们的成功概</p>
+        <p>率与那些经验丰富、每天花大量时间阅读季报或年报的分析师并无二</p>
+        <p>致。当然，这里有部分是开玩笑的因素。</p>
+        <p>然而，一些持续打败市场指数的个案——最著名的是沃伦·巴菲特</p>
+        <p>——证明市场有效理论存在缺陷。但理论家们认为，不是该理论有缺</p>
+        <p>陷，而是因为像巴菲特这样的个案是个五西格玛事件——统计学上极其</p>
+        <p>罕见的现象，这种现象极其罕见以至于不可能发生 [25] 。与这些人站在一</p>
+        <p>边，将巴菲特现象称为统计稀罕物是件很容易的事。没有人能重演他的</p>
+        <p>投资业绩，无论是其13年的巴菲特合伙企业，还是50年的伯克希尔-哈</p>
+        <p>撒韦公司的表现。当我们观察每一个职业投资人的表现，并发现他们</p>
+        <p>长期无法击败市场主要指数时，这提出了一个问题：股票市场的确是</p>
+        <p>无懈可击的吗？这个方法可以被大多数投资者使用吗？</p>
+        <p>最后，让我们思考一下巴菲特的话：“我们的所作所为没有超越任</p>
+        <p>何人的能力范围，我感觉我做投资和我做管理没有什么两样，根本不</p>
+        <p>必为得到超凡的结果去刻意做什么超凡的事情。 [26] ”大多数人认为这仅</p>
+        <p>仅是巴菲特中西部式的谦虚表现，但我不这么认为，我把他的话当真</p>
+        <p>了，而这正是这本书的主题。</p>
+        <p>[1] Carol Loomis,Tap Dancing to Work:Warren Buffett on</p>
+        <p>Practically,Everything,1966-2012（New York:Time Inc.,2012）,256.</p>
+        <p>[2] Matthew Bishop and Michael Green.Philanthrocapilalism:How Civing</p>
+        <p>Can Savethe.World（New York:Bloomsbury Press,2008）,l.</p>
+        <p>[3] Loomis,Tap Dancing to Work,258.</p>
+        <p>[4] Ibid.,261.</p>
+        <p>[5] Bishop and Green,Philanthrocapitalism,75.</p>
+        <p>[6] Loomis,Tap Dancing to Work,149.</p>
+        <p>[7] Ibid.,315.</p>
+        <p>[8] Alice Schroeder,The.Snowball:Warren Buffett and the Busine.ss of</p>
+        <p>Life（New York:Random House,2008）,51,55.</p>
+        <p>[9] Roger Lowenstein,Buffett:The Making of an American Capitalist（New</p>
+        <p>York:Random House,1995）,10.</p>
+        <p>[10] Schroeder,Snowball,62.</p>
+        <p>[11] Ibid.</p>
+        <p>[12] Ibid。</p>
+        <p>[13] Adam Smith,Supe.rmoney（Hoboken,NJ:John Wilev&amp;Sons,2006）,178</p>
+        <p>[14] Ibid.</p>
+        <p>[15] Loomis,Tap Dancing io Work,67.</p>
+        <p>[16] 沃尔特·施洛斯是格雷厄姆的亲传弟子，1955年创办投资管理合伙企</p>
+        <p>业——沃尔特·施洛斯有限合伙公司（简称WJS）。他一生经历过18次经</p>
+        <p>济衰退，但他执掌的基金在近50年的漫长时间里长期跑赢标杆股指，被</p>
+        <p>巴菲特赞誉为“超级投资人”。</p>
+        <p>[17] 汤姆·纳普曾在格雷厄姆-纽曼公司工作，1968年与人联合创办了</p>
+        <p>Tweedy-Browne合伙公司，其投资以高度分散化的被动投资为主，偶尔也</p>
+        <p>并购企业取得控制权。</p>
+        <p>[18] Lowenstein,Buffett,26.</p>
+        <p>[19] Schroeder,Snowbalt,146.Schroeder references this apt analogy to</p>
+        <p>Plato's cave,which was originally made by Patrick Bvrne.</p>
+        <p>[20] John Train,The Money Masters（New York:Penguin Books.1981）,11.</p>
+        <p>[21] John Brooks,The.Co-Co Years（New York:Weybright&amp;Talley,1973）.</p>
+        <p>[22] Train,MoneV Masters,12.</p>
+        <p>[23] Berkshire Hathaway Annual Report,1987,22.</p>
+        <p>[24] Berkshire Hathaway Annual Report,2011,9.</p>
+        <p>[25] Loomis,Tap Dancing to Work,62.The Greek letter sigma is used in statisticsto represent standard deviation from the mean,or average.A fivesigmaevent,measuring five deviations,has a I in 3,488.555 chance of happening.Expressed another way,a five-sigma event has a 99.99994 percent chance ofbeing correct.</p>
+        <p>[26] Ibid.</p>
+        <div class="divider"></div></section>
+    </div>
+  </main>
+</div>
+<script>
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a[href^='#']")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-8% 0px -80% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>

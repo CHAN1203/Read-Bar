@@ -31,6 +31,14 @@
       "category": "交易",
       "accent": "#d4a657",
       "href": "books/gushou/index.html"
+    },
+    {
+      "id": "buffett",
+      "title": "巴菲特之道(原书第3版)",
+      "subtitle": "罗伯特·哈格斯特朗 · 8 章 + 九篇推荐序 · 自动导入",
+      "category": "交易",
+      "accent": "#d4a657",
+      "href": "books/buffett/index.html"
     }
   ]
 }

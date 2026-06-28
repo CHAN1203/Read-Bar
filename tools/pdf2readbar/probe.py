@@ -38,13 +38,16 @@ def probe(pdf_path: str) -> ProbeReport:
     return rep
 
 
-def detect_headings(doc) -> list:
+def detect_headings(doc, force_size=None) -> list:
     """No-embedded-TOC fallback: find chapter headings by font size.
 
     Returns [(title, page_1based), ...] for lines set in the chapter-heading
     font tier — a size larger than the body text that recurs as short
     standalone lines on >=3 pages. Wrapped multi-line titles on the same page
     are merged. Returns [] if no such heading tier is found.
+
+    force_size: when the auto-picked tier is wrong, pass the exact heading font
+    size (rounded px) to collect headings at that size instead of auto-detecting.
     """
     all_sizes = Counter()   # char-weighted over all lines → body text dominates
     short_chars = Counter()  # char total of SHORT lines per size
@@ -69,10 +72,13 @@ def detect_headings(doc) -> list:
     # "smallest above body" (which catches short running headers / page numbers) and
     # "most frequent" (which catches per-page running headers): real chapter titles
     # carry substantial text, page furniture carries little.
-    above = {sz: c for sz, c in short_chars.items() if sz > body}
-    if not above:
-        return []
-    hs = max(above, key=above.get)
+    if force_size is not None:
+        hs = int(force_size)
+    else:
+        above = {sz: c for sz, c in short_chars.items() if sz > body}
+        if not above:
+            return []
+        hs = max(above, key=above.get)
     raw = [(t, p + 1) for p, sz, t in short if sz == hs]
     if len(raw) < 2:
         return []

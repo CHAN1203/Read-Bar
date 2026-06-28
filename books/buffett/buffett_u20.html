@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="readbar:accent" content="#d4a657">
+<title>巴菲特之道(原书第3版) · 第7章 耐心的价值</title>
+<link rel="stylesheet" href="../reader.css">
+<script>(function(){try{var s=JSON.parse(localStorage.getItem("readbar:settings")||"{}"),r=document.documentElement;if(s.fs)r.style.setProperty("--reader-fs",s.fs+"px");if(s.lh)r.style.setProperty("--reader-lh",s.lh);if(s.measure)r.style.setProperty("--reader-measure",s.measure+"px");if(s.font)r.setAttribute("data-font",s.font);}catch(e){}})();</script>
+<style>
+  :root{
+    --bg:#13161b; --surface:#1b2027; --surface2:#232b35; --ink:#e9e5d8;
+    --muted:#8b94a3; --faint:#5c6573; --line:#2c343f;
+    --pos:#26a69a; --neg:#ef5350; --accent:#d4a657; --accent-soft:#33301f; --gold:#d4a657;
+    --serif: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
+  ::-webkit-scrollbar{width:10px;height:10px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);background-clip:padding-box;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--faint);}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:17px; line-height:1.75; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#1a1408;}
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--accent),var(--pos)); z-index:100; transition:width .1s;}
+  .wrap{display:grid; grid-template-columns:248px 1fr; max-width:1180px; margin:0 auto;}
+  nav.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:34px 20px 40px; border-right:1px solid var(--line); font-size:13.5px;}
+  .rail .brand{font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase;}
+  .rail .brand b{color:var(--ink); display:block; font-size:18px; letter-spacing:.02em; margin-top:6px; font-family:var(--serif); line-height:1.3;}
+  .shelf-nav{margin:12px 0 0; font-family:var(--mono); font-size:11px; display:flex; flex-wrap:wrap; gap:7px;}
+  .shelf-nav a{color:var(--muted); text-decoration:none; border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
+  .shelf-nav a.home{color:var(--accent);}
+  .rail ol{list-style:none; padding:0; margin:22px 0 0; counter-reset:c;}
+  .rail a{display:block; color:var(--muted); text-decoration:none; padding:6px 11px 6px 12px; border-left:2px solid transparent; border-radius:0 5px 5px 0; transition:.16s;}
+  .rail a:hover{color:var(--ink); background:var(--surface);}
+  .rail a.active{color:var(--accent); border-left-color:var(--accent); background:var(--surface);}
+  main{padding:0 0 120px; min-width:0;}
+  .col{max-width:720px; margin:0 auto; padding:0 28px;}
+  header.cover{padding:88px 0 60px; border-bottom:1px solid var(--line); margin-bottom:6px; background:radial-gradient(120% 90% at 80% -10%, rgba(212,166,87,.13), transparent 60%);}
+  .cover .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em; color:var(--accent); text-transform:uppercase;}
+  .cover h1{font-family:var(--serif); font-weight:600; font-size:52px; line-height:1.04; margin:18px 0 6px; letter-spacing:-.01em;}
+  .cover h1 .small{display:block; font-size:21px; color:var(--muted); font-weight:400; margin-top:16px; line-height:1.5;}
+  .cover .vol{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:26px; letter-spacing:.08em;}
+  section{padding:54px 0 6px; scroll-margin-top:8px;}
+  .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase; margin-bottom:10px;}
+  h2{font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.14; margin:6px 0 4px;}
+  p{margin:16px 0; color:#dcd8cc;} p strong{color:var(--ink);} em{color:var(--accent); font-style:normal;}
+  .lead{font-size:19px; color:var(--ink);}
+  .facet{display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.08em; padding:2px 9px; border-radius:20px; margin:28px 0 -6px; text-transform:uppercase;}
+  .facet.what{background:#22303a; color:#7fd3e0;} .facet.why{background:var(--accent-soft); color:var(--accent);}
+  .facet.gb{background:#33282a; color:#f0a0a0;} .facet.hp{background:#22332b; color:#7fd3a8;}
+  figure{margin:28px 0; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 20px 14px; opacity:0; transform:translateY(12px); transition:.6s;}
+  figure.in{opacity:1; transform:none;} figure svg{width:100%; height:auto; display:block;}
+  figcaption{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:12px; padding-top:11px; border-top:1px solid var(--line);}
+  figcaption b{color:var(--accent);}
+  .anim-cap{font-family:var(--mono); font-size:12.5px; color:var(--ink); min-height:1.3em; text-align:right; margin-top:8px;}
+  .replay{font-family:var(--mono); font-size:12px; color:var(--accent); background:transparent; border:1px solid var(--accent); padding:6px 14px; border-radius:7px; cursor:pointer; margin-top:4px;}
+  .socratic{margin:30px 0; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; overflow:hidden;}
+  .socratic .q{padding:18px 20px;} .socratic .tag{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--accent); text-transform:uppercase;}
+  .socratic .qt{font-family:var(--serif); font-style:italic; font-size:19px; margin:8px 0 14px; line-height:1.5;}
+  .socratic button{font-family:var(--mono); font-size:12px; color:#1a1408; background:var(--accent); border:none; padding:8px 14px; border-radius:7px; cursor:pointer;}
+  .socratic .a{max-height:0; opacity:0; overflow:hidden; transition:max-height .5s, opacity .4s;}
+  .socratic.open .a{max-height:1400px; opacity:1; border-top:1px solid var(--line);}
+  .socratic .a-inner{padding:16px 20px 20px;} .socratic .a-inner p:first-child{margin-top:0;} .socratic .a-inner p{font-size:15.5px; color:#cfcabd;}
+  .connect{margin:28px 0; padding:16px 20px; border-radius:10px; background:var(--surface2); border:1px solid var(--line); font-size:15px;}
+  .connect .h{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--pos); margin-bottom:6px;}
+  .poem{margin:36px 0; padding:30px; border:1px solid var(--line); border-radius:14px; text-align:center; background:radial-gradient(130% 120% at 100% 0%, rgba(212,166,87,.10), transparent 60%);}
+  .poem .pt{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase; margin-bottom:16px;}
+  .poem .verse{font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.95;}
+  .poem .by{font-family:var(--mono); font-size:11px; color:var(--faint); margin-top:16px;}
+  .divider{height:1px; background:var(--line); margin:56px 0 0;}
+  .endcard{margin:50px 0 0; padding:32px; border:1px solid var(--line); border-radius:14px; background:radial-gradient(120% 120% at 0% 0%, rgba(38,166,154,.10), transparent 55%);}
+  .endcard h2{margin-top:0;}
+  .src{font-family:var(--mono); font-size:11.5px; color:var(--faint); margin-top:14px;}
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr;}
+    nav.rail{position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);display:flex;gap:14px;overflow-x:auto;white-space:nowrap;padding:16px 18px;}
+    .rail ol{display:flex;gap:6px;margin:0;} .rail .brand{display:none;}
+    .rail a{border-left:none;border-bottom:2px solid transparent;border-radius:4px;padding:6px 10px;} .rail a.active{border-left:none;border-bottom-color:var(--accent);}
+    .cover h1{font-size:35px;} body{font-size:16px;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;} figure{opacity:1;transform:none;}}
+</style>
+<style>figure img{width:100%;height:auto;display:block;border-radius:6px;}figure{padding:14px;}ul{margin:14px 0 14px 4px;padding-left:22px;color:#dcd8cc;}li{margin:6px 0;}h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:30px 0 4px;color:var(--ink);}.col section{padding:40px 0 6px;}</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrap">
+  <nav class="rail">
+    <div class="brand">巴菲特之道(原书第3版)<b>第7章 耐心的价值</b></div>
+    <div class="shelf-nav"><a class="home" href="../../index.html">📚 书架</a> <a class="home" href="index.html">📖 本书</a> <a href="buffett_u19.html">← 上一篇</a> <a href="buffett_u21.html">下一篇 →</a></div>
+    <ol><a href="#u" class="active">第7章 耐心的价值</a></ol>
+  </nav>
+  <main>
+    <header class="cover"><div class="col">
+      <div class="eyebrow">巴菲特之道(原书第3版)</div>
+      <h1>第7章 耐心的价值</h1>
+    </div></header>
+    <div class="col">
+      <section id="u"><div class="kicker">第7章 耐心的价值</div><h2>第7章 耐心的价值</h2>
+        <h3>第7章 耐心的价值</h3>
+        <p>列夫·托尔斯泰在其史诗般的巨著《战争与和平》中，做出了如此深</p>
+        <p>刻的观察：“天下勇士中，最为强大者莫过于两个——时间和耐心。”当然</p>
+        <p>他是从军事角度说的这句话，但这个描述放在投资方面同样熠熠生</p>
+        <p>辉，对于那些想深化对于资本市场的了解的人而言，也具有巨大的价</p>
+        <p>值。</p>
+        <p>所有的市场行为都与时间的连续性相关，在时间的坐标上，从左到</p>
+        <p>右，我们观察到发生在微秒、分、小时、天、星期、月份、年度、十年的那些</p>
+        <p>交易决策，尽管没有明确的划分，但基本上人们都会同意，越是在时间坐</p>
+        <p>标线上靠左，越是投机；越是靠右，越被认为是投资。毋庸置疑，巴菲特</p>
+        <p>悠闲安静地坐在这个时间坐标的右侧，保持着长期的耐心。</p>
+        <p>这也提出了问题：为什么这么多人在坐标的左侧跃动不停，试图用</p>
+        <p>最快的时间赚最多的钱呢？这是贪婪吗？是错误的信念吗？他们认为自</p>
+        <p>己能预测市场心理的走向？抑或，过去经历了两个熊市、一个金融危机的</p>
+        <p>十年，让他们已经失去了在长期投资中取得正回报的信心？对于所有这</p>
+        <p>些问题的回答都是：“Yes！”尽管每一个都是问题，但最让我感到困惑的</p>
+        <p>是对于长期投资信心的缺乏，因为长期投资正是巴菲特成功道路的核</p>
+        <p>心。</p>
+        <p>长期而言</p>
+        <p>将短期投资和长期投资这两种策略进行比较，这种开创性的工作</p>
+        <p>始于20年前的两位教授——哈佛教授、约翰·贝茨·克拉克奖章获得者安</p>
+        <p>德烈·施莱弗，和芝加哥大学布斯商学院的金融学教授罗伯特·维什尼。</p>
+        <p>1990年，他俩给《美国经济评论》写了篇研究报告，题为“公司的新理</p>
+        <p>论：平衡投资者和企业的短期视野” [1] 。文中，他们对于成本、风险、短</p>
+        <p>期和长期对冲回报进行了比较。</p>
+        <p>进行对冲的成本是你投入资本的时间价值；风险是覆于结果之上的</p>
+        <p>不确定性数量；回报是投资获得的盈利数量。在短期对冲行为中，这三个</p>
+        <p>因素数量都较少。在长期对冲行为中，你的资本投资期会更长，何时获</p>
+        <p>得回报更为不确定，但回报应该更高。</p>
+        <p>根据他们的研究，“在平衡之中，从每一类对冲资产中获得的净预期</p>
+        <p>回报应该是相同的。因为，长期对冲投资策略较之于短期更昂贵，前者</p>
+        <p>必须从更为严重的错误定价中获取更多的回报，以取得平衡。” [2] 换言</p>
+        <p>之，因为长期对冲策略的投资比短期对冲策略的投资成本更加高昂，所</p>
+        <p>以回报必须更高。</p>
+        <p>他们指出，股票可以被用作短期对冲的工具。例如，利用消息做对冲</p>
+        <p>的短期投机者，可以将赌注押在并购消息上，也可以在发布盈利时，或</p>
+        <p>其他任何使错误定位迅速消失的公告上。甚至，即使股票的价格在这些</p>
+        <p>消息出来后没有反应，在没有收益的情况下，这些炒手也会迅速撤离。</p>
+        <p>循着他们的思路，投机者的成本是很低的（动用资本的时间很短），并且</p>
+        <p>风险很小（不确定性会很快终结），然而，回报也会很少。</p>
+        <p>值得注意的是，为了获取足够可观的回报，执行短期对冲策略的炒</p>
+        <p>家必须一次又一次地重复这些迅速的行动。两位教授解释说，投机者</p>
+        <p>为了提高回报，必须提高投资成本（投入资本的时间），以及冒更多风</p>
+        <p>险（经受更多的不确定性）。对于投机和投资两者而言，控制变量的是时</p>
+        <p>间跨度。投机者期望时间短些，哪怕回报少些；投资者期望时间长些，同</p>
+        <p>时期望回报更高些。</p>
+        <p>这引导我们走向下一个问题：在长期对冲策略的投资行为中，通过</p>
+        <p>买入并持有股票的策略，能获得更大的回报吗？我决定一探究竟。</p>
+        <p>我们跟踪计算了1970~2012年期间，为期一年、三年、五年的回报情</p>
+        <p>况。在这43年中，以一年为期计，标普500指数中的成分股公司平均有</p>
+        <p>1.8%的公司股价翻番，或者说，500家公司中有9家翻番；以三年计，有</p>
+        <p>15.3%的公司，或77家股价翻番；以五年计，有29.9%，或150家公司股价</p>
+        <p>翻番。</p>
+        <p>这样，回到原来的问题：长期而言，通过买入并持有股票的策略，</p>
+        <p>能获得更大的回报吗？答案是无可争议的“YES”！除非你认为每五年翻</p>
+        <p>一番实在是太过平凡了，这相当于14.9%的年复利回报率。</p>
+        <p>当然，投资者在事先挑选股票的过程中，必须进行深度的调查研究，</p>
+        <p>发现那些具有五年翻番潜力的股票。这些策略存在于他们挑选股票的过</p>
+        <p>程中，以及管理人的组合策略中。对于那些运用本书所列出的投资准则</p>
+        <p>的投资者，他们坚持低换手率的组合策略，我有信心他们具有五年翻番</p>
+        <p>的能力。</p>
+        <p>金融理论告诉我们，投资者的回报来源于发现错误定价。我们可以</p>
+        <p>假设，如果超额收益来源于巨大的错误定价，那一定会吸引众多投资者</p>
+        <p>蜂拥而至，去迅速填平价格和价值之间的差距。当进行对冲者众多，回报</p>
+        <p>就会降低。然而，回顾我们刚刚提到的1970~2012年期间的平均每五年的</p>
+        <p>回报统计，我们没有发现超额收益的任何显著减少。的确，投资翻番的</p>
+        <p>绝对数字与整体市场表现相关。牛市中会有更多的股票翻番，熊市中会</p>
+        <p>相应减少。但无论市场状况如何，相对于大势的翻番比率依然令人印象</p>
+        <p>深刻。</p>
+        <p>那些以五年为期试图消灭价格与价值间差距的人是谁？答案：长期</p>
+        <p>投资者。然而，跨度长达43年的时间里，这种差距依旧存在，或许说明市</p>
+        <p>场主流经常被短期炒家占据。简而言之，那些预期中的，消灭错误定价的</p>
+        <p>长期投资者大军总是缺席的。</p>
+        <p>1950~1970年期间，市场平均的持股时间为4~8年。然而，自从20世</p>
+        <p>纪70年代起，持股时间持续缩短，时至今日，基金持股的时间以月来计</p>
+        <p>算。我们的研究显示，获取超额收益的机会通常出现在持股三年之后。毫</p>
+        <p>无疑问，由于换手率超过100%，绝大多数人肯定与此无缘。</p>
+        <p>肯定有人说，市场会很好地调节短期炒家和长期投资者之间的平</p>
+        <p>衡。如果市场包括两种同样的力量——一半吸引短期炒家的错误定价，</p>
+        <p>一半吸引长期投资者填平价格、价值间差距，那么这个结论是对的，市场</p>
+        <p>的长、短期无效将会极大程度地被消弭。但当这个平衡被打破时，市场</p>
+        <p>会如何？一个被长期投资者主导的市场，会留下一个无人值守的错误定</p>
+        <p>价的市场；一个被短期炒家主导的市场，对于长期的错误定价会毫无兴</p>
+        <p>趣。</p>
+        <p>为什么市场失去了如此多曾经的多元化？因为人们慢慢地从长期投</p>
+        <p>资转变为短期投机。这种转变是可预期的，这只是个简单的算术问题。</p>
+        <p>因为如此多的人参与短期投机，胜出的难度在增加，而回报在减少。由于</p>
+        <p>强有力的磁石效应，吸引着越来越多的人参与短期投机，这就将稀有</p>
+        <p>的、超额回报的机会留给了长期投资者。</p>
+        <p>理性：重要的分野</p>
+        <p>根据《牛津美国词典》的定义，理性是一种信念，是人们的意见或行</p>
+        <p>为应该基于理由、知识，而不是情绪反应。一个理性的人应该思维清</p>
+        <p>晰、理智、富有逻辑。</p>
+        <p>对于理性的理解，首先，理性不等同于智力。聪明人可能会干傻事。</p>
+        <p>多伦多大学人类发展与应用心理学教授基思·斯坦诺维奇认为，像IQ测</p>
+        <p>试或AST/ACT考试之类，在衡量人的理性思维方面几乎毫无用处，“这</p>
+        <p>最多只是一个轻度的预测，一些理性思维技能甚至完全与智力不相</p>
+        <p>干。” [3]</p>
+        <p>在《智力测试所迷失的：理性思考的心理学》一书中，他创造了一个</p>
+        <p>词——理性缺失——意指尽管具有高智力，却不能进行理性思考和行</p>
+        <p>动。认知心理学认为，有两个原因造成理性缺失：一是处理问题；二是</p>
+        <p>内容问题。让我们一个一个来看。</p>
+        <p>斯坦诺维奇相信人类没有进化好，当解决一个问题时，人们会有不</p>
+        <p>同的认知机制供选择。在机制的一端，具有强大的计算能力，但这个强</p>
+        <p>大的计算能力与成本相关。它是一个慢速度的思考进程，以及要求高度</p>
+        <p>的专注。在思考机制的另一端是快速的，要求很少的计算能力，几乎不要</p>
+        <p>求专注，允许迅速决策。他说：“人类是认知的吝啬鬼，因为我们基本趋</p>
+        <p>向于默认几乎不要求计算能力的那种处理机制，尽管它们不准确。” [4] 一</p>
+        <p>句话，人类是懒惰的思考者。当解决问题时，他们选择容易的方式，结</p>
+        <p>果，他们的解决方案经常不合逻辑。</p>
+        <p>慢速的观点</p>
+        <p>让我们将视线转到信息扮演的角色上来，我们要求的信息涉及本章</p>
+        <p>的主题——耐心，以及“慢速”的价值。</p>
+        <p>很多读者也许不知道杰克·特雷诺，他是金融管理界的知识巨人。最</p>
+        <p>初在哈佛他想成为一个数学家，他1955年以优异成绩毕业于哈佛商学</p>
+        <p>院，在一家咨询公司的研究部开始其职业生涯。作为一位年轻的分析</p>
+        <p>师，在一次为期三周的前往科罗拉多的旅游中，他写了一篇长达44页的</p>
+        <p>有关风险问题的数学笔记。他是个多产的作家，最终成为CFA机构的</p>
+        <p>《金融分析师期刊》的编辑。</p>
+        <p>多年以来，特雷诺与很多金融界知名学者之间交换论文，包括诺贝</p>
+        <p>尔奖获得者佛朗哥·莫迪利亚尼、默顿·米勒、威廉·夏普。他也有几篇论文</p>
+        <p>获得久负盛名的大奖，包括金融分析师期刊的格雷厄姆·多德奖和罗杰</p>
+        <p>·F·穆雷奖。2007年，他赢得了著名的CFA机构职业优异大奖。幸运的是，</p>
+        <p>他那些原本散落四处的笔记，现在被结集为574页的《特雷诺看机构投</p>
+        <p>资》一书，对于所有认真的投资者来说，这本书都值得收藏。</p>
+        <p>我的那一本已经被翻卷了，因为在一年的时间里，我反复地阅读了</p>
+        <p>自己喜欢的部分章节，尤其是临近结尾424页的“长期投资”。它首次出</p>
+        <p>现在1976年5月、6月，发表于《金融分析师期刊》上，内容从永远存在的难</p>
+        <p>题——市场效率开始。他想知道，无论我们如何努力，却无法知道市场是</p>
+        <p>否已经打折，这个观点对不对？为了阐明这个问题，他让我们区分两个</p>
+        <p>问题：“两种投资观点：一种是简单明了，几乎不要求特殊的专业技能去</p>
+        <p>评估，因此是迅速决策的过程。b，一种是要求反馈、判断、特殊的专业技</p>
+        <p>能去评估，因此是慢速决策的过程。” [5]</p>
+        <p>“如果市场是低效的，它就不会对于第一种想法无效，因为根据定</p>
+        <p>义，第一种不可能被数量众多的投资人错误评估。” [6] 他说，换言之，我</p>
+        <p>们可以认为，不可能仅使用PE、分红率、市净率、PEG、52周最低、技术图</p>
+        <p>表等简单的分析方式就轻易赚到钱。“如果市场低效存在，因此任何投</p>
+        <p>资机会将来自于第二种投资方式——慢速的过程。与公司长期发展相关</p>
+        <p>的第二种观点是长期投资者唯一有意义的基石。” [7]</p>
+        <p>我肯定，你已经意识到我在书中列出的投资准则是“慢速”的方法，</p>
+        <p>并且与公司的长期发展相关，因此是长期投资的基础。让我们总结一</p>
+        <p>下，慢速的观点并不难掌握，但比之“简单明显”的快速方式要费力些。</p>
+        <p>系统1与系统2</p>
+        <p>多年以来，心理学家以极大的兴趣关注着我们的认知过程，它被分</p>
+        <p>为两个思维模式：直觉和理智。传统上，直觉产生“快速和关联”认知。理</p>
+        <p>智被描述为“慢速和规则支配”。今天，心理学家们通常称这些认知系统</p>
+        <p>为系统1和系统2。</p>
+        <p>系统1的思维方式简单、直接，快速运行，几乎不花时间，无需使用</p>
+        <p>太多的知识去计算PE或分红率。</p>
+        <p>系统2的思维方式是我们认知过程的反思部分，它以一种可控的方</p>
+        <p>式，投入努力而慢速。我们的“慢速观点”要求“反馈、判断和特别的技</p>
+        <p>能”，属于系统2思维。</p>
+        <p>2011年，诺贝尔奖获得者丹尼尔·卡尼曼写了本非常重要的著作《思</p>
+        <p>考，快与慢》，篇幅达500页，该书成为《纽约时报》畅销书，在当年非</p>
+        <p>小说类图书中排行前五名，相当了不起。我最喜爱的部分是第三章“懒惰</p>
+        <p>的控制者”。卡尼曼告诉我们，认知的努力是一个心理工作，就像其他所</p>
+        <p>有工作一样，我们中有很多人在工作越来越艰难时，会变得越来越懒</p>
+        <p>惰。他很惊讶地发现，很多聪明人会满足于先前的答案，随之便停止思</p>
+        <p>考。</p>
+        <p>卡尼曼说，参与系统2思维方式要求自我控制，持续的自我控制的</p>
+        <p>努力并不令人愉悦。如果我们被迫一次又一次重复做一件事，自控力就</p>
+        <p>会出现下降的趋势。最终，我们会丧失兴趣。相反，“那些避免了这些懒</p>
+        <p>惰原罪的人，他们有更敏感、更富活力的智商，不满足于表面的诱人答</p>
+        <p>案，对于直觉充满怀疑与批判精神。” [8]</p>
+        <p>耶鲁大学的市场学助理教授沙恩·弗雷德里克，给我们描述了具有高</p>
+        <p>智商的人们在系统1和系统2思维方式方面的表现。他集中了一组来自</p>
+        <p>哈佛、普林斯顿、麻省理工等著名的常春藤大学的学生，并问他们如下</p>
+        <p>三个问题：</p>
+        <p>（1）一个球棒和球共花了1.10美元。球棒比球多花了1美元，球花了多</p>
+        <p>少钱？</p>
+        <p>（2）如果5台机器用了5分钟生产了5个零件，那么，100台机器需要多</p>
+        <p>长时间生产100个零件？</p>
+        <p>（3）一个湖里有片睡莲，睡莲在生长，叶面每天长大一倍。如果用</p>
+        <p>48天叶面可以完全覆盖湖面，请问需要多长时间它可以覆盖一半的湖</p>
+        <p>面？ [9]</p>
+        <p>答案令人吃惊，这些顶尖的优等生超过一半回答错误，这令他得</p>
+        <p>出两个主要问题：首先，人们不习惯于费劲地思考问题，通常会脱口而</p>
+        <p>出心中首先出现的答案，这样，他们就无需费力气进入系统2的思维。</p>
+        <p>第二个问题是，系统2思维对于系统1思维的错误几乎监管无力。这似乎</p>
+        <p>清楚地告诉弗雷德里克，学生们的思维停滞在系统1，不会，也不愿转换</p>
+        <p>到系统2。</p>
+        <p>系统1和系统2思维如何运用在投资上呢？比如，一个投资者考虑买</p>
+        <p>入一只股票。使用系统1思维，他会将一个公司的PE、净资产、分红率等</p>
+        <p>信息搜集起来，看看股价是否接近历史低点，看看公司是否在过去十年</p>
+        <p>提高分红，据此，投资者或许立刻判定这只股票好不好。悲哀的是，太多</p>
+        <p>投资者几乎完全依赖系统1的直觉思维做出决定，从来不运用系统2的理</p>
+        <p>性思维。</p>
+        <p>如何调动系统2思维呢？很简单，你的系统2思维很强大，充满活力，</p>
+        <p>不易产生疲劳。这种系统1和系统2的思维区别就是心理学家斯坦诺维</p>
+        <p>奇所说的“分隔的内心”。</p>
+        <p>但是这“分隔的内心”只是在可辨别的情况下才会有分隔，例如在一</p>
+        <p>个投资环境里，只有在充分了解或掌握了公司信息后，系统2的思维才有</p>
+        <p>别于系统1的思维。这些信息包括竞争优势、管理层理性配置资产的能</p>
+        <p>力、决定公司价值的重要动力、预防投资者做愚蠢决定的心理课程等。</p>
+        <p>对我而言，华尔街的很多决策都属于系统1的思维，主要靠直觉，</p>
+        <p>也就是俗话说的“拍脑袋”。决策多是机械的、快速的，未经大脑深思熟虑</p>
+        <p>的。系统2是经过认真思考的，经过推敲，要求专注的。具有系统2思维方</p>
+        <p>式的人通常更有耐心。为了让系统2思维更有效率，你必须花时间去推</p>
+        <p>敲，甚至沉思、冥想。你肯定会认同，我在本书中列出的准则最适合用于</p>
+        <p>慢思考，而不是快速决策的系统1思维。</p>
+        <p>心智工具间隙</p>
+        <p>根据斯坦诺维奇的说法，理性缺失的第二个原因是系统2思维中缺</p>
+        <p>少足够的内容。研究决策制定的心理学家，将内容缺乏定义为“心智工具</p>
+        <p>间隙”。这个词最早是哈佛的认知科学家大卫·帕金斯提出的，他说，心智</p>
+        <p>工具就是一切人们心中所拥有的、用于解决问题的原则、策略、程序、知</p>
+        <p>识。他解释说：“就像厨房里使用的工具叫做厨具，在电脑里运行的工</p>
+        <p>具叫做软件，在内心中工作的工具叫做心智工具。一个人可以学习运用</p>
+        <p>一件心智工具，去延伸他的整体批判性思维和创造性思维的能力。” [10]</p>
+        <p>那么，你需要什么样的心智工具去激活系统2思维呢？至少，你需要</p>
+        <p>阅读公司年报，及其竞争对手的年报。如果从中可以得出，这个公司具</p>
+        <p>有竞争力和长期前景乐观的结论，那么接下来，你应该做几个分红折现</p>
+        <p>模型，包括不同的成长率、不同的股东盈余、不同的时段，以得出大约的</p>
+        <p>估值。然后，你应该研究并搞清楚，管理层长期的资产配置策略。最后，</p>
+        <p>你应该给一些朋友打电话，包括同事、财务顾问，看看他们对于该公司</p>
+        <p>的看法，如果还有关于竞争对手的看法更好。注意：所有这些都无需高智</p>
+        <p>商，但是费时费力，与仅仅简单看看PE等财务指标相比，更需要内在的努</p>
+        <p>力与专注。</p>
+        <p>时间与耐心</p>
+        <p>尽管已经有足够多的证据显示，具有耐心的长期思维是投资成功的</p>
+        <p>最重要一环，但现实似乎没有太多改变。甚至，2008~2009年这次金融</p>
+        <p>危机和熊市也没有改变我们的行为方式。现在，所有的市场活动都是短</p>
+        <p>线的。20世纪60年代，纽约证券交易所的年化换手率低于10%，今天，这个</p>
+        <p>比率超过300%，在过去50年里上升了30倍。 [11] 难以置信的是，如此大规</p>
+        <p>模的短期行为的上升，竟然对于市场和参与者都没有什么变革性的影</p>
+        <p>响。</p>
+        <p>理论上而言，市场参与行为的增多伴随着交易量的提高，能使市场</p>
+        <p>具有更好的价格发现功能，这反过来可以减少价格与价值之间的差距，</p>
+        <p>从而相应地减少市场的噪声和波动。但是现实中，我们发现市场中大部</p>
+        <p>分的参与者是投机者，不是投资者，所以我们见到的是完全相反的景象：</p>
+        <p>交易量的上升反而致使差距加大，增大了系统的噪声，导致更剧烈的波</p>
+        <p>动。这个世界，当一个投资者被短期表现的压力押为人质，除了不满之</p>
+        <p>外，其他什么都没有了。</p>
+        <p>不应该是这样的，巴菲特的成功就是因为他玩的是完全不同的游</p>
+        <p>戏，我们被邀请加入这个游戏。成功的唯一要求就是采用一套不同的</p>
+        <p>规则，当然，在这中间，耐心是最为重要的。</p>
+        <p>时间和耐心，一个硬币的两面，这就是巴菲特的精华。他的耐心所</p>
+        <p>致的成功体现在伯克希尔旗下全资拥有的企业中，也体现在部分持股的</p>
+        <p>企业中。在这个快节奏的世界里，巴菲特有意识地放慢节奏。一个置身其</p>
+        <p>外的观察者，或许认为这种看似懒惰的态度，会放走容易赚的钱，但是</p>
+        <p>真正欣赏这个过程的人却发现，巴菲特和伯克希尔正是用这种态度积</p>
+        <p>累了巨额财富。投机者没有耐心，而巴菲特却为此而生，他说：“时光的</p>
+        <p>最佳之处在于其长度。”</p>
+        <p>至此，我们画了一个完整的圆，情绪的重要组成和与之对应的理</p>
+        <p>性。单单有智力不足以取得投资成功，与大脑的容量相比，将理性从情绪</p>
+        <p>中分离出来的能力更为重要。“当其他人基于短期的贪婪与恐惧做决策</p>
+        <p>时，理性最为重要。这就是赚钱的秘密。” [12]</p>
+        <p>巴菲特意识到市场短期的波动，既没有令他更富，也没有令他更</p>
+        <p>穷，因为他的持有期限是长期。因此，大多数参与者不能忍受股价下跌</p>
+        <p>带来的痛苦，巴菲特却一点也不紧张，因为他相信他比市场更能对一个</p>
+        <p>公司进行正确的判断。巴菲特还指出，如果你不能干得更好，你就不属于</p>
+        <p>这个游戏，就像一个玩儿牌的人，如果玩儿了一段时间还不知道谁是输</p>
+        <p>家，那么你就是那个人。</p>
+        <p>理性缺乏，使投资者容易陷入系统1的思维，只能做出简单、浅显</p>
+        <p>的判断，不适合复杂的股市。理性缺乏，使投资者成为恐惧和贪婪情绪的</p>
+        <p>奴隶。理性缺乏，使股市参与者注定成为那个被称为投资的游戏中的受</p>
+        <p>害者。</p>
+        <p>[1] Andrei Shleifer and Robert Vishny,"The New Theory of the</p>
+        <p>Firm:Equilibrium Short Horizons of Investors and Firms"American</p>
+        <p>Economic Review,Paper and Proceedings 80,no.2（1990）:148-153.</p>
+        <p>[2] Ibid.</p>
+        <p>[3] Keith Stanovich,What Intelligence Tests Miss:The Psychotogy of</p>
+        <p>Rational Thought（New Haven:Yale University Press,2009）.Also see Keith</p>
+        <p>Stanovich,"Rationalityversus Intelligence,"Project Syndicate （2009-04-</p>
+        <p>06）,www.project-syndicate.org.</p>
+        <p>[4] Keith Stanovich."Rational and Irrational Thought:The Thinking That</p>
+        <p>IQTests Miss,"Scientific American Mind（November/December 2009）,35.</p>
+        <p>[5] Jack Treynor,Treynor on Institutional Investing （Hoboken,NJ:John</p>
+        <p>Wiley&amp;Sons,2008）,425.</p>
+        <p>[6] Ibid.,424.</p>
+        <p>[7] Ibid.</p>
+        <p>[8] Daniel Kahneman,Thinking Fast and Slow （ New</p>
+        <p>York:Farrar.Straus&amp;Giroux,2011）,4.</p>
+        <p>[9] The bat costs$1.05 and the ball costs$0.05.It takes 5 minutes for</p>
+        <p>100machines to make 100 widgets.It will take 47 days for the lily pad patch tocover half'the lake.</p>
+        <p>[10] D.N.Perkins,"Mindware and Metacurriculm,"in Creating Perspectives on Educational Change,comp.and ed.Dee Dickinson Johns Hopkins</p>
+        <p>University School of Education,2002）.</p>
+        <p>[11] Ilia Dicher.Kelly Long,and Dexin Zhou,"The Dark Side of</p>
+        <p>Trading,"EmoryUniversity School of Law,Research Paper No.11,95-143.</p>
+        <p>[12] Carol Loomis,Tap Dancing to Work:Warren Buffett on Practically</p>
+        <p>Everything,1966-2012（New York:Time Inc.,2012）,101.</p>
+        <div class="divider"></div></section>
+    </div>
+  </main>
+</div>
+<script>
+const prog=document.getElementById("progress");
+function up(){const h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,m=h.scrollHeight-h.clientHeight;prog.style.width=(m>0?sc/m*100:0)+"%";}
+addEventListener("scroll",up,{passive:true});up();
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll("figure").forEach(f=>rio.observe(f));
+const links=[...document.querySelectorAll(".rail a[href^='#']")],map={};links.forEach(a=>map[a.getAttribute("href").slice(1)]=a);
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(map).forEach(l=>l.classList.remove("active"));const a=map[e.target.id];if(a)a.classList.add("active");}}),{rootMargin:"-8% 0px -80% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>nio.observe(s));
+</script>
+<script src="../reader.js"></script>
+</body>
+</html>
