@@ -1,7 +1,7 @@
 import argparse, json, os, re
 import fitz
-from .probe import probe
-from .structure import units_from_toc
+from .probe import probe, detect_headings
+from .structure import units_from_toc, units_from_headings, units_fallback
 from .extract import Extractor
 from .elements import assemble
 from .build import Book, BuiltUnit, build
@@ -45,11 +45,18 @@ def convert(pdf_path, books_dir, library_path, overrides: dict) -> dict:
         raise ValueError("scanned PDF: needs OCR (avg chars/page=%d)" % report.avg_chars)
     meta = derive_meta(report, pdf_path, overrides)
     meta["id"] = unique_id(meta["id"], library_path)
-    units_spec = units_from_toc(report.toc, report.page_count)
-    warnings = []
-    if not report.toc:
-        warnings.append("no embedded TOC; whole book as one unit")
     doc = fitz.open(pdf_path)
+    warnings = []
+    if report.toc:
+        units_spec = units_from_toc(report.toc, report.page_count)
+    else:
+        headings = detect_headings(doc)
+        if len(headings) >= 2:
+            units_spec = units_from_headings(headings, report.page_count)
+            warnings.append("no embedded TOC; split by heading font (%d sections)" % len(headings))
+        else:
+            units_spec = units_fallback(report.page_count)
+            warnings.append("no embedded TOC and no detectable headings; whole book as one unit")
     img_dir = os.path.join(books_dir, meta["id"], "img")
     ex = Extractor(doc, img_dir)
     built = []
