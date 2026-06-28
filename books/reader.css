@@ -377,3 +377,11 @@ body.rl-immersive .rl-exit{display:block;}
   border-radius:14px 14px 0 0; box-shadow:0 -10px 30px rgba(0,0,0,.55); z-index:9100;}
 .rl-tool.rl-tool-bottom .rl-sw{width:30px; height:30px;}
 .rl-tool.rl-tool-bottom .rl-cbtn{font-size:14px; padding:8px 16px;}
+
+/* ===================== RAIN BACKDROP (atmospheric reading background) ===================== */
+rain-glass.rl-rainbg{ position:fixed; inset:0; z-index:-1; pointer-events:none; }
+body.rl-rain-on{ background:transparent !important; }
+/* readable slab over the rain: the centered reading area gets a translucent panel,
+   rain shows in the page margins and softly through */
+body.rl-rain-on .wrap{ background:rgba(16,19,24,.64); box-shadow:0 0 90px 36px rgba(16,19,24,.64); }
+@media (max-width:880px){ body.rl-rain-on .wrap{ background:rgba(16,19,24,.82); box-shadow:none; } }

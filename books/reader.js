@@ -28,7 +28,8 @@
     notes:'<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1L19 8l-3-3L5 16l-1 4z"/><path d="M14 7l3 3"/></svg>',
     edit:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4z"/></svg>',
     light:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 10.5 4a6.4 6.4 0 0 0 9.5 10.5z"/></svg>',
-    immersive:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5"/><path d="M20 9V4h-5"/><path d="M4 15v5h5"/><path d="M20 15v5h-5"/></svg>'
+    immersive:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5"/><path d="M20 9V4h-5"/><path d="M4 15v5h5"/><path d="M20 15v5h-5"/></svg>',
+    rain:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 13a4 4 0 0 0-1-7.87A5 5 0 0 0 6 8a3.5 3.5 0 0 0 .5 7"/><path d="M8 17l-1.2 3"/><path d="M12.5 17l-1.2 3"/><path d="M17 17l-1.2 3"/></svg>'
   };
 
   // ---- dock + veil ----
@@ -232,6 +233,17 @@
   $("rlDim").addEventListener("input",function(){ veil.style.opacity=Math.min(0.62,(+this.value/100)*0.55); });
   applySettings();
 
+  // ---- rain backdrop (atmospheric reading background; <rain-glass> defined at file end) ----
+  var rainOn = settings.rain !== false;   // default on
+  var rainEl = document.createElement("rain-glass");
+  rainEl.className = "rl-rainbg"; rainEl.setAttribute("density","0.6"); rainEl.setAttribute("warm","#d4a657");
+  document.body.appendChild(rainEl);
+  function applyRain(){ document.body.classList.toggle("rl-rain-on", rainOn); rainEl.style.display = rainOn ? "block" : "none"; }
+  var rainBtn = mkBtn("rain","雨夜背景 · 开/关");
+  rainBtn.addEventListener("click", function(){ rainOn=!rainOn; settings.rain=rainOn; saveSettings(); rainBtn.classList.toggle("on",rainOn); applyRain(); });
+  rainBtn.classList.toggle("on", rainOn);
+  applyRain();
+
   var iBtn=mkBtn("immersive","沉浸模式");
   var exit=document.createElement("button"); exit.className="rl-exit"; exit.textContent="退出沉浸 · Esc"; document.body.appendChild(exit);
   function setImmersive(on){ document.body.classList.toggle("rl-immersive",on);
@@ -372,4 +384,211 @@
     var old=store.load(PK,null)||{}; store.save(PK,{y:window.scrollY, max:Math.max(old.max||0, pct)});
     store.save("readbar:last",{file:file, ts:Date.now()});
   },300); },{passive:true});
+})();
+
+/* rain-glass.js — calm rain-on-a-windowpane canvas, built for a reading backdrop.
+   <rain-glass> fills its positioned parent. Tunables via attributes:
+     density="0.7"   relative bead count (0.3 quiet … 1.4 busy)
+     warm="#d4a657"  candle bloom colour
+   Respects prefers-reduced-motion (renders one still frame). */
+(function () {
+  if (customElements.get('rain-glass')) return;
+
+  function rand(a, b) { return a + Math.random() * (b - a); }
+
+  class RainGlass extends HTMLElement {
+    connectedCallback() {
+      if (this._init) return; this._init = true;
+      this.style.cssText = 'position:absolute;inset:0;display:block;overflow:hidden';
+      this.canvas = document.createElement('canvas');
+      this.canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block';
+      this.appendChild(this.canvas);
+      this.ctx = this.canvas.getContext('2d');
+      this.trail = document.createElement('canvas');
+      this.tctx = this.trail.getContext('2d');
+      this.reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      this.density = parseFloat(this.getAttribute('density')) || 0.75;
+      this.warm = this.getAttribute('warm') || '#e3a85c';
+      this.statics = [];
+      this.runners = [];
+      this._spawn = 0;
+      this.resize();
+      this._ro = new ResizeObserver(() => this.resize());
+      this._ro.observe(this);
+      this.last = performance.now();
+      if (this.reduce) { this.drawFrame(0); }
+      else { this._loop = this.loop.bind(this); this.raf = requestAnimationFrame(this._loop); }
+    }
+    disconnectedCallback() {
+      if (this.raf) cancelAnimationFrame(this.raf);
+      if (this._ro) this._ro.disconnect();
+    }
+
+    resize() {
+      const r = this.getBoundingClientRect();
+      this.w = Math.max(1, Math.round(r.width));
+      this.h = Math.max(1, Math.round(r.height));
+      this.dpr = Math.min(window.devicePixelRatio || 1, 2);
+      [this.canvas, this.trail].forEach((c) => { c.width = this.w * this.dpr; c.height = this.h * this.dpr; });
+      this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+      this.tctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+      this.buildScene();
+      this.seedStatics();
+      if (this.reduce) this.drawFrame(0);
+    }
+
+    buildScene() {
+      // Offscreen "world behind the glass": cold rainy dark + a warm candle bloom.
+      const s = document.createElement('canvas');
+      s.width = this.w * this.dpr; s.height = this.h * this.dpr;
+      const c = s.getContext('2d');
+      c.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+      const g = c.createLinearGradient(0, 0, 0, this.h);
+      g.addColorStop(0, '#1b232c');   // rainy sky, cool slate
+      g.addColorStop(0.45, '#161a21');
+      g.addColorStop(1, '#101218');
+      c.fillStyle = g; c.fillRect(0, 0, this.w, this.h);
+      // warm bloom — lamp / candle, lower-left
+      const bx = this.w * 0.14, by = this.h * 0.86;
+      const b = c.createRadialGradient(bx, by, 8, bx, by, this.h * 0.85);
+      b.addColorStop(0, this.hexA(this.warm, 0.34));
+      b.addColorStop(0.4, this.hexA(this.warm, 0.10));
+      b.addColorStop(1, this.hexA(this.warm, 0));
+      c.fillStyle = b; c.fillRect(0, 0, this.w, this.h);
+      // a low warm wash along the bottom — desk-lamp spill
+      const lw = c.createLinearGradient(0, this.h, 0, this.h * 0.55);
+      lw.addColorStop(0, this.hexA(this.warm, 0.12));
+      lw.addColorStop(1, this.hexA(this.warm, 0));
+      c.fillStyle = lw; c.fillRect(0, 0, this.w, this.h);
+      // a cooler secondary glow upper-right (distant window light through rain)
+      const b2 = c.createRadialGradient(this.w * 0.9, this.h * 0.2, 6, this.w * 0.9, this.h * 0.2, this.h * 0.6);
+      b2.addColorStop(0, 'rgba(150,175,200,0.10)');
+      b2.addColorStop(1, 'rgba(150,175,200,0)');
+      c.fillStyle = b2; c.fillRect(0, 0, this.w, this.h);
+      // distant blurred bokeh lights (city through the rain)
+      const lights = 26;
+      for (let i = 0; i < lights; i++) {
+        const x = rand(0, this.w), y = this.h * 0.18 + Math.random() * this.h * 0.62;
+        const rr = rand(1.4, 4.2), warm = Math.random() < 0.7;
+        const col = warm ? '240,205,150' : '180,200,220';
+        const lg = c.createRadialGradient(x, y, 0, x, y, rr * 5);
+        lg.addColorStop(0, 'rgba(' + col + ',' + rand(0.18, 0.5).toFixed(2) + ')');
+        lg.addColorStop(1, 'rgba(' + col + ',0)');
+        c.fillStyle = lg; c.beginPath(); c.arc(x, y, rr * 5, 0, 7); c.fill();
+      }
+      this.scene = s;
+      // sharper "through-a-drop" version = scene brightened a touch
+      this.sceneLit = s;
+    }
+
+    hexA(hex, a) {
+      const m = hex.replace('#', '');
+      const n = parseInt(m.length === 3 ? m.split('').map((x) => x + x).join('') : m, 16);
+      return 'rgba(' + ((n >> 16) & 255) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+    }
+
+    seedStatics() {
+      const target = Math.round((this.w * this.h) / 5200 * this.density);
+      this.statics = [];
+      for (let i = 0; i < target; i++) {
+        this.statics.push({ x: rand(0, this.w), y: rand(0, this.h), r: Math.pow(Math.random(), 1.7) * 3.4 + 0.6 });
+      }
+    }
+
+    // a glassy clinging bead
+    bead(ctx, x, y, r) {
+      const g = ctx.createRadialGradient(x - r * 0.32, y - r * 0.36, r * 0.08, x, y, r);
+      g.addColorStop(0, 'rgba(214,224,234,0.42)');
+      g.addColorStop(0.55, 'rgba(150,166,182,0.14)');
+      g.addColorStop(1, 'rgba(18,22,28,0)');
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill();
+      // dark lower rim — wet curvature
+      ctx.lineWidth = Math.max(0.5, r * 0.14);
+      ctx.strokeStyle = 'rgba(6,8,12,0.28)';
+      ctx.beginPath(); ctx.arc(x, y + r * 0.1, r * 0.9, 0.25, Math.PI - 0.25); ctx.stroke();
+      // specular highlight
+      if (r > 1.3) {
+        ctx.fillStyle = 'rgba(255,251,242,0.85)';
+        ctx.beginPath(); ctx.arc(x - r * 0.34, y - r * 0.36, Math.max(0.5, r * 0.2), 0, 7); ctx.fill();
+      }
+    }
+
+    loop(t) {
+      const dt = Math.min(50, t - this.last); this.last = t;
+      this.update(dt, t);
+      this.drawFrame(t);
+      this.raf = requestAnimationFrame(this._loop);
+    }
+
+    update(dt, t) {
+      // spawn runners occasionally
+      this._spawn -= dt;
+      if (this._spawn <= 0 && this.runners.length < 7 * this.density + 1) {
+        this._spawn = rand(900, 2400) / Math.max(0.4, this.density);
+        this.runners.push({
+          x: rand(this.w * 0.04, this.w * 0.96),
+          y: rand(-20, this.h * 0.3),
+          r: rand(3.4, 6.8),
+          v: 0,
+          wob: rand(0, 6.28),
+          drip: 0
+        });
+      }
+      const g = 0.00016; // gravity-ish
+      for (let i = this.runners.length - 1; i >= 0; i--) {
+        const d = this.runners[i];
+        d.v += g * dt * (d.r * 0.5);          // bigger = heavier = faster
+        d.v = Math.min(d.v, 0.5);
+        d.y += d.v * dt;
+        d.wob += dt * 0.004;
+        d.x += Math.sin(d.wob) * 0.12;        // gentle meander
+        d.drip -= dt;
+        if (d.drip <= 0) {                    // leave residual beads in the wake
+          d.drip = rand(60, 150);
+          if (d.r > 2.2) this.statics.push({ x: d.x + rand(-1.5, 1.5), y: d.y - d.r, r: rand(0.6, 1.8) });
+          if (this.statics.length > 1400) this.statics.splice(0, 40);
+        }
+        if (d.y - d.r > this.h + 4) this.runners.splice(i, 1);
+      }
+    }
+
+    drawFrame(t) {
+      const ctx = this.ctx;
+      ctx.clearRect(0, 0, this.w, this.h);
+      // base = fogged glass (scene, slightly desaturated by a condensation veil)
+      ctx.drawImage(this.scene, 0, 0, this.w, this.h);
+      ctx.fillStyle = 'rgba(176,186,198,0.05)';
+      ctx.fillRect(0, 0, this.w, this.h);
+
+      // --- trail layer: wet runs that slowly evaporate ---
+      if (!this.reduce) {
+        this.tctx.globalCompositeOperation = 'destination-out';
+        this.tctx.fillStyle = 'rgba(0,0,0,0.022)';
+        this.tctx.fillRect(0, 0, this.w, this.h);
+        this.tctx.globalCompositeOperation = 'source-over';
+        for (const d of this.runners) {
+          const grd = this.tctx.createLinearGradient(d.x - d.r, 0, d.x + d.r, 0);
+          grd.addColorStop(0, 'rgba(210,222,234,0)');
+          grd.addColorStop(0.5, 'rgba(210,222,234,0.16)');
+          grd.addColorStop(1, 'rgba(210,222,234,0)');
+          this.tctx.fillStyle = grd;
+          this.tctx.fillRect(d.x - d.r, d.y - d.r, d.r * 2, d.r * 1.6);
+        }
+        ctx.drawImage(this.trail, 0, 0, this.w, this.h);
+      }
+
+      // static clinging beads
+      for (const s of this.statics) this.bead(ctx, s.x, s.y, s.r);
+      // runner heads
+      for (const d of this.runners) this.bead(ctx, d.x, d.y, d.r);
+
+      // gentle vignette baked into the glass
+      const v = ctx.createRadialGradient(this.w / 2, this.h * 0.42, this.h * 0.25, this.w / 2, this.h * 0.5, this.h * 0.92);
+      v.addColorStop(0, 'rgba(0,0,0,0)');
+      v.addColorStop(1, 'rgba(0,0,0,0.45)');
+      ctx.fillStyle = v; ctx.fillRect(0, 0, this.w, this.h);
+    }
+  }
+  customElements.define('rain-glass', RainGlass);
 })();
