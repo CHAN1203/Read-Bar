@@ -387,3 +387,20 @@ body.rl-rain-on{ background:transparent !important; }
    rain shows in the page margins and softly through */
 body.rl-rain-on .wrap{ background:rgba(16,19,24,.74); box-shadow:0 0 90px 40px rgba(16,19,24,.74); }
 @media (max-width:880px){ body.rl-rain-on .wrap{ background:rgba(16,19,24,.86); box-shadow:none; } }
+
+/* ===================== POMODORO (in the timer panel) ===================== */
+.rl-pomo-div{ height:1px; background:var(--line); margin:20px 0 12px; }
+.rl-pomo-head{ display:flex; align-items:center; justify-content:space-between; }
+.rl-pomo-phase{ font-family:var(--mono); font-size:11px; letter-spacing:.1em; padding:3px 10px; border-radius:20px;
+  background:var(--gold-soft,#33301f); color:var(--amber,#d4a657); }
+.rl-pomo-phase.short, .rl-pomo-phase.long{ background:#22332b; color:#7fd3a8; }
+.rl-pomo-dots{ display:flex; gap:6px; }
+.rl-pomo-dots i{ width:7px; height:7px; border-radius:50%; background:var(--line); display:block; }
+.rl-pomo-dots i.on{ background:var(--amber,#d4a657); }
+.rl-bigtime.rl-pomo-time{ font-size:40px; margin:8px 0 2px; }
+.rl-pomo-set{ display:flex; gap:8px; margin-top:12px; }
+.rl-pomo-set label{ flex:1; display:flex; flex-direction:column; gap:4px; align-items:center;
+  font-family:var(--mono); font-size:10px; letter-spacing:.06em; color:var(--faint); }
+.rl-pomo-set input{ width:100%; background:var(--surface2,#232b35); border:1px solid var(--line); color:var(--ink);
+  border-radius:7px; padding:6px 4px; text-align:center; font-family:var(--mono); font-size:14px; -moz-appearance:textfield; }
+.rl-pomo-set input::-webkit-outer-spin-button, .rl-pomo-set input::-webkit-inner-spin-button{ -webkit-appearance:none; margin:0; }

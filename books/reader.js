@@ -77,7 +77,12 @@
   var tPanel=mkPanel('<h4>阅读计时 <button class="rl-x" title="收起">×</button></h4>'
     +'<div class="rl-bigtime" id="rlBig">0:00</div>'
     +'<div class="rl-sub" style="text-align:center" id="rlTot">这一程,已经读了。</div>'
-    +'<div class="rl-row"><button id="rlTPause">暂停</button><button class="ghost" id="rlTReset">归零</button></div>');
+    +'<div class="rl-row"><button id="rlTPause">暂停</button><button class="ghost" id="rlTReset">归零</button></div>'
+    +'<div class="rl-pomo-div"></div>'
+    +'<div class="rl-pomo-head"><span class="rl-pomo-phase focus" id="rlPomoPhase">专注</span><span class="rl-pomo-dots" id="rlPomoDots"></span></div>'
+    +'<div class="rl-bigtime rl-pomo-time" id="rlPomo">25:00</div>'
+    +'<div class="rl-row"><button id="rlPomoStart">开始</button><button class="ghost" id="rlPomoSkip">跳过</button><button class="ghost" id="rlPomoReset">重置</button></div>'
+    +'<div class="rl-pomo-set"><label>专注<input type="number" id="rlPf" min="1" max="90"></label><label>短休<input type="number" id="rlPs" min="1" max="30"></label><label>长休<input type="number" id="rlPl" min="1" max="45"></label></div>');
   tBtn.addEventListener("click",function(){ showPanel(tPanel,tBtn); });
   tPanel.querySelector(".rl-x").addEventListener("click",function(){ tPanel.classList.remove("open"); tBtn.classList.remove("on"); openPanel=null; });
   (function(){
@@ -216,7 +221,7 @@
   lBtn.addEventListener("click",function(){ showPanel(lPanel,lBtn); });
   lPanel.querySelector(".rl-x").addEventListener("click",function(){ lPanel.classList.remove("open"); lBtn.classList.remove("on"); openPanel=null; });
 
-  var DEF={fs:17,lh:1.85,measure:720,font:"serif"};
+  var DEF={fs:17,lh:1.85,measure:720,font:"serif",pf:25,ps:5,pl:15};
   var settings=store.load("readbar:settings",null)||{}; for(var key in DEF){ if(settings[key]==null) settings[key]=DEF[key]; }
   function applySettings(){ var r=document.documentElement;
     r.style.setProperty("--reader-fs",settings.fs+"px"); r.style.setProperty("--reader-lh",settings.lh);
@@ -243,6 +248,32 @@
   rainBtn.addEventListener("click", function(){ rainOn=!rainOn; settings.rain=rainOn; saveSettings(); rainBtn.classList.toggle("on",rainOn); applyRain(); });
   rainBtn.classList.toggle("on", rainOn);
   applyRain();
+
+  // ---- pomodoro (focus/break countdown alongside the reading timer) ----
+  (function(){
+    var LABEL={focus:"专注",short:"短休",long:"长休"}, KEY={focus:"pf",short:"ps",long:"pl"};
+    function mins(p){ return settings[KEY[p]]; }
+    var phase="focus", remaining=mins("focus")*60, running=false, endAt=0, doneFocus=0, ac=null, origTitle=document.title, flashT=null;
+    function pad(n){ return (n<10?"0":"")+n; }
+    function fmtP(s){ s=Math.max(0,Math.round(s)); return Math.floor(s/60)+":"+pad(s%60); }
+    function renderDots(){ var n=doneFocus%4, h=""; for(var i=0;i<4;i++) h+='<i class="'+(i<n?"on":"")+'"></i>'; $("rlPomoDots").innerHTML=h; }
+    function paint(){ $("rlPomo").textContent=fmtP(remaining); var ph=$("rlPomoPhase"); ph.textContent=LABEL[phase]; ph.className="rl-pomo-phase "+phase; $("rlPomoStart").textContent=running?"暂停":"开始"; renderDots(); }
+    function unlock(){ try{ ac=ac||new (window.AudioContext||window.webkitAudioContext)(); if(ac.state==="suspended") ac.resume(); }catch(e){} }
+    function beep(){ unlock(); if(!ac) return; var t=ac.currentTime; [660,880,660].forEach(function(f,i){ var o=ac.createOscillator(),g=ac.createGain(); o.type="sine"; o.frequency.value=f; o.connect(g); g.connect(ac.destination); var s=t+i*0.2; g.gain.setValueAtTime(0,s); g.gain.linearRampToValueAtTime(0.2,s+0.02); g.gain.exponentialRampToValueAtTime(0.0001,s+0.26); o.start(s); o.stop(s+0.28); }); }
+    function flashTitle(msg){ clearInterval(flashT); var on=false; flashT=setInterval(function(){ on=!on; document.title=on?("⏰ "+msg):origTitle; },900);
+      function stop(){ clearInterval(flashT); document.title=origTitle; window.removeEventListener("focus",stop); document.removeEventListener("pointerdown",stop); }
+      window.addEventListener("focus",stop); document.addEventListener("pointerdown",stop); setTimeout(stop,15000); }
+    function setPhase(p,run){ phase=p; remaining=mins(p)*60; running=!!run; if(running) endAt=Date.now()+remaining*1000; paint(); }
+    function advance(){ var next, msg; if(phase==="focus"){ doneFocus++; next=(doneFocus%4===0)?"long":"short"; msg=(next==="long")?"该长休了":"该休息了"; } else { next="focus"; msg="开始专注"; } beep(); setPhase(next,true); flashTitle(msg); }
+    function tickP(){ if(running){ remaining=(endAt-Date.now())/1000; if(remaining<=0){ advance(); return; } } paint(); }
+    setInterval(tickP,500);
+    $("rlPomoStart").addEventListener("click",function(){ if(running){ remaining=(endAt-Date.now())/1000; running=false; } else { if(remaining<=0) remaining=mins(phase)*60; endAt=Date.now()+remaining*1000; running=true; unlock(); } paint(); });
+    $("rlPomoSkip").addEventListener("click",advance);
+    $("rlPomoReset").addEventListener("click",function(){ doneFocus=0; setPhase("focus",false); });
+    function bindMin(id,key,max){ var el=$(id); el.value=settings[key]; el.addEventListener("change",function(){ var v=Math.max(1,Math.min(max,Math.round(+this.value)||settings[key])); settings[key]=v; el.value=v; saveSettings(); if(!running && KEY[phase]===key){ remaining=v*60; paint(); } }); }
+    bindMin("rlPf","pf",90); bindMin("rlPs","ps",30); bindMin("rlPl","pl",45);
+    paint();
+  })();
 
   var iBtn=mkBtn("immersive","沉浸模式");
   var exit=document.createElement("button"); exit.className="rl-exit"; exit.textContent="退出沉浸 · Esc"; document.body.appendChild(exit);
