@@ -1,5 +1,5 @@
 import html
-from .clean import dropcap_join
+from .clean import dropcap_join, smart_join
 
 _ENDP = tuple('.:?!"")')
 
@@ -39,12 +39,11 @@ def assemble(elements: list[dict], words: set[str]) -> str:
     for n in nodes:
         if n[0] == "para" and merged and merged[-1][0] == "bullets" and n[1][:1].islower():
             it = merged[-1][1]
-            it[-1] = (it[-1][:-1] + n[1]) if it[-1].endswith("-") else (it[-1] + " " + n[1])
+            it[-1] = smart_join(it[-1], n[1])
             continue
         if (n[0] == "para" and merged and merged[-1][0] == "para"
                 and not merged[-1][1].rstrip().endswith(_ENDP) and n[1][:1].islower()):
-            p = merged[-1][1]
-            merged[-1][1] = (p[:-1] + n[1]) if p.endswith("-") else (p + " " + n[1])
+            merged[-1][1] = smart_join(merged[-1][1], n[1])
         else:
             merged.append(n)
     # pass 3: 出 HTML

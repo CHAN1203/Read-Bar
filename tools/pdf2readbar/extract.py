@@ -1,7 +1,7 @@
 import os
 import re
 import fitz
-from .clean import fix_ligatures
+from .clean import fix_ligatures, smart_join
 from .figures import figbox_for, render_figure
 
 def _is_real_fig(box) -> bool:
@@ -18,7 +18,7 @@ def _group_bullets(texts):
     if fb > 0:
         s = texts[0]
         for t in texts[1:fb]:
-            s = (s[:-1] + t) if s.endswith("-") else (s + " " + t)
+            s = smart_join(s, t)
         preamble = s
     items = []
     cur = None
@@ -27,10 +27,10 @@ def _group_bullets(texts):
             if cur is not None:
                 items.append(cur)
             cur = t[2:].strip()
-        elif cur.endswith("-"):
-            cur = cur[:-1] + t
+        elif cur is None:
+            cur = t
         else:
-            cur = cur + " " + t
+            cur = smart_join(cur, t)
     if cur is not None:
         items.append(cur)
     return preamble, items
@@ -110,7 +110,7 @@ class Extractor:
                 # 段落
                 s = L[0][0]
                 for t, *_ in L[1:]:
-                    s = (s[:-1] + t) if s.endswith("-") else (s + " " + t)
+                    s = smart_join(s, t)
                 elements.append((key, {"kind": "para", "t": s}))
         elements.sort(key=lambda e: e[0])
         return [d for _, d in elements]

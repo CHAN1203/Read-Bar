@@ -1,6 +1,18 @@
-from pdf2readbar.clean import fix_ligatures, dehyphenate_join, dropcap_join
+from pdf2readbar.clean import fix_ligatures, dehyphenate_join, dropcap_join, smart_join
 
 WORDS = {"reversal", "trader", "have", "many"}
+
+def test_smart_join_english_space():
+    assert smart_join("the close", "of the bar") == "the close of the bar"
+
+def test_smart_join_dehyphenate():
+    assert smart_join("Re-", "member") == "Remember"
+
+def test_smart_join_cjk_no_space():
+    assert smart_join("我总能把数", "字记得牢牢的") == "我总能把数字记得牢牢的"
+
+def test_smart_join_mixed_keeps_space():
+    assert smart_join("bar", "图表") == "bar 图表"
 
 def test_fix_ligatures():
     assert fix_ligatures("diﬃcult ﬁnal") == "difficult final"
