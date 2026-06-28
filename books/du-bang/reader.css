@@ -419,3 +419,8 @@ body.rl-rain-on .wrap{ background:rgba(16,19,24,.74); box-shadow:0 0 90px 40px r
 .rl-nav-body a.active{ color:var(--amber); }
 .rl-nav-body .chap{ font-family:var(--mono); font-size:10.5px; color:var(--faint); text-transform:uppercase;
   letter-spacing:.06em; margin:12px 0 2px; }
+
+/* ===================== COLLAPSIBLE DOCK ===================== */
+.rl-dock.rl-collapsed .rl-db:not(.rl-dock-toggle){ display:none; }
+.rl-dock-toggle{ color:var(--muted); }
+.rl-dock-toggle:hover{ color:var(--amber); }
