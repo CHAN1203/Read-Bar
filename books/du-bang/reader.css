@@ -379,9 +379,11 @@ body.rl-immersive .rl-exit{display:block;}
 .rl-tool.rl-tool-bottom .rl-cbtn{font-size:14px; padding:8px 16px;}
 
 /* ===================== RAIN BACKDROP (atmospheric reading background) ===================== */
-rain-glass.rl-rainbg{ position:fixed; inset:0; z-index:-1; pointer-events:none; }
+/* the component sets position:absolute inline — override to FIXED (!important beats the
+   inline style) so the backdrop stays put while the page scrolls, instead of scrolling away */
+rain-glass.rl-rainbg{ position:fixed !important; inset:0 !important; z-index:-1; pointer-events:none; }
 body.rl-rain-on{ background:transparent !important; }
 /* readable slab over the rain: the centered reading area gets a translucent panel,
    rain shows in the page margins and softly through */
-body.rl-rain-on .wrap{ background:rgba(16,19,24,.64); box-shadow:0 0 90px 36px rgba(16,19,24,.64); }
-@media (max-width:880px){ body.rl-rain-on .wrap{ background:rgba(16,19,24,.82); box-shadow:none; } }
+body.rl-rain-on .wrap{ background:rgba(16,19,24,.74); box-shadow:0 0 90px 40px rgba(16,19,24,.74); }
+@media (max-width:880px){ body.rl-rain-on .wrap{ background:rgba(16,19,24,.86); box-shadow:none; } }
