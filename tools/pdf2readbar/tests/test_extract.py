@@ -1,6 +1,20 @@
+import os
 import fitz
 from pdf2readbar.extract import Extractor
 from pdf2readbar.extract import _group_bullets
+
+def test_extract_unit_includes_raster_image(tmp_path):
+    doc = fitz.open(); pg = doc.new_page()
+    pix = fitz.Pixmap(fitz.csRGB, fitz.IRect(0, 0, 220, 130))
+    pix.set_rect(pix.irect, (40, 90, 170))
+    pg.insert_image(fitz.Rect(72, 100, 292, 230), stream=pix.tobytes("png"))
+    pg.insert_text((72, 270), "Body text after the embedded table image, long enough.", fontsize=10)
+    ex = Extractor(doc, str(tmp_path))
+    els = ex.extract_unit(0, 0, 1)
+    figs = [e for e in els if e["kind"] == "figure"]
+    assert len(figs) >= 1
+    assert os.path.exists(os.path.join(str(tmp_path), figs[0]["img"]))
+    doc.close()
 
 def test_group_bullets_simple():
     assert _group_bullets(["r one", "r two"]) == (None, ["one", "two"])

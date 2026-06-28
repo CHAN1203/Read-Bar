@@ -54,6 +54,27 @@ class Extractor:
                 with open(os.path.join(self.img_dir, name), "wb") as f:
                     f.write(render_figure(pg, fb))
                 elements.append((p * 10000 + fb.y0, {"kind": "figure", "img": name}))
+            # embedded RASTER images (tables / photos that are pictures, not vector drawings)
+            for img in pg.get_images(full=True):
+                xref = img[0]
+                try:
+                    rects = pg.get_image_rects(xref)
+                except Exception:
+                    rects = []
+                for rect in rects:
+                    if rect.width < 80 or rect.height < 50:   # skip tiny inline decorations / icons
+                        continue
+                    try:
+                        pix = fitz.Pixmap(self.doc, xref)
+                        if pix.n - pix.alpha >= 4:             # CMYK / other → RGB
+                            pix = fitz.Pixmap(fitz.csRGB, pix)
+                        fig_idx += 1
+                        name = "img_u%02d_%03d.png" % (unit_index, fig_idx)
+                        with open(os.path.join(self.img_dir, name), "wb") as f:
+                            f.write(pix.tobytes("png"))
+                        elements.append((p * 10000 + rect.y0, {"kind": "figure", "img": name}))
+                    except Exception:
+                        pass
             d = pg.get_text("dict")
             for blk in d["blocks"]:
                 if blk.get("type", 0) != 0:
