@@ -256,10 +256,14 @@
 
   // ---- rain backdrop (atmospheric reading background; <rain-glass> defined at file end) ----
   var rainOn = settings.rain !== false;   // default on
-  var rainEl = document.createElement("rain-glass");
-  rainEl.className = "rl-rainbg"; rainEl.setAttribute("density","0.6"); rainEl.setAttribute("warm","#d4a657");
-  document.body.appendChild(rainEl);
-  function applyRain(){ document.body.classList.toggle("rl-rain-on", rainOn); rainEl.style.display = rainOn ? "block" : "none"; }
+  var rainEl = null;
+  function makeRain(){ var el=document.createElement("rain-glass"); el.className="rl-rainbg";
+    el.setAttribute("density","0.6"); el.setAttribute("warm","#d4a657"); document.body.appendChild(el); return el; }
+  // toggle by DESTROYING / RECREATING the element (not display:none) so every "on" is a fresh,
+  // full-strength render identical to first page load — display:none corrupted the canvas to 1x1.
+  function applyRain(){ document.body.classList.toggle("rl-rain-on", rainOn);
+    if(rainOn){ if(!rainEl || !rainEl.isConnected) rainEl=makeRain(); }
+    else if(rainEl){ rainEl.remove(); rainEl=null; } }
   var rainBtn = mkBtn("rain","雨夜背景 · 开/关");
   rainBtn.addEventListener("click", function(){ rainOn=!rainOn; settings.rain=rainOn; saveSettings(); rainBtn.classList.toggle("on",rainOn); applyRain(); });
   rainBtn.classList.toggle("on", rainOn);
