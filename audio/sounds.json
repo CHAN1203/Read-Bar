@@ -1,6 +1,8 @@
 {
-  "_说明": "在这里登记你自己的音频。把音频文件放进本文件夹(audio/),再在下面 sounds 里加一行:label=按钮显示名, file=文件名(含扩展名)。支持浏览器能播的格式(mp3/ogg/m4a/wav)。改完刷新书页即可。删掉用不到的行,或把 sounds 清空成 [] 就没有声音按钮。",
+  "_说明": "在这里登记你自己的音频。把音频文件放进本文件夹(audio/),再在下面 sounds 里加一行:label=按钮显示名, file=文件名(含扩展名)。逗号要用半角 , (不是全角 ，)。支持浏览器能播的格式(mp3/ogg/m4a/wav)。改完刷新书页即可。删掉用不到的行,或把 sounds 清空成 [] 就没有声音按钮。",
   "sounds": [
-    { "label": "Calm Piano", "file": "calm-piano.mp3" }
+    { "label": "Calm Piano", "file": "calm-piano.mp3" },
+    { "label": "Study Piano", "file": "study-piano.mp3" },
+    { "label": "Concentration", "file": "concentration.mp3" }
   ]
 }

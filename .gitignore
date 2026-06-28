@@ -18,6 +18,8 @@
 # Global shared audio lives at the repo-root /audio/ folder (every book's reader
 # page references ../../audio/).
 !audio/calm-piano.mp3
+!audio/study-piano.mp3
+!audio/concentration.mp3
 
 # OS / editor cruft
 .DS_Store
