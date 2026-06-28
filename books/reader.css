@@ -19,7 +19,7 @@
   --r1:10px; --r2:16px; --r3:22px;
   --ease:cubic-bezier(.25,.1,.25,1);
   --shadow-soft:0 20px 54px -28px rgba(0,0,0,.72), 0 2px 12px -5px rgba(0,0,0,.42);
-  --reader-fs:17px; --reader-lh:1.85; --reader-measure:720px;
+  --reader-fs:17px; --reader-lh:1.85; --reader-measure:800px;
 }
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -72,7 +72,9 @@ a.rl-home:hover{color:var(--amber); border-bottom-color:var(--amber);}
 .rail a.active{color:var(--amber); border-left-color:var(--amber-deep); background:var(--surface);}
 
 main{padding:0 0 160px; min-width:0;}
-.col{max-width:var(--reader-measure,720px) !important; margin:0 auto; padding:0 32px;}
+.col{max-width:var(--reader-measure,800px) !important; margin:0 auto; padding:0 32px;}
+/* clearer paragraph separation (so paragraphs stand out from the loose line-height) */
+.col p{margin:1.3em 0 !important;}
 
 /* ---- cover header ---- */
 header.cover{padding:96px 0 56px; border-bottom:1px solid var(--line); margin-bottom:8px;
@@ -144,10 +146,12 @@ mark.rl-hl.rl-flash{animation:rl-flash 1s ease;}
 /* ============================================================================
    Reading chrome — right-side tool dock, panels, immersive, reading light.
    ========================================================================== */
-.rl-dock{position:fixed; right:26px; bottom:26px; display:flex; flex-direction:column; gap:12px; z-index:60; align-items:center;}
-.rl-db{width:50px; height:50px; border-radius:50%; display:grid; place-items:center; padding:0;
-  background:var(--surface); border:1px solid var(--line); color:var(--ink-soft); cursor:pointer; position:relative;
-  box-shadow:var(--shadow-soft); transition:color .3s var(--ease), border-color .3s var(--ease), background .3s var(--ease);}
+.rl-dock{position:fixed; right:26px; bottom:26px; display:flex; flex-direction:column; z-index:60; align-items:center;}
+.rl-db{width:50px; height:50px; max-height:50px; border-radius:50%; display:grid; place-items:center; padding:0; flex:none;
+  background:var(--surface); border:1px solid var(--line); color:var(--ink-soft); cursor:pointer; position:relative; overflow:hidden;
+  box-shadow:var(--shadow-soft); transition:color .3s var(--ease), border-color .3s var(--ease), background .3s var(--ease),
+    opacity .28s var(--ease), max-height .34s var(--ease), margin-top .34s var(--ease);}
+.rl-db + .rl-db{margin-top:12px;}
 .rl-db:hover{color:var(--amber); border-color:var(--amber-deep);}
 .rl-db:focus-visible{outline:2px solid var(--amber); outline-offset:3px;}
 .rl-db.on{color:var(--amber); border-color:var(--amber-deep); background:var(--raise);}
@@ -420,7 +424,8 @@ body.rl-rain-on .wrap{ background:rgba(16,19,24,.74); box-shadow:0 0 90px 40px r
 .rl-nav-body .chap{ font-family:var(--mono); font-size:10.5px; color:var(--faint); text-transform:uppercase;
   letter-spacing:.06em; margin:12px 0 2px; }
 
-/* ===================== COLLAPSIBLE DOCK ===================== */
-.rl-dock.rl-collapsed .rl-db:not(.rl-dock-toggle){ display:none; }
+/* ===================== COLLAPSIBLE DOCK (smooth) ===================== */
+.rl-dock.rl-collapsed .rl-db:not(.rl-dock-toggle){ opacity:0; max-height:0; margin-top:0; border-width:0; pointer-events:none; }
+.rl-dock.rl-collapsed .rl-dock-toggle{ margin-top:0; }
 .rl-dock-toggle{ color:var(--muted); }
 .rl-dock-toggle:hover{ color:var(--amber); }

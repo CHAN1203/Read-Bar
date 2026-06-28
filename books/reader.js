@@ -232,14 +232,14 @@
   var lPanel=mkPanel('<h4>阅读设置 <button class="rl-x" title="收起">×</button></h4>'
     +'<div class="rl-set"><label>字号 <b id="rlFsV"></b></label><input type="range" id="rlFs" min="15" max="22" step="1"></div>'
     +'<div class="rl-set"><label>行距 <b id="rlLhV"></b></label><input type="range" id="rlLh" min="1.6" max="2.2" step="0.05"></div>'
-    +'<div class="rl-set"><label>版心宽度 <b id="rlMwV"></b></label><input type="range" id="rlMw" min="600" max="820" step="10"></div>'
+    +'<div class="rl-set"><label>版心宽度 <b id="rlMwV"></b></label><input type="range" id="rlMw" min="600" max="1080" step="10"></div>'
     +'<div class="rl-set rl-font"><label>字体</label><div class="rl-seg"><button data-font="serif">衬线</button><button data-font="sans">无衬线</button></div></div>'
     +'<div class="rl-set"><label>阅读光 · 调暗</label><input type="range" id="rlDim" min="0" max="100" step="1" value="0"></div>'
     +'<div class="rl-row"><button class="ghost" id="rlReset">恢复默认</button></div>');
   lBtn.addEventListener("click",function(){ showPanel(lPanel,lBtn); });
   lPanel.querySelector(".rl-x").addEventListener("click",function(){ lPanel.classList.remove("open"); lBtn.classList.remove("on"); openPanel=null; });
 
-  var DEF={fs:17,lh:1.85,measure:720,font:"serif",pf:25,ps:5,pl:15};
+  var DEF={fs:17,lh:1.85,measure:800,font:"serif",pf:25,ps:5,pl:15};
   var settings=store.load("readbar:settings",null)||{}; for(var key in DEF){ if(settings[key]==null) settings[key]=DEF[key]; }
   function applySettings(){ var r=document.documentElement;
     r.style.setProperty("--reader-fs",settings.fs+"px"); r.style.setProperty("--reader-lh",settings.lh);
