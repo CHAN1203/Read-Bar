@@ -23,9 +23,9 @@
 }
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--serif);
-  font-size:var(--reader-fs,17px); line-height:var(--reader-lh,1.85); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden;}
-html[data-font="sans"] body{font-family:var(--sans);}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--serif) !important;
+  font-size:var(--reader-fs,17px) !important; line-height:var(--reader-lh,1.85) !important; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden;}
+html[data-font="sans"] body{font-family:var(--sans) !important;}
 .col p, .col .lead, .col h2, .col h3, .col li{line-break:strict; hanging-punctuation:allow-end; text-wrap:pretty;}
 ::selection{background:rgba(212,166,87,.30); color:var(--ink);}
 *{scrollbar-width:thin; scrollbar-color:var(--line) transparent;}
@@ -72,7 +72,7 @@ a.rl-home:hover{color:var(--amber); border-bottom-color:var(--amber);}
 .rail a.active{color:var(--amber); border-left-color:var(--amber-deep); background:var(--surface);}
 
 main{padding:0 0 160px; min-width:0;}
-.col{max-width:var(--reader-measure,720px); margin:0 auto; padding:0 32px;}
+.col{max-width:var(--reader-measure,720px) !important; margin:0 auto; padding:0 32px;}
 
 /* ---- cover header ---- */
 header.cover{padding:96px 0 56px; border-bottom:1px solid var(--line); margin-bottom:8px;
@@ -404,3 +404,18 @@ body.rl-rain-on .wrap{ background:rgba(16,19,24,.74); box-shadow:0 0 90px 40px r
 .rl-pomo-set input{ width:100%; background:var(--surface2,#232b35); border:1px solid var(--line); color:var(--ink);
   border-radius:7px; padding:6px 4px; text-align:center; font-family:var(--mono); font-size:14px; -moz-appearance:textfield; }
 .rl-pomo-set input::-webkit-outer-spin-button, .rl-pomo-set input::-webkit-inner-spin-button{ -webkit-appearance:none; margin:0; }
+
+/* ===================== NAV MENU panel (cloned nav links + chapter list) ===================== */
+.rl-nav-body{ max-height:56vh; overflow-y:auto; margin-top:8px; }
+.rl-nav-body .shelf-nav{ display:flex; flex-wrap:wrap; gap:7px; margin:0 0 10px; }
+.rl-nav-body .shelf-nav a{ font-family:var(--mono); font-size:12px; color:var(--muted); text-decoration:none;
+  border:1px solid var(--line); padding:5px 11px; border-radius:6px; }
+.rl-nav-body .shelf-nav a:hover, .rl-nav-body .shelf-nav a.home{ color:var(--amber); }
+.rl-nav-body ol{ list-style:none; padding:0; margin:0; }
+.rl-nav-body ol li{ margin:0; }
+.rl-nav-body a[href^="#"], .rl-nav-body ol a{ display:block; color:var(--muted); text-decoration:none;
+  padding:8px 10px; border-radius:6px; font-family:var(--serif); font-size:14.5px; line-height:1.4; }
+.rl-nav-body a[href^="#"]:hover, .rl-nav-body ol a:hover{ color:var(--ink); background:var(--surface); }
+.rl-nav-body a.active{ color:var(--amber); }
+.rl-nav-body .chap{ font-family:var(--mono); font-size:10.5px; color:var(--faint); text-transform:uppercase;
+  letter-spacing:.06em; margin:12px 0 2px; }

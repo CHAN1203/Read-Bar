@@ -29,7 +29,8 @@
     edit:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4z"/></svg>',
     light:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 10.5 4a6.4 6.4 0 0 0 9.5 10.5z"/></svg>',
     immersive:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5"/><path d="M20 9V4h-5"/><path d="M4 15v5h5"/><path d="M20 15v5h-5"/></svg>',
-    rain:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 13a4 4 0 0 0-1-7.87A5 5 0 0 0 6 8a3.5 3.5 0 0 0 .5 7"/><path d="M8 17l-1.2 3"/><path d="M12.5 17l-1.2 3"/><path d="M17 17l-1.2 3"/></svg>'
+    rain:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 13a4 4 0 0 0-1-7.87A5 5 0 0 0 6 8a3.5 3.5 0 0 0 .5 7"/><path d="M8 17l-1.2 3"/><path d="M12.5 17l-1.2 3"/><path d="M17 17l-1.2 3"/></svg>',
+    menu:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>'
   };
 
   // ---- dock + veil ----
@@ -41,6 +42,21 @@
   var openPanel=null;
   function showPanel(p,btn){ if(openPanel&&openPanel.p!==p){ openPanel.p.classList.remove("open"); openPanel.btn.classList.remove("on"); }
     var on=p.classList.toggle("open"); btn.classList.toggle("on",on); openPanel=on?{p:p,btn:btn}:null; }
+
+  /* ===================== NAV MENU (always-reachable navigation — esp. mobile, where the
+     rail scrolls away; clones the page's own nav links + chapter list) ===================== */
+  (function(){
+    var rail=document.querySelector("nav.rail"); if(!rail) return;
+    var mBtn=mkBtn("menu","目录 / 导航");
+    var mPanel=mkPanel('<h4>目录 / 导航 <button class="rl-x" title="收起">×</button></h4><div class="rl-nav-body"></div>');
+    var body=mPanel.querySelector(".rl-nav-body");
+    body.innerHTML=rail.innerHTML;
+    var brand=body.querySelector(".brand"); if(brand) brand.remove();
+    function close(){ mPanel.classList.remove("open"); mBtn.classList.remove("on"); openPanel=null; }
+    mBtn.addEventListener("click",function(){ showPanel(mPanel,mBtn); });
+    mPanel.querySelector(".rl-x").addEventListener("click",close);
+    [].forEach.call(body.querySelectorAll("a"),function(a){ a.addEventListener("click",close); });
+  })();
 
   /* ===================== SOUND (your own audio files) ===================== */
   var sBtn=mkBtn("sound","背景音");
@@ -443,7 +459,7 @@
       this.statics = [];
       this.runners = [];
       this._spawn = 0;
-      this.resize();
+      this._resizeNow();
       this._ro = new ResizeObserver(() => this.resize());
       this._ro.observe(this);
       this.last = performance.now();
@@ -456,15 +472,25 @@
     }
 
     resize() {
+      // debounce: on mobile the URL bar hiding/showing during scroll fires a stream of
+      // resize events — coalesce them so we don't rebuild the scene every frame (= flicker)
+      clearTimeout(this._rt);
+      this._rt = setTimeout(() => this._resizeNow(), 150);
+    }
+    _resizeNow() {
       const r = this.getBoundingClientRect();
-      this.w = Math.max(1, Math.round(r.width));
-      this.h = Math.max(1, Math.round(r.height));
+      const nw = Math.max(1, Math.round(r.width));
+      const nh = Math.max(1, Math.round(r.height));
+      if (nw === this.w && nh === this.h) return;
+      // height-only change (mobile URL bar) → resize canvas to cover, but KEEP the existing
+      // scene + beads (no re-randomize) so the pattern doesn't jump; real width changes rebuild.
+      const keep = (this.scene && nw === this.w);
+      this.w = nw; this.h = nh;
       this.dpr = Math.min(window.devicePixelRatio || 1, 2);
       [this.canvas, this.trail].forEach((c) => { c.width = this.w * this.dpr; c.height = this.h * this.dpr; });
       this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
       this.tctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
-      this.buildScene();
-      this.seedStatics();
+      if (!keep) { this.buildScene(); this.seedStatics(); }
       if (this.reduce) this.drawFrame(0);
     }
 
