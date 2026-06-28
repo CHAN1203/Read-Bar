@@ -7,20 +7,30 @@
       "category": "交易",
       "accent": "#d4a657",
       "href": "books/du-bang/index.html"
-    },{
+    },
+    {
       "id": "trends",
       "title": "Al Brooks 价格行为 · 趋势",
       "subtitle": "四卷正文 + 一册读书笔记 · 苏格拉底式",
       "category": "交易",
       "accent": "#d4a657",
       "href": "books/trends/index.html"
-    },{
+    },
+    {
       "id": "tpa-original",
       "title": "Trading Price Action: Trends（原版）",
       "subtitle": "Al Brooks 趋势原著 · 477 页 · 四部分 26 章 · 英文全文",
       "category": "交易",
       "accent": "#d4a657",
       "href": "books/tpa-original/index.html"
+    },
+    {
+      "id": "book",
+      "title": "股票大作手回忆录",
+      "subtitle": "原版导入 · 174 页",
+      "category": "交易",
+      "accent": "#d4a657",
+      "href": "books/book/index.html"
     }
   ]
 }
